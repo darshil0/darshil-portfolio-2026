@@ -89,7 +89,7 @@ The contact form uses [Formspree](https://formspree.io). To activate it:
 3. In `contact.html`, replace `YOUR_FORM_ID` in the form `action` attribute:
 
 ```html
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"></form>
 ```
 
 ---
