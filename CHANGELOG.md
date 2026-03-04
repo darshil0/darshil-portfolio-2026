@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026.3.1] - 2026-03-05
+
+### Fixed
+
+- **HTML**: Replaced all raw `&` with `&amp;` across `index.html`, `skills.html`, and `contact.html` to ensure HTML5 compliance.
+- **HTML**: Removed all inline styles from `contact.html`, moving them to centralized utility classes in `style.css` to satisfy `no-inline-style` validation rules.
+- **CSS**: Added over 50 missing layout, component, and utility classes to `style.css` including `.skills-grid`, `.skill-card`, `.experience-list`, and `.cert-columns`.
+- **CSS**: Implemented missing responsive media queries to ensure mobile-friendly layouts for hero sections and certification grids.
+- **JS**: Implemented the previously missing certification filtering logic in `script.js`, enabling interactive filtering on the Skills page.
+
+### Changed
+
+- **Version**: Bumped project version to `2026.3.1` in `package.json` to reflect significant architectural improvements.
+- **Formatting**: Ran Prettier across the entire codebase for consistent indentation and code style.
+
 ## [1.1.1] - 2026-03-04
 
 ### Fixed
