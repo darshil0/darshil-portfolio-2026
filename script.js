@@ -21,14 +21,21 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Sticky Header
+  // FIX: Only toggle the scrolled class on the home page (index.html).
+  // On all other pages the nav has the "scrolled" class pre-applied in HTML,
+  // so the scroll listener must not remove it when the user scrolls back to top.
   const nav = document.querySelector("nav");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      nav.classList.add("scrolled");
-    } else {
-      nav.classList.remove("scrolled");
-    }
-  });
+  const isHomePage = document.querySelector("section#home") !== null;
+
+  if (isHomePage) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        nav.classList.add("scrolled");
+      } else {
+        nav.classList.remove("scrolled");
+      }
+    });
+  }
 
   // Scroll Reveal Animation
   const revealElements = document.querySelectorAll(".reveal");
