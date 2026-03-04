@@ -106,8 +106,14 @@
             </div>
 
             <div class="reveal transition-delay-200">
+              <!--
+                FIX: Formspree requires a unique form ID in the path (e.g. /f/xpzgblkw).
+                     Using a raw email address as the path segment is invalid and will
+                     result in a 404. Replace YOUR_FORM_ID with the ID from your
+                     Formspree dashboard at https://formspree.io/forms.
+              -->
               <form
-                action="https://formspree.io/f/darshils99@gmail.com"
+                action="https://formspree.io/f/YOUR_FORM_ID"
                 method="POST"
                 class="skill-card flex-col gap-6"
               >
