@@ -451,7 +451,7 @@ section {
   border-radius: var(--radius-sm);
 }
 
-/* Utility Classes for Validation Fixes */
+/* ── UTILITY CLASSES ─────────────────────────────────────── */
 .flex {
   display: flex;
 }
@@ -495,6 +495,10 @@ section {
 .mb-6 {
   margin-bottom: 1.5rem;
 }
+/* FIX: mt-2 was missing — used in footer across all pages */
+.mt-2 {
+  margin-top: 0.5rem;
+}
 .mt-4 {
   margin-top: 1rem;
 }
@@ -522,6 +526,12 @@ section {
 .text-lg {
   font-size: 1.2rem;
 }
+/* FIX: text-404 was missing — used in 404.html */
+.text-404 {
+  font-size: clamp(6rem, 20vw, 10rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -542,6 +552,10 @@ section {
 }
 .color-primary {
   color: var(--primary);
+}
+/* FIX: color-mid was missing — used in testimonials and contact links */
+.color-mid {
+  color: var(--mid);
 }
 .color-muted {
   color: var(--muted);
@@ -602,15 +616,19 @@ section {
   transition-delay: 0.3s;
 }
 
+/* FIX: .dot height was 10px — corrected to 8px so border-radius: 50% renders a true circle */
 .dot {
   width: 8px;
-  height: 10px;
+  height: 8px;
   border-radius: 50%;
   display: inline-block;
 }
+/* FIX: .dot-sm was missing border-radius and display — used standalone without .dot */
 .dot-sm {
   width: 8px;
   height: 8px;
+  border-radius: 50%;
+  display: inline-block;
 }
 .dot-accent {
   background: var(--accent);
@@ -672,9 +690,10 @@ section {
   border-color: var(--primary);
 }
 
+/* FIX: grid-cols is not a valid CSS property — corrected to grid-template-columns */
 .cert-columns {
   display: grid;
-  grid-cols: 1;
+  grid-template-columns: 1fr;
   gap: 2.5rem;
 }
 
