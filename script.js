@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile Menu Toggle
+  // ── Mobile Menu Toggle ──────────────────────────────────────
   const navToggle = document.querySelector(".nav-toggle");
   const navLinks = document.querySelector(".nav-links");
 
   if (navToggle && navLinks) {
     navToggle.addEventListener("click", () => {
       navLinks.classList.toggle("open");
-      const expanded =
-        navToggle.getAttribute("aria-expanded") === "true" || false;
-      navToggle.setAttribute("aria-expanded", !expanded);
+      const expanded = navToggle.getAttribute("aria-expanded") === "true";
+      navToggle.setAttribute("aria-expanded", String(!expanded));
     });
 
-    // Close menu when clicking a link
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         navLinks.classList.remove("open");
@@ -20,83 +18,110 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sticky Header
-  // FIX: Only toggle the scrolled class on the home page (index.html).
-  // On all other pages the nav has the "scrolled" class pre-applied in HTML,
-  // so the scroll listener must not remove it when the user scrolls back to top.
+  // ── Sticky Header ───────────────────────────────────────────
+  // FIX: Only toggle .scrolled on the home page.
+  // Inner pages pre-apply class="scrolled" in HTML; removing it at scroll-top
+  // would strip the backdrop-blur/border on those pages.
   const nav = document.querySelector("nav");
-  const isHomePage = document.querySelector("section#home") !== null;
+  const isHomePage = Boolean(document.querySelector("section#home"));
 
   if (isHomePage) {
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        nav.classList.add("scrolled");
-      } else {
-        nav.classList.remove("scrolled");
-      }
+      nav.classList.toggle("scrolled", window.scrollY > 50);
     });
   }
 
-  // Scroll Reveal Animation
+  // ── Scroll Reveal ───────────────────────────────────────────
   const revealElements = document.querySelectorAll(".reveal");
+
   const revealOnScroll = () => {
     const triggerBottom = window.innerHeight * 0.85;
     revealElements.forEach((el) => {
-      const top = el.getBoundingClientRect().top;
-      if (top < triggerBottom) {
+      if (el.getBoundingClientRect().top < triggerBottom) {
         el.classList.add("active");
       }
     });
   };
 
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll(); // Run once on load
+  window.addEventListener("scroll", revealOnScroll, { passive: true });
+  revealOnScroll();
 
-  // Active Link Highlight (Simple Scroll Spy)
+  // ── Scroll Spy ──────────────────────────────────────────────
   const sections = document.querySelectorAll("section[id]");
+
   const highlightActiveLink = () => {
     const scrollY = window.pageYOffset;
-    sections.forEach((current) => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 100;
-      const sectionId = current.getAttribute("id");
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        document
-          .querySelector(".nav-links a[href*=" + sectionId + "]")
-          ?.classList.add("active");
-      } else {
-        document
-          .querySelector(".nav-links a[href*=" + sectionId + "]")
-          ?.classList.remove("active");
+    sections.forEach((section) => {
+      const top = section.offsetTop - 100;
+      const bottom = top + section.offsetHeight;
+      const id = section.getAttribute("id");
+      const link = document.querySelector(`.nav-links a[href*=${id}]`);
+      if (link) {
+        link.classList.toggle("active", scrollY > top && scrollY <= bottom);
       }
     });
   };
 
-  window.addEventListener("scroll", highlightActiveLink);
+  window.addEventListener("scroll", highlightActiveLink, { passive: true });
 
-  // Certification Filtering (Only on skills.html)
+  // ── Animated Counters (Career Snapshot) ─────────────────────
+  // Counts up each .snapshot-value from 0 to its target when scrolled into view.
+  const initCounters = () => {
+    const counters = document.querySelectorAll(".snapshot-value");
+    if (!counters.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          const el = entry.target;
+          const raw = el.textContent.trim();
+          const match = raw.match(/^(\d+)([%+]?)$/);
+          if (!match) return;
+
+          const target = parseInt(match[1], 10);
+          const suffix = match[2];
+          const duration = 1200;
+          const startTime = performance.now();
+
+          const tick = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease-out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+
+          requestAnimationFrame(tick);
+          observer.unobserve(el);
+        });
+      },
+      { threshold: 0.6 }
+    );
+
+    counters.forEach((el) => observer.observe(el));
+  };
+
+  initCounters();
+
+  // ── Certification Filter ─────────────────────────────────────
   const filterBtns = document.querySelectorAll(".filter-btn");
   const certItems = document.querySelectorAll(".cert-list li");
 
   if (filterBtns.length > 0) {
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        // Update active button
         filterBtns.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
 
         const filter = btn.getAttribute("data-filter");
 
         certItems.forEach((item) => {
-          if (
-            filter === "all" ||
-            item.getAttribute("data-category") === filter
-          ) {
-            item.style.display = "flex";
-          } else {
-            item.style.display = "none";
-          }
+          const show =
+            filter === "all" || item.getAttribute("data-category") === filter;
+          item.style.display = show ? "flex" : "none";
         });
       });
     });
