@@ -5,10 +5,7 @@
 
 Professional multi-page vanilla HTML/CSS/JS portfolio. Focused on Darshil Shah's 9+ years of Global Healthcare QA experience and AI-Enabled QA with ChatGPT & Claude. (v2026.3.1)
 
-## Live Demo
-
-[darshil0.github.io/darshil-portfolio](https://darshil0.github.io/darshil-portfolio/)
-
+## Live Website: [https://darshil0.github.io/darshil-portfolio-2026/index.html](url)
 ---
 
 ## Architecture
