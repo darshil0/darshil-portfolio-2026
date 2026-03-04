@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "doctype-style": "off",
+    "void-style": "off",
+    "no-inline-style": "error",
+    "no-raw-characters": "error",
+    "no-implicit-button-type": "error",
+    "no-trailing-whitespace": "error"
+  }
+}
