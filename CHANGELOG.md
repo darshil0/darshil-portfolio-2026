@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **style.css**: No `h1` base styles were defined, causing the hero heading to fall back to the body font (DM Sans) and browser-default sizing instead of the intended Syne display font at a large fluid size. Added `h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.15; }`.
 - **404.html**: The nav was missing the `nav-toggle` hamburger button present on every other page, so the mobile menu trigger was invisible and non-functional on the 404 error page.
 - **script.js**: Counter animation read `el.textContent` at observation time to determine the target number. If the IntersectionObserver fired a second time before `unobserve` completed, it would parse an already-incremented textContent (e.g. "12" instead of "40%"), producing the wrong final value. Fixed by caching the original text in `data-target` before any animation begins.
+- **HTML/UI**: The "Get In Touch" email CTA button was missing from the navbars of `experience.html`, `skills.html`, and `contact.html`. Added them to match the `index.html` navigation.
+- **HTML/JS**: The contact form acted as a synchronous POST that navigated away from the portfolio. Converted it to an async `fetch()` with inline spinner, success, and error banners.
+- **HTML**: In `experience.html`, three job title headings incorrectly used `<h4>` under `<h2>`, violating WCAG heading hierarchy. Changed to `<h3>`.
+- **style.css**: Fixed `.nav-links.open` having a hardcoded `white` background; updated it to use `var(--surface)` for variable consistency.
 
 ## [2026.3.1] - 2026-03-05
 

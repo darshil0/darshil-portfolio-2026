@@ -3,7 +3,7 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-darshil0.github.io-0057B8?style=flat-square)](https://darshil0.github.io/darshil-portfolio-2026/index.html)
 [![License: MIT](https://img.shields.io/badge/License-MIT-00C98D?style=flat-square)](LICENSE)
 
-Professional multi-page vanilla HTML/CSS/JS portfolio. Focused on Darshil Shah's 9+ years of Global Healthcare QA experience and AI-Enabled QA with ChatGPT & Claude. (v2026.3.1)
+Professional multi-page vanilla HTML/CSS/JS portfolio. Focused on Darshil Shah's 9+ years of Global Healthcare QA experience and AI-Enabled QA with ChatGPT & Claude. (v2026.3.2)
 
 ## Live Demo
 
@@ -94,9 +94,22 @@ The contact form uses [Formspree](https://formspree.io). To activate it:
 
 ---
 
-## Known Fixes (v1.1.1)
+## Known Fixes (v2026.3.2)
 
 The following bugs were identified and resolved in the latest patch:
+
+- **Missing Nav Elements**: Added the `nav-toggle` hamburger button to `404.html` and the prominent "Get In Touch" CTA to the navbars of `experience.html`, `skills.html`, and `contact.html`.
+- **Form Submission**: Converted the `contact.html` form to use an async `fetch()` submission, providing inline success/error feedback (`#form-status`) without requiring a full-page reload, solving the "silent failure" state of the dummy setup.
+- **Accessibility**: Fixed heading hierarchy in `experience.html` (changed `<h4>` job titles under `<h2>` to `<h3>`). 
+- **Typography & Styling**: Fixed missing `h1` global font mapping (now correctly uses the Syne display font). Added missing `cursor: pointer` to the `.btn` utility class. Updated `.nav-links.open` from a hardcoded `white` background to the `var(--surface)` theme variable.
+- **Animation Glitch**: Hardended the `script.js` counter animation against duplicate intersection observer triggers by reading baseline targets from `data-target` instead of mutable `textContent`.
+- **SEO/Sitemap**: Fixed `sitemap.xml` referencing an old `darshil-portfolio` repo path instead of the live `darshil-portfolio-2026` path.
+
+---
+
+## Known Fixes (v1.1.1)
+
+The following bugs were identified and resolved in a previous patch:
 
 - **CSS**: `grid-cols` is not a valid property — corrected to `grid-template-columns` in `.cert-columns`, restoring the single-column mobile layout for the certifications grid.
 - **CSS**: `.dot` had mismatched width/height (`8px × 10px`), preventing `border-radius: 50%` from rendering a true circle. Both dimensions corrected to `8px`.
