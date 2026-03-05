@@ -1,7 +1,7 @@
 {
   "name": "darshil-portfolio",
   "private": true,
-  "version": "2026.3.3",
+  "version": "2026.3.4",
   "description": "Professional vanilla HTML, CSS, and JS portfolio for Darshil Shah.",
   "scripts": {
     "validate": "html-validate index.html experience.html skills.html contact.html 404.html",

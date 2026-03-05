@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const data = await res.json().catch(() => ({}));
           throw new Error(
             data?.errors?.[0]?.message ||
-            "Submission failed. Please try again.",
+              "Submission failed. Please try again.",
           );
         }
       } catch (err) {

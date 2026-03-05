@@ -92,8 +92,6 @@ The contact form uses [Formspree](https://formspree.io). To activate it:
 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"></form>
 ```
 
-
-
 ## License
 
 MIT © 2026 Darshil Shah
