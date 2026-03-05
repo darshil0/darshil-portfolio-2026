@@ -1,26 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap");
 
 :root {
-  --primary: #8b5cf6;
-  /* Vibrant violet */
-  --primary-glow: rgba(139, 92, 246, 0.4);
-  --primary-pale: rgba(139, 92, 246, 0.1);
-  --accent: #06b6d4;
-  /* Neon cyan */
-  --accent-pale: rgba(6, 182, 212, 0.1);
-  --bg: #09090b;
-  /* Deep zinc */
-  --surface: rgba(255, 255, 255, 0.03);
-  /* Glass base */
-  --surface-hover: rgba(255, 255, 255, 0.06);
-  --text: #f8fafc;
-  --mid: #94a3b8;
+  --primary: #0284c7;
+  /* Professional Blue */
+  --primary-glow: rgba(2, 132, 199, 0.2);
+  --primary-pale: rgba(2, 132, 199, 0.08);
+  --accent: #0d9488;
+  /* Professional Aqua / Teal */
+  --accent-pale: rgba(13, 148, 136, 0.08);
+  --bg: #f8fafc;
+  /* Light slate background */
+  --surface: #ffffff;
+  /* Clean white cards */
+  --surface-hover: #f1f5f9;
+  /* Light gray on hover */
+  --text: #0f172a;
+  /* Deep slate for primary text */
+  --mid: #334155;
   --muted: #64748b;
-  --subtle: #334155;
-  --border: rgba(255, 255, 255, 0.08);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
-  --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
-  --glow: 0 0 20px rgba(139, 92, 246, 0.3);
+  --subtle: #94a3b8;
+  --border: #e2e8f0;
+  --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+  --glow: 0 0 20px rgba(2, 132, 199, 0.15);
   --radius: 16px;
   --font-display: "Outfit", sans-serif;
   --font-body: "Inter", sans-serif;
@@ -61,10 +63,14 @@ body {
   background-image:
     radial-gradient(
       circle at 15% 50%,
-      rgba(139, 92, 246, 0.08),
-      transparent 25%
+      rgba(2, 132, 199, 0.04),
+      transparent 30%
     ),
-    radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08), transparent 25%);
+    radial-gradient(
+      circle at 85% 30%,
+      rgba(13, 148, 136, 0.04),
+      transparent 30%
+    );
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.7;
@@ -79,17 +85,14 @@ h5,
 h6 {
   font-family: var(--font-display);
   letter-spacing: -0.02em;
-  color: #ffffff;
+  color: var(--text);
 }
 
 h1 {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 800;
   line-height: 1.1;
-  background: linear-gradient(135deg, #fff 30%, var(--mid) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--text);
 }
 
 .container {
@@ -160,11 +163,12 @@ nav {
 }
 
 nav.scrolled {
-  background: rgba(9, 9, 11, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
   padding: 1rem 1.5rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .nav-container {
@@ -182,7 +186,7 @@ nav.scrolled {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--text);
+  color: var(--mid);
   font-weight: 500;
   font-size: 0.95rem;
   transition: var(--transition);
@@ -199,7 +203,7 @@ nav.scrolled {
   top: 100%;
   left: 0;
   right: 0;
-  background: rgba(9, 9, 11, 0.95);
+  background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(24px);
   flex-direction: column;
   padding: 2rem;
@@ -239,10 +243,7 @@ nav.scrolled {
 }
 
 .nav-logo span {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--primary);
 }
 
 /* Components */
@@ -277,17 +278,16 @@ nav.scrolled {
 }
 
 .subtitle {
-  color: var(--mid);
+  color: var(--muted);
   font-size: 1.25rem;
   max-width: 600px;
   margin: 1.5rem 0 0;
-  font-weight: 300;
+  font-weight: 400;
 }
 
-/* Glass Cards */
+/* Cards */
 .skill-card {
   background: var(--surface);
-  backdrop-filter: blur(12px);
   padding: 2.5rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
@@ -303,17 +303,17 @@ nav.scrolled {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--primary), transparent);
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--primary));
   transform: scaleX(0);
   transition: transform 0.5s ease;
+  transform-origin: left;
 }
 
 .skill-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow), var(--glow);
-  background: var(--surface-hover);
-  border-color: rgba(139, 92, 246, 0.3);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow);
+  border-color: rgba(2, 132, 199, 0.2);
 }
 
 .skill-card:hover::before {
@@ -326,6 +326,7 @@ nav.scrolled {
   background: var(--surface);
   border-radius: var(--radius);
   border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
@@ -335,18 +336,17 @@ nav.scrolled {
   left: -2px;
   top: 10%;
   bottom: 10%;
-  width: 3px;
+  width: 4px;
   background: var(--primary);
   border-radius: 4px;
   opacity: 0;
   transition: var(--transition);
-  box-shadow: 0 0 10px var(--primary);
 }
 
 .experience-item:hover {
-  background: var(--surface-hover);
-  transform: translateX(8px);
-  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateX(5px);
+  box-shadow: var(--shadow);
+  border-color: rgba(2, 132, 199, 0.2);
 }
 
 .experience-item:hover::before {
@@ -366,7 +366,7 @@ nav.scrolled {
   align-items: center;
   margin-top: 0.75rem;
   font-size: 0.9rem;
-  color: var(--mid);
+  color: var(--muted);
 }
 
 .experience-company {
@@ -411,13 +411,13 @@ nav.scrolled {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
 
 .cert-list li:hover {
-  border-color: var(--primary);
-  background: var(--surface-hover);
-  transform: scale(1.02);
+  border-color: rgba(2, 132, 199, 0.3);
+  transform: scale(1.01);
   box-shadow: var(--shadow);
 }
 
@@ -444,6 +444,7 @@ nav.scrolled {
   font-size: 0.9rem;
   color: var(--mid);
   transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
 }
 
 .filter-btn:hover {
@@ -461,8 +462,8 @@ nav.scrolled {
 .badge {
   padding: 0.35rem 0.85rem;
   background: var(--primary-pale);
-  color: #c4b5fd;
-  border: 1px solid rgba(139, 92, 246, 0.2);
+  color: var(--primary);
+  border: 1px solid rgba(2, 132, 199, 0.2);
   border-radius: 30px;
   font-size: 0.75rem;
   font-weight: 700;
@@ -472,12 +473,12 @@ nav.scrolled {
 
 .pill {
   padding: 0.3rem 0.8rem;
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: 6px;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--mid);
+  color: var(--muted);
 }
 
 .general-certs {
@@ -493,20 +494,21 @@ nav.scrolled {
   border-radius: 12px;
   font-size: 0.9rem;
   color: var(--mid);
-  font-weight: 500;
+  font-weight: 600;
   transition: var(--transition);
+  box-shadow: var(--shadow-sm);
 }
 
 .general-certs span:hover {
   border-color: var(--primary);
-  background: var(--surface-hover);
-  color: var(--text);
+  color: var(--primary);
+  box-shadow: var(--shadow);
 }
 
 .footer {
-  padding: 5rem 0 3rem;
+  padding: 4rem 0 3rem;
   border-top: 1px solid var(--border);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+  background: var(--surface);
   text-align: center;
   position: relative;
 }
@@ -524,7 +526,7 @@ nav.scrolled {
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  background: linear-gradient(135deg, var(--primary), #6d28d9);
+  background: var(--primary);
   color: #fff;
   border-radius: 30px;
   font-family: var(--font-body);
@@ -534,7 +536,7 @@ nav.scrolled {
   transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -556,8 +558,9 @@ nav.scrolled {
 }
 
 .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.6);
+  transform: translateY(-2px);
+  background: #0369a1;
+  box-shadow: 0 8px 20px rgba(2, 132, 199, 0.4);
 }
 
 .btn:hover::after {
@@ -566,15 +569,17 @@ nav.scrolled {
 
 .btn-outline {
   background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--primary);
+  border: 2px solid var(--primary);
   box-shadow: none;
+  padding: calc(1rem - 2px) calc(2rem - 2px);
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: var(--primary-pale);
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 4px 15px rgba(2, 132, 199, 0.15);
 }
 
 .reveal {
@@ -590,12 +595,10 @@ nav.scrolled {
 
 /* Career Snapshot */
 .career-snapshot {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: var(--surface);
   padding: 2.5rem;
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
@@ -607,23 +610,24 @@ nav.scrolled {
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--bg);
   border-radius: 16px;
   border: 1px solid var(--border);
+  border-left: 4px solid var(--primary);
   transition: var(--transition);
 }
 
 .snapshot-item:hover {
-  transform: scale(1.02);
-  border-color: rgba(139, 92, 246, 0.3);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transform: translateX(5px);
+  border-color: rgba(2, 132, 199, 0.3);
+  box-shadow: var(--shadow-sm);
 }
 
 .snapshot-value {
   font-family: "JetBrains Mono", monospace;
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(to right, var(--primary), var(--accent));
+  background: linear-gradient(to bottom right, var(--primary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
@@ -645,15 +649,15 @@ nav.scrolled {
   border-radius: 12px;
   font-family: inherit;
   font-size: 1rem;
-  background: rgba(0, 0, 0, 0.2);
-  color: #fff;
+  background: var(--surface);
+  color: var(--text);
   transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
 }
 
 .form-input:focus {
   outline: none;
   border-color: var(--primary);
-  background: rgba(0, 0, 0, 0.4);
   box-shadow: 0 0 0 4px var(--primary-pale);
 }
 
@@ -670,15 +674,15 @@ nav.scrolled {
 }
 
 .form-status--success {
-  background: rgba(6, 95, 70, 0.2);
-  color: #34d399;
-  border: 1px solid rgba(52, 211, 153, 0.3);
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #34d399;
 }
 
 .form-status--error {
-  background: rgba(153, 27, 27, 0.2);
-  color: #f87171;
-  border: 1px solid rgba(248, 113, 113, 0.3);
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #f87171;
 }
 
 /* Utilities */
@@ -798,7 +802,7 @@ nav.scrolled {
 
 .text-404 {
   font-size: clamp(6rem, 20vw, 12rem);
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(15, 23, 42, 0.05);
   font-weight: 800;
   line-height: 1;
 }
