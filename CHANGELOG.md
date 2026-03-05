@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026.3.6] - 2026-03-04
+
+### Fixed
+
+- **CSS (BUG-1)**: Added missing `transition-delay-100` and `transition-delay-200` utility classes to `style.css`. These classes were referenced across every HTML page to produce staggered scroll-reveal animations on skill cards and career snapshot items, but were never defined — causing all `.reveal` elements to animate simultaneously instead of in sequence.
+- **CSS (BUG-2)**: Fixed `.nav-links.open` using a hardcoded `rgba(255, 255, 255, 0.98)` background value. The CHANGELOG entry for v2026.3.2 claimed this had been corrected to `var(--surface)`, but the code still contained the literal value. Updated to `var(--surface)` as originally intended.
+- **CSS (BUG-3)**: Added missing `.nav-links a.active` styles. Every page marks its own nav link with `class="active"`, but no CSS rule existed to visually distinguish it. Added a `color: var(--primary)` and a 2px bottom-border underline indicator so users can see which page they are on.
+- **CSS (BUG-7)**: Added `h4` base styles using the design system's display font family. Without this rule, `<h4>` elements fell back to browser-default sizing and the generic body font (`DM Sans`) rather than the portfolio's `Plus Jakarta Sans` display font.
+- **HTML (BUG-4)**: Fixed heading hierarchy in `skills.html`. The "Languages" and "Foundation Certifications" section labels were `<h4>` elements nested directly under `<h2>`, skipping a heading level in violation of WCAG 1.3.1. Changed both to `<h3>`. This is the same class of bug corrected in `experience.html` in v2026.3.2.
+- **HTML (BUG-8)**: Clarified the ambiguous subtitle on `experience.html`. The page previously read "14+ years across global healthcare…" which contradicted the "9+ yrs Global Healthcare QA" claim on `index.html`. Updated to accurately reflect 14+ years total career spanning multiple industries, with 9+ years specializing in healthcare — matching the hero page wording.
+- **package-lock.json (BUG-5)**: Synced the `version` field from the stale `"2026.3.1"` to `"2026.3.5"` to match `package.json`.
+
 ## [2026.3.5] - 2026-03-04
 
 ### Added
@@ -36,7 +48,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **SEO**: Created `robots.txt` pointing to the public `sitemap.xml`.
 - **SEO/Social**: Added Open Graph metadata (`og:title`, `og:description`, `og:url`, `og:type`) and Twitter card structure to all HTML `<head>` blocks for rich social unfurling.
-- **UI**: Added a dynamic inline SVG favicon (`👨‍💻`) to all pages.
+- **UI**: Added a dynamic inline SVG favicon (`👨💻`) to all pages.
 
 ### Fixed
 
