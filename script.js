@@ -4,7 +4,39 @@ document.addEventListener("DOMContentLoaded", () => {
   const nav = document.querySelector("nav");
   const isHomePage = Boolean(document.querySelector("section#home"));
 
-  // Mobile Menu Toggle
+  // --- Theme Management ---
+  const themeToggle = document.querySelector("#theme-toggle");
+  const currentTheme = localStorage.getItem("theme") || "light";
+
+  const setTheme = (theme) => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    if (themeToggle) {
+      themeToggle.innerHTML =
+        theme === "dark"
+          ? '<i class="fas fa-sun"></i>'
+          : '<i class="fas fa-moon"></i>';
+    }
+  };
+
+  setTheme(currentTheme);
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const theme =
+        document.documentElement.getAttribute("data-theme") === "dark"
+          ? "light"
+          : "dark";
+      setTheme(theme);
+    });
+  }
+
+  // --- Scroll Progress Bar ---
+  const progressBar = document.createElement("div");
+  progressBar.className = "scroll-progress";
+  document.body.prepend(progressBar);
+
+  // --- Mobile Menu Toggle ---
   if (navToggle && navLinks) {
     const toggleMenu = () => {
       navLinks.classList.toggle("open");
@@ -14,7 +46,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     navToggle.addEventListener("click", toggleMenu);
 
-    // Auto-close menu when a link is clicked
     navLinks.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
         if (navLinks.classList.contains("open")) {
@@ -24,33 +55,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Sticky Header
-  if (isHomePage) {
-    window.addEventListener(
-      "scroll",
-      () => {
+  // --- Global Scroll Listeners ---
+  window.addEventListener(
+    "scroll",
+    () => {
+      // Sticky Nav
+      if (isHomePage) {
         nav.classList.toggle("scrolled", window.scrollY > 50);
-      },
-      { passive: true },
-    );
-  } else {
+      }
+
+      // Scroll Progress
+      const winScroll =
+        document.body.scrollTop || document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + "%";
+
+      // Staggered Reveal
+      revealOnScroll();
+    },
+    { passive: true },
+  );
+
+  if (!isHomePage) {
     nav.classList.add("scrolled");
   }
 
-  // Scroll Reveal
+  // --- staggered reveal ---
   const revealElements = document.querySelectorAll(".reveal");
   const revealOnScroll = () => {
-    const triggerBottom = window.innerHeight * 0.85;
+    const triggerBottom = window.innerHeight * 0.9;
     revealElements.forEach((el) => {
       if (el.getBoundingClientRect().top < triggerBottom) {
         el.classList.add("active");
       }
     });
   };
-  window.addEventListener("scroll", revealOnScroll, { passive: true });
   revealOnScroll();
 
-  // Animated Counters
+  // --- Animated Counters ---
   const counters = document.querySelectorAll(".snapshot-value");
   counters.forEach((c) => {
     c.dataset.target = c.textContent.trim();
@@ -84,20 +129,16 @@ document.addEventListener("DOMContentLoaded", () => {
   );
   counters.forEach((c) => observer.observe(c));
 
-  // Certification Filtering
+  // --- Certification Filtering ---
   const filterBtns = document.querySelectorAll(".filter-btn");
   const certItems = document.querySelectorAll(".cert-list li");
 
   if (filterBtns.length > 0) {
     filterBtns.forEach((btn) => {
       btn.addEventListener("click", () => {
-        // Update active button
         filterBtns.forEach((b) => b.classList.remove("active"));
         btn.classList.add("active");
-
         const filter = btn.getAttribute("data-filter");
-
-        // Filter items
         certItems.forEach((item) => {
           const category = item.getAttribute("data-category");
           if (filter === "all" || category === filter) {
@@ -110,7 +151,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Contact Form — async Formspree submission with inline feedback
+  // --- Copy Email Feature ---
+  window.copyEmail = () => {
+    const email = "darshils99@gmail.com";
+    navigator.clipboard.writeText(email).then(() => {
+      const btn = document.querySelector("#copy-email-btn");
+      const originalText = btn.innerHTML;
+      btn.innerHTML = 'Copied! <i class="fas fa-check"></i>';
+      btn.style.background = "var(--accent)";
+      btn.style.borderColor = "var(--accent)";
+      btn.style.color = "white";
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = "";
+        btn.style.borderColor = "";
+        btn.style.color = "";
+      }, 2000);
+    });
+  };
+
+  // --- Contact Form ---
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
     const submitBtn = document.getElementById("form-submit");

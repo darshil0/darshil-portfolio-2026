@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026.4.0] - 2026-03-04
+
+### Added
+
+- **Design System overhaul**: Implemented the "Deep Indigo Executive" palette for a premium, high-trust healthcare aesthetic.
+- **Dark Mode**: Integrated a systemic dark mode with persistence (localStorage) and a custom-animated toggle.
+- **UX Features**: Added a high-performance scroll-progress indicator and a 'Copy Email' shortcut on the contact page.
+- **Micro-Interactions**: Enhanced cards with glassmorphism (backdrop-blur) and border-glow animations on scroll/hover.
+- **Philosophy Section**: Added "The Darshil Standard" to the home page to highlight strategic leadership focus.
+
 ## [2026.3.6] - 2026-03-04
 
 ### Fixed

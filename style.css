@@ -1,34 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap");
 
 :root {
-  --primary: #0284c7;
-  /* Professional Blue */
-  --primary-glow: rgba(2, 132, 199, 0.2);
-  --primary-pale: rgba(2, 132, 199, 0.08);
-  --accent: #0d9488;
-  /* Professional Aqua / Teal */
-  --accent-pale: rgba(13, 148, 136, 0.08);
+  /* Light Mode - Deep Indigo Executive */
+  --primary: #4338ca;
+  --primary-glow: rgba(67, 56, 202, 0.15);
+  --primary-pale: rgba(67, 56, 202, 0.05);
+  --accent: #0ea5e9;
+  --accent-glow: rgba(14, 165, 233, 0.15);
+  --accent-pale: rgba(14, 165, 233, 0.08);
   --bg: #f8fafc;
-  /* Light slate background */
   --surface: #ffffff;
-  /* Clean white cards */
   --surface-hover: #f1f5f9;
-  /* Light gray on hover */
   --text: #334155;
-  /* Standard body text */
-  --heading: #1e3a8a;
-  /* Deep Corporate Navy for headings */
+  --heading: #1e1b4b;
   --mid: #1e293b;
-  --muted: #334155;
-  --subtle: #475569;
+  --muted: #475569;
+  --subtle: #64748b;
   --border: #e2e8f0;
-  --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
-  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
-  --glow: 0 0 20px rgba(2, 132, 199, 0.15);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --glow: 0 0 30px rgba(67, 56, 202, 0.15);
   --radius: 16px;
   --font-display: "Plus Jakarta Sans", sans-serif;
   --font-body: "DM Sans", sans-serif;
-  --transition: 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] {
+  --primary: #818cf8;
+  --primary-glow: rgba(129, 140, 248, 0.2);
+  --primary-pale: rgba(129, 140, 248, 0.1);
+  --accent: #38bdf8;
+  --accent-glow: rgba(56, 189, 248, 0.2);
+  --accent-pale: rgba(56, 189, 248, 0.1);
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --surface-hover: #334155;
+  --text: #cbd5e1;
+  --heading: #f8fafc;
+  --mid: #94a3b8;
+  --muted: #94a3b8;
+  --subtle: #64748b;
+  --border: #334155;
+  --shadow-sm: 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow: 0 20px 25px -5px rgb(0 0 0 / 0.5);
+  --glow: 0 0 30px rgba(129, 140, 248, 0.15);
+  --glass-bg: rgba(30, 41, 59, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 /* Base Styles & Typography */
@@ -63,20 +83,23 @@
 body {
   background: var(--bg);
   background-image:
-    radial-gradient(
-      circle at 15% 50%,
-      rgba(2, 132, 199, 0.04),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 85% 30%,
-      rgba(13, 148, 136, 0.04),
-      transparent 30%
-    );
+    radial-gradient(circle at 15% 50%, var(--primary-pale), transparent 30%),
+    radial-gradient(circle at 85% 30%, var(--accent-pale), transparent 30%);
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  z-index: 2000;
+  transition: width 0.1s ease-out;
 }
 
 h1,
@@ -206,6 +229,30 @@ nav.scrolled {
   align-items: center;
 }
 
+#theme-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+#theme-toggle:hover {
+  transform: rotate(15deg) scale(1.1);
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: var(--glow);
+}
+
 .nav-links a {
   text-decoration: none;
   color: var(--mid);
@@ -329,10 +376,12 @@ nav.scrolled {
 
 /* Cards */
 .skill-card {
-  background: var(--surface);
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding: 2.5rem;
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
   position: relative;
@@ -355,7 +404,7 @@ nav.scrolled {
 .skill-card:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow);
-  border-color: rgba(2, 132, 199, 0.2);
+  border-color: var(--primary-glow);
 }
 
 .skill-card:hover::before {
@@ -365,9 +414,11 @@ nav.scrolled {
 .experience-item {
   position: relative;
   padding: 2.5rem;
-  background: var(--surface);
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-radius: var(--radius);
-  border: 1px solid var(--border);
+  border: 1px solid var(--glass-border);
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
 }
@@ -388,7 +439,7 @@ nav.scrolled {
 .experience-item:hover {
   transform: translateX(5px);
   box-shadow: var(--shadow);
-  border-color: rgba(2, 132, 199, 0.2);
+  border-color: var(--primary-glow);
 }
 
 .experience-item:hover::before {
@@ -514,13 +565,35 @@ nav.scrolled {
 }
 
 .pill {
-  padding: 0.3rem 0.8rem;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 6px;
+  padding: 0.35rem 0.85rem;
+  background: var(--primary-pale);
+  color: var(--primary);
+  border: 1px solid var(--primary-glow);
+  border-radius: 100px;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--muted);
+  font-weight: 700;
+  display: inline-block;
+}
+
+.copy-pill {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.copy-pill:hover {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
 }
 
 .general-certs {

@@ -53,6 +53,10 @@
           >Get In Touch</a
         >
 
+        <button id="theme-toggle" aria-label="Toggle dark mode" type="button">
+          <i class="fas fa-moon"></i>
+        </button>
+
         <button
           class="nav-toggle"
           aria-label="Toggle navigation"
@@ -88,6 +92,15 @@
                       class="color-mid no-underline"
                       >darshils99@gmail.com</a
                     >
+                    <button
+                      type="button"
+                      onclick="copyEmail()"
+                      id="copy-email-btn"
+                      class="copy-pill"
+                      title="Copy to clipboard"
+                    >
+                      <i class="far fa-copy"></i>
+                    </button>
                   </li>
                   <li class="flex items-center gap-4">
                     <i class="fas fa-phone color-primary w-5"></i>
@@ -100,7 +113,7 @@
                     >
                   </li>
                   <li class="flex items-center gap-4">
-                    <i class="fab fa-linkedin color-primary w-5"></i>
+                    <i class="fa-brands fa-linkedin color-primary w-5"></i>
                     <a
                       href="https://www.linkedin.com/in/darshil-qa-lead"
                       target="_blank"
