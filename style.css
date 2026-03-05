@@ -16,9 +16,9 @@
   /* Light gray on hover */
   --text: #0f172a;
   /* Deep slate for primary text */
-  --mid: #334155;
-  --muted: #64748b;
-  --subtle: #94a3b8;
+  --mid: #1e293b;
+  --muted: #334155;
+  --subtle: #475569;
   --border: #e2e8f0;
   --shadow-sm: 0 2px 4px -1px rgba(0, 0, 0, 0.05);
   --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
@@ -516,6 +516,7 @@ nav.scrolled {
 .text-gradient {
   background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
@@ -629,6 +630,7 @@ nav.scrolled {
   font-weight: 700;
   background: linear-gradient(to bottom right, var(--primary), var(--accent));
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
   min-width: 80px;

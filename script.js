@@ -6,10 +6,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Mobile Menu Toggle
   if (navToggle && navLinks) {
-    navToggle.addEventListener("click", () => {
+    const toggleMenu = () => {
       navLinks.classList.toggle("open");
       const expanded = navLinks.classList.contains("open");
       navToggle.setAttribute("aria-expanded", String(expanded));
+    };
+
+    navToggle.addEventListener("click", toggleMenu);
+
+    // Auto-close menu when a link is clicked
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        if (navLinks.classList.contains("open")) {
+          toggleMenu();
+        }
+      });
     });
   }
 

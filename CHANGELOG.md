@@ -5,6 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026.3.5] - 2026-03-04
+
+### Added
+
+- **Content**: Integrated massive historical career timeline from LinkedIn, detailing positions at Phynix, Accenture, Infosys, and TCS into `experience.html`.
+- **Content**: Handcrafted the "Languages" subsection inside `skills.html`.
+- **Content**: Updated "Top Skills" and main hero wording to align with the LinkedIn exported data.
+
+### Changed
+
+- **Design**: Remastered the glassmorphism theme to a stunning, clean light-mode enterprise theme. Replaced deep darks with crisp whites (`#ffffff`), ocean blues (`#0284c7`), and aqua accents (`#0d9488`).
+- **UX**: The mobile sidebar navigation now implicitly auto-closes when any anchor link is tapped.
+- **Accessibility**: Heightened contrast variables (`--mid`, `--muted`, `--subtle`) to guarantee crisp 4.5:1 text readability across the new light slate backgrounds.
+
+## [2026.3.4] - 2026-03-04
+
+### Added
+
+- **UX**: Replaced the placeholder 404 page content with full application-level navigation layout controls.
+
+### Changed
+
+- **Build Systems**: Enforced `prettier --write .` across every file (`.html`, `.json`, `.css`, `.js`, `.md`, `.yml`) to standardize all whitespace and formatting.
+- **Design**: Initiated a premium dark-mode glassmorphic theme overhaul with deep violet gradients, custom scrollbars, and `Outfit`/`Inter` fonts.
+
 ## [2026.3.3] - 2026-03-04
 
 ### Added
