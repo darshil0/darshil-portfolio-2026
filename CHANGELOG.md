@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026.3.2] - 2026-03-06
+
+### Fixed
+
+- **HTML**: Corrected heading hierarchy in `experience.html` (changed `<h4>` to `<h3>`) to meet WCAG accessibility standards.
+- **CSS**: Replaced hardcoded `white` background with `var(--surface)` design token in mobile navigation.
+- **Changelog**: Fixed spurious extra blank line in version `2026.3.1` metadata.
+
 ## [2026.3.1] - 2026-03-05
 
 ### Fixed
