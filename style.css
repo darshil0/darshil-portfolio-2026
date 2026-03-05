@@ -63,12 +63,16 @@
 body {
   background: var(--bg);
   background-image:
-    radial-gradient(circle at 15% 50%,
+    radial-gradient(
+      circle at 15% 50%,
       rgba(2, 132, 199, 0.04),
-      transparent 30%),
-    radial-gradient(circle at 85% 30%,
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 30%,
       rgba(13, 148, 136, 0.04),
-      transparent 30%);
+      transparent 30%
+    );
   color: var(--text);
   font-family: var(--font-body);
   line-height: 1.7;
@@ -100,7 +104,7 @@ h1 {
 }
 
 section {
-  padding: 5rem 0;
+  padding: 4rem 0;
 }
 
 /* Layout & Grid */
@@ -517,7 +521,7 @@ nav.scrolled {
 }
 
 .footer {
-  padding: 4rem 0 3rem;
+  padding: 3rem 0;
   border-top: 1px solid var(--border);
   background: var(--surface);
   text-align: center;
@@ -560,10 +564,12 @@ nav.scrolled {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg,
-      transparent,
-      rgba(255, 255, 255, 0.2),
-      transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
   transition: 0.5s;
 }
 
@@ -817,7 +823,8 @@ nav.scrolled {
 
 .text-404 {
   font-size: clamp(6rem, 20vw, 12rem);
-  color: rgba(15, 23, 42, 0.05);
+  color: var(--primary);
+  opacity: 0.1;
   font-weight: 800;
   line-height: 1;
 }
