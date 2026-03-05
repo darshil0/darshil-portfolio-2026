@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://darshil0.github.io/darshil-portfolio-2026/sitemap.xml
