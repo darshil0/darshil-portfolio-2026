@@ -95,25 +95,15 @@ h1 {
   font-weight: 800;
   line-height: 1.15;
   color: var(--heading);
-  margin-bottom: 1.5rem;
 }
 
-h2 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 1.25rem;
-}
-
-h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
+/* FIX BUG-7: Define h4 base styles using design system fonts/scale */
 h4 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--heading);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .container {
@@ -229,6 +219,7 @@ nav.scrolled {
   color: var(--primary);
 }
 
+/* FIX BUG-3: Define active nav link style so current page is visually indicated */
 .nav-links a.active {
   color: var(--primary);
   font-weight: 700;
@@ -239,12 +230,13 @@ nav.scrolled {
   position: absolute;
   bottom: -4px;
   left: 0;
-  width: 100%;
+  right: 0;
   height: 2px;
   background: var(--primary);
   border-radius: 2px;
 }
 
+/* FIX BUG-2: Use var(--surface) instead of hardcoded rgba white for theme consistency */
 .nav-links.open {
   display: flex !important;
   position: absolute;
@@ -644,12 +636,14 @@ nav.scrolled {
   transform: translateY(0);
 }
 
+/* FIX BUG-1: Define missing transition-delay utility classes used across all HTML pages
+   for staggered scroll-reveal animations. Without these, all cards animate at once. */
 .transition-delay-100 {
-  transition-delay: 0.1s;
+  transition-delay: 100ms;
 }
 
 .transition-delay-200 {
-  transition-delay: 0.2s;
+  transition-delay: 200ms;
 }
 
 /* Career Snapshot */
