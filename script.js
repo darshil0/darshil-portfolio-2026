@@ -41,13 +41,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Animated Counters
   const counters = document.querySelectorAll(".snapshot-value");
+  counters.forEach((c) => {
+    c.dataset.target = c.textContent.trim();
+  });
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
-        const target = parseInt(el.textContent, 10);
-        const suffix = el.textContent.replace(/[0-9]/g, "");
+        const original = el.dataset.target;
+        const target = parseInt(original, 10);
+        const suffix = original.replace(/[0-9]/g, "");
         let count = 0;
         const duration = 1200;
         const increment = target / (duration / 16);
@@ -92,6 +96,54 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       });
+    });
+  }
+
+  // Contact Form — async Formspree submission with inline feedback
+  const contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    const submitBtn = document.getElementById("form-submit");
+    const statusEl = document.getElementById("form-status");
+
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerHTML =
+        'Sending… <i class="fas fa-circle-notch fa-spin ml-2"></i>';
+      statusEl.className = "hidden form-status";
+
+      try {
+        const res = await fetch(contactForm.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(contactForm),
+        });
+
+        if (res.ok) {
+          statusEl.textContent =
+            "✓ Message sent! I'll get back to you shortly.";
+          statusEl.className = "form-status form-status--success";
+          contactForm.reset();
+          submitBtn.innerHTML =
+            'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+          submitBtn.disabled = false;
+        } else {
+          const data = await res.json().catch(() => ({}));
+          throw new Error(
+            data?.errors?.[0]?.message ||
+            "Submission failed. Please try again.",
+          );
+        }
+      } catch (err) {
+        statusEl.textContent = err.message;
+        statusEl.className = "form-status form-status--error";
+        submitBtn.innerHTML =
+          'Send Message <i class="fas fa-paper-plane ml-2"></i>';
+        submitBtn.disabled = false;
+        setTimeout(() => {
+          statusEl.className = "hidden form-status";
+        }, 6000);
+      }
     });
   }
 });

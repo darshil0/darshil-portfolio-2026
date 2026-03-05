@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2026.3.2] - 2026-03-04
+
+### Fixed
+
+- **sitemap.xml**: All four `<loc>` URLs referenced the wrong GitHub Pages repository path (`darshil-portfolio` instead of `darshil-portfolio-2026`), causing the sitemap to point to non-existent pages. Corrected to `darshil0.github.io/darshil-portfolio-2026/*`.
+- **style.css**: `.btn` was missing `cursor: pointer`, so button-element usages (e.g. the contact form's "Send Message" submit button) showed the default arrow cursor instead of the expected hand cursor.
+- **style.css**: No `h1` base styles were defined, causing the hero heading to fall back to the body font (DM Sans) and browser-default sizing instead of the intended Syne display font at a large fluid size. Added `h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.25rem); font-weight: 800; line-height: 1.15; }`.
+- **404.html**: The nav was missing the `nav-toggle` hamburger button present on every other page, so the mobile menu trigger was invisible and non-functional on the 404 error page.
+- **script.js**: Counter animation read `el.textContent` at observation time to determine the target number. If the IntersectionObserver fired a second time before `unobserve` completed, it would parse an already-incremented textContent (e.g. "12" instead of "40%"), producing the wrong final value. Fixed by caching the original text in `data-target` before any animation begins.
+
 ## [2026.3.1] - 2026-03-05
 
 ### Fixed
