@@ -92,33 +92,7 @@ The contact form uses [Formspree](https://formspree.io). To activate it:
 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"></form>
 ```
 
----
 
-## Known Fixes (v2026.3.2)
-
-The following bugs were identified and resolved in the latest patch:
-
-- **Missing Nav Elements**: Added the `nav-toggle` hamburger button to `404.html` and the prominent "Get In Touch" CTA to the navbars of `experience.html`, `skills.html`, and `contact.html`.
-- **Form Submission**: Converted the `contact.html` form to use an async `fetch()` submission, providing inline success/error feedback (`#form-status`) without requiring a full-page reload, solving the "silent failure" state of the dummy setup.
-- **Accessibility**: Fixed heading hierarchy in `experience.html` (changed `<h4>` job titles under `<h2>` to `<h3>`). 
-- **Typography & Styling**: Fixed missing `h1` global font mapping (now correctly uses the Syne display font). Added missing `cursor: pointer` to the `.btn` utility class. Updated `.nav-links.open` from a hardcoded `white` background to the `var(--surface)` theme variable.
-- **Animation Glitch**: Hardended the `script.js` counter animation against duplicate intersection observer triggers by reading baseline targets from `data-target` instead of mutable `textContent`.
-- **SEO/Sitemap**: Fixed `sitemap.xml` referencing an old `darshil-portfolio` repo path instead of the live `darshil-portfolio-2026` path.
-
----
-
-## Known Fixes (v1.1.1)
-
-The following bugs were identified and resolved in a previous patch:
-
-- **CSS**: `grid-cols` is not a valid property — corrected to `grid-template-columns` in `.cert-columns`, restoring the single-column mobile layout for the certifications grid.
-- **CSS**: `.dot` had mismatched width/height (`8px × 10px`), preventing `border-radius: 50%` from rendering a true circle. Both dimensions corrected to `8px`.
-- **CSS**: `.dot-sm` was missing `border-radius` and `display` declarations, leaving it invisible when used standalone.
-- **CSS**: `.color-mid`, `.mt-2`, and `.text-404` utility classes were missing despite active use across multiple pages.
-- **JS**: The sticky-header scroll listener incorrectly stripped the `scrolled` class on inner pages when the user scrolled back to the top, removing the nav's backdrop blur. The listener is now scoped to the home page only.
-- **HTML**: The Formspree form `action` used a raw email address as the endpoint path, which is invalid. Corrected to the proper `formspree.io/f/{id}` format.
-
----
 
 ## License
 
