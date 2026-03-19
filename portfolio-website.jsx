@@ -373,36 +373,42 @@ export default function PortfolioWebsite() {
               {[
                 { 
                   cat: "Functional Testing & Strategy", 
-                  skills: ["Web Functional Testing", "Mobile Functional Testing", "End-to-End Strategy", "Test Planning & Design", "User Centric Validation", "SIT / UAT Leadership"] 
+                  skills: ["Web Functional Testing", "Mobile Functional Testing", "End-to-End Strategy", "Test Planning & Design", "User Centric Validation", "SIT / UAT Leadership"],
+                  theme: "teal"
                 },
                 { 
                   cat: "QA Leadership & Mentorship", 
-                  skills: ["Team Leadership (15+ SDETs)", "QA Best Practices", "Culture Building", "Risk Management", "Resource Planning", "Mentoring & Coaching"] 
+                  skills: ["Team Leadership (15+ SDETs)", "QA Best Practices", "Culture Building", "Risk Management", "Resource Planning", "Mentoring & Coaching"],
+                  theme: "emerald"
                 },
                 { 
                   cat: "Test Automation", 
-                  skills: ["Selenium", "Appium", "TestNG", "Robot Framework", "Rest Assured", "SoapUI", "Java", "Python", "SQL"] 
+                  skills: ["Selenium", "Appium", "TestNG", "Robot Framework", "Rest Assured", "SoapUI", "Java", "Python", "SQL"],
+                  theme: "teal"
                 },
                 { 
                   cat: "Healthcare & Compliance", 
-                  skills: ["HIPAA / FDA", "ISO Standards", "EHR / EMR", "Telehealth", "FHIR / HL7", "ADA Accessibility"] 
+                  skills: ["HIPAA / FDA", "ISO Standards", "EHR / EMR", "Telehealth", "FHIR / HL7", "ADA Accessibility"],
+                  theme: "emerald"
                 },
                 { 
                   cat: "Tools", 
-                  skills: ["JIRA", "Postman", "Jenkins", "Bitbucket", "Docker", "Kubernetes", "Azure", "TestRail", "qTest", "Perfecto"] 
+                  skills: ["JIRA", "Postman", "Jenkins", "Bitbucket", "Docker", "Kubernetes", "Azure", "TestRail", "qTest", "Perfecto"],
+                  theme: "sky"
                 },
                 { 
                   cat: "AI & Modern Tech", 
-                  skills: ["Agentic AI", "LLMs (GPT-4 / Claude)", "Prompt Engineering", "MLOps", "AWS / Cloud", "Flutter"] 
+                  skills: ["Agentic AI", "LLMs (GPT-4 / Claude)", "Prompt Engineering", "MLOps", "AWS / Cloud", "Flutter"],
+                  theme: "indigo"
                 }
               ].map((group, idx) => (
-                <div key={idx} className="bg-white rounded-2xl border border-teal-100 p-6 shadow-sm hover:border-teal-400 transition-colors">
+                <div key={idx} className={`bg-white rounded-2xl border ${group.theme === 'emerald' ? 'border-emerald-100 hover:border-emerald-400' : group.theme === 'sky' ? 'border-sky-100 hover:border-sky-400' : group.theme === 'indigo' ? 'border-indigo-100 hover:border-indigo-400' : 'border-teal-100 hover:border-teal-400'} p-6 shadow-sm transition-colors`}>
                   <h3 className="text-lg font-black text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500"></span>{group.cat}
+                    <span className={`w-2 h-2 rounded-full ${group.theme === 'emerald' ? 'bg-emerald-500' : group.theme === 'sky' ? 'bg-sky-500' : group.theme === 'indigo' ? 'bg-indigo-500' : 'bg-teal-500'}`}></span>{group.cat}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {group.skills.map((skill, sidx) => (
-                      <span key={sidx} className="bg-teal-50 text-teal-700 px-3 py-1.5 rounded-lg text-[11px] font-bold border border-teal-100 shadow-sm">
+                      <span key={sidx} className={`${group.theme === 'emerald' ? 'bg-emerald-50 text-emerald-700 border-emerald-100' : group.theme === 'sky' ? 'bg-sky-50 text-sky-700 border-sky-100' : group.theme === 'indigo' ? 'bg-indigo-50 text-indigo-700 border-indigo-100' : 'bg-teal-50 text-teal-700 border-teal-100'} px-3 py-1.5 rounded-lg text-[11px] font-bold border shadow-sm`}>
                         {skill}
                       </span>
                     ))}

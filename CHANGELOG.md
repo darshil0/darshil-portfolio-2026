@@ -4,6 +4,24 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2.0.0] - 2026-03-19
+
+### Changed
+- **Categorical Skill Color-Coding**: Applied distinct visual themes to key expertise pillars:
+  - 🟢 **Healthcare & Compliance**: Emerald theme for safety and standards.
+  - 🔵 **Tools**: Sky Blue theme for technical infrastructure.
+  - 🟣 **AI & Modern Tech**: Indigo/Purple theme for advanced AI/ML.
+- **Improved Scannability**: Multi-color categorical layout replaces the uniform teal aesthetic for faster information retrieval.
+
+## [1.9.0] - 2026-03-19
+
+### Changed
+- **Humanized & De-AIed Content**: Replaced corporate AI narratives with direct Senior QA lead voice.
+- **Standardized Punctuation**: Purged all markdown artifacts (**) and replaced em-dashes (—) with standard hyphens across all files.
+- **Platform Parity**: Unified narratives and formatting between index.html and portfolio-website.jsx.
+
+---
+
 ## [1.1.0] - 2026-03-19
 
 ### Added

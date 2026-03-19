@@ -380,16 +380,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v1.8.0 (8 sections, Humanized Senior QA focus, 100% excellence sync)
+- **HTML**: v2.0.0 (Categorical Skill Color-Coding, Humanized Senior QA focus)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v1.8.0 (Full parity with HTML and latest humanized narratives)
+- **React**: v2.0.0 (Dynamic themed skills, 1:1 Parity with HTML)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v1.8.0** (Humanized Senior QA).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.0.0** (Themed Skills).
 
 ---
 
