@@ -182,10 +182,10 @@ export default function PortfolioWebsite() {
                     <Rocket size={24} /> My Mission
                   </h3>
                   <p className="text-slate-700 leading-relaxed text-lg mb-4">
-                    My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction between a clinician and a patient is safe, accurate, and seamless.
+                    My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction is safe, accurate, and seamless.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
-                    I specialize in building "Quality Centers of Excellence" that leverage <strong>Agentic AI</strong> and <strong>Shift-Left</strong> methodologies to catch risks before they reach the clinical environment.
+                    I specialize in <strong>AI-Augmented QA</strong>, leveraging Agentic AI and predictive defect analysis to catch risks before they reach clinical environments.
                   </p>
                 </div>
 
@@ -197,7 +197,7 @@ export default function PortfolioWebsite() {
                     Starting my career at Eternal Web in India and scaling to leadership roles at <strong>Accenture</strong> and <strong>Kaiser Permanente</strong> in the US, I've seen the evolution of QA from manual checklists to automated, AI-driven ecosystems.
                   </p>
                   <p className="text-slate-700 leading-relaxed font-semibold text-teal-700">
-                    Today, I focus on the intersection of Healthcare Compliance (HIPAA/FDA) and cutting-edge Generative AI testing.
+                    Today, I focus on the intersection of Healthcare Compliance (HIPAA/FDA) and cutting-edge Generative AI testing, mentoring the next generation of SDETs.
                   </p>
                 </div>
               </div>
@@ -228,42 +228,45 @@ export default function PortfolioWebsite() {
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent">
               {[
                 {
-                  role: "Information Technology QA Analyst",
+                  role: "Information Technology QA Lead",
                   company: "Phynix Tech Services",
                   date: "Feb 2025 – Present · Dallas, TX",
                   points: [
-                    "Lead QA strategies for enterprise solutions, ensuring 100% alignment with client business objectives.",
-                    "Optimize automation coverage and reduce release cycles through risk-based testing protocols."
+                    "Drive enterprise-wide QA transformation for digital health solutions, ensuring 100% compliance with HIPAA and FDA standards.",
+                    "Optimize automation workflows using Agentic AI, resulting in an estimated 500+ manual hours saved annually.",
+                    "Lead cross-functional teams to deliver zero-defect releases for high-stakes healthcare deployments."
                   ]
                 },
                 {
-                  role: "QA Test Lead – Kaiser Permanente (Contract via Accenture)",
+                  role: "Global Healthcare QA Lead – Kaiser Permanente",
                   company: "Accenture",
                   date: "Jan 2023 – Jan 2025 · Atlanta, GA",
                   points: [
-                    "Owned quality strategy for 15+ high-priority mobile releases for 3.5M+ active users.",
-                    "Improved iOS/Android accessibility scores significantly, ensuring ADA compliance and patient equity.",
-                    "Scaled regression automation coverage from 40% to 100% using Robot Framework and Appium."
+                    "Orchestrated global testing operations for 15+ high-priority mobile releases, serving 3.5M+ active members.",
+                    "Achieved 40% cost reduction in testing overhead by optimizing test data management and environment stability.",
+                    "Boosted iOS/Android accessibility compliance to 100%, securing ADA certification for patient-facing platforms.",
+                    "Scaled Robot Framework automation from 40% to 100% coverage, maintaining <5% defect leakage rate."
                   ]
                 },
                 {
-                  role: "Sr. QA Automation Engineer – Kaiser Permanente (Contract via Accenture)",
+                  role: "Sr. QA Automation Engineer – Kaiser Permanente",
                   company: "Accenture",
                   date: "Oct 2020 – Dec 2022 · Atlanta, GA",
                   points: [
-                    "Designed Selenium/Appium frameworks reduced manual testing effort by 60%.",
-                    "Pioneered API automation for member services, improving data accuracy by 95% at launch.",
-                    "Collaborated in a TDD environment to identify 1000+ critical defects early in the cycle."
+                    "Designed Selenium/Appium frameworks that slashed manual regression testing effort by 60% and expedited CI/CD pipelines.",
+                    "Pioneered API automation for member services, achieving 95% data validation accuracy and preventing critical downstream errors.",
+                    "Managed defect lifecycle for 1,000+ issues in a TDD environment, ensuring sub-5% production defect rates."
                   ]
                 },
                 {
-                   role: "SDET (Software Development Engineer in Test) – Prime Therapeutics",
-                   company: "Infosys",
-                   date: "Oct 2019 – Apr 2020 · Bloomington, MN",
-                   points: [
-                     "Architected end-to-end automation for pharmacy claims, saving 40% in processing time.",
-                     "Built Java/Selenium framework with SQL validation for complex healthcare backend integration."
-                   ]
+                  role: "Pharmacy QA Excellence – Prime Therapeutics",
+                  company: "Infosys",
+                  date: "Oct 2019 – Apr 2020 · Bloomington, MN",
+                  points: [
+                    "Architected high-precision regression suites for pharmacy claims processing, achieving 40% efficiency gains in transaction validation.",
+                    "Collaborated with Product Owners to align PBM business logic with QA strategy, ensuring 100% financial data integrity.",
+                    "Enhanced Java/Selenium frameworks with complex SQL validation for pharmacy backend systems."
+                  ]
                 },
                 {
                    role: "Platform Automation Engineer – Sony Pictures Entertainment",
@@ -369,28 +372,28 @@ export default function PortfolioWebsite() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { 
+                  cat: "Functional Testing", 
+                  skills: ["Web Functional Testing", "Mobile Functional Testing", "End-to-End Testing", "Regression Testing", "Exploratory Testing", "SIT / UAT"] 
+                },
+                { 
+                  cat: "QA Leadership", 
+                  skills: ["Team Leadership", "Test Management", "Agile / Scrum", "Risk Management", "Mentorship", "Strategic Planning"] 
+                },
+                { 
                   cat: "Test Automation", 
-                  skills: ["Selenium", "Appium", "TestNG", "Robot Framework", "Cypress", "PyTest", "REST Assured", "SoapUI", "Java", "Python", "SQL"] 
+                  skills: ["Selenium", "Appium", "TestNG", "Robot Framework", "Rest Assured", "SoapUI", "Java", "Python", "SQL"] 
                 },
                 { 
                   cat: "Healthcare & Compliance", 
-                  skills: ["HIPAA", "FDA Regulations", "ISO Standards", "EHR/EMR", "Telehealth", "FHIR/HL7", "ADA Accessibility", "Medical Devices"] 
+                  skills: ["HIPAA / FDA", "ISO Standards", "EHR / EMR", "Telehealth", "FHIR / HL7", "ADA Accessibility"] 
                 },
                 { 
                   cat: "Tools", 
-                  skills: ["JIRA", "Confluence", "Postman", "HP ALM", "TestRail", "qTest", "Perfecto", "Jenkins", "Bitbucket", "Docker", "Kubernetes", "Azure"] 
+                  skills: ["JIRA", "Postman", "Jenkins", "Bitbucket", "Docker", "Kubernetes", "Azure", "TestRail", "qTest", "Perfecto"] 
                 },
                 { 
                   cat: "AI & Modern Tech", 
-                  skills: ["Agentic AI", "LLM Frameworks", "ChatGPT/GPT-4", "Claude", "MS Copilot", "Prompt Engineering", "MLOps", "AWS/Cloud", "Flutter"] 
-                },
-                {
-                  cat: "Core Leadership",
-                  skills: ["Strategic QA", "Risk-Based Testing", "Shift-Left", "Team Mentorship", "Executive Reporting", "Cross-Functional Ops", "Agile/Scrum"]
-                },
-                {
-                  cat: "Methods",
-                  skills: ["Regression", "Exploratory", "SIT / UAT", "E2E Testing", "API Testing", "Database Validation", "Sprinting"]
+                  skills: ["Agentic AI", "LLMs (GPT-4 / Claude)", "Prompt Engineering", "MLOps", "AWS / Cloud", "Flutter"] 
                 }
               ].map((group, idx) => (
                 <div key={idx} className="bg-white rounded-2xl border border-teal-100 p-6 shadow-sm hover:border-teal-400 transition-colors">

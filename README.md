@@ -374,32 +374,22 @@ This portfolio has been tested for:
 
 1. **Immediate**: Open `index.html` in browser to preview
 2. **Short-term**: Host on GitHub Pages or Netlify
-3. **Long-term**: Integrate into personal website
-4. **Ongoing**: Update with new projects and certifications
-
----
-
-## 📚 Resources
-
-- **Portfolio Hosting**: Netlify (free), GitHub Pages (free), Vercel (free)
-- **PDF Sharing**: Google Drive, Dropbox, direct email
-- **Link Shortener**: bit.ly, tinyurl.com
-- **Analytics**: Google Analytics (optional)
+3. **Long-term**: Custom domain integration (e.g., darshilshah.qa)
 
 ---
 
 ## 📄 Document Versions
 
-- **HTML**: v1.1.0 (7 sections, full LinkedIn content, bug fixes)
+- **HTML**: v1.6.0 (8 sections, 40% cost savings sync, mobile nav fix)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v1.1.0 (phone icon fix, LinkedIn URL fix)
+- **React**: v1.6.0 (Full parity with HTML and latest metrics)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes.
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v1.6.0** (Professional Polish).
 
 ---
 

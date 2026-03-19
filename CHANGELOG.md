@@ -51,8 +51,13 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ### Changed
 
-- Navigation bar expanded from 4 items (Home, Projects, Skills, Contact) to 7 items (Home, Experience, Projects, Skills, Education, Certifications, Contact)
-- `portfolio-website.jsx` imports updated to include `Phone` icon from lucide-react
+- **v1.6.0**: Final LinkedIn sync (40% cost savings, 500+ hours saved), Functional Testing pillar, and mobile navigation responsive fix.
+- **v1.5.0**: Content refinement and redundancy removal.
+- **v1.4.0**: Multi-theme integration (White, Green, Turquoise "Wellness Pro").
+- **v1.3.0**: Project section expansion and Certifications sync.
+- **v1.2.0**: Enhanced React parity and UI polish.
+- **v1.1.0**: Initial LinkedIn content integration.
+- **v1.0.0**: Initial creation.ct
 
 ---
 

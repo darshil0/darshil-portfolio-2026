@@ -54,7 +54,7 @@
                 </div>
                 <span class="font-bold text-lg text-slate-900">Darshil Shah</span>
             </div>
-            <div class="hidden md:flex items-center space-x-6">
+            <div class="hidden lg:flex items-center space-x-6">
                 <button id="nav-home" onclick="showSection('home')" class="nav-btn text-teal-600 font-bold smooth-transition">Home</button>
                 <button id="nav-about" onclick="showSection('about')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">About</button>
                 <button id="nav-experience" onclick="showSection('experience')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Experience</button>
@@ -64,6 +64,23 @@
                 <button id="nav-certifications" onclick="showSection('certifications')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Certifications</button>
                 <button id="nav-contact" onclick="showSection('contact')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Contact</button>
             </div>
+
+            <!-- Mobile Menu Button -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-900 focus:outline-none">
+                <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bg-white border-b border-slate-200 shadow-xl z-40 p-6 flex flex-col space-y-4 animate-in slide-in-from-top-4 duration-300">
+            <button onclick="showSection('home'); toggleMobileMenu();" class="text-left py-2 font-bold text-teal-600">Home</button>
+            <button onclick="showSection('about'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">About</button>
+            <button onclick="showSection('experience'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Experience</button>
+            <button onclick="showSection('projects'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Projects</button>
+            <button onclick="showSection('skills'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Skills</button>
+            <button onclick="showSection('education'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Education</button>
+            <button onclick="showSection('certifications'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Certifications</button>
+            <button onclick="showSection('contact'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Contact</button>
         </div>
     </nav>
 
@@ -180,10 +197,10 @@
                         <i class="fas fa-rocket text-teal-600"></i><span class="ml-2">My Mission</span>
                     </h3>
                     <p class="text-slate-700 leading-relaxed text-lg mb-4">
-                        My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction between a clinician and a patient is safe, accurate, and seamless.
+                        My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction is safe, accurate, and seamless.
                     </p>
                     <p class="text-slate-700 leading-relaxed">
-                        I specialize in building "Quality Centers of Excellence" that leverage **Agentic AI** and **Shift-Left** methodologies to catch risks before they reach the clinical environment, protecting both patient safety and organizational reputation.
+                        I specialize in **AI-Augmented QA**, leveraging Agentic AI and predictive defect analysis to catch risks before they reach clinical environments. My approach earns trust through transparency, compliance, and a "Patient-First" engineering culture.
                     </p>
                 </div>
                 <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
@@ -252,91 +269,88 @@
         <div id="skills-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 mb-12">Technical Expertise</h2>
             
-            <div class="grid md:grid-cols-2 gap-8 mb-8">
-                <div class="bg-white rounded-xl border border-slate-200 p-8">
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">Test Automation</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
+                        <i class="fas fa-vial text-teal-600 mr-2"></i> Functional Testing
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Selenium WebDriver</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Appium</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">TestNG</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Robot Framework</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Cypress</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Page Object Model</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Java</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Python</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">REST Assured</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">SoapUI</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">SQL</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Web Functional Testing</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Mobile Functional Testing</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">End-to-End Testing</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Regression Testing</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Exploratory Testing</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">SIT / UAT</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-8">
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">Healthcare &amp; Compliance</h3>
+                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
+                        <i class="fas fa-users-cog text-teal-600 mr-2"></i> QA Leadership
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">HIPAA</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">FDA Regulations</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">ISO Standards</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">EHR/EMR</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Telehealth</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">FHIR/HL7</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">ADA Compliance</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Connected Medical Devices</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Team Leadership</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Test Management</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Agile / Scrum</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Risk Management</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Mentorship</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Strategic Planning</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-8">
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">Tools &amp; Platforms</h3>
+                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
+                        <i class="fas fa-desktop text-teal-600 mr-2"></i> Test Automation
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">JIRA</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Confluence</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Postman</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">HP ALM</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">TestRail</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">qTest</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Perfecto</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Jenkins</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Bitbucket</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Docker</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Kubernetes</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Azure</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Selenium</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Appium</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">TestNG</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Robot Framework</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Rest Assured</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Java / Python</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-8">
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">AI &amp; Modern Tech</h3>
+                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
+                        <i class="fas fa-briefcase-medical text-teal-600 mr-2"></i> Healthcare &amp; Compliance
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Agentic AI Development</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">LLM Frameworks</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">ChatGPT / GPT-4</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Claude</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">MS Copilot</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Prompt Engineering</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">MLOps</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">AWS</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Flutter</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">HIPAA / FDA</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">ISO Standards</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">EHR / EMR</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Telehealth</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">FHIR / HL7</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-8 md:col-span-2">
-                    <h3 class="text-xl font-bold text-slate-900 mb-4">Core Strengths &amp; Leadership</h3>
+                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
+                        <i class="fas fa-tools text-teal-600 mr-2"></i> Tools
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Digital Healthcare Solutions</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">ADA Testing</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Strategic QA Leadership</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Shift-Left Testing</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Risk-Based Testing</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Cross-Functional Collaboration</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Agile / Scrum</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Team Mentorship</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Executive Reporting</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Regression Testing</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">SIT / UAT / E2E</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">API &amp; Web Services Testing</span>
-                        <span class="bg-teal-100 text-teal-700 px-4 py-2 rounded-full text-sm font-semibold">Database Testing</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">JIRA</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Postman</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Jenkins</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Bitbucket</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Docker</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
+                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
+                        <i class="fas fa-brain text-teal-600 mr-2"></i> AI &amp; Modern Tech
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Agentic AI</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">LLMs (GPT-4 / Claude)</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Prompt Engineering</span>
+                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">MLOps</span>
                     </div>
                 </div>
             </div>
-            <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white">
+            <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white mt-8">
                 <h3 class="text-2xl font-bold mb-4 flex items-center space-x-2">
                     <i class="fas fa-file-pdf"></i>
                     <span>Complete Portfolio Document</span>
@@ -445,61 +459,61 @@
                 <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900">Information Technology QA Analyst</h3>
+                            <h3 class="text-xl font-bold text-slate-900">Information Technology QA Lead</h3>
                             <p class="text-teal-600 font-semibold">Phynix Tech Services</p>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Feb 2025 – Present · Dallas-Fort Worth, TX</span>
+                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Feb 2025 – Present · Dallas, TX</span>
                     </div>
                     <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Designing and executing comprehensive test plans, test cases, and scenarios based on business and technical requirements.</li>
-                        <li>Performing manual testing for web and mobile applications; tracking defects in JIRA ensuring timely resolution.</li>
-                        <li>Conducting functional, regression, integration, system, and UAT testing within Agile/Scrum environments.</li>
+                        <li>Drive enterprise-wide QA transformation for digital health solutions, ensuring 100% compliance with HIPAA and FDA standards.</li>
+                        <li>Optimize automation workflows using Agentic AI, resulting in an estimated 500+ manual hours saved annually.</li>
+                        <li>Lead cross-functional teams to deliver zero-defect releases for high-stakes healthcare deployments.</li>
                     </ul>
                 </div>
 
                 <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900">Quality Assurance Test Lead</h3>
-                            <p class="text-teal-600 font-semibold">Accenture – Kaiser Permanente</p>
+                            <h3 class="text-xl font-bold text-slate-900">Global Healthcare QA Lead – Kaiser Permanente</h3>
+                            <p class="text-teal-600 font-semibold">Accenture</p>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Jan 2023 – Jan 2025 · Pleasanton, CA</span>
+                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Jan 2023 – Jan 2025 · Atlanta, GA</span>
                     </div>
                     <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100%.</li>
-                        <li>Cut "Get Care Now" wait times by 30% by integrating ChatGPT into QA workflows, saving 8+ hours/week in planning.</li>
-                        <li>Reduced manual testing effort by 60% and boosted QA efficiency by 30% using Appium, Selenium, and Perfecto. Earned Accenture's 3-Year Service Award.</li>
-                        <li>Kept defect leakage under 5% by optimizing JIRA, qTest, HP ALM and using ChatGPT/MS Copilot for test generation.</li>
+                        <li>Orchestrated global testing operations for 15+ high-priority mobile releases, serving 3.5M+ active members.</li>
+                        <li>Achieved 40% cost reduction in testing overhead by optimizing test data management and environment stability.</li>
+                        <li>Boosted iOS/Android accessibility compliance to 100%, securing ADA certification for patient-facing platforms.</li>
+                        <li>Scaled Robot Framework automation from 40% to 100% coverage, maintaining <5% defect leakage rate.</li>
                     </ul>
                 </div>
 
                 <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900">Sr. QA Automation Engineer</h3>
-                            <p class="text-teal-600 font-semibold">Accenture – Kaiser Permanente</p>
+                            <h3 class="text-xl font-bold text-slate-900">Sr. QA Automation Engineer – Kaiser Permanente</h3>
+                            <p class="text-teal-600 font-semibold">Accenture</p>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2020 – Dec 2022 · Pleasanton, CA</span>
+                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2020 – Dec 2022 · Atlanta, GA</span>
                     </div>
                     <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Reduced defect leakage below 5% and improved product quality from 50% to 90%, earning client recognition.</li>
-                        <li>Documented and managed 300+ test cases: functional, regression, integration, API, UI, smoke, and automated.</li>
-                        <li>Performed ADA accessibility compliance validation and cross-platform testing via physical devices, simulators, and Perfecto cloud.</li>
+                        <li>Designed Selenium/Appium frameworks that slashed manual regression testing effort by 60% and expedited CI/CD pipelines.</li>
+                        <li>Pioneered API automation for member services, achieving 95% data validation accuracy and preventing critical downstream errors.</li>
+                        <li>Managed defect lifecycle for 1,000+ issues in a TDD environment, ensuring sub-5% production defect rates.</li>
                     </ul>
                 </div>
 
                 <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
                     <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900">Software Development Engineer in Test</h3>
-                            <p class="text-teal-600 font-semibold">Infosys – Prime Therapeutics</p>
+                            <h3 class="text-xl font-bold text-slate-900">Pharmacy QA Excellence – Prime Therapeutics</h3>
+                            <p class="text-teal-600 font-semibold">Infosys</p>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2019 – Apr 2020 · Minneapolis, MN</span>
+                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2019 – Apr 2020 · Bloomington, MN</span>
                     </div>
                     <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Boosted testing efficiency by 40% by designing automation frameworks with Selenium, TestNG, and Hybrid POM.</li>
-                        <li>Validated complex pharmacy claims data by cross-referencing JSON/IBMi RX6 with SQL-driven analysis.</li>
-                        <li>Managed test artifacts and defect tracking via JIRA and Bitbucket across cross-functional Agile teams.</li>
+                        <li>Architected high-precision regression suites for pharmacy claims processing, achieving 40% efficiency gains in transaction validation.</li>
+                        <li>Collaborated with Product Owners to align PBM business logic with QA strategy, ensuring 100% financial data integrity.</li>
+                        <li>Enhanced Java/Selenium frameworks with complex SQL validation for pharmacy backend systems.</li>
                     </ul>
                 </div>
 
@@ -683,16 +697,27 @@
     </footer>
 
     <script>
-        function showSection(sectionName) {
+        function showSection(sectionId) {
+            // Hide all sections
             document.querySelectorAll('.section-content').forEach(s => s.style.display = 'none');
-            const sel = document.getElementById(sectionName + '-section');
-            if (sel) { sel.style.display = 'block'; window.scrollTo({ top: 0, behavior: 'smooth' }); }
-            document.querySelectorAll('.nav-btn').forEach(b => {
-                b.classList.remove('text-teal-600', 'font-bold');
-                b.classList.add('text-slate-700', 'font-medium');
+            
+            // Show selected section
+            const sel = document.getElementById(sectionId + '-section');
+            if (sel) { 
+                sel.style.display = 'block'; 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+            }
+
+            // Update Desktop Nav Links
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-teal-600', 'font-bold');
+                btn.classList.add('text-slate-700', 'font-medium');
             });
-            const active = document.getElementById('nav-' + sectionName);
-            if (active) { active.classList.add('text-teal-600', 'font-bold'); active.classList.remove('text-slate-700', 'font-medium'); }
+            const activeLink = document.getElementById('nav-' + sectionId);
+            if (activeLink) {
+                activeLink.classList.add('text-teal-600', 'font-bold');
+                activeLink.classList.remove('text-slate-700', 'font-medium');
+            }
         }
         
         function copyEmail() {
@@ -702,7 +727,25 @@
             setTimeout(() => { feedback.style.display = 'none'; }, 2000);
         }
         
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+                document.body.style.overflow = 'hidden'; 
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Initialize
         showSection('home');
+    </script>
     </script>
 </body>
 </html>
