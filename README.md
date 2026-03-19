@@ -380,16 +380,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v1.7.0 (8 sections, color-coded certifications, AI focus)
+- **HTML**: v1.8.0 (8 sections, Humanized Senior QA focus, 100% excellence sync)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v1.7.0 (Full parity with HTML and latest grouped logic)
+- **React**: v1.8.0 (Full parity with HTML and latest humanized narratives)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v1.7.0** (Certification Grouping).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v1.8.0** (Humanized Senior QA).
 
 ---
 

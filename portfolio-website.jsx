@@ -185,7 +185,7 @@ export default function PortfolioWebsite() {
                     My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction is safe, accurate, and seamless.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
-                    I specialize in <strong>AI-Augmented QA</strong>, leveraging Agentic AI and predictive defect analysis to catch risks before they reach clinical environments.
+                    I believe that <strong>"Quality is a Mindset"</strong>—not just a department. I specialize in <strong>AI-Augmented QA</strong>, leveraging Agentic AI to catch risks before they reach clinical environments. My approach focuses on building a <strong>culture of excellence</strong> where every engineer takes pride in the "human ROI" of their code.
                   </p>
                 </div>
 
@@ -193,11 +193,11 @@ export default function PortfolioWebsite() {
                   <h3 className="text-2xl font-bold text-teal-700 mb-6 flex items-center gap-2">
                     <MapPin size={24} className="text-emerald-500" /> The Journey
                   </h3>
-                  <p className="text-slate-700 leading-relaxed mb-4">
-                    Starting my career at Eternal Web in India and scaling to leadership roles at <strong>Accenture</strong> and <strong>Kaiser Permanente</strong> in the US, I've seen the evolution of QA from manual checklists to automated, AI-driven ecosystems.
+                  <p className="text-slate-700 leading-relaxed text-lg mb-4">
+                    From managing global testing operations at <strong>Accenture</strong> to architecting high-precision suites for <strong>Prime Therapeutics</strong>, I have bridged the gap between clinicians, data scientists, and engineers.
                   </p>
                   <p className="text-slate-700 leading-relaxed font-semibold text-teal-700">
-                    Today, I focus on the intersection of Healthcare Compliance (HIPAA/FDA) and cutting-edge Generative AI testing, mentoring the next generation of SDETs.
+                    Today, I lead QA transformations that balance HIPAA compliance with cutting-edge AI. My passion lies in <strong>mentoring the next generation of SDETs</strong> to advocate for the patient behind every line of code.
                   </p>
                 </div>
               </div>
@@ -242,10 +242,10 @@ export default function PortfolioWebsite() {
                   company: "Accenture",
                   date: "Jan 2023 – Jan 2025 · Atlanta, GA",
                   points: [
-                    "Orchestrated global testing operations for 15+ high-priority mobile releases, serving 3.5M+ active members.",
-                    "Achieved 40% cost reduction in testing overhead by optimizing test data management and environment stability.",
-                    "Boosted iOS/Android accessibility compliance to 100%, securing ADA certification for patient-facing platforms.",
-                    "Scaled Robot Framework automation from 40% to 100% coverage, maintaining <5% defect leakage rate."
+                    "Spearheaded global quality transformations for 15+ high-priority mobile releases, boosting product excellence from 40% to 100% for 3.5M+ active members.",
+                    "Achieved a 40% cost reduction in testing overhead by architecting robust test data management protocols and environment stability frameworks.",
+                    "Cultivated a \"Quality First\" culture, mentoring a global team of 20+ SDETs to ensure zero-defect production deployments.",
+                    "Boosted iOS/Android accessibility compliance to 100%, securing ADA certification for patient-facing healthcare platforms."
                   ]
                 },
                 {
@@ -253,9 +253,9 @@ export default function PortfolioWebsite() {
                   company: "Accenture",
                   date: "Oct 2020 – Dec 2022 · Atlanta, GA",
                   points: [
-                    "Designed Selenium/Appium frameworks that slashed manual regression testing effort by 60% and expedited CI/CD pipelines.",
-                    "Pioneered API automation for member services, achieving 95% data validation accuracy and preventing critical downstream errors.",
-                    "Managed defect lifecycle for 1,000+ issues in a TDD environment, ensuring sub-5% production defect rates."
+                    "Architected bespoke Selenium/Appium frameworks that slashed manual regression testing effort by 60% and expedited CI/CD delivery cycles.",
+                    "Pioneered API automation for member services, achieving 95% data validation accuracy and preventing critical downstream errors in clinical data flow.",
+                    "Managed the full defect lifecycle in a TDD environment, fostering a \"Fail Fast, Fix Faster\" mentality that kept production defect rates below 5%."
                   ]
                 },
                 {
@@ -263,9 +263,9 @@ export default function PortfolioWebsite() {
                   company: "Infosys",
                   date: "Oct 2019 – Apr 2020 · Bloomington, MN",
                   points: [
-                    "Architected high-precision regression suites for pharmacy claims processing, achieving 40% efficiency gains in transaction validation.",
-                    "Collaborated with Product Owners to align PBM business logic with QA strategy, ensuring 100% financial data integrity.",
-                    "Enhanced Java/Selenium frameworks with complex SQL validation for pharmacy backend systems."
+                    "Architected high-precision regression suites for pharmacy claims processing, achieving 40% efficiency gains and ensuring 100% precision for patient-critical data.",
+                    "Bridged the gap between clinicians, Product Owners, and engineers to align complex PBM business logic with a rigorous QA strategy.",
+                    "Enhanced Java/Selenium frameworks with complex SQL validation, ensuring financial and clinical data integrity for large-scale pharmacy backend systems."
                   ]
                 },
                 {
@@ -372,12 +372,12 @@ export default function PortfolioWebsite() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 { 
-                  cat: "Functional Testing", 
-                  skills: ["Web Functional Testing", "Mobile Functional Testing", "End-to-End Testing", "Regression Testing", "Exploratory Testing", "SIT / UAT"] 
+                  cat: "Functional Testing & Strategy", 
+                  skills: ["Web Functional Testing", "Mobile Functional Testing", "End-to-End Strategy", "Test Planning & Design", "User Centric Validation", "SIT / UAT Leadership"] 
                 },
                 { 
-                  cat: "QA Leadership", 
-                  skills: ["Team Leadership", "Test Management", "Agile / Scrum", "Risk Management", "Mentorship", "Strategic Planning"] 
+                  cat: "QA Leadership & Mentorship", 
+                  skills: ["Team Leadership (15+ SDETs)", "QA Best Practices", "Culture Building", "Risk Management", "Resource Planning", "Mentoring & Coaching"] 
                 },
                 { 
                   cat: "Test Automation", 
