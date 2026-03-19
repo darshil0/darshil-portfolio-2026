@@ -71,9 +71,22 @@ export default function PortfolioWebsite() {
                   </div>
                 </div>
                 
-                <p className="text-lg text-slate-700 leading-relaxed">
-                  I lead QA teams that do far more than find bugs — we prevent patient safety risks, drive measurable business impact, and enable safer, smarter healthcare innovation.
+                <p class="text-xl text-slate-700 leading-relaxed max-w-2xl">
+                  I lead high-impact QA programs for Fortune 500 healthcare organizations, combining AI-driven automation with deep regulatory expertise to ensure patient safety and business excellence.
                 </p>
+
+                {/* Core Focus Domains Snapshot */}
+                <div className="flex flex-wrap gap-3 pt-2">
+                  <span className="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                    <Heart size={14} className="text-emerald-500" /> Healthcare Tech
+                  </span>
+                  <span className="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                    <Rocket size={14} className="text-emerald-500" /> Agentic AI
+                  </span>
+                  <span className="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                    <ShieldCheck size={14} className="text-emerald-500" /> Cloud QA Ops
+                  </span>
+                </div>
 
                 <div className="grid grid-cols-3 gap-4 pt-4">
                   <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm">
@@ -166,33 +179,26 @@ export default function PortfolioWebsite() {
               <div className="lg:col-span-2 space-y-8">
                 <div className="bg-white rounded-2xl border border-teal-100 p-8 shadow-sm">
                   <h3 className="text-2xl font-bold text-teal-700 mb-6 flex items-center gap-2">
-                    <User size={24} /> Professional Summary
+                    <Rocket size={24} /> My Mission
                   </h3>
-                  <p className="text-slate-700 leading-relaxed text-lg mb-6">
-                    I lead QA teams that do far more than find bugs — we prevent patient safety risks, drive measurable business impact, and enable safer, smarter healthcare innovation. Passionate about advancing healthcare technology that improves outcomes while ensuring compliance, quality, and trust.
+                  <p className="text-slate-700 leading-relaxed text-lg mb-4">
+                    My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction between a clinician and a patient is safe, accurate, and seamless.
                   </p>
-                  <p className="text-slate-700 leading-relaxed italic">
-                    "Empathy, integrity, and transparent communication define my approach. At Accenture, I transformed QA delivery for Fortune 500 healthcare clients, earning awards for leadership and technical excellence — because in healthcare, there is a real patient behind every release."
+                  <p className="text-slate-700 leading-relaxed">
+                    I specialize in building "Quality Centers of Excellence" that leverage <strong>Agentic AI</strong> and <strong>Shift-Left</strong> methodologies to catch risks before they reach the clinical environment.
                   </p>
                 </div>
 
                 <div className="bg-white rounded-2xl border border-teal-100 p-8 shadow-sm">
                   <h3 className="text-2xl font-bold text-teal-700 mb-6 flex items-center gap-2">
-                    <Star size={24} className="text-emerald-500" /> Key Achievements
+                    <MapPin size={24} className="text-emerald-500" /> The Journey
                   </h3>
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {[
-                      { val: "40%", desc: "Reduction in patient care costs through shift-left, risk-based testing" },
-                      { val: "30%", desc: "Improvement in patient wait times by streamlining QA workflows" },
-                      { val: "15+", desc: "Global QA professionals led, coached, and mentored" },
-                      { val: "AI", desc: "Pioneered AI-powered testing using LLMs/GenAI for accuracy" }
-                    ].map((ach, i) => (
-                      <div key={i} className="flex items-start space-x-3 p-4 bg-teal-50/50 rounded-xl border border-teal-100/50">
-                        <div className="w-10 h-10 rounded-full bg-teal-600 text-white flex items-center justify-center font-black flex-shrink-0 text-xs shadow-sm">{ach.val}</div>
-                        <p className="text-slate-700 text-sm leading-tight">{ach.desc}</p>
-                      </div>
-                    ))}
-                  </div>
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    Starting my career at Eternal Web in India and scaling to leadership roles at <strong>Accenture</strong> and <strong>Kaiser Permanente</strong> in the US, I've seen the evolution of QA from manual checklists to automated, AI-driven ecosystems.
+                  </p>
+                  <p className="text-slate-700 leading-relaxed font-semibold text-teal-700">
+                    Today, I focus on the intersection of Healthcare Compliance (HIPAA/FDA) and cutting-edge Generative AI testing.
+                  </p>
                 </div>
               </div>
 
