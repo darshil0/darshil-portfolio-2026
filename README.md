@@ -45,6 +45,11 @@ Share `Darshil_Shah_QA_Engineering_Portfolio.pdf` directly via email or LinkedIn
 - PDF download link
 - Social media links
 
+✅ **Experience Section** *(New in v1.1.0)*
+- Full professional history: 7 roles across 14+ years
+- Phynix Tech Services, Accenture (Kaiser Permanente), Infosys (Prime Therapeutics), TCS (Sony Pictures), Freelance, Eternal Web
+- Dates, locations, and key impact bullets for each role
+
 ✅ **Projects Section**
 - 3 featured case studies:
   - Kaiser Permanente Mobile App QA Leadership
@@ -58,6 +63,16 @@ Share `Darshil_Shah_QA_Engineering_Portfolio.pdf` directly via email or LinkedIn
 - Tools & Platforms mastery
 - AI & Modern Technologies
 - Direct PDF download button
+
+✅ **Education Section** *(New in v1.1.0)*
+- MBA in IT · Sikkim Manipal University (2013–2015)
+- BE in IT · Sardar Patel University (2007–2011)
+- Languages: English, Hindi, Gujarati (Full Professional)
+- Honors: Accenture 3-Year Service Award
+
+✅ **Certifications Section** *(New in v1.1.0)*
+- 14 AI, Cloud & Agile credentials (2025–2026)
+- Anthropic, DeepLearning.AI, IBM, Google, Microsoft, AWS, PMI, Scrum Inc.
 
 ✅ **Contact Section**
 - Email (with copy-to-clipboard functionality)
@@ -261,7 +276,7 @@ Edit in `index.html`:
 - Phone number (search for "+1 (469) 987-6574")
 - Email (search for "darshils99@gmail.com")
 - Location (search for "Dallas-Fort Worth")
-- LinkedIn/GitHub URLs
+- LinkedIn/GitHub URLs (search for `darshil-qa-lead`)
 
 ### Updating Project Details:
 Edit in `index.html`:
@@ -375,10 +390,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: Latest (responsive, interactive)
-- **PDF**: Latest (print-friendly, portable)
-- **React**: Latest (for integration)
-- **Generated**: March 2026
+- **HTML**: v1.1.0 (7 sections, full LinkedIn content, bug fixes)
+- **PDF**: v1.0.0 (print-friendly, portable)
+- **React**: v1.1.0 (phone icon fix, LinkedIn URL fix)
+- **Updated**: March 2026
+
+---
+
+## 📋 Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes.
 
 ---
 

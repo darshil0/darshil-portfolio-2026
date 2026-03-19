@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Github, Linkedin, Mail, MapPin, FileText, Award, Briefcase, Code2, Heart } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, MapPin, FileText, Award, Briefcase, Code2, Heart, Phone } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [activeSection, setActiveSection] = useState('home');
@@ -74,7 +74,7 @@ export default function PortfolioWebsite() {
               </div>
 
               <div className="flex items-center space-x-6 pt-6">
-                <a href="https://linkedin.com/in/darshil-qalead" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-blue-600 transition">
+                <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-blue-600 transition">
                   <Linkedin size={24} />
                 </a>
                 <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="text-slate-700 hover:text-blue-600 transition">
@@ -236,7 +236,7 @@ export default function PortfolioWebsite() {
 
                   <div className="flex items-start space-x-4">
                     <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
-                      <FileText className="text-blue-600" size={24} />
+                      <Phone className="text-blue-600" size={24} />
                     </div>
                     <div>
                       <p className="text-sm text-slate-600 mb-1">Phone</p>
@@ -258,7 +258,7 @@ export default function PortfolioWebsite() {
                 <div className="mt-8 pt-8 border-t border-slate-200">
                   <p className="text-slate-600 mb-4">Follow me online:</p>
                   <div className="flex items-center space-x-4">
-                    <a href="https://linkedin.com/in/darshil-qalead" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                    <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
                       <Linkedin size={24} />
                     </a>
                     <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
