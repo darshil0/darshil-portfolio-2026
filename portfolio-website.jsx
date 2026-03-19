@@ -504,30 +504,59 @@ export default function PortfolioWebsite() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid lg:grid-cols-3 gap-8">
               {[
-                { title: "Agent Skills with Anthropic", body: "Anthropic · March 2026", icon: <Rocket size={20} /> },
-                { title: "Claude Code in Action", body: "DeepLearning.AI · March 2026", icon: <Code2 size={20} /> },
-                { title: "Introduction to MCP", body: "Anthropic · October 2025", icon: <Zap size={20} /> },
-                { title: "AI Fluency Framework", body: "Anthropic · August 2025", icon: <ShieldCheck size={20} /> },
-                { title: "AI Agent Architect", body: "IBM · July 2025", icon: <Search size={20} /> },
-                { title: "Prompt Engineering", body: "Coursera · July 2025", icon: <Star size={20} /> },
-                { title: "Registered Scrum Basics™", body: "Scrum Inc. · August 2025", icon: <CheckCircle size={20} /> },
-                { title: "MLOps for Generative AI", body: "Google · June 2025", icon: <Globe size={20} /> },
-                { title: "Generative AI in Action", body: "IBM · June 2025", icon: <Star size={20} /> },
-                { title: "Microsoft Copilot Foundations", body: "Microsoft · June 2025", icon: <BookOpen size={20} /> },
-                { title: "AWS Cloud Practitioner", body: "AWS · May 2025", icon: <CloudIcon /> },
-                { title: "GenAI for Project Managers", body: "PMI · March 2025", icon: <Briefcase size={20} /> },
-                { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Tools size={20} /> },
-                { title: "Intro to Generative AI", body: "Google · 2025", icon: <Rocket size={20} /> },
-                { title: "The Treasure Hunt for AI Skills", body: "LinkedIn Learning", icon: <Search size={20} /> },
-                { title: "Build with Andrew", body: "AI Workshop Series", icon: <Tools size={20} /> }
-              ].map((cert, i) => (
-                <div key={i} className="bg-white rounded-2xl border border-teal-50 p-6 flex items-center space-x-4 shadow-sm hover:shadow-md hover:border-teal-300 transition group">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center flex-shrink-0 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300 shadow-sm">{cert.icon}</div>
-                  <div>
-                    <h4 className="font-black text-slate-800 text-sm leading-tight mb-1">{cert.title}</h4>
-                    <p className="text-[10px] text-slate-400 font-black uppercase tracking-wider">{cert.body}</p>
+                {
+                  cat: "AI & Intelligent Agents",
+                  icon: <Brain size={24} className="text-indigo-600" />,
+                  color: "indigo",
+                  certs: [
+                    { title: "Agent Skills with Anthropic", body: "March 2026", icon: <Rocket size={20} /> },
+                    { title: "Claude Code in Action", body: "DeepLearning.AI · 2026", icon: <Code2 size={20} /> },
+                    { title: "Introduction to MCP", body: "Anthropic · 2025", icon: <Zap size={20} /> },
+                    { title: "AI Agent Architect", body: "IBM · 2025", icon: <Search size={20} /> },
+                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> },
+                    { title: "Intro to Generative AI", body: "Google · 2025", icon: <Rocket size={20} /> },
+                    { title: "Generative AI in Action", body: "IBM · 2025", icon: <Star size={20} /> }
+                  ]
+                },
+                {
+                  cat: "Cloud & Modern Tech",
+                  icon: <Cloud size={24} className="text-sky-600" />,
+                  color: "sky",
+                  certs: [
+                    { title: "AWS Cloud Practitioner", body: "AWS · 2025", icon: <CloudIcon /> },
+                    { title: "Copilot Foundations", body: "Microsoft · 2025", icon: <BookOpen size={20} /> },
+                    { title: "MLOps for Generative AI", body: "Google · 2025", icon: <Globe size={20} /> },
+                    { title: "Prompt Engineering", body: "Coursera · 2025", icon: <Star size={20} /> },
+                    { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Tools size={20} /> }
+                  ]
+                },
+                {
+                  cat: "Agile & Leadership",
+                  icon: <Users size={24} className="text-emerald-600" />,
+                  color: "emerald",
+                  certs: [
+                    { title: "Registered Scrum Basics™", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
+                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> },
+                    { title: "The Treasure Hunt for AI Skills", body: "LinkedIn Learning", icon: <Search size={20} /> }
+                  ]
+                }
+              ].map((group, i) => (
+                <div key={i} className="space-y-6">
+                  <h3 className={`text-xl font-black text-${group.color}-900 flex items-center gap-3 mb-6`}>
+                    {group.icon} {group.cat}
+                  </h3>
+                  <div className="space-y-4">
+                    {group.certs.map((cert, j) => (
+                      <div key={j} className={`bg-white rounded-2xl border border-${group.color}-100 p-5 flex items-center space-x-4 shadow-sm hover:shadow-md transition group`}>
+                        <div className={`w-10 h-10 rounded-xl bg-${group.color}-50 text-${group.color}-600 flex items-center justify-center flex-shrink-0 group-hover:bg-${group.color}-600 group-hover:text-white transition-colors duration-300 shadow-sm`}>{cert.icon}</div>
+                        <div>
+                          <h4 className="font-black text-slate-800 text-xs leading-tight mb-1">{cert.title}</h4>
+                          <p className="text-[9px] text-slate-400 font-black uppercase tracking-wider">{cert.body}</p>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ))}

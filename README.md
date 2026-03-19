@@ -380,16 +380,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v1.6.0 (8 sections, 40% cost savings sync, mobile nav fix)
+- **HTML**: v1.7.0 (8 sections, color-coded certifications, AI focus)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v1.6.0 (Full parity with HTML and latest metrics)
+- **React**: v1.7.0 (Full parity with HTML and latest grouped logic)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v1.6.0** (Professional Polish).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v1.7.0** (Certification Grouping).
 
 ---
 

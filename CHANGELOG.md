@@ -51,6 +51,7 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ### Changed
 
+- **v1.7.0**: Certification Grouping & Color-Coding (AI, Cloud, Agile pillars).
 - **v1.6.0**: Final LinkedIn sync (40% cost savings, 500+ hours saved), Functional Testing pillar, and mobile navigation responsive fix.
 - **v1.5.0**: Content refinement and redundancy removal.
 - **v1.4.0**: Multi-theme integration (White, Green, Turquoise "Wellness Pro").
