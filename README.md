@@ -65,8 +65,8 @@ Share `Darshil_Shah_QA_Engineering_Portfolio.pdf` directly via email or LinkedIn
 - Direct PDF download button
 
 ✅ **Education Section** *(New in v1.1.0)*
-- MBA in IT · Sikkim Manipal University (2013–2015)
-- BE in IT · Sardar Patel University (2007–2011)
+- MBA in IT · Sikkim Manipal University (2013-2015)
+- BE in IT · Sardar Patel University (2007-2011)
 - Languages: English, Hindi, Gujarati (Full Professional)
 - Honors: Accenture 3-Year Service Award
 

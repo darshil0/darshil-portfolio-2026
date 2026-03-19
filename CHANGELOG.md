@@ -8,22 +8,22 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ### Added
 
-- **Experience section** — Full professional history across all 7 roles:
-  - Phynix Tech Services · QA Analyst (Feb 2025 – Present)
-  - Accenture · QA Test Lead (Jan 2023 – Jan 2025)
-  - Accenture · Sr. QA Automation Engineer (Oct 2020 – Dec 2022)
-  - Infosys · SDET at Prime Therapeutics (Oct 2019 – Apr 2020)
-  - TCS · Platform Automation Engineer at Sony Pictures (May 2019 – Jul 2019)
-  - Freelance · QA Automation Engineer (May 2017 – Mar 2019)
-  - Eternal Web Pvt. Ltd. · QA Engineer (Dec 2011 – Mar 2017)
+- **Experience section**: Full professional history across all 7 roles:
+  - Phynix Tech Services · QA Analyst (Feb 2025 - Present)
+  - Accenture · QA Test Lead (Jan 2023 - Jan 2025)
+  - Accenture · Sr. QA Automation Engineer (Oct 2020 - Dec 2022)
+  - Infosys · SDET at Prime Therapeutics (Oct 2019 - Apr 2020)
+  - TCS · Platform Automation Engineer at Sony Pictures (May 2019 - Jul 2019)
+  - Freelance · QA Automation Engineer (May 2017 - Mar 2019)
+  - Eternal Web Pvt. Ltd. · QA Engineer (Dec 2011 - Mar 2017)
 
-- **Education section** — Academic credentials:
-  - MBA in Information Technology · Sikkim Manipal University (2013–2015)
-  - BE in Information Technology · Sardar Patel University (2007–2011)
+- **Education section**: Academic credentials:
+  - MBA in Information Technology · Sikkim Manipal University (2013-2015)
+  - BE in Information Technology · Sardar Patel University (2007-2011)
   - Languages: English, Hindi, Gujarati (all Full Professional)
   - Honors: Accenture 3-Year Service Award & Recognition
 
-- **Certifications section** — 14 AI, Cloud & Agile credentials (2025–2026):
+- **Certifications section**: 14 AI, Cloud & Agile credentials (2025-2026):
   - Agent Skills with Anthropic (Anthropic, Mar 2026)
   - Claude Code in Action (DeepLearning.AI, Mar 2026)
   - Introduction to MCP (Anthropic, Oct 2025)

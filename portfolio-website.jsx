@@ -182,10 +182,10 @@ export default function PortfolioWebsite() {
                     <Rocket size={24} /> My Mission
                   </h3>
                   <p className="text-slate-700 leading-relaxed text-lg mb-4">
-                    My mission is to transform Quality Assurance from a bottleneck into a strategic business enabler. In healthcare, this means more than just software reliability—it's about ensuring that every digital interaction is safe, accurate, and seamless.
+                    My goal is to transition Quality Assurance from a procedural step into a strategic asset. In healthcare, this shifts the focus from simple software reliability to ensuring every digital interaction is safe, accurate, and seamless.
                   </p>
                   <p className="text-slate-700 leading-relaxed">
-                    I believe that <strong>"Quality is a Mindset"</strong>—not just a department. I specialize in <strong>AI-Augmented QA</strong>, leveraging Agentic AI to catch risks before they reach clinical environments. My approach focuses on building a <strong>culture of excellence</strong> where every engineer takes pride in the "human ROI" of their code.
+                    I believe quality is a personal responsibility across the entire team. I specialize in AI-Augmented QA, using Agentic AI to identify risks before they reach clinical settings. I focus on building a culture where technical excellence directly supports the patient experience.
                   </p>
                 </div>
 
@@ -194,10 +194,10 @@ export default function PortfolioWebsite() {
                     <MapPin size={24} className="text-emerald-500" /> The Journey
                   </h3>
                   <p className="text-slate-700 leading-relaxed text-lg mb-4">
-                    From managing global testing operations at <strong>Accenture</strong> to architecting high-precision suites for <strong>Prime Therapeutics</strong>, I have bridged the gap between clinicians, data scientists, and engineers.
+                    I have managed global testing operations at <strong>Accenture</strong> and developed high-precision automation at <strong>Prime Therapeutics</strong>, working closely with clinicians, data scientists, and engineering teams.
                   </p>
                   <p className="text-slate-700 leading-relaxed font-semibold text-teal-700">
-                    Today, I lead QA transformations that balance HIPAA compliance with cutting-edge AI. My passion lies in <strong>mentoring the next generation of SDETs</strong> to advocate for the patient behind every line of code.
+                    Today, I lead QA transformations that integrate HIPAA compliance with advanced AI. I am dedicated to mentoring engineers to advocate for the patients who rely on the software we build.
                   </p>
                 </div>
               </div>
@@ -230,7 +230,7 @@ export default function PortfolioWebsite() {
                 {
                   role: "Information Technology QA Lead",
                   company: "Phynix Tech Services",
-                  date: "Feb 2025 – Present · Dallas, TX",
+                  date: "Feb 2025 - Present · Dallas, TX",
                   points: [
                     "Drive enterprise-wide QA transformation for digital health solutions, ensuring 100% compliance with HIPAA and FDA standards.",
                     "Optimize automation workflows using Agentic AI, resulting in an estimated 500+ manual hours saved annually.",
@@ -238,9 +238,9 @@ export default function PortfolioWebsite() {
                   ]
                 },
                 {
-                  role: "Global Healthcare QA Lead – Kaiser Permanente",
+                  role: "Global Healthcare QA Lead - Kaiser Permanente",
                   company: "Accenture",
-                  date: "Jan 2023 – Jan 2025 · Atlanta, GA",
+                  date: "Jan 2023 - Jan 2025 · Atlanta, GA",
                   points: [
                     "Spearheaded global quality transformations for 15+ high-priority mobile releases, boosting product excellence from 40% to 100% for 3.5M+ active members.",
                     "Achieved a 40% cost reduction in testing overhead by architecting robust test data management protocols and environment stability frameworks.",
@@ -249,9 +249,9 @@ export default function PortfolioWebsite() {
                   ]
                 },
                 {
-                  role: "Sr. QA Automation Engineer – Kaiser Permanente",
+                  role: "Sr. QA Automation Engineer - Kaiser Permanente",
                   company: "Accenture",
-                  date: "Oct 2020 – Dec 2022 · Atlanta, GA",
+                  date: "Oct 2020 - Dec 2022 · Atlanta, GA",
                   points: [
                     "Architected bespoke Selenium/Appium frameworks that slashed manual regression testing effort by 60% and expedited CI/CD delivery cycles.",
                     "Pioneered API automation for member services, achieving 95% data validation accuracy and preventing critical downstream errors in clinical data flow.",
@@ -259,9 +259,9 @@ export default function PortfolioWebsite() {
                   ]
                 },
                 {
-                  role: "Pharmacy QA Excellence – Prime Therapeutics",
+                  role: "Pharmacy QA Excellence - Prime Therapeutics",
                   company: "Infosys",
-                  date: "Oct 2019 – Apr 2020 · Bloomington, MN",
+                  date: "Oct 2019 - Apr 2020 · Bloomington, MN",
                   points: [
                     "Architected high-precision regression suites for pharmacy claims processing, achieving 40% efficiency gains and ensuring 100% precision for patient-critical data.",
                     "Bridged the gap between clinicians, Product Owners, and engineers to align complex PBM business logic with a rigorous QA strategy.",
@@ -269,9 +269,9 @@ export default function PortfolioWebsite() {
                   ]
                 },
                 {
-                   role: "Platform Automation Engineer – Sony Pictures Entertainment",
+                   role: "Platform Automation Engineer - Sony Pictures Entertainment",
                    company: "Tata Consultancy Services (TCS)",
-                   date: "May 2019 – Jul 2019 · Culver City, CA",
+                   date: "May 2019 - Jul 2019 · Culver City, CA",
                    points: [
                      "Automated 50+ test cases using Robot Framework (Python) for Sony's global web platform.",
                      "Streamlined ServiceNow instance management using automated incident/demand modules."
@@ -280,7 +280,7 @@ export default function PortfolioWebsite() {
                 {
                    role: "QA Automation Engineer (Freelance)",
                    company: "Independent Contractor",
-                   date: "May 2017 – Mar 2019 · Irving, TX",
+                   date: "May 2017 - Mar 2019 · Irving, TX",
                    points: [
                      "Delivered custom automation suites for diverse clients using Selenium, TestNG, and Java.",
                      "Configured CI/CD pipelines with Jenkins and managed distributed test grids."
@@ -289,7 +289,7 @@ export default function PortfolioWebsite() {
                 {
                    role: "QA Engineer (AWS Cloud & Odoo ERP)",
                    company: "Eternal Web Pvt. Ltd.",
-                   date: "Dec 2011 – Mar 2017 · Ahmedabad, India",
+                   date: "Dec 2011 - Mar 2017 · Ahmedabad, India",
                    points: [
                      "Full-cycle QA for ERP solutions, covering functional, smoke, and regression testing.",
                      "Specialized in Odoo platform testing and AWS-hosted web application validation."
