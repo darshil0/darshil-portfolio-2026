@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshil Shah - QA Engineering Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .smooth-transition {
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.2);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200/50">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                    <span class="text-white font-bold text-sm">DS</span>
+                </div>
+                <span class="font-bold text-lg text-slate-900">Darshil Shah</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <button onclick="showSection('home')" class="text-slate-700 hover:text-blue-600 smooth-transition font-medium">Home</button>
+                <button onclick="showSection('projects')" class="text-slate-700 hover:text-blue-600 smooth-transition font-medium">Projects</button>
+                <button onclick="showSection('skills')" class="text-slate-700 hover:text-blue-600 smooth-transition font-medium">Skills</button>
+                <button onclick="showSection('contact')" class="text-slate-700 hover:text-blue-600 smooth-transition font-medium">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <div id="content">
+        <!-- Home Section -->
+        <div id="home-section" class="section-content max-w-6xl mx-auto px-6 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 fade-in">
+                    <div class="space-y-2">
+                        <h1 class="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+                            Global Healthcare<br />QA Leader
+                        </h1>
+                        <p class="text-xl text-blue-600 font-semibold">AI-Driven Testing & Automation Engineer</p>
+                    </div>
+                    
+                    <p class="text-lg text-slate-700 leading-relaxed">
+                        12+ years of proven expertise in building world-class quality assurance programs for Fortune 500 healthcare organizations. I combine technical excellence with data-driven leadership to deliver measurable business impact.
+                    </p>
+
+                    <div class="grid grid-cols-3 gap-4 pt-4">
+                        <div class="bg-white rounded-lg p-4 border border-slate-200">
+                            <div class="text-3xl font-bold text-blue-600">40%</div>
+                            <div class="text-sm text-slate-600">Cost Reduction</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border border-slate-200">
+                            <div class="text-3xl font-bold text-blue-600">30%</div>
+                            <div class="text-sm text-slate-600">Wait Time Improvement</div>
+                        </div>
+                        <div class="bg-white rounded-lg p-4 border border-slate-200">
+                            <div class="text-3xl font-bold text-blue-600">15+</div>
+                            <div class="text-sm text-slate-600">Teams Led</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                        <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download class="flex items-center justify-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold smooth-transition transform hover:scale-105">
+                            <i class="fas fa-download"></i>
+                            <span>Download Portfolio PDF</span>
+                        </a>
+                        <button onclick="showSection('contact')" class="flex items-center justify-center space-x-2 border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold smooth-transition">
+                            <i class="fas fa-envelope"></i>
+                            <span>Get In Touch</span>
+                        </button>
+                    </div>
+
+                    <div class="flex items-center space-x-6 pt-6">
+                        <a href="https://linkedin.com/in/darshil-qalead" target="_blank" class="text-slate-700 hover:text-blue-600 smooth-transition">
+                            <i class="fab fa-linkedin text-2xl"></i>
+                        </a>
+                        <a href="https://github.com/darshil0" target="_blank" class="text-slate-700 hover:text-blue-600 smooth-transition">
+                            <i class="fab fa-github text-2xl"></i>
+                        </a>
+                        <button onclick="copyEmail()" class="text-slate-700 hover:text-blue-600 smooth-transition flex items-center space-x-2">
+                            <i class="fas fa-envelope text-2xl"></i>
+                            <span id="copy-feedback" class="text-sm text-green-600" style="display:none;">Copied!</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative hidden md:block">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-400 rounded-2xl blur-3xl opacity-20"></div>
+                    <div class="relative bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-1">
+                        <div class="bg-white rounded-2xl p-8 space-y-4">
+                            <div class="space-y-3">
+                                <div class="h-3 bg-blue-200 rounded-full w-32"></div>
+                                <div class="h-3 bg-blue-100 rounded-full w-48"></div>
+                                <div class="h-3 bg-blue-100 rounded-full w-40"></div>
+                            </div>
+                            <div class="pt-6 space-y-4">
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fas fa-code text-blue-600 text-lg"></i>
+                                    <span>Test Automation Frameworks</span>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fas fa-award text-blue-600 text-lg"></i>
+                                    <span>Healthcare QA Leadership</span>
+                                </div>
+                                <div class="flex items-center space-x-3 text-slate-700">
+                                    <i class="fas fa-briefcase text-blue-600 text-lg"></i>
+                                    <span>AI-Driven Testing</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Projects Section -->
+        <div id="projects-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+            <h2 class="text-4xl font-bold text-slate-900 mb-12">Featured Projects</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="group bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition border-blue-300">
+                    <div class="text-5xl mb-4">🏥</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Kaiser Permanente Mobile App</h3>
+                    <p class="text-sm text-blue-600 font-semibold mb-3">Accenture | Oct 2020 - Jan 2025</p>
+                    <p class="text-slate-700 mb-4">Led QA for 15+ mobile releases, scaled test coverage 40%→100%, improved patient wait times by 30%, reduced manual testing 60%</p>
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-sm font-semibold text-blue-600">40% cost reduction | 100% coverage | 15+ defect-free</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition border-blue-300">
+                    <div class="text-5xl mb-4">💊</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Prime Therapeutics Claims</h3>
+                    <p class="text-sm text-blue-600 font-semibold mb-3">Infosys | Oct 2019 - Apr 2020</p>
+                    <p class="text-slate-700 mb-4">Designed Selenium/TestNG automation frameworks for pharmacy claims validation across complex backend systems</p>
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-sm font-semibold text-blue-600">40% efficiency boost | Enhanced regression | SQL validation</p>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition border-blue-300">
+                    <div class="text-5xl mb-4">🎬</div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-2">Sony Pictures Platform</h3>
+                    <p class="text-sm text-blue-600 font-semibold mb-3">TCS | May 2019 - Jul 2019</p>
+                    <p class="text-slate-700 mb-4">Automated 50+ test cases using Robot Framework, validated ServiceNow modules for Demand & Incident management</p>
+                    <div class="pt-4 border-t border-slate-200">
+                        <p class="text-sm font-semibold text-blue-600">Streamlined automation | Operational efficiency | Python</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section -->
+        <div id="skills-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+            <h2 class="text-4xl font-bold text-slate-900 mb-12">Technical Expertise</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div class="bg-white rounded-xl border border-slate-200 p-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Test Automation</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Selenium WebDriver</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Appium</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">TestNG</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Robot Framework</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Cypress</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">POM</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Healthcare & Compliance</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">HIPAA</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">FDA Regulations</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">EHR/EMR</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Telehealth</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">FHIR/HL7</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">ADA</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Tools & Platforms</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">JIRA</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Postman</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">HP ALM</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">TestRail</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Jenkins</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Docker</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Kubernetes</span>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-xl border border-slate-200 p-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">AI & Modern Tech</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">ChatGPT API</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Claude</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Prompt Engineering</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">MLOps</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">Flutter</span>
+                        <span class="bg-blue-100 text-blue-700 px-4 py-2 rounded-full text-sm font-semibold">AWS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl p-8 text-white">
+                <h3 class="text-2xl font-bold mb-4 flex items-center space-x-2">
+                    <i class="fas fa-file-pdf"></i>
+                    <span>Complete Portfolio Document</span>
+                </h3>
+                <p class="mb-6 text-blue-100">Download my comprehensive 6-page QA Engineering portfolio with detailed project case studies, technical stack, healthcare expertise, and AI/ML capabilities.</p>
+                <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download class="inline-flex items-center space-x-2 bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold smooth-transition transform hover:scale-105">
+                    <i class="fas fa-download"></i>
+                    <span>Download Portfolio PDF</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+            <h2 class="text-4xl font-bold text-slate-900 mb-12">Let's Connect</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white rounded-xl border border-slate-200 p-8">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-600 mb-1">Email</p>
+                                    <button onclick="copyEmail()" class="text-lg font-semibold text-slate-900 hover:text-blue-600 smooth-transition">
+                                        darshils99@gmail.com
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-phone text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-600 mb-1">Phone</p>
+                                    <p class="text-lg font-semibold text-slate-900">+1 (469) 987-6574</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-map-marker-alt text-blue-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-600 mb-1">Location</p>
+                                    <p class="text-lg font-semibold text-slate-900">Dallas-Fort Worth, Texas</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8 pt-8 border-t border-slate-200">
+                            <p class="text-slate-600 mb-4">Follow me online:</p>
+                            <div class="flex items-center space-x-4">
+                                <a href="https://linkedin.com/in/darshil-qalead" target="_blank" class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center hover:bg-blue-600 hover:text-white smooth-transition">
+                                    <i class="fab fa-linkedin text-lg"></i>
+                                </a>
+                                <a href="https://github.com/darshil0" target="_blank" class="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center hover:bg-blue-600 hover:text-white smooth-transition">
+                                    <i class="fab fa-github text-lg"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl p-8 text-white space-y-6">
+                    <h3 class="text-2xl font-bold">Download My Portfolio</h3>
+                    <p class="text-blue-100 leading-relaxed">
+                        Get a comprehensive overview of my QA engineering expertise, featured projects, technical stack, and healthcare domain knowledge.
+                    </p>
+                    <ul class="space-y-3 text-blue-100">
+                        <li class="flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span>6-page professional document</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span>Detailed project case studies</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span>Technical expertise & certifications</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <span class="w-2 h-2 bg-white rounded-full"></span>
+                            <span>Healthcare & AI/ML specialization</span>
+                        </li>
+                    </ul>
+                    <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download class="inline-flex items-center justify-center w-full space-x-2 bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-bold smooth-transition transform hover:scale-105 mt-6">
+                        <i class="fas fa-download"></i>
+                        <span>Download Portfolio PDF</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white mt-20">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">DS</span>
+                    </div>
+                    <span class="font-bold text-slate-900">Darshil Shah</span>
+                </div>
+                <p class="text-slate-600">Global Healthcare QA Leader | AI-Driven Testing Engineer</p>
+                <p class="text-sm text-slate-500 mt-4 md:mt-0">© 2026. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionName) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section-content');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            // Show selected section
+            const selectedSection = document.getElementById(sectionName + '-section');
+            if (selectedSection) {
+                selectedSection.style.display = 'block';
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+        
+        function copyEmail() {
+            navigator.clipboard.writeText('darshils99@gmail.com');
+            const feedback = document.getElementById('copy-feedback');
+            feedback.style.display = 'inline';
+            setTimeout(() => {
+                feedback.style.display = 'none';
+            }, 2000);
+        }
+        
+        // Show home section by default
+        showSection('home');
+    </script>
+</body>
+</html>
