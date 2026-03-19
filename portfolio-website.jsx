@@ -3,7 +3,7 @@ import {
   Download, Github, Linkedin, Mail, MapPin, FileText, 
   Award, Briefcase, Code2, Heart, Phone, GraduationCap, 
   Globe, Bookmark, CheckCircle, Search, Tools, Rocket, 
-  ShieldCheck, Zap, Star, User, BookOpen
+  ShieldCheck, Zap, Star, User, BookOpen, Brain, Cloud, Users
 } from 'lucide-react';
 
 export default function PortfolioWebsite() {
@@ -506,7 +506,7 @@ export default function PortfolioWebsite() {
                 <p className="text-slate-500 font-medium">Professional growth & technical specialization (2025–2026)</p>
               </div>
               <div className="flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full border border-emerald-200 text-xs font-black uppercase tracking-widest shadow-sm">
-                <Bookmark size={14} /> 16 Active Credentials
+                <Bookmark size={14} /> 15 Active Credentials
               </div>
             </div>
 
@@ -653,7 +653,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2026.3.17. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>

@@ -4,6 +4,16 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2.0.1] - 2026-03-20
+
+### Synchronized
+- **Certifications**: Unified certification lists between `index.html` and `portfolio-website.jsx`, ensuring both reflect 15 credentials with consistent naming and categorization.
+
+### Improved
+- **SEO & Social Media**: Added Open Graph meta tags and search descriptions to `index.html`.
+- **Code Quality**: Fixed missing `lucide-react` imports and redundant script tags.
+- **Versioning**: Updated version strings in footers to align with repository metadata.
+
 ## [2.0.0] - 2026-03-19
 
 ### Changed
