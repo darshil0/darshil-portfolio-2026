@@ -95,78 +95,34 @@
             animation: fadeIn 0.6s ease forwards;
         }
 
-        /* Dark mode overrides for custom gradients and elements */
-        .dark body {
-            background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+        /* Dark Mode */
+        body.dark {
+            background: #0f172a;
             color: #f8fafc;
         }
+
         .dark .bg-white {
-            background-color: #1e293b !important;
+            background-color: #1e293b;
             color: #f8fafc;
         }
-        .dark .text-slate-900, .dark .text-slate-700, .dark .text-slate-800 {
-            color: #f1f5f9 !important;
-        }
-        .dark .text-slate-500, .dark .text-slate-600 {
-            color: #cbd5e1 !important;
-        }
-        .dark .border-slate-200, .dark .border-slate-100 {
-            border-color: #334155 !important;
-        }
-        nav {
-            background-color: var(--navbar-bg);
-        }
-        .dark nav {
-            border-color: #334155 !important;
-        }
-        .dark .nav-btn {
-            color: var(--text-dim) !important;
-        }
-        .dark .nav-btn:hover {
-            color: #2dd4bf !important;
-        }
-        .dark .nav-btn.text-teal-600 {
-            color: #2dd4bf !important;
-        }
-        .dark #mobile-menu {
-            background-color: #1e293b !important;
-        }
 
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: transparent;
-            z-index: 100;
-        }
-        #scroll-progress::-webkit-progress-bar {
-            background: transparent;
-        }
-        #scroll-progress::-webkit-progress-value {
-            background: linear-gradient(to right, #0d9488, #2dd4bf);
-        }
-        #scroll-progress::-moz-progress-bar {
-            background: linear-gradient(to right, #0d9488, #2dd4bf);
-        }
-
-        /* Accessibility Focus States */
-        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
-            outline: 2px solid #0d9488;
-            outline-offset: 2px;
-        }
-        .dark button:focus-visible, .dark a:focus-visible, .dark input:focus-visible, .dark textarea:focus-visible {
-            outline: 2px solid #2dd4bf;
-        }
-
-        /* iOS Safari Scroll Lock Fix */
-        body.lock-scroll {
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
+        .dark .text-slate-900 { color: #f8fafc; }
+        .dark .text-slate-700 { color: #cbd5e1; }
+        .dark .text-slate-600 { color: #94a3b8; }
+        .dark .text-slate-500 { color: #64748b; }
+        .dark .border-slate-200 { border-color: #334155; }
+        .dark .bg-emerald-50 { background-color: #064e3b; }
+        .dark .bg-teal-50 { background-color: #134e4a; }
+        .dark .bg-cyan-50 { background-color: #164e63; }
+        .dark nav { background-color: rgba(30, 41, 59, 0.9); border-color: #334155; }
+        .dark .nav-btn:not(.text-teal-600) { color: #cbd5e1; }
+        .dark footer { background-color: #1e293b; border-color: #334155; }
+        .dark .bg-indigo-50 { background-color: #312e81; }
+        .dark .bg-sky-50 { background-color: #0c4a6e; }
+        .dark .border-teal-100 { border-color: #134e4a; }
+        .dark .border-indigo-100 { border-color: #312e81; }
+        .dark .border-sky-100 { border-color: #0c4a6e; }
+        .dark .border-emerald-100 { border-color: #064e3b; }
     </style>
 </head>
 <body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 smooth-transition">
@@ -182,6 +138,9 @@
                 <span class="font-bold text-lg text-slate-900 dark:text-slate-100">Darshil Shah</span>
             </div>
             <div class="hidden lg:flex items-center space-x-6">
+                <button onclick="toggleTheme()" class="theme-toggle p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 smooth-transition mr-4">
+                    <i id="theme-icon" class="fas fa-moon text-slate-600"></i>
+                </button>
                 <button id="nav-home" onclick="showSection('home')" class="nav-btn text-teal-600 font-bold smooth-transition">Home</button>
                 <button id="nav-about" onclick="showSection('about')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">About</button>
                 <button id="nav-experience" onclick="showSection('experience')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Experience</button>
@@ -218,7 +177,9 @@
         </div>
     </nav>
 
+    <progress id="scroll-progress" value="0" max="100" class="fixed top-0 left-0 w-full h-1 bg-transparent accent-teal-600 z-[60] appearance-none"></progress>
     <main id="main-content">
+        <div id="content">
         <!-- Home Section -->
         <div id="home-section" class="section-content max-w-6xl mx-auto px-6 py-20">
             <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -321,8 +282,8 @@
 
         <!-- About Section -->
         <div id="about-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">About Me</h2>
-            <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML, digital health &amp; compliance | Ex-Accenture, Kaiser, Infosys, Prime Therapeutics</p>
+            <h2 class="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
+            <p class="text-slate-500 mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML, digital health &amp; compliance | Ex-Accenture, Kaiser, Infosys, Prime Therapeutics</p>
 
             <!-- Professional Journey & Mission -->
             <div class="grid lg:grid-cols-2 gap-8 mb-12">
@@ -623,13 +584,45 @@
             
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="space-y-8">
-                    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8">
-                        <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">Get In Touch</h3>
+                    <div id="formspree-warning" class="hidden bg-amber-50 border border-amber-200 p-4 rounded-lg mb-6">
+                        <p class="text-amber-800 text-sm flex items-center gap-2">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Setup Required:</strong> Please replace 'YOUR_FORM_ID' in the code with your actual Formspree ID to enable this form.
+                        </p>
+                    </div>
+
+                    <div class="bg-white rounded-xl border border-slate-200 p-8">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h3>
                         
-                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form" class="space-y-4">
+                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4 mb-8">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
-                                <input type="text" name="name" id="name" required class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 shadow-sm focus:border-teal-500 focus:ring-teal-500 dark:bg-slate-900 dark:text-white sm:text-sm p-2 border">
+                                <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                                <input type="text" name="name" id="name" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                                <input type="email" name="email" id="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                                <textarea name="message" id="message" rows="4" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800"></textarea>
+                            </div>
+                            <button type="submit" id="submit-btn" class="w-full bg-teal-600 text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition transform active:scale-95">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-envelope text-teal-600 text-lg"></i>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-slate-600 mb-1">Email</p>
+                                    <button onclick="copyEmail()" class="text-lg font-semibold text-slate-900 hover:text-teal-600 smooth-transition">
+                                        darshils99@gmail.com
+                                    </button>
+                                </div>
                             </div>
                             <div>
                                 <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
@@ -721,15 +714,10 @@
 
         <!-- Certifications Section -->
         <div id="certifications-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
-                <div>
-                    <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Certifications</h2>
-                    <p class="text-slate-500 dark:text-slate-400 font-medium">Professional growth & technical specialization (2025–2026)</p>
-                </div>
-                <div class="bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 px-4 py-2 rounded-full border border-teal-100 dark:border-teal-800 text-xs font-bold flex items-center gap-2">
-                    <i class="fas fa-bookmark text-[10px]"></i> 11 Active Credentials
-                </div>
-            </div>
+            <h2 class="text-4xl font-bold text-slate-900 mb-2">Certifications</h2>
+            <p class="text-slate-500 mb-12 flex items-center gap-2">
+                <i class="fas fa-bookmark text-teal-600"></i> 15 Active Credentials earned 2025-2026
+            </p>
             
             <div class="grid lg:grid-cols-3 gap-8">
                 <!-- AI & Intelligent Agents -->
@@ -758,6 +746,14 @@
                             <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-shield-alt text-indigo-600 dark:text-indigo-400"></i></div>
                             <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">AI Fluency Framework</p><p class="text-xs text-slate-500 dark:text-slate-400">Anthropic · 2025</p></div>
                         </div>
+                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-lightbulb text-indigo-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">Generative AI in Action</p><p class="text-xs text-slate-500">IBM · June 2025</p></div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-star text-indigo-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">Intro to Generative AI</p><p class="text-xs text-slate-500">Google · 2025</p></div>
+                        </div>
                     </div>
                 </div>
 
@@ -779,9 +775,13 @@
                             <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-globe text-sky-600 dark:text-sky-400"></i></div>
                             <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">MLOps for Generative AI</p><p class="text-xs text-slate-500 dark:text-slate-400">Google · 2025</p></div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-wrench text-sky-600 dark:text-sky-400"></i></div>
-                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Foundations of Prompt Eng.</p><p class="text-xs text-slate-500 dark:text-slate-400">AWS · 2025</p></div>
+                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-keyboard text-sky-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">Prompt Engineering</p><p class="text-xs text-slate-500">Coursera · 2025</p></div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-tools text-sky-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">Foundations of Prompt Eng.</p><p class="text-xs text-slate-500">AWS · 2025</p></div>
                         </div>
                     </div>
                 </div>
@@ -800,9 +800,14 @@
                             <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-briefcase text-emerald-600 dark:text-emerald-400"></i></div>
                             <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">GenAI for Project Managers</p><p class="text-xs text-slate-500 dark:text-slate-400">PMI · 2025</p></div>
                         </div>
+                        <div class="bg-white rounded-xl border border-emerald-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-search text-emerald-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">The Treasure Hunt for AI Skills</p><p class="text-xs text-slate-500">LinkedIn Learning</p></div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     </main>
 
@@ -816,8 +821,8 @@
                     </div>
                     <span class="font-bold text-slate-900 dark:text-slate-100">Darshil Shah</span>
                 </div>
-                <p class="text-slate-600 dark:text-slate-400">Global Healthcare QA Leader | AI-Driven Testing Engineer</p>
-                <p class="text-sm text-slate-500 dark:text-slate-400 mt-4 md:mt-0">© 2026. v2026.3.17. All rights reserved.</p>
+                <p class="text-slate-600">Global Healthcare QA Leader | AI-Driven Testing Engineer</p>
+                <p class="text-sm text-slate-500 mt-4 md:mt-0">© 2026. v2026.3.17. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -848,6 +853,37 @@
             setTimeout(() => { feedback.style.display = 'none'; }, 2000);
         }
         
+        function toggleTheme() {
+            try {
+                const body = document.body;
+                const icon = document.getElementById('theme-icon');
+                if (body.classList.contains('dark')) {
+                    body.classList.remove('dark');
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    body.classList.add('dark');
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                    localStorage.setItem('theme', 'dark');
+                }
+            } catch (e) {
+                console.error("Theme toggle failed", e);
+            }
+        }
+
+        // Apply theme on load
+        (function() {
+            try {
+                const savedTheme = localStorage.getItem('theme');
+                if (savedTheme === 'dark') {
+                    document.body.classList.add('dark');
+                    document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+                }
+            } catch (e) {}
+        })();
+
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -864,90 +900,24 @@
             }
         }
 
-        function toggleTheme() {
-            const isDark = document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-            updateThemeIcons();
-        }
-
-        function updateThemeIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
-            const lightIcon = document.getElementById('theme-icon-light');
-            const darkIcon = document.getElementById('theme-icon-dark');
-            if (isDark) {
-                lightIcon.classList.remove('hidden');
-                darkIcon.classList.add('hidden');
-            } else {
-                lightIcon.classList.add('hidden');
-                darkIcon.classList.remove('hidden');
-            }
-        }
-
-        // Scroll progress bar
-        const scrollProgress = document.getElementById('scroll-progress');
-        let ticking = false;
         window.addEventListener('scroll', () => {
-            if (!ticking) {
-                window.requestAnimationFrame(() => {
-                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                    const scrolled = (winScroll / height) * 100;
-                    scrollProgress.value = scrolled;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        }, { passive: true });
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").value = scrolled;
+        });
 
-        // Form Submission
-        const form = document.getElementById('contact-form');
-        if (form) {
-            form.addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const submitBtn = document.getElementById('form-submit');
-                const status = document.getElementById('form-status');
-                const emailInput = document.getElementById('email').value;
-                const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-
-                if (!emailRegex.test(emailInput)) {
-                    status.textContent = 'Invalid email address.';
-                    status.className = 'block text-sm font-medium text-red-600 mt-2';
-                    return;
-                }
-
-                if (form.action.includes('YOUR_FORM_ID')) {
-                    status.textContent = 'Form Setup Required: Replace YOUR_FORM_ID in index.html';
-                    status.className = 'block text-sm font-medium text-amber-600 mt-2';
-                    return;
-                }
-
+        // Formspree runtime check
+        (function() {
+            const form = document.getElementById('contact-form');
+            const warning = document.getElementById('formspree-warning');
+            const submitBtn = document.getElementById('submit-btn');
+            if (form && form.action.includes('YOUR_FORM_ID')) {
+                warning.classList.remove('hidden');
                 submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-
-                try {
-                    const response = await fetch(form.action, {
-                        method: 'POST',
-                        body: new FormData(form),
-                        headers: { 'Accept': 'application/json' }
-                    });
-
-                    if (response.ok) {
-                        status.textContent = 'Thank you! Your message has been sent.';
-                        status.className = 'block text-sm font-medium text-green-600 mt-2';
-                        form.reset();
-                    } else {
-                        status.textContent = 'Oops! There was a problem submitting your form.';
-                        status.className = 'block text-sm font-medium text-red-600 mt-2';
-                    }
-                } catch (error) {
-                    status.textContent = 'Oops! There was a problem submitting your form.';
-                    status.className = 'block text-sm font-medium text-red-600 mt-2';
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Send Message';
-                }
-            });
-        }
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        })();
 
         // Initialize
         showSection('home');
