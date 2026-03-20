@@ -381,16 +381,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v2.3.0 (Detailed Experience Update)
+- **HTML**: v2.3.1 (Role Title Correction)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v2.3.0 (Comprehensive content parity)
+- **React**: v2.3.1 (Title synchronization)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.3.0** (Experience Update).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.3.1** (Title Fixes).
 
 ---
 

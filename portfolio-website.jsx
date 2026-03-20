@@ -269,8 +269,8 @@ export default function PortfolioWebsite() {
                   ]
                 },
                 {
-                  role: "Software Development Engineer in Test",
-                  company: "Infosys",
+                  role: "Software Development Engineer in Test (SDET)",
+                  company: "Infosys - Prime Therapeutics",
                   date: "Oct 2019 - Apr 2020 · Minneapolis, Minnesota, United States",
                   points: [
                     "Contributed to automating multiple healthcare technology initiatives at Infosys within Prime Therapeutics, a leading pharmacy benefit management organization based in the Midwest USA, delivering innovative, transparent pharmacy solutions.",
@@ -678,7 +678,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. v2.3.0. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2.3.1. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>
