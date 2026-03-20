@@ -3,12 +3,30 @@ import {
   Download, Github, Linkedin, Mail, MapPin, FileText, 
   Award, Briefcase, Code2, Heart, Phone, GraduationCap, 
   Globe, Bookmark, CheckCircle, Search, Wrench, Rocket, 
-  ShieldCheck, Zap, Star, BookOpen, Brain, Cloud, Users
+  ShieldCheck, Zap, Star, BookOpen, Brain, Cloud, Users,
+  Sun, Moon, AlertTriangle
 } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [activeSection, setActiveSection] = useState('home');
   const [copied, setCopied] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('theme') || 'light';
+    } catch (e) {
+      return 'light';
+    }
+  });
+
+  const toggleTheme = () => {
+    try {
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    } catch (e) {
+      console.error("Theme toggle failed", e);
+    }
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText('darshils99@gmail.com');
@@ -27,8 +45,10 @@ export default function PortfolioWebsite() {
     { id: 'contact', label: 'Contact' }
   ];
 
+  const isFormSetupRequired = true; // For demonstration, since we use YOUR_FORM_ID placeholder
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 text-slate-900 font-sans">
+    <div className={`min-h-screen font-sans transition-colors duration-300 ${theme === 'dark' ? 'bg-slate-900 text-slate-100' : 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 text-slate-900'}`}>
       {/* Navigation */}
       <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200/50 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -39,6 +59,12 @@ export default function PortfolioWebsite() {
             <span className="font-bold text-lg text-slate-900">Darshil Shah</span>
           </div>
           <div className="hidden lg:flex items-center space-x-6">
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition mr-4"
+            >
+              {theme === 'light' ? <Moon size={20} className="text-slate-600" /> : <Sun size={20} className="text-amber-400" />}
+            </button>
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -105,7 +131,7 @@ export default function PortfolioWebsite() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-lg shadow-emerald-200">
+                  <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-lg shadow-emerald-200">
                     <Download size={20} />
                     <span>Download Portfolio PDF</span>
                   </a>
@@ -174,7 +200,7 @@ export default function PortfolioWebsite() {
         {activeSection === 'about' && (
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in slide-in-from-bottom-5 fade-in duration-500">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
-            <p className="text-teal-600 font-bold mb-12 text-lg">Global Healthcare QA Leader | 12+ yrs in AI/ML & Compliance | Ex-Accenture, Kaiser, Infosys</p>
+            <p className="text-teal-600 font-bold mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML & Compliance | Ex-Accenture, Kaiser, Infosys</p>
 
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-8">
@@ -458,7 +484,7 @@ export default function PortfolioWebsite() {
                   <span>Interactive Portfolio PDF</span>
                 </h3>
                 <p className="mb-8 text-teal-50 text-lg max-w-2xl font-medium">Download the full 6-page professional document featuring technical deep-dives into healthcare compliance and AI agent testing strategies.</p>
-                <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="inline-flex items-center space-x-3 bg-white text-teal-700 hover:bg-emerald-50 px-10 py-5 rounded-2xl font-black transition transform hover:scale-105 shadow-xl">
+                <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="inline-flex items-center space-x-3 bg-white text-teal-700 hover:bg-emerald-50 px-10 py-5 rounded-2xl font-black transition transform hover:scale-105 shadow-xl">
                   <Download size={24} />
                   <span>Download Document</span>
                 </a>
@@ -536,7 +562,9 @@ export default function PortfolioWebsite() {
                 <h2 className="text-4xl font-bold text-slate-900 mb-2">Certifications</h2>
                 <p className="text-slate-500 font-medium">Professional growth & technical specialization (2025–2026)</p>
               </div>
-                <Bookmark size={14} /> 11 Active Credentials
+                <div className="flex items-center gap-2 text-slate-500 font-medium">
+                  <Bookmark size={14} className="text-teal-600" /> 15 Active Credentials
+                </div>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -550,7 +578,9 @@ export default function PortfolioWebsite() {
                     { title: "Claude Code in Action", body: "DeepLearning.AI · 2026", icon: <Code2 size={20} /> },
                     { title: "Introduction to MCP", body: "Anthropic · 2025", icon: <Zap size={20} /> },
                     { title: "AI Agent Architect", body: "IBM · 2025", icon: <Search size={20} /> },
-                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> }
+                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> },
+                    { title: "Generative AI in Action", body: "IBM · 2025", icon: <Star size={20} /> },
+                    { title: "Intro to Generative AI", body: "Google · 2025", icon: <Rocket size={20} /> }
                   ]
                 },
                 {
@@ -558,9 +588,10 @@ export default function PortfolioWebsite() {
                   icon: <Cloud size={24} className="text-sky-600" />,
                   color: "sky",
                   certs: [
-                    { title: "AWS Cloud Practitioner", body: "AWS · 2025", icon: <CloudIcon /> },
+                    { title: "AWS Cloud Practitioner", body: "AWS · 2025", icon: <Cloud size={20} /> },
                     { title: "Copilot Foundations", body: "Microsoft · 2025", icon: <BookOpen size={20} /> },
                     { title: "MLOps for Generative AI", body: "Google · 2025", icon: <Globe size={20} /> },
+                    { title: "Prompt Engineering", body: "Coursera · 2025", icon: <Code2 size={20} /> },
                     { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Wrench size={20} /> }
                   ]
                 },
@@ -570,7 +601,8 @@ export default function PortfolioWebsite() {
                   color: "emerald",
                   certs: [
                     { title: "Registered Scrum Basics™", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
-                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> }
+                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> },
+                    { title: "Treasure Hunt for AI Skills", body: "LinkedIn · 2025", icon: <Search size={20} /> }
                   ]
                 }
               ].map((group, i) => (
@@ -606,12 +638,30 @@ export default function PortfolioWebsite() {
                 </div>
 
                 <div className="space-y-6">
+                  {isFormSetupRequired && (
+                    <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl flex items-start gap-3">
+                      <AlertTriangle className="text-amber-600 flex-shrink-0" size={20} />
+                      <p className="text-amber-800 text-xs">
+                        <strong>Setup Required:</strong> Contact form disabled. Replace 'YOUR_FORM_ID' with a valid Formspree ID to enable.
+                      </p>
+                    </div>
+                  )}
+
+                  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="space-y-4 mb-8">
+                    <input type="text" name="name" placeholder="Your Name" required className="w-full px-4 py-3 rounded-xl border border-teal-100 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-teal-500 transition" />
+                    <input type="email" name="email" placeholder="Email Address" required className="w-full px-4 py-3 rounded-xl border border-teal-100 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-teal-500 transition" />
+                    <textarea name="message" placeholder="Your Message" rows="4" required className="w-full px-4 py-3 rounded-xl border border-teal-100 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-teal-500 transition"></textarea>
+                    <button type="submit" disabled={isFormSetupRequired} className={`w-full py-4 rounded-xl font-bold text-white transition ${isFormSetupRequired ? 'bg-slate-400 cursor-not-allowed' : 'bg-teal-600 hover:bg-teal-700'}`}>
+                      Send Message
+                    </button>
+                  </form>
+
                   {[
                     { icon: <Mail className="text-teal-600" />, label: "Email", val: "darshils99@gmail.com", action: copyEmail, clickLabel: copied ? "Copied!" : "Click to copy" },
                     { icon: <Phone className="text-teal-600" />, label: "Direct Mobile", val: "+1 (469) 987-6574" },
                     { icon: <MapPin className="text-teal-600" />, label: "HQ / Home", val: "Dallas-Fort Worth Metroplex" }
                   ].map((item, id) => (
-                    <div key={id} onClick={item.action} className={`bg-white rounded-2xl border border-teal-100 p-6 flex items-center gap-6 shadow-sm hover:border-teal-400 transition cursor-pointer group ${item.action ? 'relative' : ''}`}>
+                    <div key={id} onClick={item.action} className={`${theme === 'dark' ? 'bg-slate-800 border-slate-700' : 'bg-white border-teal-100'} rounded-2xl border p-6 flex items-center gap-6 shadow-sm hover:border-teal-400 transition cursor-pointer group ${item.action ? 'relative' : ''}`}>
                       <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center shadow-inner group-hover:bg-teal-100 transition-colors">{item.icon}</div>
                       <div className="flex-1">
                         <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none mb-2">{item.label}</p>
@@ -653,7 +703,7 @@ export default function PortfolioWebsite() {
                        </ul>
                     </div>
                     <div className="relative z-10 pt-12">
-                      <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center gap-3 bg-white text-teal-700 px-8 py-6 rounded-[1.5rem] font-black text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all w-full">
+                      <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center gap-3 bg-white text-teal-700 px-8 py-6 rounded-[1.5rem] font-black text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all w-full">
                         <Download size={28} /> DOWNLOAD PDF
                       </a>
                     </div>
@@ -678,7 +728,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. v2.3.2. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2026.3.17. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>
@@ -686,10 +736,3 @@ export default function PortfolioWebsite() {
   );
 }
 
-function CloudIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-3.9-4.5-1.1-4.1-5-7-9.1-7-3.6 0-6.8 2.2-8 5.6-2.1.2-3.8 2.3-3.8 4.6C1 17 3 19 5.5 19" />
-    </svg>
-  );
-}
