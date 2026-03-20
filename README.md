@@ -112,11 +112,6 @@ Share `Darshil_Shah_QA_Engineering_Portfolio.pdf` directly via email or LinkedIn
 
 📑 **Page 5: AI/ML & Healthcare**
 - Recent AI certifications (2025-2026)
-## [2.3.2] - 2026-03-20
-### Fixed
-- **Role Title Accuracy**: Refined Phynix Tech Services title to "Information Technology Quality Assurance Analyst" for cross-platform consistency.
-
-## [2.3.1] - 2026-03-20
 - AI applications in QA
 - Healthcare domain expertise
 - Education credentials
