@@ -9,6 +9,7 @@ import {
 
 export default function PortfolioWebsite() {
   const [activeSection, setActiveSection] = useState('home');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [theme, setTheme] = useState(() => {
     try {
@@ -79,7 +80,7 @@ export default function PortfolioWebsite() {
               className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition focus:outline-none"
               aria-label="Toggle dark mode"
             >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
             <button
@@ -90,18 +91,31 @@ export default function PortfolioWebsite() {
               {isMenuOpen ? <Star size={24} className="rotate-45" /> : <div className="space-y-1.5"><div className="w-6 h-0.5 bg-current"></div><div className="w-6 h-0.5 bg-current"></div><div className="w-6 h-0.5 bg-current"></div></div>}
             </button>
           </div>
-          <div className="hidden lg:flex items-center space-x-6">
+        </div>
+
+        {/* Desktop Nav links (restored) */}
+        <div className="hidden lg:flex items-center justify-center space-x-6 pb-4">
+          {navItems.map((item) => (
             <button
-              onClick={toggleTheme}
-              className="theme-toggle p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition mr-4"
+              key={item.id}
+              onClick={() => { setActiveSection(item.id); window.scrollTo(0, 0); }}
+              className={`text-sm font-semibold transition ${
+                activeSection === item.id ? 'text-teal-600 font-bold' : 'text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400'
+              }`}
             >
-              {theme === 'light' ? <Moon size={20} className="text-slate-600" /> : <Sun size={20} className="text-amber-400" />}
+              {item.label}
             </button>
+          ))}
+        </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white dark:bg-slate-900 z-40 p-6 flex flex-col space-y-4 overflow-y-auto animate-in slide-in-from-top-4 duration-300">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => { setActiveSection(item.id); setIsMenuOpen(false); window.scrollTo(0, 0); }}
-                className={`text-left py-4 text-xl font-bold border-b border-slate-100 dark:border-slate-800 ${
+                className={`text-left py-2 text-lg font-bold ${
                   activeSection === item.id ? 'text-teal-600' : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
