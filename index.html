@@ -51,10 +51,6 @@
             --navbar-bg: rgba(255, 255, 255, 0.9);
         }
 
-        .dark:root {
-            --navbar-bg: rgba(15, 23, 42, 0.9);
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -95,37 +91,38 @@
             animation: fadeIn 0.6s ease forwards;
         }
 
-        /* Dark Mode */
-        .dark body {
+        /* FIX #3: Dark Mode — standardized on html.dark for Tailwind compatibility */
+        html.dark body {
             background: #0f172a;
             color: #f8fafc;
         }
 
-        .dark .bg-white {
+        html.dark .bg-white {
             background-color: #1e293b;
             color: #f8fafc;
         }
 
-        .dark .text-slate-900 { color: #f8fafc; }
-        .dark .text-slate-700 { color: #cbd5e1; }
-        .dark .text-slate-600 { color: #94a3b8; }
-        .dark .text-slate-500 { color: #64748b; }
-        .dark .border-slate-200 { border-color: #334155; }
-        .dark .bg-emerald-50 { background-color: #064e3b; }
-        .dark .bg-teal-50 { background-color: #134e4a; }
-        .dark .bg-cyan-50 { background-color: #164e63; }
-        .dark nav { background-color: rgba(30, 41, 59, 0.9); border-color: #334155; }
-        .dark .nav-btn:not(.text-teal-600) { color: #cbd5e1; }
-        .dark footer { background-color: #1e293b; border-color: #334155; }
-        .dark .bg-indigo-50 { background-color: #312e81; }
-        .dark .bg-sky-50 { background-color: #0c4a6e; }
-        .dark .border-teal-100 { border-color: #134e4a; }
-        .dark .border-indigo-100 { border-color: #312e81; }
-        .dark .border-sky-100 { border-color: #0c4a6e; }
-        .dark .border-emerald-100 { border-color: #064e3b; }
+        html.dark .text-slate-900 { color: #f8fafc; }
+        html.dark .text-slate-700 { color: #cbd5e1; }
+        html.dark .text-slate-600 { color: #94a3b8; }
+        html.dark .text-slate-500 { color: #64748b; }
+        html.dark .border-slate-200 { border-color: #334155; }
+        html.dark .bg-emerald-50 { background-color: #064e3b; }
+        html.dark .bg-teal-50 { background-color: #134e4a; }
+        html.dark .bg-cyan-50 { background-color: #164e63; }
+        html.dark nav { background-color: rgba(30, 41, 59, 0.9); border-color: #334155; }
+        html.dark .nav-btn:not(.text-teal-600) { color: #cbd5e1; }
+        html.dark footer { background-color: #1e293b; border-color: #334155; }
+        html.dark .bg-indigo-50 { background-color: #312e81; }
+        html.dark .bg-sky-50 { background-color: #0c4a6e; }
+        html.dark .border-teal-100 { border-color: #134e4a; }
+        html.dark .border-indigo-100 { border-color: #312e81; }
+        html.dark .border-sky-100 { border-color: #0c4a6e; }
+        html.dark .border-emerald-100 { border-color: #064e3b; }
     </style>
 </head>
 <body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 smooth-transition">
+    <!-- FIX #1: Removed duplicate <progress> that was here before <nav> -->
 
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200/50">
@@ -136,6 +133,7 @@
                 </div>
                 <span class="font-bold text-lg text-slate-900 dark:text-slate-100">Darshil Shah</span>
             </div>
+            <!-- FIX #2: Removed duplicate theme toggle from inside this desktop nav block -->
             <div class="hidden lg:flex items-center space-x-6">
                 <button id="nav-home" onclick="showSection('home')" class="nav-btn text-teal-600 font-bold smooth-transition">Home</button>
                 <button id="nav-about" onclick="showSection('about')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">About</button>
@@ -149,9 +147,10 @@
             </div>
 
             <div class="flex items-center space-x-4">
+                <!-- Single theme toggle button -->
                 <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 focus:outline-none" aria-label="Toggle dark mode">
-                    <i id="theme-icon-light" class="fas fa-sun hidden dark:block text-xl"></i>
-                    <i id="theme-icon-dark" class="fas fa-moon block dark:hidden text-xl"></i>
+                    <i id="theme-icon-light" class="fas fa-sun hidden text-xl"></i>
+                    <i id="theme-icon-dark" class="fas fa-moon text-xl"></i>
                 </button>
 
                 <!-- Mobile Menu Button -->
@@ -162,7 +161,7 @@
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-40 p-6 flex flex-col space-y-4 animate-in slide-in-from-top-4 duration-300 overflow-y-auto">
+        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-40 p-6 flex flex-col space-y-4 overflow-y-auto">
             <button onclick="showSection('home'); toggleMobileMenu();" class="text-left py-2 font-bold text-teal-600">Home</button>
             <button onclick="showSection('about'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">About</button>
             <button onclick="showSection('experience'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Experience</button>
@@ -196,7 +195,6 @@
                         I lead high-impact QA programs for Fortune 500 healthcare organizations, combining AI-driven automation with deep regulatory expertise to ensure patient safety and business excellence.
                     </p>
 
-                    <!-- Core Domains Snapshot -->
                     <div class="flex flex-wrap gap-3 pt-2">
                         <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-teal-900 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                             <i class="fas fa-heartbeat"></i> Healthcare Tech
@@ -295,7 +293,6 @@
             <h2 class="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
             <p class="text-slate-500 mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML, digital health &amp; compliance | Ex-Accenture, Kaiser, Infosys, Prime Therapeutics</p>
 
-            <!-- Professional Journey & Mission -->
             <div class="grid lg:grid-cols-2 gap-8 mb-12">
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 shadow-sm">
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center space-x-2">
@@ -321,7 +318,6 @@
                 </div>
             </div>
 
-            <!-- Leadership Philosophy -->
             <div class="bg-gradient-to-r from-teal-600 to-teal-800 rounded-xl p-8 text-white">
                 <h3 class="text-2xl font-bold mb-4 flex items-center">
                     <i class="fas fa-lightbulb mr-2"></i> Leadership Philosophy
@@ -340,7 +336,6 @@
             </header>
             <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent" role="list">
 
-                <!-- Role 1 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -363,7 +358,6 @@
                     </div>
                 </div>
 
-                <!-- Role 2 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -378,14 +372,13 @@
                         </div>
                         <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
                             <li>Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25%.</li>
-                            <li>Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows.</li>
+                            <li>Saved 8+ hours per week in test planning and bug reporting and cut "Get Care Now" wait times by 30% by integrating ChatGPT into QA workflows.</li>
                             <li>Delivered defect-free, high-performing native iOS/Android releases by owning functional, regression, integration, UI, API, smoke, SIT, and E2E testing.</li>
                             <li>Reduced manual testing effort by 60% and boosted QA efficiency by 30% by designing an Agile automation framework using Appium, Selenium, and Perfecto.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Role 3 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -407,7 +400,6 @@
                     </div>
                 </div>
 
-                <!-- Role 4 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -429,7 +421,6 @@
                     </div>
                 </div>
 
-                <!-- Role 5 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -451,7 +442,6 @@
                     </div>
                 </div>
 
-                <!-- Role 6 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -473,7 +463,6 @@
                     </div>
                 </div>
 
-                <!-- Role 7 -->
                 <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
                     <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
                         <i class="fas fa-briefcase"></i>
@@ -594,7 +583,6 @@
             <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg">What people I've worked with say about my impact</p>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Rec 1 -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
@@ -608,7 +596,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Rec 2 -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
@@ -622,7 +609,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Rec 3 -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
@@ -636,11 +622,10 @@
                         </div>
                     </div>
                 </div>
-                <!-- Rec 4 -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
-                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"We are exceedingly pleased with Darshil’s outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude."</p>
+                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"We are exceedingly pleased with Darshil's outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude."</p>
                         <div class="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
                             <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">MB</div>
                             <div>
@@ -650,7 +635,6 @@
                         </div>
                     </div>
                 </div>
-                <!-- Rec 5 -->
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
@@ -672,6 +656,7 @@
             <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Let's Connect</h2>
             
             <div class="grid md:grid-cols-2 gap-12">
+                <!-- FIX #5: Removed duplicate/orphaned form elements and closed all divs properly -->
                 <div class="space-y-8">
                     <div id="formspree-warning" class="hidden bg-amber-50 border border-amber-200 p-4 rounded-lg mb-6">
                         <p class="text-amber-800 text-sm flex items-center gap-2">
@@ -685,16 +670,16 @@
                         
                         <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4 mb-8">
                             <div>
-                                <label for="name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
-                                <input type="text" name="name" id="name" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
+                                <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
+                                <input type="text" name="name" id="contact-name" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                                <input type="email" name="email" id="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
+                                <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                                <input type="email" name="email" id="contact-email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
                             </div>
                             <div>
-                                <label for="message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
-                                <textarea name="message" id="message" rows="4" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800"></textarea>
+                                <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
+                                <textarea name="message" id="contact-message" rows="4" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800"></textarea>
                             </div>
                             <button type="submit" id="submit-btn" class="w-full bg-teal-600 text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition transform active:scale-95">
                                 Send Message
@@ -713,6 +698,7 @@
                                     </button>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
 
@@ -826,13 +812,13 @@
                             <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-shield-alt text-indigo-600 dark:text-indigo-400"></i></div>
                             <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">AI Fluency Framework</p><p class="text-xs text-slate-500 dark:text-slate-400">Anthropic · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-lightbulb text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Generative AI in Action</p><p class="text-xs text-slate-500">IBM · June 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-lightbulb text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Generative AI in Action</p><p class="text-xs text-slate-500 dark:text-slate-400">IBM · June 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-star text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Intro to Generative AI</p><p class="text-xs text-slate-500">Google · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-star text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Intro to Generative AI</p><p class="text-xs text-slate-500 dark:text-slate-400">Google · 2025</p></div>
                         </div>
                     </div>
                 </div>
@@ -855,13 +841,13 @@
                             <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-globe text-sky-600 dark:text-sky-400"></i></div>
                             <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">MLOps for Generative AI</p><p class="text-xs text-slate-500 dark:text-slate-400">Google · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-keyboard text-sky-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Prompt Engineering</p><p class="text-xs text-slate-500">Coursera · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-keyboard text-sky-600 dark:text-sky-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Prompt Engineering</p><p class="text-xs text-slate-500 dark:text-slate-400">Coursera · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-tools text-sky-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Foundations of Prompt Eng.</p><p class="text-xs text-slate-500">AWS · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-tools text-sky-600 dark:text-sky-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Foundations of Prompt Eng.</p><p class="text-xs text-slate-500 dark:text-slate-400">AWS · 2025</p></div>
                         </div>
                     </div>
                 </div>
@@ -880,9 +866,9 @@
                             <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-briefcase text-emerald-600 dark:text-emerald-400"></i></div>
                             <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">GenAI for Project Managers</p><p class="text-xs text-slate-500 dark:text-slate-400">PMI · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-emerald-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-search text-emerald-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">The Treasure Hunt for AI Skills</p><p class="text-xs text-slate-500">LinkedIn Learning</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-search text-emerald-600 dark:text-emerald-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">The Treasure Hunt for AI Skills</p><p class="text-xs text-slate-500 dark:text-slate-400">LinkedIn Learning</p></div>
                         </div>
                     </div>
                 </div>
@@ -935,37 +921,22 @@
         function copyEmail() {
             navigator.clipboard.writeText('darshils99@gmail.com');
             const feedback = document.getElementById('copy-feedback');
-            feedback.style.display = 'inline';
-            setTimeout(() => { feedback.style.display = 'none'; }, 2000);
-        }
-        
-        function updateThemeIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
-            const sunIcon = document.getElementById('theme-icon-light');
-            const moonIcon = document.getElementById('theme-icon-dark');
-
-            if (sunIcon && moonIcon) {
-                if (isDark) {
-                    sunIcon.classList.remove('hidden');
-                    sunIcon.classList.add('block');
-                    moonIcon.classList.remove('block');
-                    moonIcon.classList.add('hidden');
-                } else {
-                    sunIcon.classList.remove('block');
-                    sunIcon.classList.add('hidden');
-                    moonIcon.classList.remove('hidden');
-                    moonIcon.classList.add('block');
-                }
+            if (feedback) {
+                feedback.style.display = 'inline';
+                setTimeout(() => { feedback.style.display = 'none'; }, 2000);
             }
         }
-
+        
+        // FIX #3 & #4: toggleTheme uses documentElement (html element) for Tailwind compatibility
         function toggleTheme() {
             try {
-                if (document.documentElement.classList.contains('dark')) {
-                    document.documentElement.classList.remove('dark');
+                const html = document.documentElement;
+                const isDark = html.classList.contains('dark');
+                if (isDark) {
+                    html.classList.remove('dark');
                     localStorage.setItem('theme', 'light');
                 } else {
-                    document.documentElement.classList.add('dark');
+                    html.classList.add('dark');
                     localStorage.setItem('theme', 'dark');
                 }
                 updateThemeIcons();
@@ -974,17 +945,14 @@
             }
         }
 
-        // Apply theme on load
-        (function() {
-            try {
-                const savedTheme = localStorage.getItem('theme');
-                if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-                    document.documentElement.classList.add('dark');
-                } else {
-                    document.documentElement.classList.remove('dark');
-                }
-            } catch (e) {}
-        })();
+        // FIX #4: Define updateThemeIcons (was called but never defined)
+        function updateThemeIcons() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const sunIcon = document.getElementById('theme-icon-light');
+            const moonIcon = document.getElementById('theme-icon-dark');
+            if (sunIcon) sunIcon.classList.toggle('hidden', !isDark);
+            if (moonIcon) moonIcon.classList.toggle('hidden', isDark);
+        }
 
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
@@ -993,20 +961,21 @@
                 menu.classList.remove('hidden');
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
-                document.body.classList.add('lock-scroll');
+                document.body.classList.add('overflow-hidden');
             } else {
                 menu.classList.add('hidden');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
-                document.body.classList.remove('lock-scroll');
+                document.body.classList.remove('overflow-hidden');
             }
         }
 
         window.addEventListener('scroll', () => {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
             const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scroll-progress").value = scrolled;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            const bar = document.getElementById("scroll-progress");
+            if (bar) bar.value = scrolled;
         });
 
         // Formspree runtime check
@@ -1015,13 +984,15 @@
             const warning = document.getElementById('formspree-warning');
             const submitBtn = document.getElementById('submit-btn');
             if (form && form.action.includes('YOUR_FORM_ID')) {
-                warning.classList.remove('hidden');
-                submitBtn.disabled = true;
-                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                if (warning) warning.classList.remove('hidden');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                }
             }
         })();
 
-        // Initialize
+        // Initialize — FIX #4: updateThemeIcons is now defined above
         showSection('home');
         updateThemeIcons();
     </script>
