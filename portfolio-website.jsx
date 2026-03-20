@@ -812,19 +812,33 @@ export default function PortfolioWebsite() {
                   {[
                     { icon: <Mail className="text-teal-600" />, label: "Email", val: "darshils99@gmail.com", action: copyEmail, clickLabel: copied ? "Copied!" : "Click to copy" },
                     { icon: <Phone className="text-teal-600" />, label: "Direct Mobile", val: "+1 (469) 987-6574" },
+                    { icon: <Globe className="text-teal-600" />, label: "Portfolio", val: "darshil0.github.io", href: "https://darshil0.github.io/darshil-portfolio-2026/index.html" },
                     { icon: <MapPin className="text-teal-600" />, label: "HQ / Home", val: "Dallas-Fort Worth Metroplex" }
-                  ].map((item, id) => (
-                    <div key={id} onClick={item.action} className={`${theme === 'dark' ? 'bg-slate-800 border-slate-700' : 'bg-white border-teal-100'} rounded-2xl border p-6 flex items-center gap-6 shadow-sm hover:border-teal-400 transition cursor-pointer group ${item.action ? 'relative' : ''}`}>
-                      <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center shadow-inner group-hover:bg-teal-100 transition-colors">{item.icon}</div>
-                      <div className="flex-1">
-                        <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none mb-2">{item.label}</p>
-                        <p className="text-lg font-black text-slate-800 break-words">{item.val}</p>
+                  ].map((item, id) => {
+                    const content = (
+                      <div className="flex items-center gap-6 w-full">
+                        <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center shadow-inner group-hover:bg-teal-100 transition-colors">{item.icon}</div>
+                        <div className="flex-1">
+                          <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none mb-2">{item.label}</p>
+                          <p className="text-lg font-black text-slate-800 break-words">{item.val}</p>
+                        </div>
+                        {item.clickLabel && (
+                          <span className="absolute top-4 right-4 text-[9px] font-black uppercase bg-emerald-50 text-emerald-700 px-2 py-1 rounded shadow-sm border border-emerald-100">{item.clickLabel}</span>
+                        )}
                       </div>
-                      {item.clickLabel && (
-                        <span className="absolute top-4 right-4 text-[9px] font-black uppercase bg-emerald-50 text-emerald-700 px-2 py-1 rounded shadow-sm border border-emerald-100">{item.clickLabel}</span>
-                      )}
-                    </div>
-                  ))}
+                    );
+                    const containerClass = `${theme === 'dark' ? 'bg-slate-800 border-slate-700' : 'bg-white border-teal-100'} rounded-2xl border p-6 flex items-center shadow-sm hover:border-teal-400 transition group ${item.action || item.href ? 'cursor-pointer relative' : ''}`;
+                    
+                    return item.href ? (
+                      <a key={id} href={item.href} target="_blank" rel="noopener noreferrer" className={containerClass}>
+                        {content}
+                      </a>
+                    ) : (
+                      <div key={id} onClick={item.action} className={containerClass}>
+                        {content}
+                      </div>
+                    );
+                  })}
                 </div>
 
                 <div className="pt-8 border-t border-slate-200">
