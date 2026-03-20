@@ -4,6 +4,18 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2026.3.17] - 2026-03-20
+
+### Added
+- **Dark Mode Support**: Implemented system-aware dark mode with `localStorage` persistence and FOUC prevention.
+- **Improved Timeline**: Refactored the Experience section into a semantic vertical timeline for better readability and accessibility.
+- **Formspree Integration**: Added a functional contact form with submission feedback and loading states.
+- **Performance Optimization**: Throttled scroll-progress bar using `requestAnimationFrame` and passive event listeners.
+- **Mobile UX**: Enhanced scroll-locking for navigation overlays, specifically for iOS Safari.
+
+### Synchronized
+- **Metadata**: Updated versioning to `v2026.3.17` and professional experience to `14+ years` across all files.
+
 ## [2.3.0] - 2026-03-20
 
 ### Added

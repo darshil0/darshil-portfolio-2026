@@ -10,9 +10,51 @@
     <meta property="og:description" content="Global Healthcare QA Leader | AI-Driven Testing & Automation Engineer">
     <meta property="og:url" content="https://darshil0.github.io/darshil-portfolio-2026/">
     <meta property="og:type" content="website">
+    <script>
+        // Apply theme as early as possible to prevent FOUC
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        })();
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0f172a',
+                            surface: '#1e293b',
+                            text: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --text-muted: #64748b;
+            --text-dim: #94a3b8;
+            --success: #10b981;
+            --error: #ef4444;
+            --h1-size: clamp(2.5rem, 5vw, 4rem);
+            --h2-size: clamp(2rem, 4vw, 3rem);
+            --h3-size: clamp(1.5rem, 3vw, 2rem);
+            --navbar-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        .dark:root {
+            --navbar-bg: rgba(15, 23, 42, 0.9);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +65,10 @@
             height: 100%;
             width: 100%;
         }
+
+        h1 { font-size: var(--h1-size); }
+        h2 { font-size: var(--h2-size); }
+        h3 { font-size: var(--h3-size); }
         
         .smooth-transition {
             transition: all 0.3s ease;
@@ -48,9 +94,84 @@
         .fade-in {
             animation: fadeIn 0.6s ease forwards;
         }
+
+        /* Dark mode overrides for custom gradients and elements */
+        .dark body {
+            background: linear-gradient(to bottom right, #0f172a, #1e293b, #0f172a);
+            color: #f8fafc;
+        }
+        .dark .bg-white {
+            background-color: #1e293b !important;
+            color: #f8fafc;
+        }
+        .dark .text-slate-900, .dark .text-slate-700, .dark .text-slate-800 {
+            color: #f1f5f9 !important;
+        }
+        .dark .text-slate-500, .dark .text-slate-600 {
+            color: #cbd5e1 !important;
+        }
+        .dark .border-slate-200, .dark .border-slate-100 {
+            border-color: #334155 !important;
+        }
+        nav {
+            background-color: var(--navbar-bg);
+        }
+        .dark nav {
+            border-color: #334155 !important;
+        }
+        .dark .nav-btn {
+            color: var(--text-dim) !important;
+        }
+        .dark .nav-btn:hover {
+            color: #2dd4bf !important;
+        }
+        .dark .nav-btn.text-teal-600 {
+            color: #2dd4bf !important;
+        }
+        .dark #mobile-menu {
+            background-color: #1e293b !important;
+        }
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: transparent;
+            z-index: 100;
+        }
+        #scroll-progress::-webkit-progress-bar {
+            background: transparent;
+        }
+        #scroll-progress::-webkit-progress-value {
+            background: linear-gradient(to right, #0d9488, #2dd4bf);
+        }
+        #scroll-progress::-moz-progress-bar {
+            background: linear-gradient(to right, #0d9488, #2dd4bf);
+        }
+
+        /* Accessibility Focus States */
+        button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+            outline: 2px solid #0d9488;
+            outline-offset: 2px;
+        }
+        .dark button:focus-visible, .dark a:focus-visible, .dark input:focus-visible, .dark textarea:focus-visible {
+            outline: 2px solid #2dd4bf;
+        }
+
+        /* iOS Safari Scroll Lock Fix */
+        body.lock-scroll {
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
-<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50">
+<body class="bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 smooth-transition">
+    <progress id="scroll-progress" value="0" max="100"></progress>
+
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200/50">
         <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
@@ -58,7 +179,7 @@
                 <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center">
                     <span class="text-white font-bold text-sm">DS</span>
                 </div>
-                <span class="font-bold text-lg text-slate-900">Darshil Shah</span>
+                <span class="font-bold text-lg text-slate-900 dark:text-slate-100">Darshil Shah</span>
             </div>
             <div class="hidden lg:flex items-center space-x-6">
                 <button id="nav-home" onclick="showSection('home')" class="nav-btn text-teal-600 font-bold smooth-transition">Home</button>
@@ -71,69 +192,76 @@
                 <button id="nav-contact" onclick="showSection('contact')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Contact</button>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-900 focus:outline-none">
-                <i id="menu-icon" class="fas fa-bars text-2xl"></i>
-            </button>
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" onclick="toggleTheme()" class="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 focus:outline-none" aria-label="Toggle dark mode">
+                    <i id="theme-icon-light" class="fas fa-sun hidden dark:block text-xl"></i>
+                    <i id="theme-icon-dark" class="fas fa-moon block dark:hidden text-xl"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-slate-900 focus:outline-none dark:text-white" aria-label="Toggle mobile menu">
+                    <i id="menu-icon" class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bg-white border-b border-slate-200 shadow-xl z-40 p-6 flex flex-col space-y-4 animate-in slide-in-from-top-4 duration-300">
+        <div id="mobile-menu" class="hidden lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-40 p-6 flex flex-col space-y-4 animate-in slide-in-from-top-4 duration-300 overflow-y-auto">
             <button onclick="showSection('home'); toggleMobileMenu();" class="text-left py-2 font-bold text-teal-600">Home</button>
-            <button onclick="showSection('about'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">About</button>
-            <button onclick="showSection('experience'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Experience</button>
-            <button onclick="showSection('projects'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Projects</button>
-            <button onclick="showSection('skills'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Skills</button>
-            <button onclick="showSection('education'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Education</button>
-            <button onclick="showSection('certifications'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Certifications</button>
-            <button onclick="showSection('contact'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Contact</button>
+            <button onclick="showSection('about'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">About</button>
+            <button onclick="showSection('experience'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Experience</button>
+            <button onclick="showSection('projects'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Projects</button>
+            <button onclick="showSection('skills'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Skills</button>
+            <button onclick="showSection('education'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Education</button>
+            <button onclick="showSection('certifications'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Certifications</button>
+            <button onclick="showSection('contact'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Contact</button>
         </div>
     </nav>
 
-    <div id="content">
+    <main id="main-content">
         <!-- Home Section -->
         <div id="home-section" class="section-content max-w-6xl mx-auto px-6 py-20">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="space-y-6 fade-in">
                     <div class="space-y-2">
-                        <h1 class="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+                        <h1 class="font-bold text-slate-900 dark:text-slate-100 leading-tight">
                             Global Healthcare<br />QA Leader
                         </h1>
-                        <p class="text-xl text-teal-600 font-semibold flex items-center gap-2">
+                        <p class="text-xl text-teal-600 dark:text-teal-400 font-semibold flex items-center gap-2">
                             <span>AI-Driven Testing &amp; Automation Engineer</span>
-                            <span class="text-xs bg-teal-100 text-teal-700 px-2 py-1 rounded-md border border-teal-200 uppercase tracking-wider">US Citizen</span>
+                            <span class="text-xs bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 px-2 py-1 rounded-md border border-teal-200 dark:border-teal-800 uppercase tracking-wider">US Citizen</span>
                         </p>
                     </div>
                     
-                    <p class="text-xl text-slate-700 leading-relaxed max-w-2xl">
+                    <p class="text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl">
                         I lead high-impact QA programs for Fortune 500 healthcare organizations, combining AI-driven automation with deep regulatory expertise to ensure patient safety and business excellence.
                     </p>
 
                     <!-- Core Domains Snapshot -->
                     <div class="flex flex-wrap gap-3 pt-2">
-                        <span class="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                        <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-teal-900 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                             <i class="fas fa-heartbeat"></i> Healthcare Tech
                         </span>
-                        <span class="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                        <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-teal-900 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                             <i class="fas fa-robot"></i> Agentic AI
                         </span>
-                        <span class="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                        <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-teal-900 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                             <i class="fas fa-cloud"></i> Cloud QA Ops
                         </span>
                     </div>
 
                     <div class="grid grid-cols-3 gap-4 pt-4">
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
-                            <div class="text-3xl font-bold text-teal-600">40%</div>
-                            <div class="text-sm text-slate-600">Cost Reduction</div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+                            <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">40%</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400">Cost Reduction</div>
                         </div>
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
-                            <div class="text-3xl font-bold text-teal-600">30%</div>
-                            <div class="text-sm text-slate-600">Wait Time Improvement</div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+                            <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">30%</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400">Wait Time Improvement</div>
                         </div>
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
-                            <div class="text-3xl font-bold text-teal-600">15+</div>
-                            <div class="text-sm text-slate-600">Teams Led</div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+                            <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">15+</div>
+                            <div class="text-sm text-slate-600 dark:text-slate-400">Teams Led</div>
                         </div>
                     </div>
 
@@ -142,22 +270,22 @@
                             <i class="fas fa-download"></i>
                             <span>Download Portfolio PDF</span>
                         </a>
-                        <button onclick="showSection('contact')" class="flex items-center justify-center space-x-2 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-6 py-3 rounded-lg font-semibold smooth-transition">
+                        <button onclick="showSection('contact')" class="flex items-center justify-center space-x-2 border-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 px-6 py-3 rounded-lg font-semibold smooth-transition">
                             <i class="fas fa-envelope"></i>
                             <span>Get In Touch</span>
                         </button>
                     </div>
 
                     <div class="flex items-center space-x-6 pt-6">
-                        <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" class="text-slate-700 hover:text-teal-600 smooth-transition">
+                        <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-400 hover:text-teal-600 smooth-transition" aria-label="Visit my LinkedIn profile">
                             <i class="fab fa-linkedin text-2xl"></i>
                         </a>
-                        <a href="https://github.com/darshil0" target="_blank" class="text-slate-700 hover:text-teal-600 smooth-transition">
+                        <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-400 hover:text-teal-600 smooth-transition" aria-label="Visit my GitHub profile">
                             <i class="fab fa-github text-2xl"></i>
                         </a>
-                        <button onclick="copyEmail()" class="text-slate-700 hover:text-teal-600 smooth-transition flex items-center space-x-2">
+                        <button onclick="copyEmail()" class="text-slate-700 dark:text-slate-400 hover:text-teal-600 smooth-transition flex items-center space-x-2" aria-label="Copy email">
                             <i class="fas fa-envelope text-2xl"></i>
-                            <span id="copy-feedback" class="text-sm text-green-600" style="display:none;">Copied!</span>
+                            <span id="copy-feedback" class="text-sm text-green-600 dark:text-green-400" style="display:none;">Copied!</span>
                         </button>
                     </div>
                 </div>
@@ -165,23 +293,23 @@
                 <div class="relative hidden md:block">
                     <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-300 rounded-2xl blur-3xl opacity-20"></div>
                     <div class="relative bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-1">
-                        <div class="bg-white rounded-2xl p-8 space-y-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 space-y-4">
                             <div class="space-y-3">
-                                <div class="h-3 bg-teal-200 rounded-full w-32"></div>
-                                <div class="h-3 bg-teal-100 rounded-full w-48"></div>
-                                <div class="h-3 bg-teal-100 rounded-full w-40"></div>
+                                <div class="h-3 bg-teal-200 dark:bg-teal-900 rounded-full w-32"></div>
+                                <div class="h-3 bg-teal-100 dark:bg-teal-800 rounded-full w-48"></div>
+                                <div class="h-3 bg-teal-100 dark:bg-teal-800 rounded-full w-40"></div>
                             </div>
                             <div class="pt-6 space-y-4">
-                                <div class="flex items-center space-x-3 text-slate-700">
-                                    <i class="fas fa-code text-teal-600 text-lg"></i>
+                                <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
+                                    <i class="fas fa-code text-teal-600 dark:text-teal-400 text-lg"></i>
                                     <span>Test Automation Frameworks</span>
                                 </div>
-                                <div class="flex items-center space-x-3 text-slate-700">
-                                    <i class="fas fa-award text-teal-600 text-lg"></i>
+                                <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
+                                    <i class="fas fa-award text-teal-600 dark:text-teal-400 text-lg"></i>
                                     <span>Healthcare QA Leadership</span>
                                 </div>
-                                <div class="flex items-center space-x-3 text-slate-700">
-                                    <i class="fas fa-briefcase text-teal-600 text-lg"></i>
+                                <div class="flex items-center space-x-3 text-slate-700 dark:text-slate-300">
+                                    <i class="fas fa-briefcase text-teal-600 dark:text-teal-400 text-lg"></i>
                                     <span>AI-Driven Testing</span>
                                 </div>
                             </div>
@@ -193,30 +321,30 @@
 
         <!-- About Section -->
         <div id="about-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
-            <p class="text-slate-500 mb-12 text-lg">Global Healthcare QA Leader | 12+ yrs in AI/ML, digital health &amp; compliance | Ex-Accenture, Kaiser, Infosys, Prime Therapeutics</p>
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">About Me</h2>
+            <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML, digital health &amp; compliance | Ex-Accenture, Kaiser, Infosys, Prime Therapeutics</p>
 
             <!-- Professional Journey & Mission -->
             <div class="grid lg:grid-cols-2 gap-8 mb-12">
-                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center space-x-2">
-                        <i class="fas fa-rocket text-teal-600"></i><span class="ml-2">My Mission</span>
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center space-x-2">
+                        <i class="fas fa-rocket text-teal-600 dark:text-teal-400"></i><span class="ml-2">My Mission</span>
                     </h3>
-                    <p class="text-slate-700 leading-relaxed text-lg mb-4">
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-lg mb-4">
                         My goal is to transition Quality Assurance from a procedural step into a strategic asset. In healthcare, this shifts the focus from simple software reliability to ensuring every digital interaction is safe, accurate, and seamless.
                     </p>
-                    <p class="text-slate-700 leading-relaxed">
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed">
                         I believe quality is a personal responsibility across the entire team. I specialize in AI-Augmented QA, using Agentic AI to identify risks before they reach clinical settings. I focus on building a culture where technical excellence directly supports the patient experience.
                     </p>
                 </div>
-                <div class="bg-white rounded-xl border border-slate-200 p-8 shadow-sm">
-                    <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center space-x-2">
-                        <i class="fas fa-map-signs text-teal-600"></i><span class="ml-2">The Journey</span>
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 shadow-sm">
+                    <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center space-x-2">
+                        <i class="fas fa-map-signs text-teal-600 dark:text-teal-400"></i><span class="ml-2">The Journey</span>
                     </h3>
-                    <p class="text-slate-700 leading-relaxed text-lg mb-4">
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed text-lg mb-4">
                         I have managed global testing operations at Accenture and developed high-precision automation at Prime Therapeutics, working closely with clinicians, data scientists, and engineering teams.
                     </p>
-                    <p class="text-slate-700 leading-relaxed font-semibold text-teal-700">
+                    <p class="text-slate-700 dark:text-slate-300 leading-relaxed font-semibold text-teal-700 dark:text-teal-400">
                         Today, I lead QA transformations that integrate HIPAA compliance with advanced AI. I am dedicated to mentoring engineers to advocate for the patients who rely on the software we build.
                     </p>
                 </div>
@@ -234,38 +362,203 @@
             </div>
         </div>
 
+        <!-- Experience Section -->
+        <div id="experience-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+            <header>
+                <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Professional Experience</h2>
+            </header>
+            <div class="space-y-12 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent" role="list">
+
+                <!-- Role 1 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Information Technology Quality Assurance Analyst</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">Phynix Tech Services</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Feb 2025 - Present · Dallas-Fort Worth Metroplex</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Designing and executing comprehensive test plans, test cases, and test scenarios based on business and technical requirements.</li>
+                            <li>Performing manual testing for web and mobile applications.</li>
+                            <li>Identification, documentation, and tracking of the defects using tools like JIRA, ensuring timely resolution.</li>
+                            <li>Conducting functional, regression, integration, system, and UAT testing.</li>
+                            <li>Collaborating with developers, product managers, and business analysts in Agile/Scrum environments.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Global Healthcare QA Lead</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">Accenture (Kaiser Permanente)</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Jan 2023 - Jan 2025 · Atlanta, GA</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25%.</li>
+                            <li>Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows.</li>
+                            <li>Delivered defect-free, high-performing native iOS/Android releases by owning functional, regression, integration, UI, API, smoke, SIT, and E2E testing.</li>
+                            <li>Reduced manual testing effort by 60% and boosted QA efficiency by 30% by designing an Agile automation framework using Appium, Selenium, and Perfecto.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Sr. QA Automation Engineer</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">Accenture (Kaiser Permanente)</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Oct 2020 - Dec 2022 · Atlanta, GA</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Worked on multiple high-profile healthcare tech initiatives, delivering impactful solutions affecting members across the USA.</li>
+                            <li>Led comprehensive validation efforts, reducing defect leakage rates below 5% and improving product quality from 50% to 90%.</li>
+                            <li>Documented and managed 300+ test cases spanning functional, regression, integration, API, UI, smoke, system, and automated testing.</li>
+                            <li>Conducted end-to-end testing across web, mobile, and backend systems, including Java upgrade testing for Azure microservices.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Software Development Engineer in Test (SDET)</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">Infosys (Prime Therapeutics)</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Oct 2019 - Apr 2020 · Bloomington, MN</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Boosted testing efficiency by 40% by designing and implementing robust automation frameworks using Selenium, TestNG, and Hybrid POM.</li>
+                            <li>Validated complex pharmacy claims data by cross-referencing JSON files with IBMi RX6 and performing SQL-driven analysis.</li>
+                            <li>Developed and maintained scalable Page Object Model frameworks with Selenium WebDriver and Java.</li>
+                            <li>Executed multi-phase functional, regression, integration, UAT, and end-to-end testing within Agile SDLC.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 5 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Platform Automation Engineer</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">TCS (Sony Pictures)</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">May 2019 - Jul 2019 · Culver City, CA</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Translated business requirements into detailed test cases for the Sony Entertainment Web Platform.</li>
+                            <li>Utilized Robot Framework to efficiently retrieve test actions and test data, streamlining automation workflows.</li>
+                            <li>Developed and automated robust test cases using Selenium2Library within Robot Framework (Python-based).</li>
+                            <li>Automated key ServiceNow modules including Demand and Incident management through Robot Framework.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 6 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Quality Assurance Automation Engineer</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">Freelance</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">May 2017 - Mar 2019 · Irving, TX</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Created detailed test cases by understanding business flow and user requirements for system testing using Jira.</li>
+                            <li>Developed automation test suites and test scripts using Selenium WebDriver, TestNG, and Maven.</li>
+                            <li>Worked on distributed test automation execution across different environments as part of continuous integration.</li>
+                            <li>Developed SQL queries to test backend processes during end-to-end testing.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Role 7 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" role="listitem">
+                    <div class="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white dark:bg-slate-800 dark:border-teal-800 text-teal-600 dark:text-teal-400 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 shadow-sm">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-8 rounded-xl border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+                            <div>
+                                <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">QA Engineer</h3>
+                                <p class="text-teal-600 dark:text-teal-400 font-semibold">Eternal Web Pvt. Ltd.</p>
+                            </div>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Dec 2011 - Mar 2017 · Ahmedabad, India</span>
+                        </div>
+                        <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
+                            <li>Developed and executed detailed test cases in Jira, ensuring full requirements traceability and enhanced test coverage.</li>
+                            <li>Conducted thorough functional, exploratory, smoke, and regression testing to identify critical defects.</li>
+                            <li>Performed rigorous System Integration Testing (SIT) to validate seamless interaction and data flow.</li>
+                            <li>Validated data accuracy and integrity by executing SQL (MySQL) queries.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
         <!-- Projects Section -->
         <div id="projects-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12">Featured Projects</h2>
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Featured Projects</h2>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="group bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition border-teal-300">
+                <div class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition border-teal-300">
                     <div class="text-5xl mb-4">🏥</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Kaiser Permanente Mobile App</h3>
-                    <p class="text-sm text-teal-600 font-semibold mb-3">Accenture | Oct 2020 - Jan 2025</p>
-                    <p class="text-slate-700 mb-4">Led QA for 15+ mobile releases, scaled test coverage 40%→100%, improved patient wait times by 30%, reduced manual testing 60%</p>
-                    <div class="pt-4 border-t border-slate-200">
-                        <p class="text-sm font-semibold text-teal-600">40% cost reduction | 100% coverage | 15+ defect-free</p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Kaiser Permanente Mobile App</h3>
+                    <p class="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-3">Accenture | Oct 2020 - Jan 2025</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-4">Led QA for 15+ mobile releases, scaled test coverage 40%→100%, improved patient wait times by 30%, reduced manual testing 60%</p>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+                        <p class="text-sm font-semibold text-teal-600 dark:text-teal-400">40% cost reduction | 100% coverage | 15+ defect-free</p>
                     </div>
                 </div>
 
-                <div class="group bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition border-teal-300">
+                <div class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition border-teal-300">
                     <div class="text-5xl mb-4">💊</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Prime Therapeutics Claims</h3>
-                    <p class="text-sm text-teal-600 font-semibold mb-3">Infosys | Oct 2019 - Apr 2020</p>
-                    <p class="text-slate-700 mb-4">Designed Selenium/TestNG automation frameworks for pharmacy claims validation across complex backend systems</p>
-                    <div class="pt-4 border-t border-slate-200">
-                        <p class="text-sm font-semibold text-teal-600">40% efficiency boost | Enhanced regression | SQL validation</p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Prime Therapeutics Claims</h3>
+                    <p class="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-3">Infosys | Oct 2019 - Apr 2020</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-4">Designed Selenium/TestNG automation frameworks for pharmacy claims validation across complex backend systems</p>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+                        <p class="text-sm font-semibold text-teal-600 dark:text-teal-400">40% efficiency boost | Enhanced regression | SQL validation</p>
                     </div>
                 </div>
 
-                <div class="group bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition border-teal-300">
+                <div class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition border-teal-300">
                     <div class="text-5xl mb-4">🎬</div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-2">Sony Pictures Platform</h3>
-                    <p class="text-sm text-teal-600 font-semibold mb-3">TCS | May 2019 - Jul 2019</p>
-                    <p class="text-slate-700 mb-4">Automated 50+ test cases using Robot Framework, validated ServiceNow modules for Demand & Incident management</p>
-                    <div class="pt-4 border-t border-slate-200">
-                        <p class="text-sm font-semibold text-teal-600">Streamlined automation | Operational efficiency | Python</p>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Sony Pictures Platform</h3>
+                    <p class="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-3">TCS | May 2019 - Jul 2019</p>
+                    <p class="text-slate-700 dark:text-slate-300 mb-4">Automated 50+ test cases using Robot Framework, validated ServiceNow modules for Demand & Incident management</p>
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700">
+                        <p class="text-sm font-semibold text-teal-600 dark:text-teal-400">Streamlined automation | Operational efficiency | Python</p>
                     </div>
                 </div>
             </div>
@@ -273,90 +566,45 @@
 
         <!-- Skills Section -->
         <div id="skills-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12">Technical Expertise</h2>
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Technical Expertise</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition border-l-4 border-l-indigo-500">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-indigo-50 flex items-center">
-                        <i class="fas fa-vial text-indigo-600 mr-2"></i> Functional Testing & Strategy
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 card-hover smooth-transition border-l-4 border-l-indigo-500">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-indigo-50 dark:border-indigo-900/50 flex items-center">
+                        <i class="fas fa-vial text-indigo-600 dark:text-indigo-400 mr-2"></i> Functional Testing & Strategy
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold">Web Functional Testing</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold">Mobile Functional Testing</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold">End-to-End Strategy</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold">Test Planning & Design</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold">User Centric Validation</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold">SIT / UAT Leadership</span>
+                        <span class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-semibold">Web Functional Testing</span>
+                        <span class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-semibold">Mobile Functional Testing</span>
+                        <span class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-semibold">End-to-End Strategy</span>
+                        <span class="bg-indigo-50 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-3 py-1 rounded-full text-xs font-semibold">Test Planning & Design</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition border-l-4 border-l-emerald-500">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-emerald-50 flex items-center">
-                        <i class="fas fa-users-cog text-emerald-600 mr-2"></i> QA Leadership & Mentorship
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 card-hover smooth-transition border-l-4 border-l-emerald-500">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-emerald-50 dark:border-emerald-900/50 flex items-center">
+                        <i class="fas fa-users-cog text-emerald-600 dark:text-emerald-400 mr-2"></i> QA Leadership
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Team Leadership (15+ SDETs)</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">QA Best Practices</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Culture Building</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Risk Management</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Resource Planning</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold">Mentoring & Coaching</span>
+                        <span class="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold">Team Leadership (15+ SDETs)</span>
+                        <span class="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold">QA Best Practices</span>
+                        <span class="bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full text-xs font-semibold">Risk Management</span>
                     </div>
                 </div>
 
-                <div class="bg-white rounded-xl border border-slate-200 p-6 card-hover smooth-transition">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center">
-                        <i class="fas fa-desktop text-teal-600 mr-2"></i> Test Automation
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-6 card-hover smooth-transition border-l-4 border-l-teal-500">
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-teal-50 dark:border-teal-900/50 flex items-center">
+                        <i class="fas fa-desktop text-teal-600 dark:text-teal-400 mr-2"></i> Test Automation
                     </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Selenium</span>
-                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Appium</span>
-                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">TestNG</span>
-                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Robot Framework</span>
-                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Rest Assured</span>
-                        <span class="bg-teal-50 text-teal-700 px-3 py-1 rounded-full text-xs font-semibold">Java / Python</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl border border-emerald-100 p-6 shadow-sm hover:border-emerald-400 smooth-transition">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-emerald-50 flex items-center">
-                        <i class="fas fa-briefcase-medical text-emerald-600 mr-2"></i> Healthcare &amp; Compliance
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold border border-emerald-100">HIPAA / FDA</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold border border-emerald-100">ISO Standards</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold border border-emerald-100">EHR / EMR</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold border border-emerald-100">Telehealth</span>
-                        <span class="bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-xs font-semibold border border-emerald-100">FHIR / HL7</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl border border-sky-100 p-6 shadow-sm hover:border-sky-400 smooth-transition">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-sky-50 flex items-center">
-                        <i class="fas fa-tools text-sky-600 mr-2"></i> Tools
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100">JIRA</span>
-                        <span class="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100">Postman</span>
-                        <span class="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100">Jenkins</span>
-                        <span class="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100">Bitbucket</span>
-                        <span class="bg-sky-50 text-sky-700 px-3 py-1 rounded-full text-xs font-semibold border border-sky-100">Docker</span>
-                    </div>
-                </div>
-
-                <div class="bg-white rounded-xl border border-indigo-100 p-6 shadow-sm hover:border-indigo-400 smooth-transition">
-                    <h3 class="text-lg font-bold text-slate-900 mb-4 pb-2 border-b border-indigo-50 flex items-center">
-                        <i class="fas fa-brain text-indigo-600 mr-2"></i> AI &amp; Modern Tech
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-100">Agentic AI</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-100">LLMs (GPT-4 / Claude)</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-100">Prompt Engineering</span>
-                        <span class="bg-indigo-50 text-indigo-700 px-3 py-1 rounded-full text-xs font-semibold border border-indigo-100">MLOps</span>
+                        <span class="bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-xs font-semibold">Selenium</span>
+                        <span class="bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-xs font-semibold">Appium</span>
+                        <span class="bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 px-3 py-1 rounded-full text-xs font-semibold">TestNG</span>
                     </div>
                 </div>
             </div>
-            <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white mt-8">
+
+            <div class="mt-12 bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white">
                 <h3 class="text-2xl font-bold mb-4 flex items-center space-x-2">
                     <i class="fas fa-file-pdf"></i>
                     <span>Complete Portfolio Document</span>
@@ -371,399 +619,217 @@
 
         <!-- Contact Section -->
         <div id="contact-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12">Let's Connect</h2>
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Let's Connect</h2>
             
             <div class="grid md:grid-cols-2 gap-12">
                 <div class="space-y-8">
-                    <div class="bg-white rounded-xl border border-slate-200 p-8">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h3>
+                    <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8">
+                        <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6">Get In Touch</h3>
                         
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-envelope text-teal-600 text-lg"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-slate-600 mb-1">Email</p>
-                                    <button onclick="copyEmail()" class="text-lg font-semibold text-slate-900 hover:text-teal-600 smooth-transition">
-                                        darshils99@gmail.com
-                                    </button>
-                                </div>
+                        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
+                                <input type="text" name="name" id="name" required class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 shadow-sm focus:border-teal-500 focus:ring-teal-500 dark:bg-slate-900 dark:text-white sm:text-sm p-2 border">
                             </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-phone text-teal-600 text-lg"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-slate-600 mb-1">Phone</p>
-                                    <p class="text-lg font-semibold text-slate-900">+1 (469) 987-6574</p>
-                                </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
+                                <input type="email" name="email" id="email" required class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 shadow-sm focus:border-teal-500 focus:ring-teal-500 dark:bg-slate-900 dark:text-white sm:text-sm p-2 border">
                             </div>
-
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-map-marker-alt text-teal-600 text-lg"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-slate-600 mb-1">Location</p>
-                                    <p class="text-lg font-semibold text-slate-900">Dallas-Fort Worth, Texas</p>
-                                </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
+                                <textarea name="message" id="message" rows="4" required class="mt-1 block w-full rounded-md border-slate-300 dark:border-slate-700 shadow-sm focus:border-teal-500 focus:ring-teal-500 dark:bg-slate-900 dark:text-white sm:text-sm p-2 border"></textarea>
                             </div>
-                        </div>
-
-                        <div class="mt-8 pt-8 border-t border-slate-200">
-                            <p class="text-slate-600 mb-4">Follow me online:</p>
-                            <div class="flex items-center space-x-4">
-                                <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center hover:bg-teal-600 hover:text-white smooth-transition">
-                                    <i class="fab fa-linkedin text-lg"></i>
-                                </a>
-                                <a href="https://github.com/darshil0" target="_blank" class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center hover:bg-teal-600 hover:text-white smooth-transition">
-                                    <i class="fab fa-github text-lg"></i>
-                                </a>
-                            </div>
-                        </div>
+                            <div id="form-status" class="hidden text-sm font-medium"></div>
+                            <button type="submit" id="form-submit" class="w-full inline-flex justify-center rounded-md border border-transparent bg-teal-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed">
+                                Send Message
+                            </button>
+                        </form>
                     </div>
                 </div>
 
                 <div class="bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl p-8 text-white space-y-6">
-                    <h3 class="text-2xl font-bold">Download My Portfolio</h3>
-                    <p class="text-teal-100 leading-relaxed">
-                        Get a comprehensive overview of my QA engineering expertise, featured projects, technical stack, and healthcare domain knowledge.
-                    </p>
-                    <ul class="space-y-3 text-teal-100">
-                        <li class="flex items-center space-x-2">
-                            <span class="w-2 h-2 bg-white rounded-full"></span>
-                            <span>6-page professional document</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <span class="w-2 h-2 bg-white rounded-full"></span>
-                            <span>Detailed project case studies</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <span class="w-2 h-2 bg-white rounded-full"></span>
-                            <span>Technical expertise & certifications</span>
-                        </li>
-                        <li class="flex items-center space-x-2">
-                            <span class="w-2 h-2 bg-white rounded-full"></span>
-                            <span>Healthcare & AI/ML specialization</span>
-                        </li>
-                    </ul>
-                    <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download class="inline-flex items-center justify-center w-full space-x-2 bg-white text-teal-600 hover:bg-teal-50 px-6 py-3 rounded-lg font-bold smooth-transition transform hover:scale-105 mt-6">
-                        <i class="fas fa-download"></i>
-                        <span>Download Portfolio PDF</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <!-- Experience Section -->
-        <div id="experience-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12">Professional Experience</h2>
-            <div class="space-y-6">
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">Information Technology Quality Assurance Analyst</h3>
-                            <p class="text-teal-600 font-semibold">Phynix Tech Services</p>
+                    <h3 class="text-2xl font-bold">Quick Contact</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-envelope text-teal-200"></i>
+                            <span>darshils99@gmail.com</span>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Feb 2025 - Present · Dallas, TX</span>
-                    </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Designing and executing comprehensive test plans, test cases, and test scenarios based on business and technical requirements.</li>
-                        <li>Performing manual testing for web and mobile applications.</li>
-                        <li>Identification, documentation, and tracking of the defects using tools like JIRA, ensuring timely resolution.</li>
-                        <li>Conducting functional, regression, integration, system, and UAT testing.</li>
-                        <li>Collaborating with developers, product managers, and business analysts in Agile/Scrum environments.</li>
-                        <li>Participating in sprint planning, daily stand-ups, and retrospective meetings.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">Global Healthcare QA Lead - Kaiser Permanente</h3>
-                            <p class="text-teal-600 font-semibold">Accenture</p>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-phone text-teal-200"></i>
+                            <span>+1 (469) 987-6574</span>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Jan 2023 - Jan 2025 · Atlanta, GA</span>
-                    </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25% by implementing standardized test strategies and KPI-driven release gates.</li>
-                        <li>Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows and validating critical care-journey paths end-to-end.</li>
-                        <li>Delivered defect-free, high-performing native iOS/Android releases by owning functional, regression, integration, UI, API, smoke, SIT, and E2E testing and serving as QA SME for cross-functional teams and stakeholders.</li>
-                        <li>Reduced manual testing effort by 60% and boosted QA efficiency by 30% by designing an Agile automation framework using Appium, Selenium, and Perfecto, earning Accenture’s 3-Year Service Award and client recognition for technical leadership.</li>
-                        <li>Improved defect resolution by 20% while keeping defect leakage under 5% by optimizing workflows in Jira, qTest, and HP ALM and leveraging ChatGPT and MS Copilot for test case generation and defect analysis.</li>
-                        <li>Reduced time-to-market for critical mobile features by implementing shift-left testing, orchestrating full test cycles early in the SDLC, and delivering executive-ready reports on progress, risks, and quality metrics.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">Sr. QA Automation Engineer - Kaiser Permanente</h3>
-                            <p class="text-teal-600 font-semibold">Accenture</p>
+                        <div class="flex items-center space-x-4">
+                            <i class="fas fa-map-marker-alt text-teal-200"></i>
+                            <span>Dallas-Fort Worth, Texas</span>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2020 - Dec 2022 · Atlanta, GA</span>
-                    </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Worked on multiple high-profile healthcare tech initiatives for Kaiser Permanente, a leading integrated healthcare organization headquartered in Pleasanton, California, while at Accenture, delivering impactful solutions affecting members across the USA.</li>
-                        <li>Led comprehensive validation efforts, reducing defect leakage rates below 5% and improving product quality from 50% to 90%, earning recognition from the client.</li>
-                        <li>Documented and managed 300+ test cases spanning functional, regression, integration, API, UI, smoke, system, and automated testing scenarios.</li>
-                        <li>Collaborated extensively with Business Analysts and Subject Matter Experts to verify requirements covering functional, non-functional, technical, and business specifications.</li>
-                        <li>Conducted end-to-end testing across web, mobile, and backend systems, including Java upgrade testing for Azure microservices deployed via Kubernetes and API validation using Postman.</li>
-                        <li>Implemented advanced testing methodologies including ADA accessibility compliance validation and cross-platform testing leveraging physical devices, simulators, and the Perfecto cloud platform.</li>
-                        <li>Enhanced Agile development processes by providing strategic QA guidance during Scrum ceremonies, accurately estimating user stories, and fostering collaboration between development, business, and stakeholder teams.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">Software Development Engineer in Test (SDET)</h3>
-                            <p class="text-teal-600 font-semibold">Infosys - Prime Therapeutics</p>
+                        <div class="pt-6 flex space-x-4">
+                            <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Visit my LinkedIn profile">
+                                <i class="fab fa-linkedin text-xl"></i>
+                            </a>
+                            <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Visit my GitHub profile">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2019 - Apr 2020 · Bloomington, MN</span>
                     </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Contributed to automating multiple healthcare technology initiatives at Infosys within Prime Therapeutics, a leading pharmacy benefit management organization based in the Midwest USA, delivering innovative, transparent pharmacy solutions.</li>
-                        <li>Boosted testing efficiency by 40% by designing and implementing robust automation frameworks using Selenium, TestNG, and Hybrid POM, enhancing regression test coverage and reliability.</li>
-                        <li>Validated complex pharmacy claims data by cross-referencing JSON files with IBMi RX6 and performing SQL-driven analysis, streamlining critical workflows and improving data accuracy.</li>
-                        <li>Developed and maintained scalable Page Object Model frameworks with Selenium WebDriver and Java, integrating with HP ALM to support reliable regression testing.</li>
-                        <li>Executed multi-phase functional, regression, integration, UAT, and end-to-end testing within Agile SDLC, significantly improving product quality and stakeholder confidence.</li>
-                        <li>Performed manual test case design and execution for usability, compliance, and edge cases to complement automation efforts and ensure comprehensive test coverage.</li>
-                        <li>Collaborated with developers and product owners for requirement clarification, exploratory testing, and API testing leveraging Postman and REST-assured.</li>
-                        <li>Managed test artifacts, defect tracking, and coordination through Jira and Bitbucket, ensuring timely communication and swift issue resolution across cross-functional teams.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">Platform Automation Engineer</h3>
-                            <p class="text-teal-600 font-semibold">Tata Consultancy Services (TCS) - Sony Pictures Entertainment</p>
-                        </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">May 2019 - Jul 2019 · Culver City, CA</span>
-                    </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Sony Pictures Entertainment is a leading global entertainment company specializing in the production and distribution of films, television, and digital content, known for its innovation and creative excellence.</li>
-                        <li>Translated business requirements into detailed test cases for the Sony Entertainment Web Platform while at TCS, ensuring comprehensive test coverage and quality assurance.</li>
-                        <li>Participated in all phases of the software testing lifecycle including planning, design, development, and execution to deliver robust testing outcomes.</li>
-                        <li>Utilized Robot Framework to efficiently retrieve test actions and test data, streamlining and accelerating automation workflows.</li>
-                        <li>Developed and automated robust test cases using Selenium2Library within Robot Framework (Python-based), increasing testing accuracy and efficiency.</li>
-                        <li>Managed defect tracking and reporting through Atlassian Jira, maintaining clear communication on progress and issues.</li>
-                        <li>Automated key ServiceNow modules including Demand and Incident management through Robot Framework, contributing to operational efficiency.</li>
-                        <li>Collaborated with project teams through daily stand-ups, defect triage meetings, and project status updates to ensure alignment and timely delivery.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">QA Automation Engineer (Freelance)</h3>
-                            <p class="text-teal-600 font-semibold">Independent Contractor</p>
-                        </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">May 2017 - Mar 2019 · Irving, TX</span>
-                    </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Created detailed test cases by understanding business flow and user requirements for system testing using Jira across multiple industries and clients.</li>
-                        <li>Gathered business requirements, studied applications, and collected information from developers and business stakeholders to assess project feasibility.</li>
-                        <li>Performed functional testing, regression testing, UI testing, and integration testing of applications.</li>
-                        <li>Developed automation test suites and test scripts using Selenium WebDriver, TestNG, and Maven.</li>
-                        <li>Extensively used Selenium locators (XPath, ID, and CSS) to test web applications.</li>
-                        <li>Contributed to developing an automation framework using Java, Selenium WebDriver, and TestNG.</li>
-                        <li>Worked on distributed test automation execution across different environments as part of continuous integration testing using Selenium WebDriver and Jenkins.</li>
-                        <li>Developed SQL queries to test backend processes during end-to-end testing.</li>
-                        <li>Collaborated closely with software developers and took an active role in ensuring software components met the highest quality standards.</li>
-                        <li>Performed functional testing during various phases of application development using the TestNG framework.</li>
-                    </ul>
-                </div>
-
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-slate-900">QA Engineer</h3>
-                            <p class="text-teal-600 font-semibold">Eternal Web Pvt. Ltd. (AWS Cloud & Odoo ERP)</p>
-                        </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Dec 2011 - Mar 2017 · Ahmedabad, India</span>
-                    </div>
-                    <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
-                        <li>Eternal Web Pvt. Ltd., headquartered in Ahmedabad, India, is a specialized technology company focused on custom web solutions, digital transformation, and AWS cloud services, dedicated to delivering innovative and scalable software solutions.</li>
-                        <li>Developed and executed detailed test cases in Jira, ensuring full requirements traceability and enhanced test coverage across functional, exploratory, regression, and system integration testing.</li>
-                        <li>Conducted thorough functional, exploratory, smoke, and regression testing to identify critical defects and ensure high-quality web application releases.</li>
-                        <li>Performed rigorous System Integration Testing (SIT) to validate seamless interaction and data flow between various application components.</li>
-                        <li>Executed comprehensive cross-browser testing to guarantee consistent user experience and functionality across different web browsers.</li>
-                        <li>Validated data accuracy and integrity by executing SQL (MySQL) queries, ensuring reliable and trustworthy web applications.</li>
-                        <li>Analyzed SRS documents and conducted peer reviews to identify potential issues early in the development cycle, contributing to improved quality.</li>
-                        <li>Collaborated with development and product teams within Agile/Scrum environments, actively participating in sprints to ensure timely feedback and issue resolution throughout the testing lifecycle.</li>
-                    </ul>
                 </div>
             </div>
         </div>
 
         <!-- Education Section -->
         <div id="education-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-12">Education</h2>
-            <div class="space-y-6">
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Education</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition">
                     <div class="flex items-start space-x-6">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center flex-shrink-0">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center flex-shrink-0 shadow-lg shadow-teal-200">
                             <i class="fas fa-graduation-cap text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900">Masters' in Business Administration, Information Technology</h3>
-                            <p class="text-teal-600 font-semibold">Sikkim Manipal University - Distance Education</p>
-                            <p class="text-slate-500 text-sm mt-1">March 2013 - March 2015</p>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">Masters' in Business Administration, IT</h3>
+                            <p class="text-teal-600 dark:text-teal-400 font-semibold">Sikkim Manipal University</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">2013 - 2015</p>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white rounded-xl border border-slate-200 p-8 card-hover smooth-transition">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition">
                     <div class="flex items-start space-x-6">
-                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center flex-shrink-0">
+                        <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center flex-shrink-0 shadow-lg shadow-teal-200">
                             <i class="fas fa-graduation-cap text-white text-xl"></i>
                         </div>
                         <div>
-                            <h3 class="text-xl font-bold text-slate-900">Bachelor of Engineering - BE, Information Technology</h3>
-                            <p class="text-teal-600 font-semibold">Sardar Patel University (SPU), Vallabh Vidyanagar</p>
-                            <p class="text-slate-500 text-sm mt-1">August 2007 - August 2011</p>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight">Bachelor of Engineering, IT</h3>
+                            <p class="text-teal-600 dark:text-teal-400 font-semibold">Sardar Patel University</p>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm mt-1">2007 - 2011</p>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <h2 class="text-4xl font-bold text-slate-900 mt-16 mb-8">Languages</h2>
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mt-16 mb-8">Languages</h2>
             <div class="flex flex-wrap gap-4">
-                <div class="bg-white rounded-xl border border-slate-200 px-6 py-4 flex items-center space-x-3">
-                    <i class="fas fa-globe text-teal-600"></i><span class="font-semibold text-slate-800">English</span><span class="text-sm text-slate-500">Full Professional</span>
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center space-x-3">
+                    <i class="fas fa-globe text-teal-600"></i><span class="font-semibold text-slate-800 dark:text-slate-200">English</span>
                 </div>
-                <div class="bg-white rounded-xl border border-slate-200 px-6 py-4 flex items-center space-x-3">
-                    <i class="fas fa-globe text-teal-600"></i><span class="font-semibold text-slate-800">Hindi</span><span class="text-sm text-slate-500">Full Professional</span>
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center space-x-3">
+                    <i class="fas fa-globe text-teal-600"></i><span class="font-semibold text-slate-800 dark:text-slate-200">Hindi</span>
                 </div>
-                <div class="bg-white rounded-xl border border-slate-200 px-6 py-4 flex items-center space-x-3">
-                    <i class="fas fa-globe text-teal-600"></i><span class="font-semibold text-slate-800">Gujarati</span><span class="text-sm text-slate-500">Full Professional</span>
-                </div>
-            </div>
-
-            <h2 class="text-4xl font-bold text-slate-900 mt-16 mb-8">Honors &amp; Awards</h2>
-            <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white flex items-center space-x-6">
-                <i class="fas fa-award text-4xl"></i>
-                <div>
-                    <h3 class="text-xl font-bold">3 Years of Service Award &amp; Recognition</h3>
-                    <p class="text-teal-100">Accenture · Awarded for exceptional leadership and technical excellence in Healthcare QA delivery</p>
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 px-6 py-4 flex items-center space-x-3">
+                    <i class="fas fa-globe text-teal-600"></i><span class="font-semibold text-slate-800 dark:text-slate-200">Gujarati</span>
                 </div>
             </div>
         </div>
 
         <!-- Certifications Section -->
         <div id="certifications-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 mb-4">Certifications</h2>
-            <p class="text-slate-600 mb-12">Categorized credentials earned 2025-2026</p>
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+                <div>
+                    <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Certifications</h2>
+                    <p class="text-slate-500 dark:text-slate-400 font-medium">Professional growth & technical specialization (2025–2026)</p>
+                </div>
+                <div class="bg-teal-50 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 px-4 py-2 rounded-full border border-teal-100 dark:border-teal-800 text-xs font-bold flex items-center gap-2">
+                    <i class="fas fa-bookmark text-[10px]"></i> 11 Active Credentials
+                </div>
+            </div>
             
             <div class="grid lg:grid-cols-3 gap-8">
-                <!-- Group 1: AI & Intelligent Agents -->
+                <!-- AI & Intelligent Agents -->
                 <div class="space-y-6">
-                    <h3 class="text-xl font-bold text-indigo-900 flex items-center mb-4">
-                        <i class="fas fa-brain text-indigo-600 mr-2"></i> AI & Intelligent Agents
+                    <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-400 flex items-center mb-4">
+                        <i class="fas fa-brain text-indigo-600 dark:text-indigo-400 mr-2"></i> AI & Intelligent Agents
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-robot text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Agent Skills with Anthropic</p><p class="text-xs text-slate-500">March 2026</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-rocket text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Agent Skills with Anthropic</p><p class="text-xs text-slate-500 dark:text-slate-400">March 2026</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-code text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Claude Code in Action</p><p class="text-xs text-slate-500">March 2026</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-code text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Claude Code in Action</p><p class="text-xs text-slate-500 dark:text-slate-400">DeepLearning.AI · 2026</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-plug text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Introduction to MCP</p><p class="text-xs text-slate-500">October 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-bolt text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Introduction to MCP</p><p class="text-xs text-slate-500 dark:text-slate-400">Anthropic · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-microchip text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">AI Fluency Framework</p><p class="text-xs text-slate-500">August 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-search text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">AI Agent Architect</p><p class="text-xs text-slate-500 dark:text-slate-400">IBM · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-sitemap text-indigo-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">AI Agent Architect</p><p class="text-xs text-slate-500">IBM · July 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-shield-alt text-indigo-600 dark:text-indigo-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">AI Fluency Framework</p><p class="text-xs text-slate-500 dark:text-slate-400">Anthropic · 2025</p></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 2: Cloud & Infrastructure -->
+                <!-- Cloud & Modern Tech -->
                 <div class="space-y-6">
-                    <h3 class="text-xl font-bold text-sky-900 flex items-center mb-4">
-                        <i class="fas fa-cloud text-sky-600 mr-2"></i> Cloud & Modern Tech
+                    <h3 class="text-xl font-bold text-sky-900 dark:text-sky-400 flex items-center mb-4">
+                        <i class="fas fa-cloud text-sky-600 dark:text-sky-400 mr-2"></i> Cloud & Modern Tech
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fab fa-aws text-sky-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">AWS Cloud Practitioner</p><p class="text-xs text-slate-500">AWS · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-cloud text-sky-600 dark:text-sky-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">AWS Cloud Practitioner</p><p class="text-xs text-slate-500 dark:text-slate-400">AWS · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fab fa-microsoft text-sky-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Copilot Foundations</p><p class="text-xs text-slate-500">Microsoft · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-book-open text-sky-600 dark:text-sky-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Copilot Foundations</p><p class="text-xs text-slate-500 dark:text-slate-400">Microsoft · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-infinity text-sky-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">MLOps for Generative AI</p><p class="text-xs text-slate-500">Google · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-globe text-sky-600 dark:text-sky-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">MLOps for Generative AI</p><p class="text-xs text-slate-500 dark:text-slate-400">Google · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-sky-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-sky-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-keyboard text-sky-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Foundations of Prompt Eng.</p><p class="text-xs text-slate-500">AWS · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-sky-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-wrench text-sky-600 dark:text-sky-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Foundations of Prompt Eng.</p><p class="text-xs text-slate-500 dark:text-slate-400">AWS · 2025</p></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Group 3: Agile & Leadership -->
+                <!-- Agile & Leadership -->
                 <div class="space-y-6">
-                    <h3 class="text-xl font-bold text-emerald-900 flex items-center mb-4">
-                        <i class="fas fa-users text-emerald-600 mr-2"></i> Agile & Leadership
+                    <h3 class="text-xl font-bold text-emerald-900 dark:text-emerald-400 flex items-center mb-4">
+                        <i class="fas fa-users text-emerald-600 dark:text-emerald-400 mr-2"></i> Agile & Leadership
                     </h3>
                     <div class="space-y-4">
-                        <div class="bg-white rounded-xl border border-emerald-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-sync-alt text-emerald-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Registered Scrum Basics™</p><p class="text-xs text-slate-500">Scrum Inc. · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-check-circle text-emerald-600 dark:text-emerald-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">Registered Scrum Basics™</p><p class="text-xs text-slate-500 dark:text-slate-400">Scrum Inc. · 2025</p></div>
                         </div>
-                        <div class="bg-white rounded-xl border border-emerald-100 p-5 card-hover smooth-transition flex items-start space-x-4">
-                            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-tasks text-emerald-600"></i></div>
-                            <div><p class="font-bold text-slate-900 text-sm">Gen AI for Project Managers</p><p class="text-xs text-slate-500">PMI · 2025</p></div>
+                        <div class="bg-white dark:bg-slate-800 rounded-xl border border-emerald-100 dark:border-slate-700 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center flex-shrink-0"><i class="fas fa-briefcase text-emerald-600 dark:text-emerald-400"></i></div>
+                            <div><p class="font-bold text-slate-900 dark:text-slate-100 text-sm">GenAI for Project Managers</p><p class="text-xs text-slate-500 dark:text-slate-400">PMI · 2025</p></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- FIX: removed stray extra </div> that was here in the original -->
-    </div>
+    </main>
 
     <!-- Footer -->
-    <footer class="border-t border-slate-200 bg-white mt-20">
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 mt-20">
         <div class="max-w-6xl mx-auto px-6 py-12">
             <div class="flex flex-col md:flex-row items-center justify-between">
                 <div class="flex items-center space-x-2 mb-4 md:mb-0">
                     <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center">
                         <span class="text-white font-bold text-sm">DS</span>
                     </div>
-                    <span class="font-bold text-slate-900">Darshil Shah</span>
+                    <span class="font-bold text-slate-900 dark:text-slate-100">Darshil Shah</span>
                 </div>
-                <p class="text-slate-600">Global Healthcare QA Leader | AI-Driven Testing Engineer</p>
-                <p class="text-sm text-slate-500 mt-4 md:mt-0">© 2026. v2.3.2. All rights reserved.</p>
+                <p class="text-slate-600 dark:text-slate-400">Global Healthcare QA Leader | AI-Driven Testing Engineer</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-4 md:mt-0">© 2026. v2026.3.17. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
         function showSection(sectionId) {
-            // Hide all sections
             document.querySelectorAll('.section-content').forEach(s => s.style.display = 'none');
-            
-            // Show selected section
             const sel = document.getElementById(sectionId + '-section');
             if (sel) { 
                 sel.style.display = 'block'; 
                 window.scrollTo({ top: 0, behavior: 'smooth' }); 
             }
-
-            // Update Desktop Nav Links
             document.querySelectorAll('.nav-btn').forEach(btn => {
                 btn.classList.remove('text-teal-600', 'font-bold');
                 btn.classList.add('text-slate-700', 'font-medium');
@@ -789,17 +855,103 @@
                 menu.classList.remove('hidden');
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
-                document.body.style.overflow = 'hidden'; 
+                document.body.classList.add('lock-scroll');
             } else {
                 menu.classList.add('hidden');
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
-                document.body.style.overflow = 'auto';
+                document.body.classList.remove('lock-scroll');
             }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateThemeIcons();
+        }
+
+        function updateThemeIcons() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const lightIcon = document.getElementById('theme-icon-light');
+            const darkIcon = document.getElementById('theme-icon-dark');
+            if (isDark) {
+                lightIcon.classList.remove('hidden');
+                darkIcon.classList.add('hidden');
+            } else {
+                lightIcon.classList.add('hidden');
+                darkIcon.classList.remove('hidden');
+            }
+        }
+
+        // Scroll progress bar
+        const scrollProgress = document.getElementById('scroll-progress');
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrolled = (winScroll / height) * 100;
+                    scrollProgress.value = scrolled;
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // Form Submission
+        const form = document.getElementById('contact-form');
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const submitBtn = document.getElementById('form-submit');
+                const status = document.getElementById('form-status');
+                const emailInput = document.getElementById('email').value;
+                const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+                if (!emailRegex.test(emailInput)) {
+                    status.textContent = 'Invalid email address.';
+                    status.className = 'block text-sm font-medium text-red-600 mt-2';
+                    return;
+                }
+
+                if (form.action.includes('YOUR_FORM_ID')) {
+                    status.textContent = 'Form Setup Required: Replace YOUR_FORM_ID in index.html';
+                    status.className = 'block text-sm font-medium text-amber-600 mt-2';
+                    return;
+                }
+
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: new FormData(form),
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        status.textContent = 'Thank you! Your message has been sent.';
+                        status.className = 'block text-sm font-medium text-green-600 mt-2';
+                        form.reset();
+                    } else {
+                        status.textContent = 'Oops! There was a problem submitting your form.';
+                        status.className = 'block text-sm font-medium text-red-600 mt-2';
+                    }
+                } catch (error) {
+                    status.textContent = 'Oops! There was a problem submitting your form.';
+                    status.className = 'block text-sm font-medium text-red-600 mt-2';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Send Message';
+                }
+            });
         }
 
         // Initialize
         showSection('home');
+        updateThemeIcons();
     </script>
 </body>
 </html>
