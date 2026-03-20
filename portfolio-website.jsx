@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { 
   Download, Github, Linkedin, Mail, MapPin, FileText, 
   Award, Briefcase, Code2, Heart, Phone, GraduationCap, 
-  Globe, Bookmark, CheckCircle, Search, Tools, Rocket, 
-  ShieldCheck, Zap, Star, User, BookOpen, Brain, Cloud, Users
+  Globe, Bookmark, CheckCircle, Search, Wrench, Rocket, 
+  ShieldCheck, Zap, Star, BookOpen, Brain, Cloud, Users
 } from 'lucide-react';
 
 export default function PortfolioWebsite() {
@@ -70,8 +70,9 @@ export default function PortfolioWebsite() {
                     <span className="text-[10px] bg-teal-100 text-teal-700 font-bold px-2 py-1 rounded border border-teal-200 uppercase tracking-widest shadow-sm">US Citizen</span>
                   </div>
                 </div>
-                
-                <p class="text-xl text-slate-700 leading-relaxed max-w-2xl">
+
+                {/* FIX 1: was class= (invalid JSX), now className= */}
+                <p className="text-xl text-slate-700 leading-relaxed max-w-2xl">
                   I lead high-impact QA programs for Fortune 500 healthcare organizations, combining AI-driven automation with deep regulatory expertise to ensure patient safety and business excellence.
                 </p>
 
@@ -297,11 +298,9 @@ export default function PortfolioWebsite() {
                 }
               ].map((role, idx) => (
                 <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group select-none">
-                  {/* Dot */}
                   <div className="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                     <Briefcase size={16} />
                   </div>
-                  {/* Card */}
                   <div className="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl border border-teal-100 shadow-sm transition hover:shadow-md hover:border-teal-300">
                     <div className="flex flex-col mb-4">
                       <h3 className="font-black text-slate-900 leading-tight">{role.role}</h3>
@@ -371,33 +370,33 @@ export default function PortfolioWebsite() {
             <h2 className="text-4xl font-bold text-slate-900 mb-12">Technical Expertise</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
-                { 
-                  cat: "Functional Testing & Strategy", 
+                {
+                  cat: "Functional Testing & Strategy",
                   skills: ["Web Functional Testing", "Mobile Functional Testing", "End-to-End Strategy", "Test Planning & Design", "User Centric Validation", "SIT / UAT Leadership"],
                   theme: "teal"
                 },
-                { 
-                  cat: "QA Leadership & Mentorship", 
+                {
+                  cat: "QA Leadership & Mentorship",
                   skills: ["Team Leadership (15+ SDETs)", "QA Best Practices", "Culture Building", "Risk Management", "Resource Planning", "Mentoring & Coaching"],
                   theme: "emerald"
                 },
-                { 
-                  cat: "Test Automation", 
+                {
+                  cat: "Test Automation",
                   skills: ["Selenium", "Appium", "TestNG", "Robot Framework", "Rest Assured", "SoapUI", "Java", "Python", "SQL"],
                   theme: "teal"
                 },
-                { 
-                  cat: "Healthcare & Compliance", 
+                {
+                  cat: "Healthcare & Compliance",
                   skills: ["HIPAA / FDA", "ISO Standards", "EHR / EMR", "Telehealth", "FHIR / HL7", "ADA Accessibility"],
                   theme: "emerald"
                 },
-                { 
-                  cat: "Tools", 
+                {
+                  cat: "Tools",
                   skills: ["JIRA", "Postman", "Jenkins", "Bitbucket", "Docker", "Kubernetes", "Azure", "TestRail", "qTest", "Perfecto"],
                   theme: "sky"
                 },
-                { 
-                  cat: "AI & Modern Tech", 
+                {
+                  cat: "AI & Modern Tech",
                   skills: ["Agentic AI", "LLMs (GPT-4 / Claude)", "Prompt Engineering", "MLOps", "AWS / Cloud", "Flutter"],
                   theme: "indigo"
                 }
@@ -535,7 +534,8 @@ export default function PortfolioWebsite() {
                     { title: "Copilot Foundations", body: "Microsoft · 2025", icon: <BookOpen size={20} /> },
                     { title: "MLOps for Generative AI", body: "Google · 2025", icon: <Globe size={20} /> },
                     { title: "Prompt Engineering", body: "Coursera · 2025", icon: <Star size={20} /> },
-                    { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Tools size={20} /> }
+                    /* FIX 2: was <Tools size={20} /> — Tools is not exported by lucide-react; replaced with Wrench */
+                    { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Wrench size={20} /> }
                   ]
                 },
                 {
