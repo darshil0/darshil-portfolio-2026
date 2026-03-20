@@ -381,16 +381,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v2.2.0 (Asset Cleanup & Optimization)
+- **HTML**: v2.3.0 (Detailed Experience Update)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v2.2.0 (Lean code transformation)
+- **React**: v2.3.0 (Comprehensive content parity)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.2.0** (Asset Cleanup).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.3.0** (Experience Update).
 
 ---
 

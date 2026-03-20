@@ -4,6 +4,12 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2.3.0] - 2026-03-20
+
+### Added
+- **Detailed Professional History**: Expanded the Experience section with comprehensive bullet points for all 7 roles, highlighting technical leadership, AI integration, and healthcare domain expertise.
+- **Education Refinement**: Updated degrees and dates for Sikkim Manipal University and Sardar Patel University to provide precise academic history.
+
 ## [2.2.0] - 2026-03-19
 
 ### Removed

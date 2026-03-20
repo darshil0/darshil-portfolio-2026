@@ -229,71 +229,105 @@ export default function PortfolioWebsite() {
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent">
               {[
                 {
-                  role: "Information Technology QA Lead",
+                  role: "Information Technology Quality Assurance Analyst",
                   company: "Phynix Tech Services",
-                  date: "Feb 2025 - Present · Dallas, TX",
+                  date: "Feb 2025 - Present · Dallas-Fort Worth Metroplex",
                   points: [
-                    "Drive enterprise-wide QA transformation for digital health solutions, ensuring 100% compliance with HIPAA and FDA standards.",
-                    "Optimize automation workflows using Agentic AI, resulting in an estimated 500+ manual hours saved annually.",
-                    "Lead cross-functional teams to deliver zero-defect releases for high-stakes healthcare deployments."
+                    "Designing and executing comprehensive test plans, test cases, and test scenarios based on business and technical requirements.",
+                    "Performing manual testing for web and mobile applications.",
+                    "Identification, documentation, and tracking of the defects using tools like JIRA, ensuring timely resolution.",
+                    "Conducting functional, regression, integration, system, and UAT testing.",
+                    "Collaborating with developers, product managers, and business analysts in Agile/Scrum environments.",
+                    "Participating in sprint planning, daily stand-ups, and retrospective meetings."
                   ]
                 },
                 {
-                  role: "Global Healthcare QA Lead - Kaiser Permanente",
+                  role: "Quality Assurance Test Lead",
                   company: "Accenture",
-                  date: "Jan 2023 - Jan 2025 · Atlanta, GA",
+                  date: "Jan 2023 - Jan 2025 · Pleasanton, California, United States",
                   points: [
-                    "Spearheaded global quality transformations for 15+ high-priority mobile releases, boosting product excellence from 40% to 100% for 3.5M+ active members.",
-                    "Achieved a 40% cost reduction in testing overhead by architecting robust test data management protocols and environment stability frameworks.",
-                    "Cultivated a \"Quality First\" culture, mentoring a global team of 20+ SDETs to ensure zero-defect production deployments.",
-                    "Boosted iOS/Android accessibility compliance to 100%, securing ADA certification for patient-facing healthcare platforms."
+                    "Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25% by implementing standardized test strategies and KPI-driven release gates.",
+                    "Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows and validating critical care-journey paths end-to-end.",
+                    "Delivered defect-free, high-performing native iOS/Android releases by owning functional, regression, integration, UI, API, smoke, SIT, and E2E testing and serving as QA SME for cross-functional teams and stakeholders.",
+                    "Reduced manual testing effort by 60% and boosted QA efficiency by 30% by designing an Agile automation framework using Appium, Selenium, and Perfecto, earning Accenture’s 3-Year Service Award and client recognition for technical leadership.",
+                    "Improved defect resolution by 20% while keeping defect leakage under 5% by optimizing workflows in Jira, qTest, and HP ALM and leveraging ChatGPT and MS Copilot for test case generation and defect analysis.",
+                    "Reduced time-to-market for critical mobile features by implementing shift-left testing, orchestrating full test cycles early in the SDLC, and delivering executive-ready reports on progress, risks, and quality metrics."
                   ]
                 },
                 {
-                  role: "Sr. QA Automation Engineer - Kaiser Permanente",
+                  role: "Sr. QA Automation Engineer",
                   company: "Accenture",
-                  date: "Oct 2020 - Dec 2022 · Atlanta, GA",
+                  date: "Oct 2020 - Dec 2022 · Pleasanton, California, United States",
                   points: [
-                    "Architected bespoke Selenium/Appium frameworks that slashed manual regression testing effort by 60% and expedited CI/CD delivery cycles.",
-                    "Pioneered API automation for member services, achieving 95% data validation accuracy and preventing critical downstream errors in clinical data flow.",
-                    "Managed the full defect lifecycle in a TDD environment, fostering a \"Fail Fast, Fix Faster\" mentality that kept production defect rates below 5%."
+                    "Worked on multiple high-profile healthcare tech initiatives for Kaiser Permanente, a leading integrated healthcare organization headquartered in Pleasanton, California, while at Accenture, delivering impactful solutions affecting members across the USA.",
+                    "Led comprehensive validation efforts, reducing defect leakage rates below 5% and improving product quality from 50% to 90%, earning recognition from the client.",
+                    "Documented and managed 300+ test cases spanning functional, regression, integration, API, UI, smoke, system, and automated testing scenarios.",
+                    "Collaborated extensively with Business Analysts and Subject Matter Experts to verify requirements covering functional, non-functional, technical, and business specifications.",
+                    "Conducted end-to-end testing across web, mobile, and backend systems, including Java upgrade testing for Azure microservices deployed via Kubernetes and API validation using Postman.",
+                    "Implemented advanced testing methodologies including ADA accessibility compliance validation and cross-platform testing leveraging physical devices, simulators, and the Perfecto cloud platform.",
+                    "Enhanced Agile development processes by providing strategic QA guidance during Scrum ceremonies, accurately estimating user stories, and fostering collaboration between development, business, and stakeholder teams."
                   ]
                 },
                 {
-                  role: "Pharmacy QA Excellence - Prime Therapeutics",
+                  role: "Software Development Engineer in Test",
                   company: "Infosys",
-                  date: "Oct 2019 - Apr 2020 · Bloomington, MN",
+                  date: "Oct 2019 - Apr 2020 · Minneapolis, Minnesota, United States",
                   points: [
-                    "Architected high-precision regression suites for pharmacy claims processing, achieving 40% efficiency gains and ensuring 100% precision for patient-critical data.",
-                    "Bridged the gap between clinicians, Product Owners, and engineers to align complex PBM business logic with a rigorous QA strategy.",
-                    "Enhanced Java/Selenium frameworks with complex SQL validation, ensuring financial and clinical data integrity for large-scale pharmacy backend systems."
+                    "Contributed to automating multiple healthcare technology initiatives at Infosys within Prime Therapeutics, a leading pharmacy benefit management organization based in the Midwest USA, delivering innovative, transparent pharmacy solutions.",
+                    "Boosted testing efficiency by 40% by designing and implementing robust automation frameworks using Selenium, TestNG, and Hybrid POM, enhancing regression test coverage and reliability.",
+                    "Validated complex pharmacy claims data by cross-referencing JSON files with IBMi RX6 and performing SQL-driven analysis, streamlining critical workflows and improving data accuracy.",
+                    "Developed and maintained scalable Page Object Model frameworks with Selenium WebDriver and Java, integrating with HP ALM to support reliable regression testing.",
+                    "Executed multi-phase functional, regression, integration, UAT, and end-to-end testing within Agile SDLC, significantly improving product quality and stakeholder confidence.",
+                    "Performed manual test case design and execution for usability, compliance, and edge cases to complement automation efforts and ensure comprehensive test coverage.",
+                    "Collaborated with developers and product owners for requirement clarification, exploratory testing, and API testing leveraging Postman and REST-assured.",
+                    "Managed test artifacts, defect tracking, and coordination through Jira and Bitbucket, ensuring timely communication and swift issue resolution across cross-functional teams."
                   ]
                 },
                 {
-                   role: "Platform Automation Engineer - Sony Pictures Entertainment",
-                   company: "Tata Consultancy Services (TCS)",
-                   date: "May 2019 - Jul 2019 · Culver City, CA",
+                   role: "Platform Automation Engineer",
+                   company: "Tata Consultancy Services (TCS) - Sony Pictures Entertainment",
+                   date: "May 2019 - Jul 2019 · Culver City, California, United States",
                    points: [
-                     "Automated 50+ test cases using Robot Framework (Python) for Sony's global web platform.",
-                     "Streamlined ServiceNow instance management using automated incident/demand modules."
+                     "Sony Pictures Entertainment is a leading global entertainment company specializing in the production and distribution of films, television, and digital content, known for its innovation and creative excellence.",
+                     "Translated business requirements into detailed test cases for the Sony Entertainment Web Platform while at TCS, ensuring comprehensive test coverage and quality assurance.",
+                     "Participated in all phases of the software testing lifecycle including planning, design, development, and execution to deliver robust testing outcomes.",
+                     "Utilized Robot Framework to efficiently retrieve test actions and test data, streamlining and accelerating automation workflows.",
+                     "Developed and automated robust test cases using Selenium2Library within Robot Framework (Python-based), increasing testing accuracy and efficiency.",
+                     "Managed defect tracking and reporting through Atlassian Jira, maintaining clear communication on progress and issues.",
+                     "Automated key ServiceNow modules including Demand and Incident management through Robot Framework, contributing to operational efficiency.",
+                     "Collaborated with project teams through daily stand-ups, defect triage meetings, and project status updates to ensure alignment and timely delivery."
                    ]
                 },
                 {
-                   role: "QA Automation Engineer (Freelance)",
-                   company: "Independent Contractor",
-                   date: "May 2017 - Mar 2019 · Irving, TX",
+                   role: "QA Automation Engineer",
+                   company: "Freelance",
+                   date: "May 2017 - Mar 2019 · Irving, Texas, United States",
                    points: [
-                     "Delivered custom automation suites for diverse clients using Selenium, TestNG, and Java.",
-                     "Configured CI/CD pipelines with Jenkins and managed distributed test grids."
+                     "Created detailed test cases by understanding business flow and user requirements for system testing using Jira across multiple industries and clients.",
+                     "Gathered business requirements, studied applications, and collected information from developers and business stakeholders to assess project feasibility.",
+                     "Performed functional testing, regression testing, UI testing, and integration testing of applications.",
+                     "Developed automation test suites and test scripts using Selenium WebDriver, TestNG, and Maven.",
+                     "Extensively used Selenium locators (XPath, ID, and CSS) to test web applications.",
+                     "Contributed to developing an automation framework using Java, Selenium WebDriver, and TestNG.",
+                     "Worked on distributed test automation execution across different environments as part of continuous integration testing using Selenium WebDriver and Jenkins.",
+                     "Developed SQL queries to test backend processes during end-to-end testing.",
+                     "Collaborated closely with software developers and took an active role in ensuring software components met the highest quality standards.",
+                     "Performed functional testing during various phases of application development using the TestNG framework."
                    ]
                 },
                 {
-                   role: "QA Engineer (AWS Cloud & Odoo ERP)",
-                   company: "Eternal Web Pvt. Ltd.",
-                   date: "Dec 2011 - Mar 2017 · Ahmedabad, India",
+                   role: "QA Engineer",
+                   company: "Eternal Web Pvt. Ltd. (AWS Cloud & Odoo ERP)",
+                   date: "Dec 2011 - Mar 2017 · Ahmedabad, Gujarat, India",
                    points: [
-                     "Full-cycle QA for ERP solutions, covering functional, smoke, and regression testing.",
-                     "Specialized in Odoo platform testing and AWS-hosted web application validation."
+                     "Eternal Web Pvt. Ltd., headquartered in Ahmedabad, India, is a specialized technology company focused on custom web solutions, digital transformation, and AWS cloud services, dedicated to delivering innovative and scalable software solutions.",
+                     "Developed and executed detailed test cases in Jira, ensuring full requirements traceability and enhanced test coverage across functional, exploratory, regression, and system integration testing.",
+                     "Conducted thorough functional, exploratory, smoke, and regression testing to identify critical defects and ensure high-quality web application releases.",
+                     "Performed rigorous System Integration Testing (SIT) to validate seamless interaction and data flow between various application components.",
+                     "Executed comprehensive cross-browser testing to guarantee consistent user experience and functionality across different web browsers.",
+                     "Validated data accuracy and integrity by executing SQL (MySQL) queries, ensuring reliable and trustworthy web applications.",
+                     "Analyzed SRS documents and conducted peer reviews to identify potential issues early in the development cycle, contributing to improved quality.",
+                     "Collaborated with development and product teams within Agile/Scrum environments, actively participating in sprints to ensure timely feedback and issue resolution throughout the testing lifecycle."
                    ]
                 }
               ].map((role, idx) => (
@@ -440,16 +474,14 @@ export default function PortfolioWebsite() {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  deg: "MBA – Information Technology",
-                  school: "Sikkim Manipal University",
-                  span: "2013 – 2015",
-                  sub: "Distance Education Program"
+                  deg: "Masters' in Business Administration, Information Technology",
+                  school: "Sikkim Manipal University - Distance Education",
+                  span: "March 2013 - March 2015"
                 },
                 {
-                  deg: "BE – Information Technology",
-                  school: "Sardar Patel University",
-                  span: "2007 – 2011",
-                  sub: "Gujarat, India"
+                  deg: "Bachelor of Engineering - BE, Information Technology",
+                  school: "Sardar Patel University (SPU), Vallabh Vidyanagar",
+                  span: "August 2007 - August 2011"
                 }
               ].map((edu, i) => (
                 <div key={i} className="bg-white rounded-2xl border border-teal-100 p-8 flex items-start space-x-6 shadow-sm hover:shadow-md transition">
@@ -646,7 +678,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. v2.2.0. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2.3.0. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>
