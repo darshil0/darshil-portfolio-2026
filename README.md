@@ -10,6 +10,7 @@ This is a complete, production-ready portfolio package for **Darshil Shah**, Glo
 2. **Darshil_Shah_QA_Engineering_Portfolio.pdf** - Comprehensive 6-page professional portfolio document
 3. **portfolio-website.jsx** - React component version (for integration into React apps)
 4. **README.md** - This documentation file
+5. **CHANGELOG.md** - Project history and versioning metadata
 
 ---
 
@@ -380,16 +381,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v2.1.0 (Elite Certification Pruning, Humanized focus)
+- **HTML**: v2.2.0 (Asset Cleanup & Optimization)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v2.1.0 (Refined 11-cert list, 1:1 Parity)
+- **React**: v2.2.0 (Lean code transformation)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.1.0** (Elite Certs).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.2.0** (Asset Cleanup).
 
 ---
 

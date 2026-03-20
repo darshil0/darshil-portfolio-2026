@@ -4,6 +4,15 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2.2.0] - 2026-03-19
+
+### Removed
+- **Redundant Documentation**: Deleted `DEPLOYMENT_CHECKLIST.md`, `FILE_DIRECTORY.md`, `GITHUB_PAGES_SETUP.md`, and `QUICK_START.md` to streamline the root directory.
+- **Unused Scripts**: Removed `deploy.sh` as it is redundant with the GitHub Actions workflow.
+
+### Fixed
+- **Codebase Streamlining**: Reduced the project footprint to ensure only production-ready assets and core source files remain.
+
 ## [2.1.0] - 2026-03-19
 
 ### Changed

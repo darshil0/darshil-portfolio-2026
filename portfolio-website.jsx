@@ -646,7 +646,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. v2.1.0. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2.2.0. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>
