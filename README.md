@@ -218,7 +218,7 @@ Add the PDF download link to your own website:
 | Manual Testing Reduction | 60% |
 | Global Teams Led | 15+ |
 | Defect Leakage | < 5% |
-| Years of Experience | 12+ |
+| Years of Experience | 14+ |
 | Certifications | 11 |
 
 ---
@@ -338,7 +338,7 @@ portfolio/
 ## 🎓 About the Content
 
 This portfolio showcases:
-- **12+ years** of quality assurance expertise
+- **14+ years** of quality assurance expertise
 - **40% cost reduction** in patient care through testing optimization
 - **30% improvement** in patient wait times via QA automation
 - **Expertise in**: Healthcare QA, AI-driven testing, test automation, compliance
@@ -381,16 +381,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v2.3.2 (Phynix Title Correction)
+- **HTML**: v2026.3.17 (Phynix Title Correction)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v2.3.2 (Metadata synchronization)
+- **React**: v2026.3.17 (Metadata synchronization)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.3.2** (Final Touches).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2026.3.17** (Final Touches).
 
 ---
 

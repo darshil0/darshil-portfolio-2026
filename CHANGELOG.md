@@ -4,6 +4,12 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2026.3.17] - 2026-03-20
+
+### Synchronized
+- **Version Numbers**: Unified all version strings to `v2026.3.17`.
+- **Experience Metrics**: Standardized on `14+ years` of experience across all content.
+
 ## [2.3.0] - 2026-03-20
 
 ### Added
