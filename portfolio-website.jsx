@@ -561,7 +561,7 @@ export default function PortfolioWebsite() {
                   <div>
                     <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2">{edu.deg}</h3>
                     <p className="text-teal-600 font-black uppercase tracking-tighter text-sm mb-1">{edu.school}</p>
-                    <p className="text-slate-400 text-xs font-bold">{edu.span} · {edu.sub}</p>
+                    <p className="text-slate-400 text-xs font-bold">{edu.span}{edu.sub ? ` · ${edu.sub}` : ''}</p>
                   </div>
                 </div>
               ))}
