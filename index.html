@@ -68,6 +68,7 @@
                 <button id="nav-skills" onclick="showSection('skills')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Skills</button>
                 <button id="nav-education" onclick="showSection('education')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Education</button>
                 <button id="nav-certifications" onclick="showSection('certifications')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Certifications</button>
+                <button id="nav-recommendations" onclick="showSection('recommendations')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Recommendations</button>
                 <button id="nav-contact" onclick="showSection('contact')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Contact</button>
             </div>
 
@@ -86,6 +87,7 @@
             <button onclick="showSection('skills'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Skills</button>
             <button onclick="showSection('education'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Education</button>
             <button onclick="showSection('certifications'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Certifications</button>
+            <button onclick="showSection('recommendations'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Recommendations</button>
             <button onclick="showSection('contact'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700">Contact</button>
         </div>
     </nav>
@@ -122,18 +124,30 @@
                         </span>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 pt-4">
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
+                        <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-sm card-hover smooth-transition">
                             <div class="text-3xl font-bold text-teal-600">40%</div>
-                            <div class="text-sm text-slate-600">Cost Reduction</div>
+                            <div class="text-[10px] text-slate-500 uppercase font-black tracking-tight">Cost Reduction</div>
                         </div>
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
+                        <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-sm card-hover smooth-transition">
                             <div class="text-3xl font-bold text-teal-600">30%</div>
-                            <div class="text-sm text-slate-600">Wait Time Improvement</div>
+                            <div class="text-[10px] text-slate-500 uppercase font-black tracking-tight">Wait Times</div>
                         </div>
-                        <div class="bg-white rounded-lg p-4 border border-slate-200">
+                        <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-sm card-hover smooth-transition">
+                            <div class="text-3xl font-bold text-teal-600">100%</div>
+                            <div class="text-[10px] text-slate-500 uppercase font-black tracking-tight">Test Coverage</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-sm card-hover smooth-transition">
+                            <div class="text-3xl font-bold text-teal-600">60%</div>
+                            <div class="text-[10px] text-slate-500 uppercase font-black tracking-tight">Automation ROI</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-sm card-hover smooth-transition">
                             <div class="text-3xl font-bold text-teal-600">15+</div>
-                            <div class="text-sm text-slate-600">Teams Led</div>
+                            <div class="text-[10px] text-slate-500 uppercase font-black tracking-tight">Teams Led</div>
+                        </div>
+                        <div class="bg-white rounded-xl p-4 border border-teal-100 shadow-sm card-hover smooth-transition">
+                            <div class="text-3xl font-bold text-teal-600">5%</div>
+                            <div class="text-[10px] text-slate-500 uppercase font-black tracking-tight">Defect Leakage</div>
                         </div>
                     </div>
 
@@ -369,6 +383,85 @@
             </div>
         </div>
 
+        <!-- Recommendations Section -->
+        <div id="recommendations-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+            <h2 class="text-4xl font-bold text-slate-900 mb-4">Colleague Recommendations</h2>
+            <p class="text-slate-500 mb-12 text-lg">What people I've worked with say about my impact</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Rec 1 -->
+                <div class="bg-white rounded-xl border border-teal-100 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">"Working with Darshil on a cross-company project was an absolute pleasure... What stood out most to me was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">DA</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm leading-none mb-1">Diana Abdullaeva</h4>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-tight font-bold">Software QA Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 2 -->
+                <div class="bg-white rounded-xl border border-teal-100 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">"Darshil is an amazing QA lead Engineer. Darshil's strategic approach to QA, proactive risk management and leadership in aligning QA goals with program objectives consistently delivered results."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">PN</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm leading-none mb-1">Prem Nair, PMP</h4>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-tight font-bold">Senior Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 3 -->
+                <div class="bg-white rounded-xl border border-teal-100 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">"Darshil played an instrumental role in testing deliverables... recognized in our team by our end client for his technical and leadership qualities. Our product quality also increased due to his efforts."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-sky-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">KB</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm leading-none mb-1">Karam Bhangu</h4>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-tight font-bold">Scrum Master</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 4 -->
+                <div class="bg-white rounded-xl border border-teal-100 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">"We are exceedingly pleased with Darshil’s outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">MB</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm leading-none mb-1">M Beveridge</h4>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-tight font-bold">Scrum Master at Kaiser Permanente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 5 -->
+                <div class="bg-white rounded-xl border border-teal-100 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 italic mb-8 leading-relaxed text-sm">"Darshil has exceptional attention to detail, which was evident in his ability to identify issues, document findings clearly, and collaborate effectively with the team. His professionalism and eagerness to learn made him stand out."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-teal-800 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">TK</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm leading-none mb-1">Troy Kramer</h4>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-tight font-bold">QA Lead / Product Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Contact Section -->
         <div id="contact-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 mb-12">Let's Connect</h2>
@@ -413,14 +506,35 @@
                         </div>
 
                         <div class="mt-8 pt-8 border-t border-slate-200">
-                            <p class="text-slate-600 mb-4">Follow me online:</p>
-                            <div class="flex items-center space-x-4">
-                                <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center hover:bg-teal-600 hover:text-white smooth-transition">
-                                    <i class="fab fa-linkedin text-lg"></i>
+                            <p class="text-slate-600 mb-4 font-bold uppercase text-xs tracking-widest">Digital Reach & Thought Leadership</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" class="bg-white border border-teal-100 p-4 rounded-xl flex items-center gap-4 hover:border-teal-400 smooth-transition group shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                                        <i class="fab fa-linkedin text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-900">12K+ Connections</p>
+                                        <p class="text-[10px] text-slate-500">AI-Driven QA Thought Leader</p>
+                                    </div>
                                 </a>
-                                <a href="https://github.com/darshil0" target="_blank" class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center hover:bg-teal-600 hover:text-white smooth-transition">
-                                    <i class="fab fa-github text-lg"></i>
+                                <a href="https://github.com/darshil0" target="_blank" class="bg-white border border-teal-100 p-4 rounded-xl flex items-center gap-4 hover:border-teal-400 smooth-transition group shadow-sm">
+                                    <div class="w-10 h-10 rounded-lg bg-teal-50 flex items-center justify-center group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                                        <i class="fab fa-github text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-900">Flutter & Automation</p>
+                                        <p class="text-[10px] text-slate-500">Open Source AI Tools</p>
+                                    </div>
                                 </a>
+                                <div class="bg-white border border-teal-100 p-4 rounded-xl flex items-center gap-4 shadow-sm sm:col-span-2">
+                                    <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                                        <i class="fas fa-blog text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs font-bold text-slate-900">Healthcare QA Blog</p>
+                                        <p class="text-[10px] text-slate-500">Insights on HIPAA Compliance & Agentic Testing</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -486,7 +600,7 @@
                             <h3 class="text-xl font-bold text-slate-900">Global Healthcare QA Lead - Kaiser Permanente</h3>
                             <p class="text-teal-600 font-semibold">Accenture</p>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Jan 2023 - Jan 2025 · Atlanta, GA</span>
+                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Jan 2023 - Jan 2025 · Pleasanton, CA (Remote)</span>
                     </div>
                     <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
                         <li>Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25% by implementing standardized test strategies and KPI-driven release gates.</li>
@@ -504,7 +618,7 @@
                             <h3 class="text-xl font-bold text-slate-900">Sr. QA Automation Engineer - Kaiser Permanente</h3>
                             <p class="text-teal-600 font-semibold">Accenture</p>
                         </div>
-                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2020 - Dec 2022 · Atlanta, GA</span>
+                        <span class="text-sm text-slate-500 mt-1 md:mt-0">Oct 2020 - Dec 2022 · Pleasanton, CA (Remote)</span>
                     </div>
                     <ul class="space-y-1 text-slate-700 list-disc list-inside text-sm">
                         <li>Worked on multiple high-profile healthcare tech initiatives for Kaiser Permanente, a leading integrated healthcare organization headquartered in Pleasanton, California, while at Accenture, delivering impactful solutions affecting members across the USA.</li>
@@ -644,12 +758,27 @@
                 </div>
             </div>
 
-            <h2 class="text-4xl font-bold text-slate-900 mt-16 mb-8">Honors &amp; Awards</h2>
-            <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white flex items-center space-x-6">
-                <i class="fas fa-award text-4xl"></i>
-                <div>
-                    <h3 class="text-xl font-bold">3 Years of Service Award &amp; Recognition</h3>
-                    <p class="text-teal-100">Accenture · Awarded for exceptional leadership and technical excellence in Healthcare QA delivery</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white flex items-center space-x-6 card-hover smooth-transition">
+                    <i class="fas fa-award text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-bold">3 Years of Service Award</h3>
+                        <p class="text-teal-100 italic">Accenture · 2023 · Exceptional leadership and technical excellence in Healthcare QA delivery</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white flex items-center space-x-6 card-hover smooth-transition">
+                    <i class="fas fa-star text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-bold">Technical Excellence & Leadership</h3>
+                        <p class="text-teal-100 italic">Kaiser Permanente · 2024 · Recognition for AI-driven testing innovation and mobile quality</p>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-r from-teal-600 to-emerald-600 rounded-xl p-8 text-white flex items-center space-x-6 card-hover smooth-transition">
+                    <i class="fas fa-trophy text-4xl"></i>
+                    <div>
+                        <h3 class="text-xl font-bold">Client Success Award</h3>
+                        <p class="text-teal-100 italic">Quality Metrics Leadership · 2022 · Consistent delivery of high-impact QA solutions</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -685,6 +814,14 @@
                         <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
                             <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-sitemap text-indigo-600"></i></div>
                             <div><p class="font-bold text-slate-900 text-sm">AI Agent Architect</p><p class="text-xs text-slate-500">IBM · July 2025</p></div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-comment-dots text-indigo-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">ChatGPT Prompt Engineering</p><p class="text-xs text-slate-500">Coursera · July 2025</p></div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-indigo-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-brain text-indigo-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">Introduction to Generative AI</p><p class="text-xs text-slate-500">Google · 2025</p></div>
                         </div>
                     </div>
                 </div>
@@ -725,11 +862,22 @@
                             <div><p class="font-bold text-slate-900 text-sm">Registered Scrum Basics™</p><p class="text-xs text-slate-500">Scrum Inc. · 2025</p></div>
                         </div>
                         <div class="bg-white rounded-xl border border-emerald-100 p-5 card-hover smooth-transition flex items-start space-x-4">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-certificate text-emerald-600"></i></div>
+                            <div><p class="font-bold text-slate-900 text-sm">The Basics of Scrum</p><p class="text-xs text-slate-500">Scrum Inc. · 2025</p></div>
+                        </div>
+                        <div class="bg-white rounded-xl border border-emerald-100 p-5 card-hover smooth-transition flex items-start space-x-4">
                             <div class="w-10 h-10 rounded-lg bg-emerald-50 flex items-center justify-center flex-shrink-0"><i class="fas fa-tasks text-emerald-600"></i></div>
                             <div><p class="font-bold text-slate-900 text-sm">Gen AI for Project Managers</p><p class="text-xs text-slate-500">PMI · 2025</p></div>
                         </div>
                     </div>
                 </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <a href="https://www.linkedin.com/in/darshil-qa-lead/details/certifications/" target="_blank" class="inline-flex items-center space-x-2 bg-white border-2 border-teal-600 text-teal-700 hover:bg-teal-50 px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-sm">
+                    <i class="fab fa-linkedin text-xl"></i>
+                    <span>View All 130+ Certifications on LinkedIn</span>
+                </a>
             </div>
         </div>
         <!-- FIX: removed stray extra </div> that was here in the original -->
@@ -746,7 +894,7 @@
                     <span class="font-bold text-slate-900">Darshil Shah</span>
                 </div>
                 <p class="text-slate-600">Global Healthcare QA Leader | AI-Driven Testing Engineer</p>
-                <p class="text-sm text-slate-500 mt-4 md:mt-0">© 2026. v2.3.2. All rights reserved.</p>
+                <p class="text-sm text-slate-500 mt-4 md:mt-0">© 2026. v2.4.0. All rights reserved.</p>
             </div>
         </div>
     </footer>

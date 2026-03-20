@@ -24,6 +24,7 @@ export default function PortfolioWebsite() {
     { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
+    { id: 'recommendations', label: 'Recommendations' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -89,18 +90,30 @@ export default function PortfolioWebsite() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 pt-4">
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
+                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
                     <div className="text-3xl font-bold text-emerald-600">40%</div>
-                    <div className="text-xs text-slate-500 uppercase font-bold tracking-tighter">Cost Reduction</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Cost Reduction</div>
                   </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm">
+                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
                     <div className="text-3xl font-bold text-emerald-600">30%</div>
-                    <div className="text-xs text-slate-500 uppercase font-bold tracking-tighter">Wait Times</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Wait Times</div>
                   </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm">
-                    <div className="text-3xl font-bold text-emerald-600">15+</div>
-                    <div className="text-xs text-slate-500 uppercase font-bold tracking-tighter">Teams Led</div>
+                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
+                    <div className="text-3xl font-bold text-emerald-600">100%</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Test Coverage</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
+                    <div className="text-3xl font-bold text-emerald-600">60%</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Automation ROI</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
+                    <div class="text-3xl font-bold text-emerald-600">15+</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Teams Led</div>
+                  </div>
+                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
+                    <div className="text-3xl font-bold text-emerald-600">5%</div>
+                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Defect Leakage</div>
                   </div>
                 </div>
 
@@ -243,8 +256,8 @@ export default function PortfolioWebsite() {
                 },
                 {
                   role: "Quality Assurance Test Lead",
-                  company: "Accenture",
-                  date: "Jan 2023 - Jan 2025 · Pleasanton, California, United States",
+                  company: "Accenture (Kaiser Permanente)",
+                  date: "Jan 2023 - Jan 2025 (2 yrs) · Pleasanton, CA (Remote)",
                   points: [
                     "Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25% by implementing standardized test strategies and KPI-driven release gates.",
                     "Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows and validating critical care-journey paths end-to-end.",
@@ -256,8 +269,8 @@ export default function PortfolioWebsite() {
                 },
                 {
                   role: "Sr. QA Automation Engineer",
-                  company: "Accenture",
-                  date: "Oct 2020 - Dec 2022 · Pleasanton, California, United States",
+                  company: "Accenture (Kaiser Permanente)",
+                  date: "Oct 2020 - Dec 2022 (2+ yrs) · Pleasanton, CA (Remote)",
                   points: [
                     "Worked on multiple high-profile healthcare tech initiatives for Kaiser Permanente, a leading integrated healthcare organization headquartered in Pleasanton, California, while at Accenture, delivering impactful solutions affecting members across the USA.",
                     "Led comprehensive validation efforts, reducing defect leakage rates below 5% and improving product quality from 50% to 90%, earning recognition from the client.",
@@ -270,8 +283,8 @@ export default function PortfolioWebsite() {
                 },
                 {
                   role: "Software Development Engineer in Test (SDET)",
-                  company: "Infosys - Prime Therapeutics",
-                  date: "Oct 2019 - Apr 2020 · Minneapolis, Minnesota, United States",
+                  company: "Infosys · Prime Therapeutics",
+                  date: "Oct 2019 - Apr 2020 (7 months) · Minneapolis, MN",
                   points: [
                     "Contributed to automating multiple healthcare technology initiatives at Infosys within Prime Therapeutics, a leading pharmacy benefit management organization based in the Midwest USA, delivering innovative, transparent pharmacy solutions.",
                     "Boosted testing efficiency by 40% by designing and implementing robust automation frameworks using Selenium, TestNG, and Hybrid POM, enhancing regression test coverage and reliability.",
@@ -285,8 +298,8 @@ export default function PortfolioWebsite() {
                 },
                 {
                    role: "Platform Automation Engineer",
-                   company: "Tata Consultancy Services (TCS) - Sony Pictures Entertainment",
-                   date: "May 2019 - Jul 2019 · Culver City, California, United States",
+                   company: "TCS · Sony Pictures Entertainment",
+                   date: "May 2019 - Jul 2019 (3 months) · Culver City, CA",
                    points: [
                      "Sony Pictures Entertainment is a leading global entertainment company specializing in the production and distribution of films, television, and digital content, known for its innovation and creative excellence.",
                      "Translated business requirements into detailed test cases for the Sony Entertainment Web Platform while at TCS, ensuring comprehensive test coverage and quality assurance.",
@@ -301,7 +314,7 @@ export default function PortfolioWebsite() {
                 {
                    role: "QA Automation Engineer",
                    company: "Freelance",
-                   date: "May 2017 - Mar 2019 · Irving, Texas, United States",
+                   date: "May 2017 - Mar 2019 (1.9 years) · Irving, TX",
                    points: [
                      "Created detailed test cases by understanding business flow and user requirements for system testing using Jira across multiple industries and clients.",
                      "Gathered business requirements, studied applications, and collected information from developers and business stakeholders to assess project feasibility.",
@@ -316,9 +329,9 @@ export default function PortfolioWebsite() {
                    ]
                 },
                 {
-                   role: "QA Engineer",
-                   company: "Eternal Web Pvt. Ltd. (AWS Cloud & Odoo ERP)",
-                   date: "Dec 2011 - Mar 2017 · Ahmedabad, Gujarat, India",
+                   role: "QA Engineer (AWS Cloud & Odoo ERP)",
+                   company: "Eternal Web Pvt. Ltd.",
+                   date: "Dec 2011 - Mar 2017 (5.3 years) · Ahmedabad, India",
                    points: [
                      "Eternal Web Pvt. Ltd., headquartered in Ahmedabad, India, is a specialized technology company focused on custom web solutions, digital transformation, and AWS cloud services, dedicated to delivering innovative and scalable software solutions.",
                      "Developed and executed detailed test cases in Jira, ensuring full requirements traceability and enhanced test coverage across functional, exploratory, regression, and system integration testing.",
@@ -515,12 +528,30 @@ export default function PortfolioWebsite() {
                  <h3 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
                   <Award size={24} className="text-teal-600" /> Excellence Recognition
                 </h3>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0"><Star size={24} fill="currentColor" /></div>
-                  <div>
-                    <h4 className="font-bold text-slate-800 text-lg">3 Years of Service Award</h4>
-                    <p className="text-teal-600 font-bold text-sm mb-2">Accenture</p>
-                    <p className="text-slate-500 text-sm italic leading-relaxed">Recognized for exceptional leadership and impact in delivering complex Healthcare QA solutions for global clients.</p>
+                <div className="space-y-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0"><Star size={24} fill="currentColor" /></div>
+                    <div>
+                      <h4 className="font-bold text-slate-800 text-lg">3 Years of Service Award</h4>
+                      <p className="text-teal-600 font-bold text-sm mb-1">Accenture</p>
+                      <p className="text-slate-500 text-xs italic">Exceptional leadership and technical excellence in Healthcare QA delivery.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0"><Award size={24} /></div>
+                    <div>
+                      <h4 className="font-bold text-slate-800 text-lg">Technical Excellence</h4>
+                      <p className="text-teal-600 font-bold text-sm mb-1">Kaiser Permanente</p>
+                      <p className="text-slate-500 text-xs italic">Recognition for AI-driven testing innovation and mobile quality excellence.</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 flex-shrink-0"><Star size={24} /></div>
+                    <div>
+                      <h4 className="font-bold text-slate-800 text-lg">Client Success Award</h4>
+                      <p className="text-teal-600 font-bold text-sm mb-1">Quality Metrics Leadership</p>
+                      <p className="text-slate-500 text-xs italic">Consistent delivery of high-impact QA solutions and team performance.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -536,7 +567,7 @@ export default function PortfolioWebsite() {
                 <h2 className="text-4xl font-bold text-slate-900 mb-2">Certifications</h2>
                 <p className="text-slate-500 font-medium">Professional growth & technical specialization (2025–2026)</p>
               </div>
-                <Bookmark size={14} /> 11 Active Credentials
+                <Bookmark size={14} className="text-teal-600" /> 14 Active Credentials
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -550,7 +581,9 @@ export default function PortfolioWebsite() {
                     { title: "Claude Code in Action", body: "DeepLearning.AI · 2026", icon: <Code2 size={20} /> },
                     { title: "Introduction to MCP", body: "Anthropic · 2025", icon: <Zap size={20} /> },
                     { title: "AI Agent Architect", body: "IBM · 2025", icon: <Search size={20} /> },
-                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> }
+                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> },
+                    { title: "ChatGPT Prompt Eng.", body: "Coursera · 2025", icon: <MessageSquare size={20} /> },
+                    { title: "Intro to Generative AI", body: "Google · 2025", icon: <Brain size={20} /> }
                   ]
                 },
                 {
@@ -570,6 +603,7 @@ export default function PortfolioWebsite() {
                   color: "emerald",
                   certs: [
                     { title: "Registered Scrum Basics™", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
+                    { title: "The Basics of Scrum", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
                     { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> }
                   ]
                 }
@@ -588,6 +622,50 @@ export default function PortfolioWebsite() {
                         </div>
                       </div>
                     ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center relative z-10 w-full flex justify-center">
+              <a href="https://www.linkedin.com/in/darshil-qa-lead/details/certifications/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-white border-2 border-teal-600 text-teal-700 hover:bg-teal-50 px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-sm">
+                <Linkedin size={20} />
+                <span>View All 130+ Certifications on LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* Recommendations Section */}
+        {activeSection === 'recommendations' && (
+          <div className="max-w-6xl mx-auto px-6 py-20 animate-in fade-in duration-500">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Colleague Recommendations</h2>
+            <p className="text-slate-500 mb-12 text-lg">What people I've worked with say about my impact</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { name: "Diana Abdullaeva", title: "Software QA Engineer", initial: "DA", color: "bg-teal-600",
+                  quote: "Working with Darshil on a cross-company project was an absolute pleasure... What stood out most to me was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions." },
+                { name: "Prem Nair, PMP", title: "Senior Leader", initial: "PN", color: "bg-emerald-600",
+                  quote: "Darshil is an amazing QA lead Engineer. Darshil's strategic approach to QA, proactive risk management and leadership in aligning QA goals with program objectives consistently delivered results." },
+                { name: "Karam Bhangu", title: "Scrum Master", initial: "KB", color: "bg-sky-600",
+                  quote: "Darshil played an instrumental role in testing deliverables... recognized in our team by our end client for his technical and leadership qualities. Our product quality also increased due to his efforts." },
+                { name: "M Beveridge", title: "Scrum Master at Kaiser Permanente", initial: "MB", color: "bg-indigo-600",
+                  quote: "We are exceedingly pleased with Darshil’s outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude." },
+                { name: "Troy Kramer", title: "QA Lead / Product Owner", initial: "TK", color: "bg-teal-800",
+                  quote: "Darshil has exceptional attention to detail, which was evident in his ability to identify issues, document findings clearly, and collaborate effectively with the team. His professionalism and eagerness to learn made him stand out." }
+              ].map((rec, idx) => (
+                <div key={idx} className="bg-white rounded-xl border border-teal-100 p-8 shadow-sm transition hover:shadow-md hover:border-teal-300 relative flex flex-col h-full">
+                  <div className="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
+                  <div className="relative z-10 flex flex-col h-full justify-between flex-grow">
+                    <p className="text-slate-700 italic mb-8 leading-relaxed text-sm">"{rec.quote}"</p>
+                    <div className="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
+                      <div className={`w-10 h-10 rounded-full ${rec.color} flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm`}>{rec.initial}</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 text-sm leading-none mb-1">{rec.name}</h4>
+                        <p className="text-[10px] text-slate-500 uppercase tracking-tight font-bold">{rec.title}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -625,14 +703,35 @@ export default function PortfolioWebsite() {
                 </div>
 
                 <div className="pt-8 border-t border-slate-200">
-                   <p className="text-slate-400 font-bold uppercase text-xs tracking-widest mb-6">Digital Reach</p>
-                   <div className="flex gap-4">
-                     <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white border border-teal-100 px-6 py-4 rounded-2xl font-black text-slate-700 hover:text-teal-600 hover:border-teal-400 shadow-sm transition">
-                       <Linkedin size={24} /> <span>LinkedIn Profile</span>
+                   <p className="text-slate-400 font-bold uppercase text-xs tracking-widest mb-6">Digital Reach & Thought Leadership</p>
+                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border border-teal-100 p-5 rounded-2xl hover:border-teal-400 transition shadow-sm group">
+                       <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-slate-700 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                         <Linkedin size={24} />
+                       </div>
+                       <div>
+                         <p className="text-sm font-black text-slate-800">12K+ Connections</p>
+                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">AI-Driven QA Leader</p>
+                       </div>
                      </a>
-                     <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white border border-teal-100 px-6 py-4 rounded-2xl font-black text-slate-700 hover:text-teal-600 hover:border-teal-400 shadow-sm transition">
-                       <Github size={24} /> <span>GitHub</span>
+                     <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border border-teal-100 p-5 rounded-2xl hover:border-teal-400 transition shadow-sm group">
+                       <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-slate-700 group-hover:bg-teal-600 group-hover:text-white transition-colors">
+                         <Github size={24} />
+                       </div>
+                       <div>
+                         <p className="text-sm font-black text-slate-800">Flutter & Automation</p>
+                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Open Source AI tools</p>
+                       </div>
                      </a>
+                     <div className="col-span-1 sm:col-span-2 flex items-center gap-4 bg-white border border-teal-100 p-5 rounded-2xl shadow-sm">
+                       <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                         <BookOpen size={24} />
+                       </div>
+                       <div>
+                         <p className="text-sm font-black text-slate-800">Healthcare QA Blog</p>
+                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Insights on HIPAA Compliance & Testing</p>
+                       </div>
+                     </div>
                    </div>
                 </div>
               </div>
@@ -678,7 +777,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. v2.3.2. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2.4.0. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>
