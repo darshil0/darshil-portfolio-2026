@@ -148,6 +148,7 @@
                 <button id="nav-skills" onclick="showSection('skills')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Skills</button>
                 <button id="nav-education" onclick="showSection('education')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Education</button>
                 <button id="nav-certifications" onclick="showSection('certifications')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Certifications</button>
+                <button id="nav-recommendations" onclick="showSection('recommendations')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Recommendations</button>
                 <button id="nav-contact" onclick="showSection('contact')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Contact</button>
             </div>
 
@@ -173,6 +174,7 @@
             <button onclick="showSection('skills'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Skills</button>
             <button onclick="showSection('education'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Education</button>
             <button onclick="showSection('certifications'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Certifications</button>
+            <button onclick="showSection('recommendations'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Recommendations</button>
             <button onclick="showSection('contact'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Contact</button>
         </div>
     </nav>
@@ -211,18 +213,30 @@
                         </span>
                     </div>
 
-                    <div class="grid grid-cols-3 gap-4 pt-4">
-                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+                    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
                             <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">40%</div>
-                            <div class="text-sm text-slate-600 dark:text-slate-400">Cost Reduction</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 uppercase font-bold tracking-tighter">Cost Reduction</div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
                             <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">30%</div>
-                            <div class="text-sm text-slate-600 dark:text-slate-400">Wait Time Improvement</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 uppercase font-bold tracking-tighter">Wait Times</div>
                         </div>
-                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700">
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                            <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">100%</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 uppercase font-bold tracking-tighter">Test Coverage</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                            <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">60%</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 uppercase font-bold tracking-tighter">Automation ROI</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
                             <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">15+</div>
-                            <div class="text-sm text-slate-600 dark:text-slate-400">Teams Led</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 uppercase font-bold tracking-tighter">Teams Led</div>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 rounded-lg p-4 border border-slate-200 dark:border-slate-700 card-hover smooth-transition">
+                            <div class="text-3xl font-bold text-teal-600 dark:text-teal-400">5%</div>
+                            <div class="text-xs text-slate-600 dark:text-slate-400 uppercase font-bold tracking-tighter">Defect Leakage</div>
                         </div>
                     </div>
 
@@ -364,7 +378,7 @@
                                 <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Global Healthcare QA Lead</h3>
                                 <p class="text-teal-600 dark:text-teal-400 font-semibold">Accenture (Kaiser Permanente)</p>
                             </div>
-                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Jan 2023 - Jan 2025 · Atlanta, GA</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Jan 2023 - Jan 2025 · Pleasanton, CA (Remote)</span>
                         </div>
                         <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
                             <li>Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25%.</li>
@@ -386,7 +400,7 @@
                                 <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Sr. QA Automation Engineer</h3>
                                 <p class="text-teal-600 dark:text-teal-400 font-semibold">Accenture (Kaiser Permanente)</p>
                             </div>
-                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Oct 2020 - Dec 2022 · Atlanta, GA</span>
+                            <span class="text-sm text-slate-500 dark:text-slate-400 mt-1 md:mt-0">Oct 2020 - Dec 2022 · Pleasanton, CA (Remote)</span>
                         </div>
                         <ul class="space-y-1 text-slate-700 dark:text-slate-300 list-disc list-inside text-sm">
                             <li>Worked on multiple high-profile healthcare tech initiatives, delivering impactful solutions affecting members across the USA.</li>
@@ -575,6 +589,85 @@
                     <i class="fas fa-download"></i>
                     <span>Download Portfolio PDF</span>
                 </a>
+            </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div id="recommendations-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">Colleague Recommendations</h2>
+            <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg">What people I've worked with say about my impact</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Rec 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Working with Darshil on a cross-company project was an absolute pleasure... What stood out most to me was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-teal-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">DA</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm leading-none mb-1">Diana Abdullaeva</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-tight font-bold">Software QA Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Darshil is an amazing QA lead Engineer. Darshil's strategic approach to QA, proactive risk management and leadership in aligning QA goals with program objectives consistently delivered results."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">PN</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm leading-none mb-1">Prem Nair, PMP</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-tight font-bold">Senior Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Darshil played an instrumental role in testing deliverables... recognized in our team by our end client for his technical and leadership qualities. Our product quality also increased due to his efforts."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-sky-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">KB</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm leading-none mb-1">Karam Bhangu</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-tight font-bold">Scrum Master</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 4 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"We are exceedingly pleased with Darshil’s outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">MB</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm leading-none mb-1">M Beveridge</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-tight font-bold">Scrum Master at Kaiser Permanente</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Rec 5 -->
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                    <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
+                    <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
+                        <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Darshil has exceptional attention to detail, which was evident in his ability to identify issues, document findings clearly, and collaborate effectively with the team. His professionalism and eagerness to learn made him stand out."</p>
+                        <div class="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
+                            <div class="w-10 h-10 rounded-full bg-teal-800 flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm">TK</div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 dark:text-slate-100 text-sm leading-none mb-1">Troy Kramer</h4>
+                                <p class="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-tight font-bold">QA Lead / Product Owner</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -806,6 +899,13 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            </div>
+            <div class="mt-12 text-center">
+                <a href="https://www.linkedin.com/in/darshil-qa-lead/details/certifications/" target="_blank" class="inline-flex items-center space-x-2 bg-white dark:bg-slate-800 border-2 border-teal-600 dark:border-teal-500 text-teal-700 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-slate-700 px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-sm">
+                    <i class="fab fa-linkedin text-xl"></i>
+                    <span>View All 130+ Certifications on LinkedIn</span>
+                </a>
             </div>
         </div>
         </div>

@@ -42,6 +42,7 @@ export default function PortfolioWebsite() {
     { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
+    { id: 'recommendations', label: 'Recommendations' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -146,18 +147,30 @@ export default function PortfolioWebsite() {
                   </span>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 pt-4">
-                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm">
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">40%</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Cost Reduction</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Cost Reduction</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">30%</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Wait Times</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Wait Times</div>
                   </div>
-                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">100%</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Test Coverage</div>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">60%</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Automation ROI</div>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md">
                     <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">15+</div>
-                    <div className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Teams Led</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Teams Led</div>
+                  </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">5%</div>
+                    <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Defect Leakage</div>
                   </div>
                 </div>
 
@@ -301,7 +314,7 @@ export default function PortfolioWebsite() {
                 {
                   role: "Global Healthcare QA Lead",
                   company: "Accenture (Kaiser Permanente)",
-                  date: "Jan 2023 - Jan 2025 · Atlanta, GA",
+                  date: "Jan 2023 - Jan 2025 · Pleasanton, CA (Remote)",
                   points: [
                     "Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25% by implementing standardized test strategies and KPI-driven release gates.",
                     "Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows and validating critical care-journey paths end-to-end.",
@@ -314,7 +327,7 @@ export default function PortfolioWebsite() {
                 {
                   role: "Sr. QA Automation Engineer",
                   company: "Accenture (Kaiser Permanente)",
-                  date: "Oct 2020 - Dec 2022 · Atlanta, GA",
+                  date: "Oct 2020 - Dec 2022 · Pleasanton, CA (Remote)",
                   points: [
                     "Worked on multiple high-profile healthcare tech initiatives for Kaiser Permanente, a leading integrated healthcare organization headquartered in Pleasanton, California, while at Accenture, delivering impactful solutions affecting members across the USA.",
                     "Led comprehensive validation efforts, reducing defect leakage rates below 5% and improving product quality from 50% to 90%, earning recognition from the client.",
@@ -651,6 +664,50 @@ export default function PortfolioWebsite() {
                         </div>
                       </div>
                     ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="mt-12 text-center relative z-10 w-full flex justify-center">
+              <a href="https://www.linkedin.com/in/darshil-qa-lead/details/certifications/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-white dark:bg-slate-800 border-2 border-teal-600 text-teal-700 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-slate-700 px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-sm">
+                <Linkedin size={20} />
+                <span>View All 130+ Certifications on LinkedIn</span>
+              </a>
+            </div>
+          </div>
+        )}
+
+        {/* Recommendations Section */}
+        {activeSection === 'recommendations' && (
+          <div className="max-w-6xl mx-auto px-6 py-20 animate-in fade-in duration-500">
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">Colleague Recommendations</h2>
+            <p className="text-slate-500 dark:text-slate-400 mb-12 text-lg">What people I've worked with say about my impact</p>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                { name: "Diana Abdullaeva", title: "Software QA Engineer", initial: "DA", color: "bg-teal-600",
+                  quote: "Working with Darshil on a cross-company project was an absolute pleasure... What stood out most to me was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions." },
+                { name: "Prem Nair, PMP", title: "Senior Leader", initial: "PN", color: "bg-emerald-600",
+                  quote: "Darshil is an amazing QA lead Engineer. Darshil's strategic approach to QA, proactive risk management and leadership in aligning QA goals with program objectives consistently delivered results." },
+                { name: "Karam Bhangu", title: "Scrum Master", initial: "KB", color: "bg-sky-600",
+                  quote: "Darshil played an instrumental role in testing deliverables... recognized in our team by our end client for his technical and leadership qualities. Our product quality also increased due to his efforts." },
+                { name: "M Beveridge", title: "Scrum Master at Kaiser Permanente", initial: "MB", color: "bg-indigo-600",
+                  quote: "We are exceedingly pleased with Darshil’s outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude." },
+                { name: "Troy Kramer", title: "QA Lead / Product Owner", initial: "TK", color: "bg-teal-800",
+                  quote: "Darshil has exceptional attention to detail, which was evident in his ability to identify issues, document findings clearly, and collaborate effectively with the team. His professionalism and eagerness to learn made him stand out." }
+              ].map((rec, idx) => (
+                <div key={idx} className="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 shadow-sm transition hover:shadow-md hover:border-teal-300 dark:hover:border-teal-500 relative flex flex-col h-full">
+                  <div className="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
+                  <div className="relative z-10 flex flex-col h-full justify-between flex-grow">
+                    <p className="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"{rec.quote}"</p>
+                    <div className="flex items-center space-x-4 border-t border-teal-50 dark:border-slate-700 pt-5 mt-auto">
+                      <div className={`w-10 h-10 rounded-full ${rec.color} flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm`}>{rec.initial}</div>
+                      <div>
+                        <h4 className="font-bold text-slate-900 dark:text-slate-100 text-sm leading-none mb-1">{rec.name}</h4>
+                        <p className="text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-tight font-bold">{rec.title}</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
