@@ -506,7 +506,7 @@ export default function PortfolioWebsite() {
                 <p className="text-slate-500 font-medium">Professional growth & technical specialization (2025–2026)</p>
               </div>
               <div className="flex items-center gap-2 bg-emerald-100 text-emerald-700 px-4 py-2 rounded-full border border-emerald-200 text-xs font-black uppercase tracking-widest shadow-sm">
-                <Bookmark size={14} /> 16 Active Credentials
+                <Bookmark size={14} /> 11 Active Credentials
               </div>
             </div>
 
@@ -521,9 +521,7 @@ export default function PortfolioWebsite() {
                     { title: "Claude Code in Action", body: "DeepLearning.AI · 2026", icon: <Code2 size={20} /> },
                     { title: "Introduction to MCP", body: "Anthropic · 2025", icon: <Zap size={20} /> },
                     { title: "AI Agent Architect", body: "IBM · 2025", icon: <Search size={20} /> },
-                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> },
-                    { title: "Intro to Generative AI", body: "Google · 2025", icon: <Rocket size={20} /> },
-                    { title: "Generative AI in Action", body: "IBM · 2025", icon: <Star size={20} /> }
+                    { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> }
                   ]
                 },
                 {
@@ -534,7 +532,6 @@ export default function PortfolioWebsite() {
                     { title: "AWS Cloud Practitioner", body: "AWS · 2025", icon: <CloudIcon /> },
                     { title: "Copilot Foundations", body: "Microsoft · 2025", icon: <BookOpen size={20} /> },
                     { title: "MLOps for Generative AI", body: "Google · 2025", icon: <Globe size={20} /> },
-                    { title: "Prompt Engineering", body: "Coursera · 2025", icon: <Star size={20} /> },
                     { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Tools size={20} /> }
                   ]
                 },
@@ -544,8 +541,7 @@ export default function PortfolioWebsite() {
                   color: "emerald",
                   certs: [
                     { title: "Registered Scrum Basics™", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
-                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> },
-                    { title: "The Treasure Hunt for AI Skills", body: "LinkedIn Learning", icon: <Search size={20} /> }
+                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> }
                   ]
                 }
               ].map((group, i) => (

@@ -71,7 +71,7 @@ Share `Darshil_Shah_QA_Engineering_Portfolio.pdf` directly via email or LinkedIn
 - Honors: Accenture 3-Year Service Award
 
 ✅ **Certifications Section** *(New in v1.1.0)*
-- 14 AI, Cloud & Agile credentials (2025–2026)
+- 11 Elite AI, Cloud & Agile credentials (2025–2026)
 - Anthropic, DeepLearning.AI, IBM, Google, Microsoft, AWS, PMI, Scrum Inc.
 
 ✅ **Contact Section**
@@ -218,7 +218,7 @@ Add the PDF download link to your own website:
 | Global Teams Led | 15+ |
 | Defect Leakage | < 5% |
 | Years of Experience | 12+ |
-| Certifications | 15+ |
+| Certifications | 11 |
 
 ---
 
@@ -380,16 +380,16 @@ This portfolio has been tested for:
 
 ## 📄 Document Versions
 
-- **HTML**: v2.0.0 (Categorical Skill Color-Coding, Humanized Senior QA focus)
+- **HTML**: v2.1.0 (Elite Certification Pruning, Humanized focus)
 - **PDF**: v1.0.0 (print-friendly, portable)
-- **React**: v2.0.0 (Dynamic themed skills, 1:1 Parity with HTML)
+- **React**: v2.1.0 (Refined 11-cert list, 1:1 Parity)
 - **Updated**: March 2026
 
 ---
 
 ## 📋 Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.0.0** (Themed Skills).
+See [CHANGELOG.md](CHANGELOG.md) for a full history of changes including **v2.1.0** (Elite Certs).
 
 ---
 

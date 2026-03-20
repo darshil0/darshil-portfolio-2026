@@ -4,6 +4,14 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
+## [2.1.0] - 2026-03-19
+
+### Changed
+- **Elite Certification Pruning**: Refined the certifications list from 16+ down to 11 high-impact credentials.
+  - Removed redundant "Intro" certs (Google/IBM GenAI) and duplicate Prompt Engineering (Coursera).
+  - Purged low-impact modules (LinkedIn Learning) to focus on technical mastery.
+- **Sync & Parity**: Synchronized the refined 11-cert list and updated count badges across both `index.html` and `portfolio-website.jsx`.
+
 ## [2.0.0] - 2026-03-19
 
 ### Changed
