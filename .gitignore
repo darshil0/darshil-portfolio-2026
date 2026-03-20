@@ -71,3 +71,12 @@ cache/
 !Darshil_Shah_QA_Engineering_Portfolio.pdf
 !portfolio-website.jsx
 !GITHUB_PAGES_SETUP.md
+# Media and unoptimized assets
+img/raw/
+
+# Development artifacts
+*.log
+*_output.txt
+test-results/
+playwright-report/
+verification/
