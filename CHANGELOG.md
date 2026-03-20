@@ -4,21 +4,13 @@ All notable changes to the Darshil Shah Portfolio project are documented here.
 
 ---
 
-## [2.4.0] - 2026-03-20
-
-### Added
-- **LinkedIn Certifications Link**: Added a "View All 130+ Certifications on LinkedIn" button to the Certifications section to provide access to the complete credential history without cluttering the portfolio UI.
-- **LinkedIn Recommendations Section**: Added a new dedicated "Recommendations" section featuring 5 robust testimonials from colleagues, managers, and Scrum Masters across Kaiser Permanente, Accenture, and other projects.
+## [2026.3.17] - 2026-03-20
 
 ### Synchronized
-- **LinkedIn Content Parity**: Performed a comprehensive sync between the digital portfolio and the 6-page professional PDF/LinkedIn source of truth.
-- **Metrics Expansion**: Expanded the home section metrics from 3 to 6, adding **Automation ROI (60%)**, **Defect Leakage (5%)**, and **Test Coverage (100%)**.
-- **Certification Restoration**: Restored high-impact credentials including **ChatGPT Prompt Engineering** (Coursera), **Introduction to Generative AI** (Google), and **The Basics of Scrum** (Scrum Inc.), bringing the total to **14 active certifications**.
-- **Awards & Recognition**: Added **Technical Excellence & Leadership** (Kaiser Permanente, 2024) and **Client Success Award** (Quality Metrics Leadership, 2022).
-- **Online Presence**: Updated the contact section to highlight **12K+ LinkedIn connections** and specialized thought leadership in Healthcare QA and Agentic Testing.
-- **Professional History**: Added precise durations to role headers (e.g., "2 yrs", "5.3 years") for faster recruiter scannability.
+- **Version Numbers**: Unified all version strings to `v2026.3.17`.
+- **Experience Metrics**: Standardized on `14+ years` of experience across all content.
 
-## [2.3.2] - 2026-03-20
+## [2.3.0] - 2026-03-20
 
 ### Added
 - **Detailed Professional History**: Expanded the Experience section with comprehensive bullet points for all 7 roles, highlighting technical leadership, AI integration, and healthcare domain expertise.

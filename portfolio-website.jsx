@@ -1,14 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Download, Github, Linkedin, Mail, MapPin, FileText, 
   Award, Briefcase, Code2, Heart, Phone, GraduationCap, 
   Globe, Bookmark, CheckCircle, Search, Wrench, Rocket, 
-  ShieldCheck, Zap, Star, BookOpen, Brain, Cloud, Users
+  ShieldCheck, Zap, Star, BookOpen, Brain, Cloud, Users,
+  Sun, Moon, AlertTriangle
 } from 'lucide-react';
 
 export default function PortfolioWebsite() {
   const [activeSection, setActiveSection] = useState('home');
   const [copied, setCopied] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem('theme') || 'light';
+    } catch (e) {
+      return 'light';
+    }
+  });
+
+  const toggleTheme = () => {
+    try {
+      const newTheme = theme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+      localStorage.setItem('theme', newTheme);
+    } catch (e) {
+      console.error("Theme toggle failed", e);
+    }
+  };
 
   const copyEmail = () => {
     navigator.clipboard.writeText('darshils99@gmail.com');
@@ -24,35 +42,73 @@ export default function PortfolioWebsite() {
     { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
-    { id: 'recommendations', label: 'Recommendations' },
     { id: 'contact', label: 'Contact' }
   ];
 
+  const isFormSetupRequired = true; // For demonstration, since we use YOUR_FORM_ID placeholder
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 text-slate-900 font-sans">
+    <div className={`min-h-screen font-sans transition-colors duration-300 ${theme === 'dark' ? 'bg-slate-900 text-slate-100' : 'bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 text-slate-900'}`}>
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/90 border-b border-slate-200/50 shadow-sm">
+      <nav className="sticky top-0 z-50 backdrop-blur-md bg-white/90 dark:bg-slate-900/90 border-b border-slate-200/50 dark:border-slate-700/50 shadow-sm">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center">
               <span className="text-white font-bold text-sm">DS</span>
             </div>
-            <span className="font-bold text-lg text-slate-900">Darshil Shah</span>
+            <span className="font-bold text-lg text-slate-900 dark:text-slate-100">Darshil Shah</span>
+          </div>
+          <div className="flex items-center space-x-6">
+            <div className="hidden lg:flex items-center space-x-6">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => { setActiveSection(item.id); window.scrollTo(0, 0); }}
+                  className={`text-sm font-semibold transition ${
+                    activeSection === item.id ? 'text-teal-600 font-bold' : 'text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400'
+                  }`}
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition focus:outline-none"
+              aria-label="Toggle dark mode"
+            >
+              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+            </button>
+
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden p-2 text-slate-900 dark:text-white focus:outline-none"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <Star size={24} className="rotate-45" /> : <div className="space-y-1.5"><div className="w-6 h-0.5 bg-current"></div><div className="w-6 h-0.5 bg-current"></div><div className="w-6 h-0.5 bg-current"></div></div>}
+            </button>
           </div>
           <div className="hidden lg:flex items-center space-x-6">
+            <button
+              onClick={toggleTheme}
+              className="theme-toggle p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition mr-4"
+            >
+              {theme === 'light' ? <Moon size={20} className="text-slate-600" /> : <Sun size={20} className="text-amber-400" />}
+            </button>
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => { setActiveSection(item.id); window.scrollTo(0, 0); }}
-                className={`text-sm font-semibold transition ${
-                  activeSection === item.id ? 'text-teal-600 font-bold' : 'text-slate-600 hover:text-teal-600'
+                onClick={() => { setActiveSection(item.id); setIsMenuOpen(false); window.scrollTo(0, 0); }}
+                className={`text-left py-4 text-xl font-bold border-b border-slate-100 dark:border-slate-800 ${
+                  activeSection === item.id ? 'text-teal-600' : 'text-slate-700 dark:text-slate-300'
                 }`}
               >
                 {item.label}
               </button>
             ))}
           </div>
-        </div>
+        )}
       </nav>
 
       {/* Main Content */}
@@ -63,7 +119,7 @@ export default function PortfolioWebsite() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <h1 className="text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+                  <h1 className="text-[clamp(2.5rem,5vw,4rem)] font-bold text-slate-900 dark:text-slate-100 leading-tight">
                     Global Healthcare<br />QA Leader
                   </h1>
                   <div className="flex flex-wrap items-center gap-3">
@@ -73,52 +129,40 @@ export default function PortfolioWebsite() {
                 </div>
 
                 {/* FIX 1: was class= (invalid JSX), now className= */}
-                <p className="text-xl text-slate-700 leading-relaxed max-w-2xl">
+                <p className="text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl">
                   I lead high-impact QA programs for Fortune 500 healthcare organizations, combining AI-driven automation with deep regulatory expertise to ensure patient safety and business excellence.
                 </p>
 
                 {/* Core Focus Domains Snapshot */}
                 <div className="flex flex-wrap gap-3 pt-2">
-                  <span className="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                  <span className="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                     <Heart size={14} className="text-emerald-500" /> Healthcare Tech
                   </span>
-                  <span className="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                  <span className="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                     <Rocket size={14} className="text-emerald-500" /> Agentic AI
                   </span>
-                  <span className="px-4 py-2 bg-white border border-teal-100 rounded-full text-xs font-bold text-teal-700 shadow-sm flex items-center gap-2">
+                  <span className="px-4 py-2 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 rounded-full text-xs font-bold text-teal-700 dark:text-teal-400 shadow-sm flex items-center gap-2">
                     <ShieldCheck size={14} className="text-emerald-500" /> Cloud QA Ops
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 pt-4">
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
-                    <div className="text-3xl font-bold text-emerald-600">40%</div>
-                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Cost Reduction</div>
+                <div className="grid grid-cols-3 gap-4 pt-4">
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">40%</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Cost Reduction</div>
                   </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
-                    <div className="text-3xl font-bold text-emerald-600">30%</div>
-                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Wait Times</div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">30%</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Wait Times</div>
                   </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
-                    <div className="text-3xl font-bold text-emerald-600">100%</div>
-                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Test Coverage</div>
-                  </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
-                    <div className="text-3xl font-bold text-emerald-600">60%</div>
-                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Automation ROI</div>
-                  </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
-                    <div class="text-3xl font-bold text-emerald-600">15+</div>
-                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Teams Led</div>
-                  </div>
-                  <div className="bg-white rounded-xl p-4 border border-teal-100 shadow-sm transition hover:shadow-md">
-                    <div className="text-3xl font-bold text-emerald-600">5%</div>
-                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-tighter">Defect Leakage</div>
+                  <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-teal-100 dark:border-slate-700 shadow-sm">
+                    <div className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">15+</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-tighter">Teams Led</div>
                   </div>
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-lg shadow-emerald-200">
+                  <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-lg shadow-emerald-200">
                     <Download size={20} />
                     <span>Download Portfolio PDF</span>
                   </a>
@@ -129,13 +173,13 @@ export default function PortfolioWebsite() {
                 </div>
 
                 <div className="flex items-center space-x-6 pt-8">
-                  <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-600 transition p-2 hover:bg-white rounded-lg border border-transparent hover:border-teal-100 shadow-none hover:shadow-sm">
+                  <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition p-2 hover:bg-white dark:hover:bg-slate-700 rounded-lg border border-transparent hover:border-teal-100 dark:hover:border-slate-600 shadow-none hover:shadow-sm" aria-label="Visit my LinkedIn profile">
                     <Linkedin size={26} />
                   </a>
-                  <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-teal-600 transition p-2 hover:bg-white rounded-lg border border-transparent hover:border-teal-100 shadow-none hover:shadow-sm">
+                  <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition p-2 hover:bg-white dark:hover:bg-slate-700 rounded-lg border border-transparent hover:border-teal-100 dark:hover:border-slate-600 shadow-none hover:shadow-sm" aria-label="Visit my GitHub profile">
                     <Github size={26} />
                   </a>
-                  <button onClick={copyEmail} className="text-slate-500 hover:text-teal-600 transition flex items-center space-x-2 p-2 hover:bg-white rounded-lg border border-transparent hover:border-teal-100 shadow-none hover:shadow-sm">
+                  <button onClick={copyEmail} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition flex items-center space-x-2 p-2 hover:bg-white dark:hover:bg-slate-700 rounded-lg border border-transparent hover:border-teal-100 dark:hover:border-slate-600 shadow-none hover:shadow-sm" aria-label="Copy my email address">
                     <Mail size={26} />
                     {copied && <span className="text-sm font-bold text-emerald-600 transition-all">Email Copied!</span>}
                   </button>
@@ -145,7 +189,7 @@ export default function PortfolioWebsite() {
               <div className="relative order-first md:order-last">
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-emerald-300 rounded-full blur-3xl opacity-20 transform -rotate-12 translate-x-10"></div>
                 <div className="relative bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-1 shadow-2xl overflow-hidden group">
-                  <div className="bg-white rounded-2xl p-10 space-y-6">
+                  <div className="bg-white dark:bg-slate-800 rounded-2xl p-10 space-y-6">
                     <div className="flex justify-between items-center pb-4 border-b border-slate-100">
                        <ShieldCheck className="text-emerald-500" size={32} />
                        <div className="text-right">
@@ -187,11 +231,11 @@ export default function PortfolioWebsite() {
         {activeSection === 'about' && (
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in slide-in-from-bottom-5 fade-in duration-500">
             <h2 className="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
-            <p className="text-teal-600 font-bold mb-12 text-lg">Global Healthcare QA Leader | 12+ yrs in AI/ML & Compliance | Ex-Accenture, Kaiser, Infosys</p>
+            <p className="text-teal-600 font-bold mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML & Compliance | Ex-Accenture, Kaiser, Infosys</p>
 
             <div className="grid lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-8">
-                <div className="bg-white rounded-2xl border border-teal-100 p-8 shadow-sm">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 shadow-sm">
                   <h3 className="text-2xl font-bold text-teal-700 mb-6 flex items-center gap-2">
                     <Rocket size={24} /> My Mission
                   </h3>
@@ -238,8 +282,8 @@ export default function PortfolioWebsite() {
         {/* Experience Section */}
         {activeSection === 'experience' && (
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in slide-in-from-right-5 fade-in duration-500">
-            <h2 className="text-4xl font-bold text-slate-900 mb-12">Professional Experience</h2>
-            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent">
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Professional Experience</h2>
+            <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent" role="list">
               {[
                 {
                   role: "Information Technology Quality Assurance Analyst",
@@ -255,9 +299,9 @@ export default function PortfolioWebsite() {
                   ]
                 },
                 {
-                  role: "Quality Assurance Test Lead",
+                  role: "Global Healthcare QA Lead",
                   company: "Accenture (Kaiser Permanente)",
-                  date: "Jan 2023 - Jan 2025 (2 yrs) · Pleasanton, CA (Remote)",
+                  date: "Jan 2023 - Jan 2025 · Atlanta, GA",
                   points: [
                     "Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25% by implementing standardized test strategies and KPI-driven release gates.",
                     "Saved 8+ hours per week in test planning and bug reporting and cut “Get Care Now” wait times by 30% by integrating ChatGPT into QA workflows and validating critical care-journey paths end-to-end.",
@@ -270,7 +314,7 @@ export default function PortfolioWebsite() {
                 {
                   role: "Sr. QA Automation Engineer",
                   company: "Accenture (Kaiser Permanente)",
-                  date: "Oct 2020 - Dec 2022 (2+ yrs) · Pleasanton, CA (Remote)",
+                  date: "Oct 2020 - Dec 2022 · Atlanta, GA",
                   points: [
                     "Worked on multiple high-profile healthcare tech initiatives for Kaiser Permanente, a leading integrated healthcare organization headquartered in Pleasanton, California, while at Accenture, delivering impactful solutions affecting members across the USA.",
                     "Led comprehensive validation efforts, reducing defect leakage rates below 5% and improving product quality from 50% to 90%, earning recognition from the client.",
@@ -283,8 +327,8 @@ export default function PortfolioWebsite() {
                 },
                 {
                   role: "Software Development Engineer in Test (SDET)",
-                  company: "Infosys · Prime Therapeutics",
-                  date: "Oct 2019 - Apr 2020 (7 months) · Minneapolis, MN",
+                  company: "Infosys (Prime Therapeutics)",
+                  date: "Oct 2019 - Apr 2020 · Bloomington, MN",
                   points: [
                     "Contributed to automating multiple healthcare technology initiatives at Infosys within Prime Therapeutics, a leading pharmacy benefit management organization based in the Midwest USA, delivering innovative, transparent pharmacy solutions.",
                     "Boosted testing efficiency by 40% by designing and implementing robust automation frameworks using Selenium, TestNG, and Hybrid POM, enhancing regression test coverage and reliability.",
@@ -298,8 +342,8 @@ export default function PortfolioWebsite() {
                 },
                 {
                    role: "Platform Automation Engineer",
-                   company: "TCS · Sony Pictures Entertainment",
-                   date: "May 2019 - Jul 2019 (3 months) · Culver City, CA",
+                   company: "TCS (Sony Pictures)",
+                   date: "May 2019 - Jul 2019 · Culver City, CA",
                    points: [
                      "Sony Pictures Entertainment is a leading global entertainment company specializing in the production and distribution of films, television, and digital content, known for its innovation and creative excellence.",
                      "Translated business requirements into detailed test cases for the Sony Entertainment Web Platform while at TCS, ensuring comprehensive test coverage and quality assurance.",
@@ -312,9 +356,9 @@ export default function PortfolioWebsite() {
                    ]
                 },
                 {
-                   role: "QA Automation Engineer",
+                   role: "Quality Assurance Automation Engineer",
                    company: "Freelance",
-                   date: "May 2017 - Mar 2019 (1.9 years) · Irving, TX",
+                   date: "May 2017 - Mar 2019 · Irving, TX",
                    points: [
                      "Created detailed test cases by understanding business flow and user requirements for system testing using Jira across multiple industries and clients.",
                      "Gathered business requirements, studied applications, and collected information from developers and business stakeholders to assess project feasibility.",
@@ -329,9 +373,9 @@ export default function PortfolioWebsite() {
                    ]
                 },
                 {
-                   role: "QA Engineer (AWS Cloud & Odoo ERP)",
+                   role: "QA Engineer",
                    company: "Eternal Web Pvt. Ltd.",
-                   date: "Dec 2011 - Mar 2017 (5.3 years) · Ahmedabad, India",
+                   date: "Dec 2011 - Mar 2017 · Ahmedabad, India",
                    points: [
                      "Eternal Web Pvt. Ltd., headquartered in Ahmedabad, India, is a specialized technology company focused on custom web solutions, digital transformation, and AWS cloud services, dedicated to delivering innovative and scalable software solutions.",
                      "Developed and executed detailed test cases in Jira, ensuring full requirements traceability and enhanced test coverage across functional, exploratory, regression, and system integration testing.",
@@ -344,13 +388,13 @@ export default function PortfolioWebsite() {
                    ]
                 }
               ].map((role, idx) => (
-                <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group select-none">
-                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 bg-white group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
+                <div key={idx} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group select-none" role="listitem">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full border border-teal-200 dark:border-teal-800 bg-white dark:bg-slate-800 group-hover:bg-teal-600 group-hover:text-white transition-colors duration-300 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2">
                     <Briefcase size={16} />
                   </div>
-                  <div className="w-[calc(100%-4rem)] md:w-[45%] bg-white p-6 rounded-2xl border border-teal-100 shadow-sm transition hover:shadow-md hover:border-teal-300">
+                  <div className="w-[calc(100%-4rem)] md:w-[45%] bg-white dark:bg-slate-800 p-6 rounded-2xl border border-teal-100 dark:border-slate-700 shadow-sm transition hover:shadow-md hover:border-teal-300">
                     <div className="flex flex-col mb-4">
-                      <h3 className="font-black text-slate-900 leading-tight">{role.role}</h3>
+                      <h3 className="font-black text-slate-900 dark:text-slate-100 leading-tight">{role.role}</h3>
                       <p className="text-teal-600 text-sm font-black uppercase tracking-wider mt-1">{role.company}</p>
                       <time className="text-[10px] text-slate-400 font-bold mt-1">{role.date}</time>
                     </div>
@@ -372,7 +416,7 @@ export default function PortfolioWebsite() {
         {/* Projects Section */}
         {activeSection === 'projects' && (
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in fade-in duration-500">
-            <h2 className="text-4xl font-bold text-slate-900 mb-12">Featured Projects</h2>
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Featured Projects</h2>
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
@@ -397,9 +441,9 @@ export default function PortfolioWebsite() {
                   impact: "50+ Global Test Cases | Python"
                 }
               ].map((project, idx) => (
-                <div key={idx} className="bg-white rounded-2xl border border-teal-100 p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-b-teal-600">
+                <div key={idx} className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-b-4 border-b-teal-600">
                   <div className="text-5xl mb-6">{project.icon}</div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{project.title}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">{project.title}</h3>
                   <p className="text-xs text-teal-600 font-black uppercase tracking-widest mb-4">{project.company}</p>
                   <p className="text-slate-600 text-sm mb-6 leading-relaxed">{project.description}</p>
                   <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] font-black rounded-lg border border-emerald-100 uppercase tracking-tighter">
@@ -414,7 +458,7 @@ export default function PortfolioWebsite() {
         {/* Skills Section */}
         {activeSection === 'skills' && (
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in fade-in duration-500">
-            <h2 className="text-4xl font-bold text-slate-900 mb-12">Technical Expertise</h2>
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Technical Expertise</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
@@ -448,8 +492,8 @@ export default function PortfolioWebsite() {
                   theme: "indigo"
                 }
               ].map((group, idx) => (
-                <div key={idx} className={`bg-white rounded-2xl border ${group.theme === 'emerald' ? 'border-emerald-100 hover:border-emerald-400' : group.theme === 'sky' ? 'border-sky-100 hover:border-sky-400' : group.theme === 'indigo' ? 'border-indigo-100 hover:border-indigo-400' : 'border-teal-100 hover:border-teal-400'} p-6 shadow-sm transition-colors`}>
-                  <h3 className="text-lg font-black text-slate-900 mb-4 pb-2 border-b border-teal-50 flex items-center gap-2">
+                <div key={idx} className={`bg-white dark:bg-slate-800 rounded-2xl border ${group.theme === 'emerald' ? 'border-emerald-100 hover:border-emerald-400 dark:border-emerald-900' : group.theme === 'sky' ? 'border-sky-100 hover:border-sky-400 dark:border-sky-900' : group.theme === 'indigo' ? 'border-indigo-100 hover:border-indigo-400 dark:border-indigo-900' : 'border-teal-100 hover:border-teal-400 dark:border-teal-900'} p-6 shadow-sm transition-colors`}>
+                  <h3 className="text-lg font-black text-slate-900 dark:text-slate-100 mb-4 pb-2 border-b border-teal-50 dark:border-slate-700 flex items-center gap-2">
                     <span className={`w-2 h-2 rounded-full ${group.theme === 'emerald' ? 'bg-emerald-500' : group.theme === 'sky' ? 'bg-sky-500' : group.theme === 'indigo' ? 'bg-indigo-500' : 'bg-teal-500'}`}></span>{group.cat}
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -471,7 +515,7 @@ export default function PortfolioWebsite() {
                   <span>Interactive Portfolio PDF</span>
                 </h3>
                 <p className="mb-8 text-teal-50 text-lg max-w-2xl font-medium">Download the full 6-page professional document featuring technical deep-dives into healthcare compliance and AI agent testing strategies.</p>
-                <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="inline-flex items-center space-x-3 bg-white text-teal-700 hover:bg-emerald-50 px-10 py-5 rounded-2xl font-black transition transform hover:scale-105 shadow-xl">
+                <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="inline-flex items-center space-x-3 bg-white text-teal-700 hover:bg-emerald-50 px-10 py-5 rounded-2xl font-black transition transform hover:scale-105 shadow-xl">
                   <Download size={24} />
                   <span>Download Document</span>
                 </a>
@@ -483,7 +527,7 @@ export default function PortfolioWebsite() {
         {/* Education Section */}
         {activeSection === 'education' && (
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in slide-in-from-left-5 fade-in duration-500">
-            <h2 className="text-4xl font-bold text-slate-900 mb-12">Academic Background</h2>
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Academic Background</h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
@@ -497,12 +541,12 @@ export default function PortfolioWebsite() {
                   span: "August 2007 - August 2011"
                 }
               ].map((edu, i) => (
-                <div key={i} className="bg-white rounded-2xl border border-teal-100 p-8 flex items-start space-x-6 shadow-sm hover:shadow-md transition">
+                <div key={i} className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 flex items-start space-x-6 shadow-sm hover:shadow-md transition">
                   <div className="w-16 h-16 rounded-2xl bg-teal-600 text-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-teal-200">
                     <GraduationCap size={32} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900 leading-tight mb-2">{edu.deg}</h3>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 leading-tight mb-2">{edu.deg}</h3>
                     <p className="text-teal-600 font-black uppercase tracking-tighter text-sm mb-1">{edu.school}</p>
                     <p className="text-slate-400 text-xs font-bold">{edu.span} · {edu.sub}</p>
                   </div>
@@ -512,46 +556,28 @@ export default function PortfolioWebsite() {
 
             <div className="mt-16 grid md:grid-cols-2 gap-12">
               <div>
-                <h3 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
+                <h3 className="text-2xl font-black text-slate-900 dark:text-slate-100 mb-6 flex items-center gap-2">
                   <Globe size={24} className="text-teal-600" /> Languages
                 </h3>
                 <div className="space-y-4">
                   {["English", "Hindi", "Gujarati"].map((lang) => (
-                    <div key={lang} className="bg-white rounded-xl border border-teal-50 px-6 py-4 flex items-center justify-between border-l-4 border-l-emerald-500 shadow-sm">
+                    <div key={lang} className="bg-white dark:bg-slate-800 rounded-xl border border-teal-50 dark:border-slate-700 px-6 py-4 flex items-center justify-between border-l-4 border-l-emerald-500 shadow-sm">
                       <span className="font-bold text-slate-700">{lang}</span>
                       <span className="text-[10px] bg-emerald-50 text-emerald-700 px-2 py-1 rounded font-black uppercase">Full Professional</span>
                     </div>
                   ))}
                 </div>
               </div>
-              <div className="bg-white rounded-2xl border border-teal-100 p-8 border-b-4 border-b-emerald-500 shadow-sm">
-                 <h3 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
+              <div className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 border-b-4 border-b-emerald-500 shadow-sm">
+                 <h3 className="text-2xl font-black text-slate-900 dark:text-slate-100 mb-6 flex items-center gap-2">
                   <Award size={24} className="text-teal-600" /> Excellence Recognition
                 </h3>
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0"><Star size={24} fill="currentColor" /></div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-lg">3 Years of Service Award</h4>
-                      <p className="text-teal-600 font-bold text-sm mb-1">Accenture</p>
-                      <p className="text-slate-500 text-xs italic">Exceptional leadership and technical excellence in Healthcare QA delivery.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 flex-shrink-0"><Award size={24} /></div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-lg">Technical Excellence</h4>
-                      <p className="text-teal-600 font-bold text-sm mb-1">Kaiser Permanente</p>
-                      <p className="text-slate-500 text-xs italic">Recognition for AI-driven testing innovation and mobile quality excellence.</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 flex-shrink-0"><Star size={24} /></div>
-                    <div>
-                      <h4 className="font-bold text-slate-800 text-lg">Client Success Award</h4>
-                      <p className="text-teal-600 font-bold text-sm mb-1">Quality Metrics Leadership</p>
-                      <p className="text-slate-500 text-xs italic">Consistent delivery of high-impact QA solutions and team performance.</p>
-                    </div>
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 flex-shrink-0"><Star size={24} fill="currentColor" /></div>
+                  <div>
+                    <h4 className="font-bold text-slate-800 text-lg">3 Years of Service Award</h4>
+                    <p className="text-teal-600 font-bold text-sm mb-2">Accenture</p>
+                    <p className="text-slate-500 text-sm italic leading-relaxed">Recognized for exceptional leadership and impact in delivering complex Healthcare QA solutions for global clients.</p>
                   </div>
                 </div>
               </div>
@@ -564,10 +590,12 @@ export default function PortfolioWebsite() {
           <div className="max-w-6xl mx-auto px-6 py-20 animate-in fade-in duration-500">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
               <div>
-                <h2 className="text-4xl font-bold text-slate-900 mb-2">Certifications</h2>
+                <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Certifications</h2>
                 <p className="text-slate-500 font-medium">Professional growth & technical specialization (2025–2026)</p>
               </div>
-                <Bookmark size={14} className="text-teal-600" /> 14 Active Credentials
+                <div className="flex items-center gap-2 text-slate-500 font-medium">
+                  <Bookmark size={14} className="text-teal-600" /> 15 Active Credentials
+                </div>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -582,8 +610,8 @@ export default function PortfolioWebsite() {
                     { title: "Introduction to MCP", body: "Anthropic · 2025", icon: <Zap size={20} /> },
                     { title: "AI Agent Architect", body: "IBM · 2025", icon: <Search size={20} /> },
                     { title: "AI Fluency Framework", body: "Anthropic · 2025", icon: <ShieldCheck size={20} /> },
-                    { title: "ChatGPT Prompt Eng.", body: "Coursera · 2025", icon: <MessageSquare size={20} /> },
-                    { title: "Intro to Generative AI", body: "Google · 2025", icon: <Brain size={20} /> }
+                    { title: "Generative AI in Action", body: "IBM · 2025", icon: <Star size={20} /> },
+                    { title: "Intro to Generative AI", body: "Google · 2025", icon: <Rocket size={20} /> }
                   ]
                 },
                 {
@@ -591,9 +619,10 @@ export default function PortfolioWebsite() {
                   icon: <Cloud size={24} className="text-sky-600" />,
                   color: "sky",
                   certs: [
-                    { title: "AWS Cloud Practitioner", body: "AWS · 2025", icon: <CloudIcon /> },
+                    { title: "AWS Cloud Practitioner", body: "AWS · 2025", icon: <Cloud size={20} /> },
                     { title: "Copilot Foundations", body: "Microsoft · 2025", icon: <BookOpen size={20} /> },
                     { title: "MLOps for Generative AI", body: "Google · 2025", icon: <Globe size={20} /> },
+                    { title: "Prompt Engineering", body: "Coursera · 2025", icon: <Code2 size={20} /> },
                     { title: "Foundations of Prompt Eng.", body: "AWS · 2025", icon: <Wrench size={20} /> }
                   ]
                 },
@@ -603,8 +632,8 @@ export default function PortfolioWebsite() {
                   color: "emerald",
                   certs: [
                     { title: "Registered Scrum Basics™", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
-                    { title: "The Basics of Scrum", body: "Scrum Inc. · 2025", icon: <CheckCircle size={20} /> },
-                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> }
+                    { title: "GenAI for Project Managers", body: "PMI · 2025", icon: <Briefcase size={20} /> },
+                    { title: "Treasure Hunt for AI Skills", body: "LinkedIn · 2025", icon: <Search size={20} /> }
                   ]
                 }
               ].map((group, i) => (
@@ -614,7 +643,7 @@ export default function PortfolioWebsite() {
                   </h3>
                   <div className="space-y-4">
                     {group.certs.map((cert, j) => (
-                      <div key={j} className={`bg-white rounded-2xl border border-${group.color}-100 p-5 flex items-center space-x-4 shadow-sm hover:shadow-md transition group`}>
+                      <div key={j} className={`bg-white dark:bg-slate-800 rounded-2xl border border-${group.color}-100 dark:border-${group.color}-900 p-5 flex items-center space-x-4 shadow-sm hover:shadow-md transition group`}>
                         <div className={`w-10 h-10 rounded-xl bg-${group.color}-50 text-${group.color}-600 flex items-center justify-center flex-shrink-0 group-hover:bg-${group.color}-600 group-hover:text-white transition-colors duration-300 shadow-sm`}>{cert.icon}</div>
                         <div>
                           <h4 className="font-black text-slate-800 text-xs leading-tight mb-1">{cert.title}</h4>
@@ -622,50 +651,6 @@ export default function PortfolioWebsite() {
                         </div>
                       </div>
                     ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-            
-            <div className="mt-12 text-center relative z-10 w-full flex justify-center">
-              <a href="https://www.linkedin.com/in/darshil-qa-lead/details/certifications/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 bg-white border-2 border-teal-600 text-teal-700 hover:bg-teal-50 px-8 py-4 rounded-xl font-bold transition transform hover:scale-105 shadow-sm">
-                <Linkedin size={20} />
-                <span>View All 130+ Certifications on LinkedIn</span>
-              </a>
-            </div>
-          </div>
-        )}
-
-        {/* Recommendations Section */}
-        {activeSection === 'recommendations' && (
-          <div className="max-w-6xl mx-auto px-6 py-20 animate-in fade-in duration-500">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Colleague Recommendations</h2>
-            <p className="text-slate-500 mb-12 text-lg">What people I've worked with say about my impact</p>
-            
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                { name: "Diana Abdullaeva", title: "Software QA Engineer", initial: "DA", color: "bg-teal-600",
-                  quote: "Working with Darshil on a cross-company project was an absolute pleasure... What stood out most to me was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions." },
-                { name: "Prem Nair, PMP", title: "Senior Leader", initial: "PN", color: "bg-emerald-600",
-                  quote: "Darshil is an amazing QA lead Engineer. Darshil's strategic approach to QA, proactive risk management and leadership in aligning QA goals with program objectives consistently delivered results." },
-                { name: "Karam Bhangu", title: "Scrum Master", initial: "KB", color: "bg-sky-600",
-                  quote: "Darshil played an instrumental role in testing deliverables... recognized in our team by our end client for his technical and leadership qualities. Our product quality also increased due to his efforts." },
-                { name: "M Beveridge", title: "Scrum Master at Kaiser Permanente", initial: "MB", color: "bg-indigo-600",
-                  quote: "We are exceedingly pleased with Darshil’s outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude." },
-                { name: "Troy Kramer", title: "QA Lead / Product Owner", initial: "TK", color: "bg-teal-800",
-                  quote: "Darshil has exceptional attention to detail, which was evident in his ability to identify issues, document findings clearly, and collaborate effectively with the team. His professionalism and eagerness to learn made him stand out." }
-              ].map((rec, idx) => (
-                <div key={idx} className="bg-white rounded-xl border border-teal-100 p-8 shadow-sm transition hover:shadow-md hover:border-teal-300 relative flex flex-col h-full">
-                  <div className="text-7xl text-teal-50 absolute top-2 left-6 font-serif select-none">"</div>
-                  <div className="relative z-10 flex flex-col h-full justify-between flex-grow">
-                    <p className="text-slate-700 italic mb-8 leading-relaxed text-sm">"{rec.quote}"</p>
-                    <div className="flex items-center space-x-4 border-t border-teal-50 pt-5 mt-auto">
-                      <div className={`w-10 h-10 rounded-full ${rec.color} flex items-center justify-center text-white font-bold flex-shrink-0 shadow-sm`}>{rec.initial}</div>
-                      <div>
-                        <h4 className="font-bold text-slate-900 text-sm leading-none mb-1">{rec.name}</h4>
-                        <p className="text-[10px] text-slate-500 uppercase tracking-tight font-bold">{rec.title}</p>
-                      </div>
-                    </div>
                   </div>
                 </div>
               ))}
@@ -679,17 +664,100 @@ export default function PortfolioWebsite() {
             <div className="flex flex-col md:flex-row gap-12">
               <div className="md:w-1/2 space-y-12">
                 <div>
-                  <h2 className="text-5xl font-black text-slate-900 mb-4 tracking-tighter">Let's build safer healthcare.</h2>
+                  <h2 className="text-5xl font-black text-slate-900 dark:text-slate-100 mb-4 tracking-tighter">Let's build safer healthcare.</h2>
                   <p className="text-slate-500 text-lg font-medium leading-relaxed">Available for strategic QA leadership roles, AI transformation consulting, and healthcare tech advisory.</p>
                 </div>
 
+                <div className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 shadow-sm">
+                   <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="space-y-4" onSubmit={async (e) => {
+                     e.preventDefault();
+                     const form = e.target;
+                     const status = form.querySelector('#form-status-react');
+                     const btn = form.querySelector('button[type="submit"]');
+
+                     if (form.action.includes('YOUR_FORM_ID')) {
+                       status.textContent = 'Setup Required: Replace YOUR_FORM_ID';
+                       status.className = 'text-sm font-bold text-amber-600 block mt-2';
+                       return;
+                     }
+
+                     btn.disabled = true;
+                     btn.textContent = 'Sending...';
+
+                     const emailInput = form.querySelector('input[name="email"]').value;
+                     const emailRegex = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                     if (!emailRegex.test(emailInput)) {
+                        status.textContent = 'Invalid email address.';
+                        status.className = 'text-sm font-bold text-red-600 block mt-2';
+                        btn.disabled = false;
+                        btn.textContent = 'Send Message';
+                        return;
+                     }
+
+                     try {
+                       const res = await fetch(form.action, {
+                         method: 'POST',
+                         body: new FormData(form),
+                         headers: { 'Accept': 'application/json' }
+                       });
+                       if (res.ok) {
+                         status.textContent = 'Success! Message sent.';
+                         status.className = 'text-sm font-bold text-emerald-600 block mt-2';
+                         form.reset();
+                       } else {
+                         status.textContent = 'Error sending message.';
+                         status.className = 'text-sm font-bold text-red-600 block mt-2';
+                       }
+                     } catch (err) {
+                       status.textContent = 'Error sending message.';
+                       status.className = 'text-sm font-bold text-red-600 block mt-2';
+                     } finally {
+                       btn.disabled = false;
+                       btn.textContent = 'Send Message';
+                     }
+                   }}>
+                      <div>
+                        <label className="block text-xs font-black uppercase text-slate-400 mb-1">Name</label>
+                        <input type="text" name="name" required className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm focus:ring-2 ring-teal-500 outline-none" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-black uppercase text-slate-400 mb-1">Email</label>
+                        <input type="email" name="email" required className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm focus:ring-2 ring-teal-500 outline-none" />
+                      </div>
+                      <div>
+                        <label className="block text-xs font-black uppercase text-slate-400 mb-1">Message</label>
+                        <textarea name="message" required rows="4" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm focus:ring-2 ring-teal-500 outline-none"></textarea>
+                      </div>
+                      <div id="form-status-react"></div>
+                      <button type="submit" className="w-full bg-teal-600 hover:bg-teal-700 text-white font-black py-4 rounded-xl shadow-lg transition active:scale-95 disabled:opacity-50">Send Message</button>
+                   </form>
+                </div>
+
                 <div className="space-y-6">
+                  {isFormSetupRequired && (
+                    <div className="bg-amber-50 border border-amber-200 p-4 rounded-xl flex items-start gap-3">
+                      <AlertTriangle className="text-amber-600 flex-shrink-0" size={20} />
+                      <p className="text-amber-800 text-xs">
+                        <strong>Setup Required:</strong> Contact form disabled. Replace 'YOUR_FORM_ID' with a valid Formspree ID to enable.
+                      </p>
+                    </div>
+                  )}
+
+                  <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" className="space-y-4 mb-8">
+                    <input type="text" name="name" placeholder="Your Name" required className="w-full px-4 py-3 rounded-xl border border-teal-100 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-teal-500 transition" />
+                    <input type="email" name="email" placeholder="Email Address" required className="w-full px-4 py-3 rounded-xl border border-teal-100 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-teal-500 transition" />
+                    <textarea name="message" placeholder="Your Message" rows="4" required className="w-full px-4 py-3 rounded-xl border border-teal-100 dark:bg-slate-800 outline-none focus:ring-2 focus:ring-teal-500 transition"></textarea>
+                    <button type="submit" disabled={isFormSetupRequired} className={`w-full py-4 rounded-xl font-bold text-white transition ${isFormSetupRequired ? 'bg-slate-400 cursor-not-allowed' : 'bg-teal-600 hover:bg-teal-700'}`}>
+                      Send Message
+                    </button>
+                  </form>
+
                   {[
                     { icon: <Mail className="text-teal-600" />, label: "Email", val: "darshils99@gmail.com", action: copyEmail, clickLabel: copied ? "Copied!" : "Click to copy" },
                     { icon: <Phone className="text-teal-600" />, label: "Direct Mobile", val: "+1 (469) 987-6574" },
                     { icon: <MapPin className="text-teal-600" />, label: "HQ / Home", val: "Dallas-Fort Worth Metroplex" }
                   ].map((item, id) => (
-                    <div key={id} onClick={item.action} className={`bg-white rounded-2xl border border-teal-100 p-6 flex items-center gap-6 shadow-sm hover:border-teal-400 transition cursor-pointer group ${item.action ? 'relative' : ''}`}>
+                    <div key={id} onClick={item.action} className={`${theme === 'dark' ? 'bg-slate-800 border-slate-700' : 'bg-white border-teal-100'} rounded-2xl border p-6 flex items-center gap-6 shadow-sm hover:border-teal-400 transition cursor-pointer group ${item.action ? 'relative' : ''}`}>
                       <div className="w-14 h-14 rounded-2xl bg-teal-50 flex items-center justify-center shadow-inner group-hover:bg-teal-100 transition-colors">{item.icon}</div>
                       <div className="flex-1">
                         <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest leading-none mb-2">{item.label}</p>
@@ -703,35 +771,14 @@ export default function PortfolioWebsite() {
                 </div>
 
                 <div className="pt-8 border-t border-slate-200">
-                   <p className="text-slate-400 font-bold uppercase text-xs tracking-widest mb-6">Digital Reach & Thought Leadership</p>
-                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border border-teal-100 p-5 rounded-2xl hover:border-teal-400 transition shadow-sm group">
-                       <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-slate-700 group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                         <Linkedin size={24} />
-                       </div>
-                       <div>
-                         <p className="text-sm font-black text-slate-800">12K+ Connections</p>
-                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">AI-Driven QA Leader</p>
-                       </div>
+                   <p className="text-slate-400 font-bold uppercase text-xs tracking-widest mb-6">Digital Reach</p>
+                   <div className="flex gap-4">
+                     <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 px-6 py-4 rounded-2xl font-black text-slate-700 dark:text-slate-300 hover:text-teal-600 hover:border-teal-400 shadow-sm transition" aria-label="Visit my LinkedIn profile">
+                       <Linkedin size={24} /> <span>LinkedIn Profile</span>
                      </a>
-                     <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white border border-teal-100 p-5 rounded-2xl hover:border-teal-400 transition shadow-sm group">
-                       <div className="w-12 h-12 rounded-xl bg-teal-50 flex items-center justify-center text-slate-700 group-hover:bg-teal-600 group-hover:text-white transition-colors">
-                         <Github size={24} />
-                       </div>
-                       <div>
-                         <p className="text-sm font-black text-slate-800">Flutter & Automation</p>
-                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Open Source AI tools</p>
-                       </div>
+                     <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 px-6 py-4 rounded-2xl font-black text-slate-700 dark:text-slate-300 hover:text-teal-600 hover:border-teal-400 shadow-sm transition" aria-label="Visit my GitHub profile">
+                       <Github size={24} /> <span>GitHub</span>
                      </a>
-                     <div className="col-span-1 sm:col-span-2 flex items-center gap-4 bg-white border border-teal-100 p-5 rounded-2xl shadow-sm">
-                       <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600">
-                         <BookOpen size={24} />
-                       </div>
-                       <div>
-                         <p className="text-sm font-black text-slate-800">Healthcare QA Blog</p>
-                         <p className="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Insights on HIPAA Compliance & Testing</p>
-                       </div>
-                     </div>
                    </div>
                 </div>
               </div>
@@ -752,7 +799,7 @@ export default function PortfolioWebsite() {
                        </ul>
                     </div>
                     <div className="relative z-10 pt-12">
-                      <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center gap-3 bg-white text-teal-700 px-8 py-6 rounded-[1.5rem] font-black text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all w-full">
+                      <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center gap-3 bg-white text-teal-700 px-8 py-6 rounded-[1.5rem] font-black text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all w-full">
                         <Download size={28} /> DOWNLOAD PDF
                       </a>
                     </div>
@@ -764,7 +811,7 @@ export default function PortfolioWebsite() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-slate-100/50 mt-20">
+      <footer className="bg-white dark:bg-slate-900 border-t border-slate-100/50 dark:border-slate-800 mt-20">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex items-center space-x-2">
@@ -772,12 +819,12 @@ export default function PortfolioWebsite() {
                 <span className="text-white font-black">DS</span>
               </div>
               <div>
-                <span className="font-black text-slate-900 block leading-none">Darshil Shah</span>
+                  <span className="font-black text-slate-900 dark:text-slate-100 block leading-none">Darshil Shah</span>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Healthcare QA Architect</span>
               </div>
             </div>
             <p className="text-slate-400 font-bold text-xs uppercase tracking-widest text-center">Global Excellence · Quality Driven · AI Centric</p>
-            <p className="text-slate-400 text-xs font-bold">© 2026. v2.4.0. US Citizen · Dallas-Fort Worth.</p>
+            <p className="text-slate-400 text-xs font-bold">© 2026. v2026.3.17. US Citizen · Dallas-Fort Worth.</p>
           </div>
         </div>
       </footer>
@@ -785,10 +832,3 @@ export default function PortfolioWebsite() {
   );
 }
 
-function CloudIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17.5 19c2.5 0 4.5-2 4.5-4.5 0-2.3-1.7-4.2-3.9-4.5-1.1-4.1-5-7-9.1-7-3.6 0-6.8 2.2-8 5.6-2.1.2-3.8 2.3-3.8 4.6C1 17 3 19 5.5 19" />
-    </svg>
-  );
-}
