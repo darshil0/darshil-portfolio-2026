@@ -48,11 +48,8 @@ export default function PortfolioWebsite() {
     { id: 'skills', label: 'Skills' },
     { id: 'education', label: 'Education' },
     { id: 'certifications', label: 'Certifications' },
-    { id: 'recommendations', label: 'Recommendations' },
-    { id: 'contact', label: 'Contact' }
+    { id: 'recommendations', label: 'Recommendations' }
   ];
-
-  const isFormSetupRequired = true;
 
   const navigate = (sectionId) => {
     setActiveSection(sectionId);
@@ -94,10 +91,9 @@ export default function PortfolioWebsite() {
           <div className="flex items-center space-x-2">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition focus:outline-none"
-              aria-label="Toggle dark mode"
+              className="p-2 rounded-lg text-slate-500 hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500"
+              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
             >
-              {/* FIX #2: was isDarkMode (undefined) → theme === 'dark' */}
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
             </button>
 
@@ -139,7 +135,7 @@ export default function PortfolioWebsite() {
       <main>
         {/* Home Section */}
         {activeSection === 'home' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <div className="space-y-3">
@@ -189,10 +185,10 @@ export default function PortfolioWebsite() {
                     <Download size={20} />
                     <span>Download Portfolio PDF</span>
                   </a>
-                  <button onClick={() => navigate('contact')} className="flex items-center justify-center space-x-2 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-xl font-bold transition active:scale-95">
+                  <a href="mailto:darshils99@gmail.com" className="flex items-center justify-center space-x-2 border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 px-8 py-4 rounded-xl font-bold transition active:scale-95">
                     <Mail size={20} />
                     <span>Get In Touch</span>
-                  </button>
+                  </a>
                 </div>
 
                 <div className="flex items-center space-x-6 pt-8">
@@ -202,9 +198,11 @@ export default function PortfolioWebsite() {
                   <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition" aria-label="GitHub">
                     <Github size={26} />
                   </a>
-                  <button onClick={copyEmail} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition flex items-center space-x-2" aria-label="Copy email">
+                  <button onClick={copyEmail} className="text-slate-500 dark:text-slate-400 hover:text-teal-600 transition flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-teal-500 outline-none rounded-lg" aria-label="Copy email to clipboard">
                     <Mail size={26} />
-                    {copied && <span className="text-sm font-bold text-emerald-600">Email Copied!</span>}
+                    <div aria-live="polite">
+                      {copied && <span className="text-sm font-bold text-emerald-600">Email Copied!</span>}
+                    </div>
                   </button>
                 </div>
               </div>
@@ -244,11 +242,11 @@ export default function PortfolioWebsite() {
 
         {/* About Section */}
         {activeSection === 'about' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">About Me</h2>
             <p className="text-teal-600 font-bold mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML & Compliance | Ex-Accenture, Kaiser, Infosys</p>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
               <div className="lg:col-span-2 space-y-8">
                 <div className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 shadow-sm">
                   <h3 className="text-2xl font-bold text-teal-700 dark:text-teal-400 mb-6 flex items-center gap-2">
@@ -295,7 +293,7 @@ export default function PortfolioWebsite() {
 
         {/* Experience Section */}
         {activeSection === 'experience' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Professional Experience</h2>
             <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-teal-200 before:to-transparent" role="list">
               {[
@@ -406,9 +404,9 @@ export default function PortfolioWebsite() {
 
         {/* Projects Section */}
         {activeSection === 'projects' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Featured Projects</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
                   icon: "🏥",
@@ -448,7 +446,7 @@ export default function PortfolioWebsite() {
 
         {/* Skills Section */}
         {activeSection === 'skills' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Technical Expertise</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
@@ -499,9 +497,9 @@ export default function PortfolioWebsite() {
 
         {/* Education Section */}
         {activeSection === 'education' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Academic Background</h2>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-6 md:gap-8">
               {[
                 { deg: "Masters' in Business Administration, Information Technology", school: "Sikkim Manipal University - Distance Education", span: "March 2013 - March 2015" },
                 { deg: "Bachelor of Engineering - BE, Information Technology", school: "Sardar Patel University (SPU), Vallabh Vidyanagar", span: "August 2007 - August 2011" }
@@ -554,7 +552,7 @@ export default function PortfolioWebsite() {
 
         {/* Certifications Section */}
         {activeSection === 'certifications' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
               <div>
                 <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-2">Certifications</h2>
@@ -565,7 +563,7 @@ export default function PortfolioWebsite() {
               </div>
             </div>
 
-            <div className="grid lg:grid-cols-3 gap-8">
+            <div className="grid lg:grid-cols-3 gap-6 md:gap-8">
               {[
                 {
                   cat: "AI & Intelligent Agents", icon: <Brain size={24} className="text-indigo-600" />, color: "indigo",
@@ -633,11 +631,11 @@ export default function PortfolioWebsite() {
 
         {/* Recommendations Section */}
         {activeSection === 'recommendations' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
+          <div className="max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
             <h2 className="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">Colleague Recommendations</h2>
             <p className="text-slate-500 dark:text-slate-400 mb-12 text-lg">What people I've worked with say about my impact</p>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {[
                 { name: "Diana Abdullaeva", title: "Software QA Engineer", initial: "DA", color: "bg-teal-600",
                   quote: "Working with Darshil on a cross-company project was an absolute pleasure... What stood out most was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions." },
@@ -668,162 +666,12 @@ export default function PortfolioWebsite() {
           </div>
         )}
 
-        {/* Contact Section — FIX #4: Removed duplicate form, kept only the async-handled one */}
-        {activeSection === 'contact' && (
-          <div className="max-w-6xl mx-auto px-6 py-20">
-            <div className="flex flex-col md:flex-row gap-12">
-              <div className="md:w-1/2 space-y-12">
-                <div>
-                  <h2 className="text-5xl font-black text-slate-900 dark:text-slate-100 mb-4 tracking-tighter">Let's build safer healthcare.</h2>
-                  <p className="text-slate-500 text-lg font-medium leading-relaxed">Available for strategic QA leadership roles, AI transformation consulting, and healthcare tech advisory.</p>
-                </div>
-
-                {isFormSetupRequired && (
-                  <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 p-4 rounded-xl flex items-start gap-3">
-                    <AlertTriangle className="text-amber-600 flex-shrink-0 mt-0.5" size={20} />
-                    <p className="text-amber-800 dark:text-amber-200 text-xs">
-                      <strong>Setup Required:</strong> Replace <code>'YOUR_FORM_ID'</code> with a valid Formspree ID to enable the contact form.
-                    </p>
-                  </div>
-                )}
-
-                <div className="bg-white dark:bg-slate-800 rounded-2xl border border-teal-100 dark:border-slate-700 p-8 shadow-sm">
-                  <form
-                    action="https://formspree.io/f/YOUR_FORM_ID"
-                    method="POST"
-                    className="space-y-4"
-                    onSubmit={async (e) => {
-                      e.preventDefault();
-                      const form = e.target;
-                      const statusEl = document.getElementById('form-status-react');
-                      const btn = form.querySelector('button[type="submit"]');
-
-                      if (form.action.includes('YOUR_FORM_ID')) {
-                        statusEl.textContent = 'Setup Required: Replace YOUR_FORM_ID first.';
-                        statusEl.className = 'text-sm font-bold text-amber-600 block mt-2';
-                        return;
-                      }
-
-                      btn.disabled = true;
-                      btn.textContent = 'Sending...';
-
-                      try {
-                        const res = await fetch(form.action, {
-                          method: 'POST',
-                          body: new FormData(form),
-                          headers: { 'Accept': 'application/json' }
-                        });
-                        if (res.ok) {
-                          statusEl.textContent = 'Message sent successfully!';
-                          statusEl.className = 'text-sm font-bold text-emerald-600 block mt-2';
-                          form.reset();
-                        } else {
-                          statusEl.textContent = 'Error sending message. Please try again.';
-                          statusEl.className = 'text-sm font-bold text-red-600 block mt-2';
-                        }
-                      } catch {
-                        statusEl.textContent = 'Error sending message. Please try again.';
-                        statusEl.className = 'text-sm font-bold text-red-600 block mt-2';
-                      } finally {
-                        btn.disabled = false;
-                        btn.textContent = 'Send Message';
-                      }
-                    }}
-                  >
-                    <div>
-                      <label className="block text-xs font-black uppercase text-slate-400 mb-1">Name</label>
-                      <input type="text" name="name" required className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm focus:ring-2 ring-teal-500 outline-none" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-black uppercase text-slate-400 mb-1">Email</label>
-                      <input type="email" name="email" required className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm focus:ring-2 ring-teal-500 outline-none" />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-black uppercase text-slate-400 mb-1">Message</label>
-                      <textarea name="message" required rows={4} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-sm focus:ring-2 ring-teal-500 outline-none"></textarea>
-                    </div>
-                    <div id="form-status-react"></div>
-                    <button
-                      type="submit"
-                      disabled={isFormSetupRequired}
-                      className={`w-full font-black py-4 rounded-xl shadow-lg transition active:scale-95 text-white ${isFormSetupRequired ? 'bg-slate-400 cursor-not-allowed' : 'bg-teal-600 hover:bg-teal-700'}`}
-                    >
-                      Send Message
-                    </button>
-                  </form>
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    { icon: <Mail className="text-teal-600" />, label: "Email", val: "darshils99@gmail.com", action: copyEmail, clickLabel: copied ? "Copied!" : "Click to copy" },
-                    { icon: <Phone className="text-teal-600" />, label: "Direct Mobile", val: "+1 (469) 987-6574" },
-                    { icon: <Globe className="text-teal-600" />, label: "Portfolio", val: "darshil0.github.io", href: "https://darshil0.github.io/darshil-portfolio-2026/index.html" },
-                    { icon: <MapPin className="text-teal-600" />, label: "Location", val: "Dallas-Fort Worth Metroplex" }
-                  ].map((item, id) => {
-                    const base = "bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 rounded-2xl p-5 flex items-center gap-4 shadow-sm hover:border-teal-400 transition";
-                    const inner = (
-                      <>
-                        <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-900/30 flex items-center justify-center">{item.icon}</div>
-                        <div className="flex-1">
-                          <p className="text-[10px] text-slate-400 uppercase font-black tracking-widest">{item.label}</p>
-                          <p className="font-black text-slate-800 dark:text-slate-100 break-words">{item.val}</p>
-                        </div>
-                        {item.clickLabel && <span className="text-[9px] font-black uppercase bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-2 py-1 rounded">{item.clickLabel}</span>}
-                      </>
-                    );
-                    return item.href ? (
-                      <a key={id} href={item.href} target="_blank" rel="noopener noreferrer" className={base}>{inner}</a>
-                    ) : (
-                      <div key={id} onClick={item.action} className={`${base} ${item.action ? 'cursor-pointer' : ''}`}>{inner}</div>
-                    );
-                  })}
-                </div>
-
-                <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
-                  <p className="text-slate-400 font-bold uppercase text-xs tracking-widest mb-4">Digital Reach</p>
-                  <div className="flex gap-4">
-                    <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 px-5 py-3 rounded-2xl font-black text-slate-700 dark:text-slate-300 hover:text-teal-600 hover:border-teal-400 shadow-sm transition" aria-label="LinkedIn">
-                      <Linkedin size={22} /> <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 bg-white dark:bg-slate-800 border border-teal-100 dark:border-slate-700 px-5 py-3 rounded-2xl font-black text-slate-700 dark:text-slate-300 hover:text-teal-600 hover:border-teal-400 shadow-sm transition" aria-label="GitHub">
-                      <Github size={22} /> <span>GitHub</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <div className="md:w-1/2">
-                <div className="bg-gradient-to-br from-teal-600 via-teal-700 to-teal-900 rounded-[2.5rem] p-12 text-white shadow-2xl h-full flex flex-col justify-between">
-                  <div className="space-y-8">
-                    <div className="w-20 h-20 bg-emerald-500 rounded-3xl flex items-center justify-center text-white shadow-lg transform rotate-6">
-                      <Download size={40} />
-                    </div>
-                    <h3 className="text-4xl font-black leading-tight tracking-tighter">Download the Full 6-Page Portfolio.</h3>
-                    <p className="text-teal-50 text-xl font-light leading-relaxed">Includes deep-dive case studies on Kaiser Permanente and Prime Therapeutics, full technical stack, and QA frameworks overview.</p>
-                    <ul className="space-y-3">
-                      {["Case Studies", "Verification Methods", "Healthcare Strategy", "AI Integration"].map((u) => (
-                        <li key={u} className="flex items-center gap-3 font-bold text-teal-100 uppercase tracking-widest text-xs">
-                          <div className="w-1.5 h-1.5 rounded-full bg-emerald-400"></div>{u}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="pt-12">
-                    <a href="Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="flex items-center justify-center gap-3 bg-white text-teal-700 px-8 py-6 rounded-[1.5rem] font-black text-xl shadow-2xl hover:scale-105 active:scale-95 transition-all w-full">
-                      <Download size={28} /> DOWNLOAD PDF
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
       </main>
 
       {/* Footer */}
       <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 mt-20">
         <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
             <div className="flex items-center space-x-2">
               <div className="w-10 h-10 bg-teal-600 rounded-xl flex items-center justify-center shadow-lg shadow-teal-100">
                 <span className="text-white font-black">DS</span>

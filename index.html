@@ -7,9 +7,14 @@
     <meta name="description" content="Professional portfolio of Darshil Shah, a Global Healthcare QA Leader and AI-Driven Testing Engineer specializing in Agentic AI and automation.">
     <meta name="keywords" content="QA Leader, Healthcare QA, AI Testing, Automation Engineer, Darshil Shah, Agentic AI, Software Quality Assurance">
     <meta property="og:title" content="Darshil Shah - QA Engineering Portfolio">
-    <meta property="og:description" content="Global Healthcare QA Leader | AI-Driven Testing & Automation Engineer">
+    <meta property="og:description" content="Global Healthcare QA Leader | 14+ years experience in AI-driven automation & regulatory compliance.">
     <meta property="og:url" content="https://darshil0.github.io/darshil-portfolio-2026/">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://darshil0.github.io/darshil-portfolio-2026/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Darshil Shah - QA Engineering Portfolio">
+    <meta name="twitter:description" content="Global Healthcare QA Leader | 14+ years experience in AI-driven automation & regulatory compliance.">
+    <meta name="twitter:image" content="https://darshil0.github.io/darshil-portfolio-2026/og-image.png">
     <script>
         // Apply theme as early as possible to prevent FOUC
         (function() {
@@ -45,9 +50,9 @@
             --text-dim: #94a3b8;
             --success: #10b981;
             --error: #ef4444;
-            --h1-size: clamp(2.5rem, 5vw, 4rem);
-            --h2-size: clamp(2rem, 4vw, 3rem);
-            --h3-size: clamp(1.5rem, 3vw, 2rem);
+            --h1-size: clamp(2.25rem, 5vw, 4rem);
+            --h2-size: clamp(1.85rem, 4vw, 3rem);
+            --h3-size: clamp(1.35rem, 3vw, 2rem);
             --navbar-bg: rgba(255, 255, 255, 0.9);
         }
 
@@ -55,6 +60,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        @media (max-width: 375px) {
+            .section-content {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            nav .max-w-6xl {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
         }
         
         html, body {
@@ -143,7 +159,6 @@
                 <button id="nav-education" onclick="showSection('education')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Education</button>
                 <button id="nav-certifications" onclick="showSection('certifications')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Certifications</button>
                 <button id="nav-recommendations" onclick="showSection('recommendations')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Recommendations</button>
-                <button id="nav-contact" onclick="showSection('contact')" class="nav-btn text-slate-700 hover:text-teal-600 smooth-transition font-medium">Contact</button>
             </div>
 
             <div class="flex items-center space-x-4">
@@ -170,7 +185,6 @@
             <button onclick="showSection('education'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Education</button>
             <button onclick="showSection('certifications'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Certifications</button>
             <button onclick="showSection('recommendations'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Recommendations</button>
-            <button onclick="showSection('contact'); toggleMobileMenu();" class="text-left py-2 font-medium text-slate-700 dark:text-slate-300">Contact</button>
         </div>
     </nav>
 
@@ -178,17 +192,19 @@
     <main id="main-content">
         <div id="content">
         <!-- Home Section -->
-        <div id="home-section" class="section-content max-w-6xl mx-auto px-6 py-20">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div id="home-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8 md:gap-12 items-center">
                 <div class="space-y-6 fade-in">
                     <div class="space-y-2">
                         <h1 class="font-bold text-slate-900 dark:text-slate-100 leading-tight">
                             Global Healthcare<br />QA Leader
                         </h1>
-                        <p class="text-xl text-teal-600 dark:text-teal-400 font-semibold flex items-center gap-2">
-                            <span>AI-Driven Testing &amp; Automation Engineer</span>
-                            <span class="text-xs bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 px-2 py-1 rounded-md border border-teal-200 dark:border-teal-800 uppercase tracking-wider">US Citizen</span>
-                        </p>
+                        <div class="flex flex-wrap items-center gap-3">
+                            <p class="text-xl text-teal-600 dark:text-teal-400 font-bold italic">
+                                AI-Driven Testing &amp; Automation Engineer
+                            </p>
+                            <span class="text-[10px] bg-teal-100 dark:bg-teal-900 text-teal-700 dark:text-teal-300 px-2 py-1 rounded border border-teal-200 dark:border-teal-800 font-black uppercase tracking-widest shadow-sm">US Citizen</span>
+                        </div>
                     </div>
                     
                     <p class="text-xl text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl">
@@ -239,10 +255,10 @@
                             <i class="fas fa-download"></i>
                             <span>Download Portfolio PDF</span>
                         </a>
-                        <button onclick="showSection('contact')" class="flex items-center justify-center space-x-2 border-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 px-6 py-3 rounded-lg font-semibold smooth-transition">
+                        <a href="mailto:darshils99@gmail.com" class="flex items-center justify-center space-x-2 border-2 border-emerald-600 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 px-6 py-3 rounded-lg font-semibold smooth-transition">
                             <i class="fas fa-envelope"></i>
                             <span>Get In Touch</span>
-                        </button>
+                        </a>
                     </div>
 
                     <div class="flex items-center space-x-6 pt-6">
@@ -252,16 +268,16 @@
                         <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" class="text-slate-700 dark:text-slate-400 hover:text-teal-600 smooth-transition" aria-label="Visit my GitHub profile">
                             <i class="fab fa-github text-2xl"></i>
                         </a>
-                        <button onclick="copyEmail()" class="text-slate-700 dark:text-slate-400 hover:text-teal-600 smooth-transition flex items-center space-x-2" aria-label="Copy email">
+                        <button onclick="copyEmail()" class="text-slate-700 dark:text-slate-400 hover:text-teal-600 smooth-transition flex items-center space-x-2 focus-visible:ring-2 focus-visible:ring-teal-500 outline-none rounded-lg" aria-label="Copy email to clipboard">
                             <i class="fas fa-envelope text-2xl"></i>
-                            <span id="copy-feedback" class="text-sm text-green-600 dark:text-green-400" style="display:none;">Copied!</span>
+                            <span id="copy-feedback" class="text-sm text-green-600 dark:text-green-400" style="display:none;" aria-live="polite">Copied!</span>
                         </button>
                     </div>
                 </div>
 
                 <div class="relative hidden md:block">
                     <div class="absolute inset-0 bg-gradient-to-r from-teal-500 to-teal-300 rounded-2xl blur-3xl opacity-20"></div>
-                    <div class="relative bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-1">
+                    <div class="relative bg-gradient-to-br from-teal-600 to-teal-800 rounded-2xl p-1 shadow-2xl">
                         <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 space-y-4">
                             <div class="space-y-3">
                                 <div class="h-3 bg-teal-200 dark:bg-teal-900 rounded-full w-32"></div>
@@ -289,11 +305,11 @@
         </div>
 
         <!-- About Section -->
-        <div id="about-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+        <div id="about-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 mb-4">About Me</h2>
             <p class="text-slate-500 mb-12 text-lg">Global Healthcare QA Leader | 14+ years in AI/ML, digital health &amp; compliance | Ex-Accenture, Kaiser, Infosys, Prime Therapeutics</p>
 
-            <div class="grid lg:grid-cols-2 gap-8 mb-12">
+            <div class="grid lg:grid-cols-2 gap-6 md:gap-8 mb-12">
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 shadow-sm">
                     <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center space-x-2">
                         <i class="fas fa-rocket text-teal-600 dark:text-teal-400"></i><span class="ml-2">My Mission</span>
@@ -330,7 +346,7 @@
         </div>
 
         <!-- Experience Section -->
-        <div id="experience-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+        <div id="experience-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
             <header>
                 <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Professional Experience</h2>
             </header>
@@ -488,12 +504,12 @@
         </div>
 
         <!-- Projects Section -->
-        <div id="projects-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Featured Projects</h2>
+        <div id="projects-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
+            <h2 class="text-4xl font-bold text-slate-900 mb-12">Featured Projects</h2>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid md:grid-cols-3 gap-6 md:gap-8">
                 <div class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition border-teal-300">
-                    <div class="text-5xl mb-4">🏥</div>
+                    <div class="text-5xl mb-4" role="img" aria-label="Hospital icon">🏥</div>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Kaiser Permanente Mobile App</h3>
                     <p class="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-3">Accenture | Oct 2020 - Jan 2025</p>
                     <p class="text-slate-700 dark:text-slate-300 mb-4">Led QA for 15+ mobile releases, scaled test coverage 40%→100%, improved patient wait times by 30%, reduced manual testing 60%</p>
@@ -503,7 +519,7 @@
                 </div>
 
                 <div class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition border-teal-300">
-                    <div class="text-5xl mb-4">💊</div>
+                    <div class="text-5xl mb-4" role="img" aria-label="Pill icon">💊</div>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Prime Therapeutics Claims</h3>
                     <p class="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-3">Infosys | Oct 2019 - Apr 2020</p>
                     <p class="text-slate-700 dark:text-slate-300 mb-4">Designed Selenium/TestNG automation frameworks for pharmacy claims validation across complex backend systems</p>
@@ -513,7 +529,7 @@
                 </div>
 
                 <div class="group bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition border-teal-300">
-                    <div class="text-5xl mb-4">🎬</div>
+                    <div class="text-5xl mb-4" role="img" aria-label="Clapperboard icon">🎬</div>
                     <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 mb-2">Sony Pictures Platform</h3>
                     <p class="text-sm text-teal-600 dark:text-teal-400 font-semibold mb-3">TCS | May 2019 - Jul 2019</p>
                     <p class="text-slate-700 dark:text-slate-300 mb-4">Automated 50+ test cases using Robot Framework, validated ServiceNow modules for Demand & Incident management</p>
@@ -525,7 +541,7 @@
         </div>
 
         <!-- Skills Section -->
-        <div id="skills-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+        <div id="skills-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Technical Expertise</h2>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -578,12 +594,12 @@
         </div>
 
         <!-- Recommendations Section -->
-        <div id="recommendations-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+        <div id="recommendations-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-4">Colleague Recommendations</h2>
             <p class="text-slate-500 dark:text-slate-400 mb-12 text-lg">What people I've worked with say about my impact</p>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-6 md:p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
                         <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Working with Darshil on a cross-company project was an absolute pleasure... What stood out most to me was his deep understanding of automation frameworks and his ability to break down complex testing challenges into structured, maintainable solutions."</p>
@@ -596,7 +612,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-6 md:p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
                         <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Darshil is an amazing QA lead Engineer. Darshil's strategic approach to QA, proactive risk management and leadership in aligning QA goals with program objectives consistently delivered results."</p>
@@ -609,7 +625,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-6 md:p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
                         <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Darshil played an instrumental role in testing deliverables... recognized in our team by our end client for his technical and leadership qualities. Our product quality also increased due to his efforts."</p>
@@ -622,7 +638,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-6 md:p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
                         <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"We are exceedingly pleased with Darshil's outstanding performance in leading the Triage Heroes team... dependable and diligent QA lead engineer with a positive and productive attitude."</p>
@@ -635,7 +651,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
+                <div class="bg-white dark:bg-slate-800 rounded-xl border border-teal-100 dark:border-slate-700 p-6 md:p-8 card-hover smooth-transition relative shadow-sm flex flex-col h-full">
                     <div class="text-7xl text-teal-50 dark:text-slate-700/50 absolute top-2 left-6 font-serif select-none">"</div>
                     <div class="relative z-10 flex flex-col h-full justify-between flex-grow">
                         <p class="text-slate-700 dark:text-slate-300 italic mb-8 leading-relaxed text-sm">"Darshil has exceptional attention to detail, which was evident in his ability to identify issues, document findings clearly, and collaborate effectively with the team. His professionalism and eagerness to learn made him stand out."</p>
@@ -651,93 +667,11 @@
             </div>
         </div>
 
-        <!-- Contact Section -->
-        <div id="contact-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
-            <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Let's Connect</h2>
-            
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- FIX #5: Removed duplicate/orphaned form elements and closed all divs properly -->
-                <div class="space-y-8">
-                    <div id="formspree-warning" class="hidden bg-amber-50 border border-amber-200 p-4 rounded-lg mb-6">
-                        <p class="text-amber-800 text-sm flex items-center gap-2">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <strong>Setup Required:</strong> Please replace 'YOUR_FORM_ID' in the code with your actual Formspree ID to enable this form.
-                        </p>
-                    </div>
-
-                    <div class="bg-white rounded-xl border border-slate-200 p-8">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-6">Get In Touch</h3>
-                        
-                        <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-4 mb-8">
-                            <div>
-                                <label for="contact-name" class="block text-sm font-medium text-slate-700 mb-1">Name</label>
-                                <input type="text" name="name" id="contact-name" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
-                            </div>
-                            <div>
-                                <label for="contact-email" class="block text-sm font-medium text-slate-700 mb-1">Email</label>
-                                <input type="email" name="email" id="contact-email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800">
-                            </div>
-                            <div>
-                                <label for="contact-message" class="block text-sm font-medium text-slate-700 mb-1">Message</label>
-                                <textarea name="message" id="contact-message" rows="4" required class="w-full px-4 py-2 rounded-lg border border-slate-200 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition dark:bg-slate-800"></textarea>
-                            </div>
-                            <button type="submit" id="submit-btn" class="w-full bg-teal-600 text-white py-3 rounded-lg font-bold hover:bg-teal-700 transition transform active:scale-95">
-                                Send Message
-                            </button>
-                        </form>
-
-                        <div class="space-y-6">
-                            <div class="flex items-start space-x-4">
-                                <div class="w-12 h-12 rounded-lg bg-teal-100 flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-envelope text-teal-600 text-lg"></i>
-                                </div>
-                                <div>
-                                    <p class="text-sm text-slate-600 mb-1">Email</p>
-                                    <button onclick="copyEmail()" class="text-lg font-semibold text-slate-900 hover:text-teal-600 smooth-transition">
-                                        darshils99@gmail.com
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="bg-gradient-to-br from-teal-600 to-teal-800 rounded-xl p-8 text-white space-y-6">
-                    <h3 class="text-2xl font-bold">Quick Contact</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-envelope text-teal-200"></i>
-                            <span>darshils99@gmail.com</span>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-phone text-teal-200"></i>
-                            <span>+1 (469) 987-6574</span>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-globe text-teal-200"></i>
-                            <a href="https://darshil0.github.io/darshil-portfolio-2026/index.html" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline smooth-transition">Portfolio Website</a>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-map-marker-alt text-teal-200"></i>
-                            <span>Dallas-Fort Worth, Texas</span>
-                        </div>
-                        <div class="pt-6 flex space-x-4">
-                            <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Visit my LinkedIn profile">
-                                <i class="fab fa-linkedin text-xl"></i>
-                            </a>
-                            <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-lg bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label="Visit my GitHub profile">
-                                <i class="fab fa-github text-xl"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Education Section -->
-        <div id="education-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+        <div id="education-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 dark:text-slate-100 mb-12">Education</h2>
-            <div class="grid md:grid-cols-2 gap-8">
+            <div class="grid md:grid-cols-2 gap-6 md:gap-8">
                 <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-8 card-hover smooth-transition">
                     <div class="flex items-start space-x-6">
                         <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center flex-shrink-0 shadow-lg shadow-teal-200">
@@ -779,13 +713,13 @@
         </div>
 
         <!-- Certifications Section -->
-        <div id="certifications-section" class="section-content max-w-6xl mx-auto px-6 py-20" style="display:none;">
+        <div id="certifications-section" class="section-content max-w-6xl mx-auto px-4 md:px-6 py-12 md:py-20" style="display:none;">
             <h2 class="text-4xl font-bold text-slate-900 mb-2">Certifications</h2>
             <p class="text-slate-500 mb-12 flex items-center gap-2">
                 <i class="fas fa-bookmark text-teal-600"></i> 15 Active Credentials earned 2025-2026
             </p>
             
-            <div class="grid lg:grid-cols-3 gap-8">
+            <div class="grid lg:grid-cols-3 gap-6 md:gap-8">
                 <!-- AI & Intelligent Agents -->
                 <div class="space-y-6">
                     <h3 class="text-xl font-bold text-indigo-900 dark:text-indigo-400 flex items-center mb-4">
@@ -947,11 +881,18 @@
 
         // FIX #4: Define updateThemeIcons (was called but never defined)
         function updateThemeIcons() {
-            const isDark = document.documentElement.classList.contains('dark');
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
             const sunIcon = document.getElementById('theme-icon-light');
             const moonIcon = document.getElementById('theme-icon-dark');
+            const themeToggle = document.getElementById('theme-toggle');
+
             if (sunIcon) sunIcon.classList.toggle('hidden', !isDark);
             if (moonIcon) moonIcon.classList.toggle('hidden', isDark);
+
+            if (themeToggle) {
+                themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            }
         }
 
         function toggleMobileMenu() {
@@ -978,19 +919,6 @@
             if (bar) bar.value = scrolled;
         });
 
-        // Formspree runtime check
-        (function() {
-            const form = document.getElementById('contact-form');
-            const warning = document.getElementById('formspree-warning');
-            const submitBtn = document.getElementById('submit-btn');
-            if (form && form.action.includes('YOUR_FORM_ID')) {
-                if (warning) warning.classList.remove('hidden');
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                }
-            }
-        })();
 
         // Initialize — FIX #4: updateThemeIcons is now defined above
         showSection('home');
