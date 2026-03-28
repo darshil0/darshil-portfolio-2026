@@ -15,6 +15,11 @@ All notable changes to the portfolio website are documented here.
 - **Native Tailwind Build**: Lifted formatting away from slow CDN injections inside `index.html` by properly drafting natively-compilable `tailwind.config.js` and `postcss.config.js` files, generating offline classes.
 - **End-to-End Setup**: Initialized `playwright.config.js` hooked natively to launch the localhost Vite server automatically on boot for `npm run test:e2e` scripts.
 
+### Structural Componentization
+- **Modular Component Dissection**: Dissected the monolithic 520+ line `src/App.jsx` file into 10 highly-focused feature components (`src/components/Sections/`) and mapped root navigation headers/footers (`src/components/Layout/`).
+- **Asset Hierarchy Resolution**: Created a central `public/` directory and securely shifted the standalone PDF resume inside, ensuring safe, static distribution by the Vite development server.
+- **Constant Externalization**: Decoupled mapped navigation loops out of active component trees into a static constant configuration file (`src/constants/data.js`) to minimize loop execution bloat.
+
 ---
 
 ## [2026.3.20] — 2026-03-20
