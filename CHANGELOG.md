@@ -4,6 +4,19 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
+## [2026.3.28] — 2026-03-28
+
+### Architecture & Fixes
+- **Dependency Upgrades**: Safely updated `package.json` React, Vite, Vitest, Playwright, and Tailwind packages to their latest compatible stable minor versions.
+- **Import Cleanup**: Scrubbed numerous unused `lucide-react` icons from the React layout to eliminate linting errors and reduce bundle size.
+- **ESM Path Resolving**: Replaced raw `__dirname` calls in `tests/content.test.js` with Node's native `'url'` package resolvers to guarantee stability across modern Vitest ESM contexts.
+- **Vite Integration**: Relocated the loose `portfolio-website.jsx` file to a standard `src/App.jsx` structure, and instantiated `src/main.jsx` and `index.html` bindings so the app compiles natively via Vite.
+- **UX Scrolling Nav Fixes**: Converted the React single-page architecture from conditionally rendering into a standard vertically stacked layout. This correctly enabled the viewport-based scroll progression bar and allowed IntersectionObservers to track and highlight the navigation bar dynamically as users read.
+- **Native Tailwind Build**: Lifted formatting away from slow CDN injections inside `index.html` by properly drafting natively-compilable `tailwind.config.js` and `postcss.config.js` files, generating offline classes.
+- **End-to-End Setup**: Initialized `playwright.config.js` hooked natively to launch the localhost Vite server automatically on boot for `npm run test:e2e` scripts.
+
+---
+
 ## [2026.3.20] — 2026-03-20
 
 ### Synchronized Versioning & Documentation
