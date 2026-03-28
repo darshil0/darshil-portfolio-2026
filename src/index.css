@@ -1,0 +1,4 @@
+/* Tailwind CSS styles (handled mainly via CDN in index.html for now but standard for Vite plugins) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
