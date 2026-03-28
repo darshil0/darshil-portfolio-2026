@@ -12,8 +12,8 @@ test('index.html has correct version and experience', () => {
   expect(content).toContain('14+ years')
 })
 
-test('portfolio-website.jsx has correct version and experience', () => {
-  const content = fs.readFileSync(path.resolve(__dirname, '../portfolio-website.jsx'), 'utf8')
+test('src/App.jsx has correct version and experience', () => {
+  const content = fs.readFileSync(path.resolve(__dirname, '../src/App.jsx'), 'utf8')
   expect(content).toContain('v2026.3.20')
   expect(content).toContain('14+ years')
 })
