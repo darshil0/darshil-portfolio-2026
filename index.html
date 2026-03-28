@@ -154,6 +154,18 @@
                     <button id="nav-expertise" onclick="showSection('expertise')" class="nav-btn text-sm font-medium hover:text-primary transition-colors">Expertise</button>
                     <button id="nav-impact" onclick="showSection('impact')" class="nav-btn text-sm font-medium hover:text-primary transition-colors">Impact</button>
                     <button id="nav-experience" onclick="showSection('experience')" class="nav-btn text-sm font-medium hover:text-primary transition-colors">Experience</button>
+                    <div class="relative group">
+                        <button class="text-sm font-medium hover:text-primary transition-colors py-2 flex items-center gap-1">
+                            More <span class="material-symbols-outlined text-xs">expand_more</span>
+                        </button>
+                        <div class="absolute right-0 top-full hidden group-hover:block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl p-2 min-w-[200px]">
+                            <button id="nav-projects" onclick="showSection('projects')" class="nav-btn w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-primary/10 transition-colors">Projects</button>
+                            <button id="nav-about" onclick="showSection('about')" class="nav-btn w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-primary/10 transition-colors">About</button>
+                            <button id="nav-education" onclick="showSection('education')" class="nav-btn w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-primary/10 transition-colors">Education</button>
+                            <button id="nav-certifications" onclick="showSection('certifications')" class="nav-btn w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-primary/10 transition-colors">Certifications</button>
+                            <button id="nav-recommendations" onclick="showSection('recommendations')" class="nav-btn w-full text-left px-4 py-2 text-sm rounded-lg hover:bg-primary/10 transition-colors">Recommendations</button>
+                        </div>
+                    </div>
                     <button id="nav-contact" onclick="showSection('contact')" class="nav-btn px-4 py-2 bg-primary text-on-primary rounded-lg font-bold hover:opacity-90 transition-opacity">Contact</button>
                 </div>
             </div>
@@ -164,6 +176,11 @@
             <button id="nav-expertise-m" onclick="showSection('expertise'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Expertise</button>
             <button id="nav-impact-m" onclick="showSection('impact'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Impact</button>
             <button id="nav-experience-m" onclick="showSection('experience'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Experience</button>
+            <button id="nav-projects-m" onclick="showSection('projects'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Projects</button>
+            <button id="nav-about-m" onclick="showSection('about'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">About</button>
+            <button id="nav-education-m" onclick="showSection('education'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Education</button>
+            <button id="nav-certifications-m" onclick="showSection('certifications'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Certifications</button>
+            <button id="nav-recommendations-m" onclick="showSection('recommendations'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold">Recommendations</button>
             <button id="nav-contact-m" onclick="showSection('contact'); toggleMobileMenu();" class="nav-btn text-left py-2 text-lg font-semibold text-primary">Contact</button>
         </div>
     </header>
@@ -336,21 +353,334 @@
                             Designing and executing comprehensive test plans. Performing manual and automated testing for web and mobile applications in Agile environments.
                         </p>
                     </div>
-                    <!-- Accenture -->
+                    <!-- Accenture Lead -->
                     <div class="bg-white dark:bg-slate-800 border border-outline-variant/10 rounded-2xl p-6 shadow-sm">
                         <div class="flex items-start gap-4 mb-4">
                             <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary font-bold text-xs shrink-0 border border-primary/10">ACC</div>
                             <div class="flex-1">
                                 <div class="flex justify-between items-start">
                                     <h3 class="text-lg font-bold font-headline leading-tight dark:text-white">Global Healthcare QA Lead</h3>
-                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0">2020 - 2025</span>
+                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0 uppercase">2023 - 2025</span>
                                 </div>
                                 <p class="text-primary dark:text-primary-fixed-dim font-semibold text-sm">Accenture (Kaiser Permanente)</p>
                             </div>
                         </div>
+                        <ul class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                            <li>Led 15+ onshore/offshore QA team across 15+ mobile releases for healthcare clients.</li>
+                            <li>Scaled test coverage 40%→100%, improved patient wait times 30%, reduced manual testing 60%.</li>
+                            <li>Designed Appium/Selenium automation frameworks, integrated ChatGPT for intelligent test generation.</li>
+                        </ul>
+                    </div>
+                    <!-- Accenture Sr -->
+                    <div class="bg-white dark:bg-slate-800 border border-outline-variant/10 rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary font-bold text-xs shrink-0 border border-primary/10">ACC</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-bold font-headline leading-tight dark:text-white">Sr. QA Automation Engineer</h3>
+                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0 uppercase">2020 - 2022</span>
+                                </div>
+                                <p class="text-primary dark:text-primary-fixed-dim font-semibold text-sm">Accenture (Kaiser Permanente)</p>
+                            </div>
+                        </div>
+                        <ul class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                            <li>Led comprehensive validation efforts, reducing defect leakage below 5%.</li>
+                            <li>Improved product quality from 50% to 90% via robust automation strategies.</li>
+                            <li>Earned Accenture 3-Year Service Award & client recognition for technical excellence.</li>
+                        </ul>
+                    </div>
+                    <!-- Infosys -->
+                    <div class="bg-white dark:bg-slate-800 border border-outline-variant/10 rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary font-bold text-xs shrink-0 border border-primary/10">INF</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-bold font-headline leading-tight dark:text-white">SDET</h3>
+                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0 uppercase">2019 - 2020</span>
+                                </div>
+                                <p class="text-primary dark:text-primary-fixed-dim font-semibold text-sm">Infosys (Prime Therapeutics)</p>
+                            </div>
+                        </div>
+                        <ul class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                            <li>Designed robust Selenium/TestNG automation frameworks with POM for pharmacy system.</li>
+                            <li>Boosted testing efficiency 40%, enhanced regression test coverage reliability.</li>
+                            <li>Validated complex pharmacy claims via SQL analysis and JSON cross-referencing.</li>
+                        </ul>
+                    </div>
+                    <!-- TCS -->
+                    <div class="bg-white dark:bg-slate-800 border border-outline-variant/10 rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary font-bold text-xs shrink-0 border border-primary/10">TCS</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-bold font-headline leading-tight dark:text-white">Platform Automation Engineer</h3>
+                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0 uppercase">2019</span>
+                                </div>
+                                <p class="text-primary dark:text-primary-fixed-dim font-semibold text-sm">TCS (Sony Pictures)</p>
+                            </div>
+                        </div>
+                        <ul class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                            <li>Developed and automated 50+ test cases using Robot Framework & Selenium2Library.</li>
+                            <li>Automated ServiceNow modules (Demand, Incident management), improved operational efficiency.</li>
+                        </ul>
+                    </div>
+                    <!-- Freelance -->
+                    <div class="bg-white dark:bg-slate-800 border border-outline-variant/10 rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary font-bold text-xs shrink-0 border border-primary/10">FRE</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-bold font-headline leading-tight dark:text-white">QA Automation Engineer</h3>
+                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0 uppercase">2017 - 2019</span>
+                                </div>
+                                <p class="text-primary dark:text-primary-fixed-dim font-semibold text-sm">Freelance</p>
+                            </div>
+                        </div>
+                        <ul class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                            <li>Created comprehensive test cases and automation test suites using Selenium WebDriver, TestNG, Maven.</li>
+                            <li>Performed functional, regression, UI, integration testing across multiple industries and clients.</li>
+                        </ul>
+                    </div>
+                    <!-- Eternal Web -->
+                    <div class="bg-white dark:bg-slate-800 border border-outline-variant/10 rounded-2xl p-6 shadow-sm">
+                        <div class="flex items-start gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary/5 flex items-center justify-center text-primary font-bold text-xs shrink-0 border border-primary/10">ETE</div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-lg font-bold font-headline leading-tight dark:text-white">QA Engineer</h3>
+                                    <span class="px-2 py-1 bg-outline-variant/20 text-outline dark:text-slate-400 text-[9px] font-extrabold rounded-md shrink-0 uppercase">2011 - 2017</span>
+                                </div>
+                                <p class="text-primary dark:text-primary-fixed-dim font-semibold text-sm">Eternal Web Pvt Ltd</p>
+                            </div>
+                        </div>
+                        <ul class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                            <li>Developed & executed detailed test cases in JIRA, functional, smoke, regression, SIT testing.</li>
+                            <li>Executed cross-browser testing, SQL validation, peer reviews, Agile/Scrum collaboration.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects-section" class="section-content py-20 bg-white dark:bg-slate-900" style="display:none;">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold font-headline text-on-surface dark:text-white mb-3">Featured Projects</h2>
+                    <div class="w-16 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 border-b-4 border-b-primary hover:shadow-xl transition-all">
+                        <div class="text-4xl mb-6">🏥</div>
+                        <h3 class="text-xl font-bold font-headline mb-2 dark:text-white">Kaiser Permanente App</h3>
+                        <p class="text-[10px] text-primary dark:text-primary-fixed-dim font-black uppercase mb-4">Accenture</p>
                         <p class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed">
-                            Led critical healthcare testing initiatives. Architected transformation strategies that achieved 30% reduction in wait times and significantly boosted test coverage.
+                            Led QA for 15+ mobile releases, scaled coverage 40%→100%, improved patient wait times by 30%.
                         </p>
+                    </div>
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 border-b-4 border-b-primary hover:shadow-xl transition-all">
+                        <div class="text-4xl mb-6">💊</div>
+                        <h3 class="text-xl font-bold font-headline mb-2 dark:text-white">Pharmacy Claims System</h3>
+                        <p class="text-[10px] text-primary dark:text-primary-fixed-dim font-black uppercase mb-4">Infosys</p>
+                        <p class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed">
+                            Designed Selenium/TestNG frameworks for complex backend claims validation across IBMi RX6 systems.
+                        </p>
+                    </div>
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 border-b-4 border-b-primary hover:shadow-xl transition-all">
+                        <div class="text-4xl mb-6">🎬</div>
+                        <h3 class="text-xl font-bold font-headline mb-2 dark:text-white">Sony Digital Platform</h3>
+                        <p class="text-[10px] text-primary dark:text-primary-fixed-dim font-black uppercase mb-4">TCS</p>
+                        <p class="text-on-surface-variant dark:text-slate-300 text-sm leading-relaxed">
+                            Automated 50+ test cases using Robot Framework, validated ServiceNow modules for global operations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about-section" class="section-content py-20 bg-surface-container-low dark:bg-slate-800" style="display:none;">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold font-headline text-on-surface dark:text-white mb-3">About My Mission</h2>
+                    <div class="w-16 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2 space-y-8">
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 shadow-sm border border-outline-variant/10">
+                            <p class="text-lg leading-relaxed mb-6 italic text-primary dark:text-primary-fixed-dim font-medium">
+                                "Quality is not just a process in healthcare—it is a commitment to patient safety."
+                            </p>
+                            <p class="text-on-surface-variant dark:text-slate-300 leading-relaxed mb-4">
+                                My goal is to transition Quality Assurance from a procedural step into a strategic asset. I specialize in AI-Augmented QA, using Agentic AI to identify risks before they reach clinical settings.
+                            </p>
+                            <p class="text-on-surface-variant dark:text-slate-300 leading-relaxed">
+                                I have managed global testing operations at Accenture and developed high-precision automation at Prime Therapeutics, working closely with clinicians, data scientists, and engineering teams.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="bg-primary rounded-2xl p-8 text-on-primary shadow-xl">
+                        <h3 class="text-xl font-bold font-headline mb-4">Darshil Shah</h3>
+                        <p class="text-sm opacity-80 mb-6">Global Healthcare QA Leader</p>
+                        <ul class="space-y-4 text-sm font-medium">
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px] text-primary-fixed" data-icon="check_circle">check_circle</span> US Citizen
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px] text-primary-fixed" data-icon="check_circle">check_circle</span> 14+ Years Experience
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px] text-primary-fixed" data-icon="check_circle">check_circle</span> AWS Certified
+                            </li>
+                            <li class="flex items-center gap-2">
+                                <span class="material-symbols-outlined text-[18px] text-primary-fixed" data-icon="check_circle">check_circle</span> Dallas-Fort Worth, TX
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education-section" class="section-content py-20 bg-white dark:bg-slate-900" style="display:none;">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold font-headline text-on-surface dark:text-white mb-3">Academic Background</h2>
+                    <div class="w-16 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 flex items-start gap-6 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold font-headline leading-tight mb-2 dark:text-white">MBA, Information Technology</h3>
+                            <p class="text-primary dark:text-primary-fixed-dim font-bold text-sm mb-1">Sikkim Manipal University</p>
+                            <p class="text-outline dark:text-slate-400 text-xs font-medium">2013 - 2015</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 flex items-start gap-6 shadow-sm">
+                        <div class="w-14 h-14 rounded-xl bg-primary text-on-primary flex items-center justify-center shrink-0">
+                            <span class="material-symbols-outlined text-3xl" data-icon="school">school</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold font-headline leading-tight mb-2 dark:text-white">BE, Information Technology</h3>
+                            <p class="text-primary dark:text-primary-fixed-dim font-bold text-sm mb-1">Sardar Patel University</p>
+                            <p class="text-outline dark:text-slate-400 text-xs font-medium">2007 - 2011</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section id="certifications-section" class="section-content py-20 bg-surface-container-low dark:bg-slate-800" style="display:none;">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold font-headline text-on-surface dark:text-white mb-3">Professional Credentials</h2>
+                    <div class="w-16 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- AI -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold font-headline flex items-center gap-2 dark:text-white">
+                            <span class="material-symbols-outlined text-primary" data-icon="psychology">psychology</span> AI & Intelligent Agents
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Agent Skills with Anthropic
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Claude Code in Action
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Introduction to MCP
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> AI Agent Architect
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> AI Fluency Framework
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cloud -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold font-headline flex items-center gap-2 dark:text-white">
+                            <span class="material-symbols-outlined text-primary" data-icon="cloud">cloud</span> Cloud & Modern Tech
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> AWS Cloud Practitioner
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Copilot Foundations
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> MLOps for GenAI
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Prompt Engineering
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Foundations of Prompt Eng.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Leadership -->
+                    <div class="space-y-6">
+                        <h3 class="text-xl font-bold font-headline flex items-center gap-2 dark:text-white">
+                            <span class="material-symbols-outlined text-primary" data-icon="stars">stars</span> Agile & Leadership
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Registered Scrum Basics™
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> GenAI for Project Managers
+                            </div>
+                            <div class="bg-white dark:bg-slate-900 rounded-xl p-4 text-xs font-bold border border-outline-variant/10 shadow-sm flex items-center gap-3 hover:border-primary transition-colors">
+                                <span class="material-symbols-outlined text-primary text-[16px]" data-icon="check_circle">check_circle</span> Treasure Hunt for AI Skills
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="https://linkedin.com/in/darshil-qa-lead" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-primary text-on-primary px-8 py-4 rounded-xl font-bold shadow-lg hover:opacity-90 transition-opacity">
+                        <span class="material-symbols-outlined" data-icon="open_in_new">open_in_new</span> View All 130+ Credentials
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommendations -->
+        <section id="recommendations-section" class="section-content py-20 bg-white dark:bg-slate-900" style="display:none;">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="mb-12">
+                    <h2 class="text-3xl font-extrabold font-headline text-on-surface dark:text-white mb-3">Colleague Recommendations</h2>
+                    <div class="w-16 h-1.5 bg-primary rounded-full"></div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 relative flex flex-col h-full hover:shadow-lg transition-shadow">
+                        <p class="text-on-surface-variant dark:text-slate-300 italic mb-8 text-sm leading-relaxed">"Working with Darshil was an absolute pleasure... His deep understanding of automation frameworks and ability to break down complex challenges is unmatched."</p>
+                        <div class="mt-auto pt-6 border-t border-outline-variant/10">
+                            <h4 class="font-bold font-headline text-on-surface dark:text-white text-sm">Diana Abdullaeva</h4>
+                            <p class="text-[10px] text-outline dark:text-slate-400 font-bold uppercase tracking-wider">Software QA Engineer</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 relative flex flex-col h-full hover:shadow-lg transition-shadow">
+                        <p class="text-on-surface-variant dark:text-slate-300 italic mb-8 text-sm leading-relaxed">"Darshil is an amazing QA lead Engineer. His strategic approach and proactive risk management consistently delivered results."</p>
+                        <div class="mt-auto pt-6 border-t border-outline-variant/10">
+                            <h4 class="font-bold font-headline text-on-surface dark:text-white text-sm">Prem Nair, PMP</h4>
+                            <p class="text-[10px] text-outline dark:text-slate-400 font-bold uppercase tracking-wider">Senior Leader</p>
+                        </div>
+                    </div>
+                    <div class="bg-surface-container-low dark:bg-slate-800 rounded-2xl p-8 border border-outline-variant/10 relative flex flex-col h-full hover:shadow-lg transition-shadow">
+                        <p class="text-on-surface-variant dark:text-slate-300 italic mb-8 text-sm leading-relaxed">"Darshil played an instrumental role in testing deliverables... recognized by our end client for his technical and leadership qualities."</p>
+                        <div class="mt-auto pt-6 border-t border-outline-variant/10">
+                            <h4 class="font-bold font-headline text-on-surface dark:text-white text-sm">Karam Bhangu</h4>
+                            <p class="text-[10px] text-outline dark:text-slate-400 font-bold uppercase tracking-wider">Scrum Master</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -389,6 +719,11 @@
                 <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('expertise')">Expertise</button>
                 <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('impact')">Impact</button>
                 <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('experience')">Experience</button>
+                <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('projects')">Projects</button>
+                <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('about')">About</button>
+                <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('education')">Education</button>
+                <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('certifications')">Certifications</button>
+                <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('recommendations')">Recommendations</button>
                 <button class="text-xs font-bold text-outline dark:text-slate-400 hover:text-primary uppercase tracking-widest" onclick="showSection('contact')">Contact</button>
             </div>
             <p class="text-[10px] uppercase tracking-tighter text-outline dark:text-slate-500 font-medium">
@@ -408,10 +743,15 @@
             }
             // Update active state in nav
             document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('text-primary', 'font-bold');
+                btn.classList.remove('text-primary', 'font-bold', 'bg-primary/5');
             });
             const activeBtn = document.getElementById('nav-' + sectionId);
-            if (activeBtn) activeBtn.classList.add('text-primary', 'font-bold');
+            if (activeBtn) {
+                activeBtn.classList.add('text-primary', 'font-bold');
+                if (activeBtn.classList.contains('w-full')) {
+                    activeBtn.classList.add('bg-primary/5');
+                }
+            }
             const activeBtnM = document.getElementById('nav-' + sectionId + '-m');
             if (activeBtnM) activeBtnM.classList.add('text-primary', 'font-bold');
         }

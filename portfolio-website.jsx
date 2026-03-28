@@ -290,13 +290,13 @@ export default function PortfolioWebsite() {
               </div>
               <div className="space-y-6">
                 {[
-                  { code: 'PHY', role: 'IT QA Analyst', company: 'Phynix Tech Services', date: 'Feb 2025 - Present', desc: 'Designing and executing comprehensive test plans. Performing manual and automated testing for web and mobile applications in Agile environments.' },
-                  { code: 'ACC', role: 'Global Healthcare QA Lead', company: 'Accenture (Kaiser Permanente)', date: '2023 - 2025', desc: 'Led a 15+ onshore/offshore QA team across 15+ mobile releases, scaling app quality from 40% to 100% and increasing test coverage by 25%.' },
-                  { code: 'ACC', role: 'Sr. QA Automation Engineer', company: 'Accenture (Kaiser Permanente)', date: '2020 - 2022', desc: 'Led comprehensive validation efforts, reducing defect leakage below 5% and improving product quality from 50% to 90%.' },
-                  { code: 'INF', role: 'SDET', company: 'Infosys (Prime Therapeutics)', date: '2019 - 2020', desc: 'Boosted testing efficiency by 40% by designing and implementing automation frameworks using Selenium, TestNG, and Hybrid POM.' },
-                  { code: 'TCS', role: 'Platform Automation Engineer', company: 'TCS (Sony Pictures)', date: '2019', desc: 'Developed and automated test cases using Selenium2Library within Robot Framework (Python-based).' },
-                  { code: 'FRE', role: 'QA Automation Engineer', company: 'Freelance', date: '2017 - 2019', desc: 'Developed automation test suites and test scripts using Selenium WebDriver, TestNG, and Maven.' },
-                  { code: 'ETE', role: 'QA Engineer', company: 'Eternal Web Pvt. Ltd.', date: '2011 - 2017', desc: 'Conducted thorough functional, exploratory, smoke, and regression testing to identify critical defects.' }
+                  { code: 'PHY', role: 'IT QA Analyst', company: 'Phynix Tech Services', date: 'Feb 2025 - Present', bullets: ['Designing and executing comprehensive test plans.', 'Performing manual and automated testing for web and mobile applications in Agile environments.'] },
+                  { code: 'ACC', role: 'Global Healthcare QA Lead', company: 'Accenture (Kaiser Permanente)', date: '2023 - 2025', bullets: ['Led 15+ onshore/offshore QA team across 15+ mobile releases for healthcare clients.', 'Scaled test coverage 40%→100%, improved patient wait times 30%, reduced manual testing 60%.', 'Designed Appium/Selenium automation frameworks, integrated ChatGPT for intelligent test generation.'] },
+                  { code: 'ACC', role: 'Sr. QA Automation Engineer', company: 'Accenture (Kaiser Permanente)', date: '2020 - 2022', bullets: ['Led comprehensive validation efforts, reducing defect leakage below 5%.', 'Improved product quality from 50% to 90% via robust automation strategies.', 'Earned Accenture 3-Year Service Award & client recognition for technical excellence.'] },
+                  { code: 'INF', role: 'SDET', company: 'Infosys (Prime Therapeutics)', date: '2019 - 2020', bullets: ['Designed robust Selenium/TestNG automation frameworks with POM for pharmacy system.', 'Boosted testing efficiency 40%, enhanced regression test coverage reliability.', 'Validated complex pharmacy claims via SQL analysis and JSON cross-referencing.'] },
+                  { code: 'TCS', role: 'Platform Automation Engineer', company: 'TCS (Sony Pictures)', date: '2019', bullets: ['Developed and automated 50+ test cases using Robot Framework & Selenium2Library.', 'Automated ServiceNow modules (Demand, Incident management), improved operational efficiency.'] },
+                  { code: 'FRE', role: 'QA Automation Engineer', company: 'Freelance', date: '2017 - 2019', bullets: ['Created comprehensive test cases and automation test suites using Selenium WebDriver, TestNG, Maven.', 'Performed functional, regression, UI, integration testing across multiple industries and clients.'] },
+                  { code: 'ETE', role: 'QA Engineer', company: 'Eternal Web Pvt. Ltd.', date: '2011 - 2017', bullets: ['Developed & executed detailed test cases in JIRA, functional, smoke, regression, SIT testing.', 'Executed cross-browser testing, SQL validation, peer reviews, Agile/Scrum collaboration.'] }
                 ].map((exp, i) => (
                   <div key={i} className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl p-6 shadow-sm">
                     <div className="flex items-start gap-4 mb-4">
@@ -309,7 +309,11 @@ export default function PortfolioWebsite() {
                         <p className="text-[#00685f] dark:text-[#6bd8cb] font-semibold text-sm">{exp.company}</p>
                       </div>
                     </div>
-                    <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{exp.desc}</p>
+                    <ul className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1">
+                      {exp.bullets.map((bullet, idx) => (
+                        <li key={idx}>{bullet}</li>
+                      ))}
+                    </ul>
                   </div>
                 ))}
               </div>
@@ -407,9 +411,9 @@ export default function PortfolioWebsite() {
               <h2 className="text-3xl font-extrabold font-headline mb-12">Professional Credentials</h2>
               <div className="grid lg:grid-cols-3 gap-8">
                 {[
-                  { cat: "AI & Intelligent Agents", icon: <Brain />, certs: ["Agent Skills with Anthropic", "Claude Code in Action", "Introduction to MCP", "AI Agent Architect", "AI Fluency Framework"] },
-                  { cat: "Cloud & Tech", icon: <Cloud />, certs: ["AWS Cloud Practitioner", "Copilot Foundations", "MLOps for GenAI", "Prompt Engineering", "Foundations of Prompt Eng."] },
-                  { cat: "Agile & Leadership", icon: <Users />, certs: ["Registered Scrum Basics™", "GenAI for Project Managers", "Treasure Hunt for AI Skills"] }
+                  { cat: "AI & Intelligent Agents", icon: <Brain />, certs: ["Agent Skills with Anthropic", "Claude Code in Action", "Introduction to MCP", "Becoming an AI Agent Architect", "AI Fluency Framework"] },
+                  { cat: "Cloud & Tech", icon: <Cloud />, certs: ["AWS Cloud Practitioner", "Microsoft Copilot Foundations", "MLOps for Generative AI", "ChatGPT Prompt Engineering", "Foundations of Prompt Eng."] },
+                  { cat: "Agile & Leadership", icon: <Users />, certs: ["Registered Scrum Basics", "GenAI for Project Managers", "Treasure Hunt for AI Skills"] }
                 ].map((group, i) => (
                   <div key={i} className="space-y-6">
                     <h3 className="text-xl font-bold flex items-center gap-2">{group.icon} {group.cat}</h3>
