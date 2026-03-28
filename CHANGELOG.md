@@ -4,7 +4,12 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
-## [1.1.0] — 2026-03-20
+## [2026.3.20] — 2026-03-20
+
+### Synchronized Versioning & Documentation
+- Updated version to `2026.3.20` across `package.json`, `metadata.json`, `index.html`, `portfolio-website.jsx`, `README.md`, and `CHANGELOG.md`.
+- Synchronized certification count in `README.md` to reflect the 15 active credentials present in the site.
+- Conservative update of development dependencies to ensure project stability.
 
 ### Bug Fixes — `index.html`
 

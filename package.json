@@ -1,6 +1,6 @@
 {
   "name": "darshil-portfolio-2026",
-  "version": "2026.3.17",
+  "version": "2026.3.20",
   "private": true,
   "scripts": {
     "dev": "vite",
