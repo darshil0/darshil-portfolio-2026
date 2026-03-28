@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-  Download, Github, Linkedin, Mail, MapPin, FileText, 
-  Award, Briefcase, Code2, Heart, Phone, GraduationCap, 
-  Globe, Bookmark, CheckCircle, Search, Wrench, Rocket, 
-  ShieldCheck, Zap, Star, BookOpen, Brain, Cloud, Users,
-  Sun, Moon, AlertTriangle, TrendingUp, Copy, Check, Menu, X,
-  Verified, MousePointer2, UserCheck, Layout, Laptop, Smartphone,
-  Cpu, Activity
+  Linkedin, GraduationCap, CheckCircle, Rocket, Brain, Cloud, Users,
+  Sun, Moon, TrendingUp, Copy, Check, Menu, X, Verified, UserCheck, Layout
 } from 'lucide-react';
 
 export default function PortfolioWebsite() {

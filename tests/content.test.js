@@ -1,6 +1,10 @@
 import { expect, test } from 'vitest'
 import fs from 'fs'
 import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 test('index.html has correct version and experience', () => {
   const content = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8')
