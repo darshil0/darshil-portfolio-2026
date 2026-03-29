@@ -1,5 +1,4 @@
-# Build and deploy the Vite/React app to GitHub Pages
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -29,10 +28,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        # npm ci requires package-lock.json — use npm install instead
+        # since package-lock.json is excluded from this repo's .gitignore
+        run: npm install
 
       - name: Build
         run: npm run build
@@ -43,7 +43,6 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Deploy the compiled output, not the raw source
           path: './dist'
 
       - name: Deploy to GitHub Pages
