@@ -27,9 +27,9 @@ export default function Contact() {
                   <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Linkedin size={20} /></div>
                   <span className="font-medium text-sm">linkedin.com/in/darshil-qa-lead</span>
                 </a>
-                <a href="https://github.com/darshilshah" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                <a href="https://github.com/darshil0" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Github size={20} /></div>
-                  <span className="font-medium text-sm">github.com/darshilshah</span>
+                  <span className="font-medium text-sm">github.com/darshil0</span>
                 </a>
               </div>
             </div>
