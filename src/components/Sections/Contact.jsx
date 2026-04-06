@@ -4,11 +4,20 @@ import { contactEmail } from '../../constants/data.js';
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState(null);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Capture the form element before any async gap — React synthetic events
+    // are nullified after the call stack clears, so e.target becomes null
+    // inside a setTimeout or after an await without this capture.
+    const form = e.target;
     setFormStatus('sending');
-    setTimeout(() => { setFormStatus('success'); e.target.reset(); }, 1000);
+    setTimeout(() => {
+      setFormStatus('success');
+      form.reset();
+    }, 1000);
   };
+
   return (
     <section id="contact-section" className="py-20 bg-[#f8f9ff] dark:bg-slate-900 min-h-[600px]">
       <div className="max-w-7xl mx-auto px-6">
@@ -52,7 +61,7 @@ export default function Contact() {
                 <label htmlFor="contact-message" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Message</label>
                 <textarea id="contact-message" required rows="4" className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-[#00685f] outline-none text-sm resize-none" placeholder="How can I help you?"></textarea>
               </div>
-              <button type="submit" className="w-full bg-[#00685f] text-white py-4 rounded-xl font-bold hover:bg-[#00514a] transition-colors">
+              <button type="submit" disabled={formStatus === 'sending'} className="w-full bg-[#00685f] text-white py-4 rounded-xl font-bold hover:bg-[#00514a] transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
                 {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
               </button>
               {formStatus === 'success' && (

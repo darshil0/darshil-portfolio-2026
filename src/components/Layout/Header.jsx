@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sun, Moon, Menu, X, TrendingUp, Layout } from 'lucide-react';
+import { Sun, Moon, Menu, X, ChevronDown, Layout } from 'lucide-react';
 import { navItems } from '../../constants/data.js';
 
 export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, activeSection, navigate }) {
@@ -24,9 +24,9 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 text-[#121c28] dark:text-white lg:hidden"
-            aria-label="Menu"
+            aria-label="Toggle menu"
           >
-            {isMenuOpen ? <X size={24} id="menu-icon" /> : <Menu size={24} id="menu-icon" />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
 
           <div className="hidden lg:flex items-center gap-6">
@@ -35,9 +35,9 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
               { id: 'impact', label: 'Impact' },
               { id: 'experience', label: 'Experience' }
             ].map(item => (
-              <button 
+              <button
                 key={item.id}
-                onClick={() => navigate(item.id)} 
+                onClick={() => navigate(item.id)}
                 className={`text-sm font-medium transition-colors ${activeSection === item.id ? 'text-[#00685f] dark:text-[#6bd8cb] font-bold' : 'text-[#121c28] dark:text-gray-300 hover:text-[#00685f] dark:hover:text-[#6bd8cb]'}`}
               >
                 {item.label}
@@ -45,8 +45,11 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
             ))}
 
             <div className="relative group">
-              <button className={`text-sm font-medium text-[#121c28] dark:text-gray-300 hover:text-[#00685f] dark:hover:text-[#6bd8cb] transition-colors py-2 flex items-center gap-1`}>
-                More <TrendingUp size={14} className="rotate-90" />
+              <button
+                className="text-sm font-medium text-[#121c28] dark:text-gray-300 hover:text-[#00685f] dark:hover:text-[#6bd8cb] transition-colors py-2 flex items-center gap-1"
+                aria-haspopup="true"
+              >
+                More <ChevronDown size={14} />
               </button>
               <div className="absolute right-0 top-full hidden group-hover:block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl p-2 min-w-[200px] animate-in fade-in slide-in-from-top-2">
                 {navItems.filter(item => !['expertise', 'impact', 'experience'].includes(item.id)).map(item => (
@@ -61,6 +64,7 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
                 ))}
               </div>
             </div>
+
             <button
               id="nav-contact"
               onClick={() => navigate('contact')}
