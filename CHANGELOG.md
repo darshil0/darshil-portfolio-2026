@@ -4,6 +4,15 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
+## [2026.4.6] — 2026-04-06
+
+### Version Bumps & Documentation
+- Updated `package.json`, `metadata.json`, `index.html`, `src/App.jsx`, `src/components/Layout/Footer.jsx`, `README.md`, `tests/basic.test.js`, and `tests/content.test.js` to version `2026.4.6`.
+- Updated `metadata.json` `last_updated` field to `2026-04-06` and `README.md` "Updated" date to `April 2026`.
+- Corrected outdated Tailwind CSS build comment in `src/index.css`.
+
+---
+
 ## [2026.4.5] — 2026-04-05
 
 ### Bug Fixes
