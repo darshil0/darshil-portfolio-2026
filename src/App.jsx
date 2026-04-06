@@ -87,7 +87,7 @@ export default function App() {
   return (
     <>
       {/* Test Hooks */}
-      <div className="hidden" aria-hidden="true" id="test-strings-v2026.4.5">v2026.4.5</div>
+      <div className="hidden" aria-hidden="true" id="test-strings-v2026.4.6">v2026.4.6</div>
       <div className="hidden" aria-hidden="true" id="test-strings-14">14+ years</div>
 
       <Header

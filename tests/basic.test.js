@@ -2,7 +2,7 @@ import { expect, test } from 'vitest'
 
 test('metadata version is correct', async () => {
   const metadata = await import('../metadata.json')
-  expect(metadata.default.version).toBe('2026.4.5')
+  expect(metadata.default.version).toBe('2026.4.6')
 })
 
 test('metadata experience is correct', async () => {
