@@ -2,13 +2,13 @@
 
 **v2026.4.6** · React 19 + Vite · Deployed via GitHub Pages
 
----
+
 
 ## Overview
 
 Production-ready personal portfolio for **Darshil Shah**, Global Healthcare QA Leader and AI-Driven Testing Engineer. Built with React 19, Vite, and Tailwind CSS, and deployed automatically to GitHub Pages via GitHub Actions.
 
----
+
 
 ## Repository Structure
 
@@ -56,7 +56,7 @@ portfolio/
 └── README.md
 ```
 
----
+
 
 ## Tech Stack
 
@@ -102,7 +102,7 @@ Pushes to `main` trigger the GitHub Actions workflow (`.github/workflows/static.
 
 The Vite config uses `base: './'` so all asset paths in the built output are relative — this is required for correct asset resolution when the site is served from a GitHub Pages subdirectory.
 
----
+
 
 ## Portfolio Sections
 
@@ -136,7 +136,7 @@ The Vite config uses `base: './'` so all asset paths in the built output are rel
 | Certifications | 15 |
 | Global QA Teams Led | 15+ |
 
----
+
 
 ## Design
 
@@ -173,7 +173,7 @@ Anthropic (4) · DeepLearning.AI · IBM (2) · Coursera · Google · Microsoft �
 
 Categories: AI/ML, Cloud, DevOps, Agile, Leadership, Technical
 
----
+
 
 ## Contact
 
@@ -186,13 +186,13 @@ Categories: AI/ML, Cloud, DevOps, Agile, Leadership, Technical
 
 PDF resume available for download at `/Darshil_Shah_QA_Engineering_Portfolio.pdf`.
 
----
+
 
 ## Changelog
 
 See [CHANGELOG.md](CHANGELOG.md) for full version history.
 
----
+
 
 ## License
 
