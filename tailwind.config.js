@@ -1,5 +1,5 @@
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
+import tailwindForms from '@tailwindcss/forms';
+import tailwindContainerQueries from '@tailwindcss/container-queries';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -68,7 +68,7 @@ export default {
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/container-queries'),
+    tailwindForms,
+    tailwindContainerQueries,
   ],
 }
