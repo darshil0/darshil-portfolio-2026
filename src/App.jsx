@@ -19,110 +19,127 @@ export default function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Initialize Theme
+  // Initialize theme from localStorage or prefers‑color‑scheme
   useEffect(() => {
-    const savedTheme = localStorage.getItem(themeStorageKey) 
-      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    setTheme(savedTheme);
-    if (savedTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    const saved = localStorage.getItem(themeStorageKey);
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = saved || (systemPrefersDark ? 'dark' : 'light');
+
+    setTheme(initialTheme);
+    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
   }, []);
 
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    localStorage.setItem(themeStorageKey, newTheme);
-    if (newTheme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
+    localStorage.setItem(themeStorageKey, newTa);
+    document.documentElement.classList.toggle('dark', newTheme === 'dark');
   };
 
-  // Scroll Tracking & Spy
+  // Scroll tracking for progress bar and section spy
   useEffect(() => {
     const handleScroll = () => {
-      // Progress Bar Calculation
       const currentScroll = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (currentScroll / docHeight) * 100 : 0;
       setScrollProgress(progress);
 
-      // Section Spy Calculation
-      const sections = ['home', 'expertise', 'impact', 'experience', 'projects', 'about', 'education', 'certifications', 'recommendations', 'contact'];
+      const sections = [
+        'home',
+        'expertise',
+        'impact',
+        'experience',
+        'projects',
+        'about',
+        'education',
+        'certifications',
+        'recommendations',
+        'contact',
+      ];
+
       let currentSection = sections[0];
 
       for (const section of sections) {
         const element = document.getElementById(`${section}-section`);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          if (rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3) {
-            currentSection = section;
-            break;
-          }
+        if (!element) continue;
+
+        const rect = element.getBoundingClientRect();
+        const inViewport =
+          rect.top <= window.innerHeight / 3 && rect.bottom >= window.innerHeight / 3;
+
+        if (inViewport) {
+          currentSection = section;
+          break;
         }
       }
+
       setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navigate = (id) => {
-    const element = id === 'home' ? document.body : document.getElementById(`${id}-section`);
+    const element = id === 'home'
+      ? document.body
+      : document.getElementById(`${id}-section`);
+
     if (element) {
       if (id === 'home') {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        const headerOffset = 64; 
+        const headerOffset = 64; // ~header height
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
     }
+
     setActiveSection(id);
     setIsMenuOpen(false);
   };
 
   return (
     <>
-      {/* Test Hooks */}
-      <div className="hidden" aria-hidden="true" id="test-strings-v2026.3.20">v2026.3.20</div>
-      <div className="hidden" aria-hidden="true" id="test-strings-14">14+ years</div>
+      {/* Test hooks (for analytics / QA) */}
+      <div className="hidden" aria-hidden="true" id="test-strings-v2026.3.20">
+        v2026.3.20
+      </div>
+      <div className="hidden" aria-hidden="true" id="test-strings-14">
+        14+ years
+      </div>
 
-      <Header 
-        theme={theme} 
-        toggleTheme={toggleTheme} 
-        activeSection={activeSection} 
+      <Header
+        theme={theme}
+        toggleTheme={toggleTheme}
+        activeSection={activeSection}
         navigate={navigate}
         isMenuOpen={isMenuOpen}
         setIsMenuOpen={setIsMenuOpen}
       />
-      
-      {/* Scroll Progress Indicator */}
+
+      {/* Scroll progress bar */}
       <div className="fixed top-16 left-0 w-full h-1 bg-slate-100 dark:bg-slate-800 z-50">
-        <div 
+        <div
           className="h-full bg-[#00685f] dark:bg-[#6bd8cb] transition-all duration-150 ease-out"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       <main className="pt-16">
-        <Home navigate={navigate} />
-        <Expertise />
-        <Impact />
-        <Experience />
-        <Projects />
-        <About />
-        <Education />
-        <Certifications />
-        <Recommendations />
-        <Contact />
+        <Home navigate={navigate} id="home-section" />
+        <Expertise id="expertise-section" />
+        <Impact id="impact-section" />
+        <Experience id="experience-section" />
+        <Projects id="projects-section" />
+        <About id="about-section" />
+        <Education id="education-section" />
+        <Certifications id="certifications-section" />
+        <Recommendations id="recommendations-section" />
+        <Contact id="contact-section" />
       </main>
 
       <Footer navigate={navigate} />
