@@ -4,12 +4,23 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
-## [2026.4.6] — 2026-04-06
+## [2026.4.8] — 2026-04-08
+
+### Test Infrastructure & Fixes
+- **Vitest & Playwright Coexistence**: Added `vitest.config.js` to explicitly exclude `tests/e2e` from Vitest execution. This resolves the `ReferenceError` when Vitest attempted to parse Playwright's `test()` blocks.
+- **E2E Environment Setup**: Installed Playwright `chromium` binaries to enable local and CI verification.
+
+### Security & Accessibility
+- **Secure External Links**: Updated LinkedIn and GitHub profile links in `Contact.jsx` to include `rel="noopener noreferrer"`, mitigating potential tab-napping vulnerabilities.
+- **Robust Certification Rendering**: Refined `Certifications.jsx` to gracefully handle certification entries with missing dates, ensuring no stray separator characters are rendered.
+
+### UI/UX Enhancements
+- **Copy Email to Clipboard**: Integrated a "Copy" button next to the email address in the `Contact` section using `navigator.clipboard`. Added visual feedback with a 2-second state-driven confirmation ("Check" icon).
+- **Mobile Navigation Scroll Lock**: Implemented a `useEffect` hook in `Header.jsx` that disables background scrolling when the mobile hamburger menu is active, improving the mobile browsing experience.
 
 ### Version Bumps & Documentation
-- Updated `package.json`, `metadata.json`, `index.html`, `src/App.jsx`, `src/components/Layout/Footer.jsx`, `README.md`, `tests/basic.test.js`, and `tests/content.test.js` to version `2026.4.6`.
-- Updated `metadata.json` `last_updated` field to `2026-04-06` and `README.md` "Updated" date to `April 2026`.
-- Corrected outdated Tailwind CSS build comment in `src/index.css`.
+- Updated `package.json`, `metadata.json`, `index.html`, `src/App.jsx`, `src/components/Layout/Footer.jsx`, `README.md`, `tests/basic.test.js`, and `tests/content.test.js` to version `2026.4.8`.
+- Synchronized `metadata.json` `last_updated` field to `2026-04-08`.
 
 ---
 
