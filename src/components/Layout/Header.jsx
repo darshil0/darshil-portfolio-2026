@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Sun, Moon, Menu, X, ChevronDown, Layout } from 'lucide-react';
 import { navItems } from '../../constants/data.js';
 
 export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, activeSection, navigate }) {
+  // Mobile Scroll Lock
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   return (
     <header className="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm">
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -78,7 +90,7 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div id="mobile-menu" className="fixed inset-0 top-16 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md z-40 p-6 flex flex-col space-y-4 overflow-y-auto lg:hidden">
+        <div id="mobile-menu" className="fixed inset-0 top-16 bg-white dark:bg-slate-900 z-[60] p-6 flex flex-col space-y-4 overflow-y-auto lg:hidden">
           <button id="nav-home-m" onClick={() => navigate('home')} className={`text-left py-2 text-lg font-semibold ${activeSection === 'home' ? 'text-[#00685f] dark:text-[#6bd8cb]' : ''}`}>Home</button>
           {navItems.map(item => (
             <button

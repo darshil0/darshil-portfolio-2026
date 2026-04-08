@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin } from 'lucide-react';
+import { Mail, Github, Linkedin, Copy, Check } from 'lucide-react';
 import { contactEmail } from '../../constants/data.js';
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState(null);
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(contactEmail);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,15 +35,24 @@ export default function Contact() {
             <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700">
               <h3 className="text-xl font-bold mb-6">Direct Contact</h3>
               <div className="space-y-4">
-                <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Mail size={20} /></div>
-                  <span className="font-medium text-sm">{contactEmail}</span>
-                </a>
-                <a href="https://www.linkedin.com/in/darshil-qa-lead/" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                <div className="flex items-center justify-between p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
+                  <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f]">
+                    <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Mail size={20} /></div>
+                    <span className="font-medium text-sm">{contactEmail}</span>
+                  </a>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="p-2 text-slate-400 hover:text-[#00685f] hover:bg-[#00685f]/10 rounded-lg transition-all"
+                    title="Copy email address"
+                  >
+                    {copied ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
+                  </button>
+                </div>
+                <a href="https://www.linkedin.com/in/darshil-qa-lead/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Linkedin size={20} /></div>
                   <span className="font-medium text-sm">linkedin.com/in/darshil-qa-lead</span>
                 </a>
-                <a href="https://github.com/darshil0" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
+                <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
                   <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Github size={20} /></div>
                   <span className="font-medium text-sm">github.com/darshil0</span>
                 </a>
