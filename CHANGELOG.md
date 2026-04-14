@@ -6,8 +6,8 @@ All notable changes to the portfolio website are documented here.
 
 ## [2026.4.15] — 2026-04-14
 
-### Fixes & Maintenance
-- **Resolved Runtime Error**: Fixed a critical reference error in `App.jsx` by properly importing `navItems` used in the scroll-spy logic.
+### Bug Fixes & Maintenance
+- **Resolved Critical Load Issue**: Fixed a `ReferenceError` in `App.jsx` where `navItems` was being used in the scroll-spy logic before being imported. This was preventing the application from mounting, resulting in a blank page.
 - **Dependency Refresh**: Performed conservative package updates to ensure latest security patches and library stability.
 - **Version Synchronization**: Unified project versioning to `2026.4.15` across metadata, source code, and test suites.
 
