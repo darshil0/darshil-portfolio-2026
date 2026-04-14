@@ -47,7 +47,7 @@ export default function App() {
 
       // Section Spy — iterate in reverse so the topmost visible section wins
       // when multiple sections overlap the trigger threshold simultaneously.
-      const sections = ['home', 'expertise', 'impact', 'experience', 'projects', 'about', 'education', 'certifications', 'recommendations', 'contact'];
+      const sections = ['home', ...navItems.map(i => i.id), 'contact'];
       let currentSection = sections[0];
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -77,7 +77,7 @@ export default function App() {
     } else if (element) {
       const headerOffset = 64;
       const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
     setActiveSection(id);
@@ -87,7 +87,7 @@ export default function App() {
   return (
     <>
       {/* Test Hooks */}
-      <div className="hidden" aria-hidden="true" id="test-strings-v2026.4.8">v2026.4.8</div>
+      <div className="hidden" aria-hidden="true" id="test-strings-v2026.4.14">v2026.4.14</div>
       <div className="hidden" aria-hidden="true" id="test-strings-14">14+ years</div>
 
       <Header
@@ -107,7 +107,7 @@ export default function App() {
         />
       </div>
 
-      <main className="pt-16">
+      <main id="main-content" className="pt-16">
         <Home navigate={navigate} />
         <Expertise />
         <Impact />

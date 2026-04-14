@@ -26,62 +26,83 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact-section" className="py-20 bg-[#f8f9ff] dark:bg-slate-900 min-h-[600px]">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-extrabold font-headline mb-4">Let's Connect</h2>
-        <p className="text-slate-600 dark:text-slate-300 mb-12">Looking to elevate your QA strategy or build world-class testing teams?</p>
-        <div className="grid md:grid-cols-2 gap-12">
-          <div className="space-y-6">
-            <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700">
-              <h3 className="text-xl font-bold mb-6">Direct Contact</h3>
+    <section id="contact-section" className="py-24 bg-[#f8f9ff] dark:bg-slate-900 min-h-[600px] relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-[#00685f]/10 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="mb-16">
+          <h2 className="text-4xl font-extrabold font-headline mb-4 tracking-tight">Let's Connect</h2>
+          <div className="w-20 h-2 bg-[#00685f] dark:bg-[#6bd8cb] rounded-full"></div>
+          <p className="mt-6 text-slate-600 dark:text-slate-300 text-lg font-medium opacity-80">Looking to elevate your QA strategy or build world-class testing teams?</p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-16">
+          <div className="space-y-10">
+            <div className="bg-white dark:bg-slate-800/50 rounded-[2rem] p-10 border border-slate-100 dark:border-slate-800 shadow-2xl">
+              <h3 className="text-2xl font-black mb-8 tracking-tight">Direct Channels</h3>
               <div className="space-y-4">
-                <div className="flex items-center justify-between p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors group">
-                  <a href={`mailto:${contactEmail}`} className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f]">
-                    <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Mail size={20} /></div>
-                    <span className="font-medium text-sm">{contactEmail}</span>
+                <div className="flex items-center justify-between p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
+                  <a href={`mailto:${contactEmail}`} className="flex items-center gap-5 text-slate-700 dark:text-slate-200">
+                    <div className="w-12 h-12 rounded-2xl bg-[#00685f]/10 text-[#00685f] dark:text-[#6bd8cb] flex items-center justify-center group-hover:bg-[#00685f] group-hover:text-white transition-all shadow-sm">
+                      <Mail size={22} />
+                    </div>
+                    <span className="font-bold text-sm tracking-wide">{contactEmail}</span>
                   </a>
                   <button
                     onClick={handleCopyEmail}
-                    className="p-2 text-slate-400 hover:text-[#00685f] hover:bg-[#00685f]/10 rounded-lg transition-all"
+                    className="p-3 text-slate-400 hover:text-[#00685f] hover:bg-[#00685f]/5 rounded-xl transition-all"
                     title="Copy email address"
                   >
-                    {copied ? <Check size={16} className="text-green-600" /> : <Copy size={16} />}
+                    {copied ? <Check size={20} className="text-green-600" /> : <Copy size={20} />}
                   </button>
                 </div>
-                <a href="https://www.linkedin.com/in/darshil-qa-lead/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Linkedin size={20} /></div>
-                  <span className="font-medium text-sm">linkedin.com/in/darshil-qa-lead</span>
+
+                <a href="https://www.linkedin.com/in/darshil-qa-lead/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00685f]/10 text-[#00685f] dark:text-[#6bd8cb] flex items-center justify-center group-hover:bg-[#00685f] group-hover:text-white transition-all shadow-sm">
+                    <Linkedin size={22} />
+                  </div>
+                  <span className="font-bold text-sm tracking-wide text-slate-700 dark:text-slate-200">LinkedIn Profile</span>
                 </a>
-                <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-slate-600 dark:text-slate-300 hover:text-[#00685f] p-4 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors">
-                  <div className="w-10 h-10 rounded-full bg-[#00685f]/10 text-[#00685f] flex items-center justify-center"><Github size={20} /></div>
-                  <span className="font-medium text-sm">github.com/darshil0</span>
+
+                <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
+                  <div className="w-12 h-12 rounded-2xl bg-[#00685f]/10 text-[#00685f] dark:text-[#6bd8cb] flex items-center justify-center group-hover:bg-[#00685f] group-hover:text-white transition-all shadow-sm">
+                    <Github size={22} />
+                  </div>
+                  <span className="font-bold text-sm tracking-wide text-slate-700 dark:text-slate-200">GitHub Open Source</span>
                 </a>
               </div>
             </div>
-            <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="block w-full text-center bg-[#121c28] dark:bg-white text-white dark:text-[#121c28] py-4 rounded-2xl font-bold hover:bg-[#00685f] transition-colors shadow-xl">
-              Download Full PDF Resume
+
+            <a href="/Darshil_Shah_QA_Engineering_Portfolio.pdf" download className="group relative block w-full bg-[#121c28] dark:bg-white text-white dark:text-[#121c28] p-6 rounded-[2rem] font-black text-lg text-center shadow-2xl hover:bg-[#00685f] dark:hover:bg-[#6bd8cb] transition-all overflow-hidden duration-500">
+              <span className="relative z-10 flex items-center justify-center gap-3">
+                Download PDF Resume <Check size={20} />
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
             </a>
           </div>
-          <div className="bg-white dark:bg-slate-800 p-8 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm">
-            <h3 className="text-xl font-bold mb-6">Send a Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="contact-name" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Name</label>
-                <input type="text" id="contact-name" required className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-[#00685f] outline-none text-sm" placeholder="Your name" />
+
+          <div className="bg-white dark:bg-slate-800/80 backdrop-blur-xl p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-2xl shadow-[#00685f]/5">
+            <h3 className="text-2xl font-black mb-8 tracking-tight">Send a Message</h3>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label htmlFor="contact-name" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Full Name</label>
+                <input type="text" id="contact-name" required className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium transition-all" placeholder="Enter your name" />
               </div>
-              <div>
-                <label htmlFor="contact-email" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Email</label>
-                <input type="email" id="contact-email" required className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-[#00685f] outline-none text-sm" placeholder="name@company.com" />
+              <div className="space-y-2">
+                <label htmlFor="contact-email" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Email Address</label>
+                <input type="email" id="contact-email" required className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium transition-all" placeholder="name@company.com" />
               </div>
-              <div>
-                <label htmlFor="contact-message" className="block text-xs font-bold text-slate-500 mb-2 uppercase tracking-wide">Message</label>
-                <textarea id="contact-message" required rows="4" className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-2 focus:ring-[#00685f] outline-none text-sm resize-none" placeholder="How can I help you?"></textarea>
+              <div className="space-y-2">
+                <label htmlFor="contact-message" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Your Message</label>
+                <textarea id="contact-message" required rows="4" className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium resize-none transition-all" placeholder="How can I help you?"></textarea>
               </div>
-              <button type="submit" disabled={formStatus === 'sending'} className="w-full bg-[#00685f] text-white py-4 rounded-xl font-bold hover:bg-[#00514a] transition-colors disabled:opacity-60 disabled:cursor-not-allowed">
-                {formStatus === 'sending' ? 'Sending...' : 'Send Message'}
+              <button type="submit" disabled={formStatus === 'sending'} className="w-full bg-[#00685f] text-white py-5 rounded-2xl font-black text-base shadow-xl shadow-[#00685f]/20 hover:bg-[#00514a] hover:-translate-y-1 transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+                {formStatus === 'sending' ? 'Initiating...' : 'Secure Submit'}
               </button>
               {formStatus === 'success' && (
-                <div className="p-4 bg-green-50 border border-green-200 text-green-700 rounded-xl text-center text-sm font-bold">✓ Message sent! I'll be in touch soon.</div>
+                <div className="p-5 bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 rounded-2xl text-center text-sm font-black animate-in fade-in zoom-in-95">
+                  ✓ Message sent! I'll be in touch soon.
+                </div>
               )}
             </form>
           </div>

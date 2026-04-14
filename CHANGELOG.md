@@ -4,6 +4,26 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
+## [2026.4.14] — 2026-04-14
+
+### UI/UX Overhaul (Premium & Cinematic)
+- **High-End Hero Section**: Completely redesigned the Home section with complex cinematic gradients, glassmorphism statistics cards, and scroll-triggered entry animations using Tailwind's `animate-in`.
+- **Sophisticated Visual Hierarchy**: Updated all sections (`Expertise`, `Impact`, `Experience`, `About`, `Education`, `Certifications`) with unified card-based designs, 3D-hover translations, and bespoke typography.
+- **Glassmorphism & Depth**: Integrated `backdrop-blur` effects and layered shadow systems to achieve a modern, premium feel across the interface.
+- **Interactive Metrics**: Redesigned the `Impact` section with high-contrast metric cards and decorative background elements for better visual storytelling.
+
+### Architecture & Robustness
+- **Dynamic Section Tracking**: Decoupled hardcoded section IDs from the scroll-spy logic; sections are now dynamically derived from global project constants.
+- **Header Lifecycle Management**: Added a `resize` listener to the navigation header to automatically close the mobile menu and restore body scrolling during viewport transitions.
+- **Centralized Data Management**: Expanded the use of theme-aware tokens for colors and spacing to ensure design consistency.
+
+### Accessibility, SEO & Quality
+- **Semantic HTML Fixes**: Resolved accessibility warnings by ensuring only one `main` element exists per page. Converted legacy testing hooks in `index.html` from `main` to `div` while maintaining test compatibility.
+- **Modern API Integration**: Replaced deprecated `window.pageYOffset` with the modern `window.scrollY` for all scroll-related calculations.
+- **Version Synchronization**: Unified versioning to `2026.4.14` across `package.json`, `metadata.json`, `index.html`, `App.jsx`, and `Footer.jsx`.
+
+---
+
 ## [2026.4.8] — 2026-04-08
 
 ### Test Infrastructure & Fixes

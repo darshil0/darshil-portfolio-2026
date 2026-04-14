@@ -3,24 +3,37 @@ import { Sun, Moon, Menu, X, ChevronDown, Layout } from 'lucide-react';
 import { navItems } from '../../constants/data.js';
 
 export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, activeSection, navigate }) {
-  // Mobile Scroll Lock
+  // Mobile Scroll Lock & Auto-close on resize
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
     }
+
+    const handleResize = () => {
+      if (window.innerWidth >= 1024 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
     return () => {
       document.body.style.overflow = 'unset';
+      window.removeEventListener('resize', handleResize);
     };
-  }, [isMenuOpen]);
+  }, [isMenuOpen, setIsMenuOpen]);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/60 dark:border-slate-800/60 shadow-sm">
+    <header className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-2xl border-b border-slate-200/40 dark:border-slate-800/40 shadow-sm transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('home')}>
-          <Layout className="text-[#00685f] dark:text-[#6bd8cb]" size={24} />
-          <span className="text-lg font-bold tracking-tight font-headline">The Clinical Architect</span>
+        <div className="flex items-center gap-3 cursor-pointer group" onClick={() => navigate('home')}>
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#00685f] to-[#004e47] flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+            <Layout size={20} />
+          </div>
+          <span className="text-xl font-black tracking-tight font-headline bg-clip-text text-transparent bg-gradient-to-r from-[#00685f] to-[#121c28] dark:from-[#6bd8cb] dark:to-white">
+            The Clinical Architect
+          </span>
         </div>
 
         <div className="flex items-center gap-4">

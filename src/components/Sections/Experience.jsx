@@ -81,28 +81,45 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section id="experience-section" className="py-20 bg-[#f8f9ff] dark:bg-slate-900 min-h-[600px]">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-extrabold font-headline mb-3">Professional Journey</h2>
-        <div className="w-16 h-1.5 bg-[#00685f] rounded-full mb-4"></div>
-        <p className="text-slate-600 dark:text-slate-300 text-sm italic font-medium mb-12">14+ years of high-impact testing leadership across healthcare, entertainment & pharma.</p>
-        <div className="space-y-6">
+    <section id="experience-section" className="py-24 bg-[#f8f9ff] dark:bg-[#0b111a] min-h-[600px] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <div className="mb-20">
+          <h2 className="text-4xl font-extrabold font-headline mb-4 tracking-tight">Professional Journey</h2>
+          <div className="w-20 h-2 bg-[#00685f] dark:bg-[#6bd8cb] rounded-full mb-6"></div>
+          <p className="text-slate-600 dark:text-slate-400 text-lg font-medium italic opacity-80">14+ years of high-impact testing leadership across healthcare, entertainment & pharma.</p>
+        </div>
+        
+        <div className="space-y-12">
           {experiences.map((exp, i) => (
-            <div key={i} className="bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-2xl p-6 shadow-sm">
-              <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-[#00685f]/5 flex items-center justify-center text-[#00685f] font-bold text-xs shrink-0 border border-[#00685f]/10">{exp.code}</div>
-                <div className="flex-1">
-                  <div className="flex justify-between items-start flex-wrap gap-2">
-                    <h3 className="text-lg font-bold font-headline leading-tight">{exp.role}</h3>
-                    <span className="px-2 py-1 bg-[#006c4a]/10 text-[#006c4a] dark:text-[#6bd8cb] text-[9px] font-extrabold rounded-md uppercase tracking-wider">{exp.date}</span>
+            <div key={i} className="group relative bg-white dark:bg-slate-900 rounded-[2.5rem] p-10 shadow-2xl border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-emerald-900/5">
+              <div className="flex flex-col lg:flex-row gap-10">
+                <div className="lg:w-1/3">
+                  <div className="flex items-start gap-5 mb-6">
+                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00685f] to-[#004e47] flex items-center justify-center text-white font-black text-sm shadow-xl shrink-0 group-hover:scale-110 transition-transform duration-500">{exp.code}</div>
+                    <div>
+                      <h3 className="text-2xl font-black font-headline tracking-tight text-slate-800 dark:text-white leading-tight mb-2">{exp.role}</h3>
+                      <p className="text-[#00685f] dark:text-[#6bd8cb] font-black text-sm uppercase tracking-widest">{exp.company}</p>
+                    </div>
                   </div>
-                  <p className="text-[#00685f] dark:text-[#6bd8cb] font-semibold text-sm">{exp.company}</p>
-                  <p className="text-slate-400 text-xs mt-0.5">{exp.location}</p>
+                  <div className="space-y-3">
+                    <div className="inline-block px-4 py-2 bg-[#eef4ff] dark:bg-slate-800 text-[#00685f] dark:text-[#6bd8cb] text-[10px] font-black rounded-xl uppercase tracking-[0.2em] shadow-sm border border-[#00685f]/5">
+                      {exp.date}
+                    </div>
+                    <p className="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-widest ml-1">{exp.location}</p>
+                  </div>
+                </div>
+                
+                <div className="lg:w-2/3 lg:border-l lg:border-slate-100 lg:dark:border-slate-800 lg:pl-10">
+                  <ul className="grid gap-5">
+                    {exp.bullets.map((b, idx) => (
+                      <li key={idx} className="flex items-start gap-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed group/item transition-all">
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#00685f] dark:bg-[#6bd8cb] mt-2 shrink-0 group-hover/item:scale-150 transition-transform"></div>
+                        <span className="font-medium">{b}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-              <ul className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed list-disc ml-4 space-y-1.5">
-                {exp.bullets.map((b, idx) => <li key={idx}>{b}</li>)}
-              </ul>
             </div>
           ))}
         </div>

@@ -21,33 +21,37 @@ const certs = [
 
 export default function Certifications() {
   return (
-    <section id="certifications-section" className="py-20 bg-[#f8f9ff] dark:bg-slate-800 min-h-[600px]">
+    <section id="certifications-section" className="py-24 bg-[#f8f9ff] dark:bg-slate-800 min-h-[600px] relative">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-extrabold font-headline mb-12 flex items-center gap-3">
-          <ShieldCheck size={36} className="text-[#00685f] dark:text-[#6bd8cb]" /> Licenses & Certifications
-        </h2>
-        {/*
-          Fix: removed `space-y-6` from the columns container. The `space-y-*`
-          utility targets `> * + *` with margin-top, which conflicts with CSS
-          multi-column layout — it bleeds margin across column boundaries and
-          causes the first card in each column after the first to gain unwanted
-          top space. Use only `gap-6` (for column gutters) and `mb-6` on each
-          card to control vertical rhythm inside columns.
-        */}
-        <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
+        <div className="mb-16">
+          <h2 className="text-4xl font-extrabold font-headline mb-4 tracking-tight flex items-center gap-4">
+            <div className="w-12 h-12 rounded-2xl bg-[#00685f]/10 flex items-center justify-center text-[#00685f] dark:text-[#6bd8cb]">
+              <ShieldCheck size={32} />
+            </div>
+            Licenses & Certifications
+          </h2>
+          <div className="w-20 h-2 bg-[#00685f] dark:bg-[#6bd8cb] rounded-full"></div>
+        </div>
+
+        <div className="columns-1 md:columns-2 lg:columns-3 gap-8">
           {certs.map((cert, i) => (
-            <div key={i} className="mb-6 bg-white dark:bg-slate-900 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm hover:border-[#00685f] transition-colors break-inside-avoid">
-              <span className="inline-block px-2 py-1 bg-[#eef4ff] dark:bg-slate-800 text-[#00685f] dark:text-[#6bd8cb] text-[10px] font-extrabold rounded-md mb-3 uppercase">{cert.tag}</span>
-              <p className="font-bold text-sm mb-1 leading-snug">{cert.val}</p>
-              <p className="text-xs text-slate-500 font-medium">
-                {cert.issue}
+            <div key={i} className="mb-8 group bg-white dark:bg-slate-900 rounded-[2rem] p-8 border border-slate-100 dark:border-slate-800 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 break-inside-avoid">
+              <div className="flex justify-between items-start mb-6">
+                <span className="inline-block px-3 py-1.5 bg-[#eef4ff] dark:bg-slate-800 text-[#00685f] dark:text-[#6bd8cb] text-[10px] font-black rounded-xl uppercase tracking-widest border border-[#00685f]/5">
+                  {cert.tag}
+                </span>
+                <div className="w-2 h-2 rounded-full bg-[#00685f] opacity-20 group-hover:opacity-100 transition-opacity"></div>
+              </div>
+              <p className="font-black text-lg mb-2 leading-tight text-slate-800 dark:text-white group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb] transition-colors">{cert.val}</p>
+              <div className="flex items-center gap-2 text-xs text-slate-500 font-bold uppercase tracking-tight">
+                <span>{cert.issue}</span>
                 {cert.date && (
                   <>
-                    <span className="mx-1.5 opacity-50">·</span>
-                    {cert.date}
+                    <span className="w-1 h-1 rounded-full bg-slate-300"></span>
+                    <span className="text-[#00685f] dark:text-[#6bd8cb]/70">{cert.date}</span>
                   </>
                 )}
-              </p>
+              </div>
             </div>
           ))}
         </div>

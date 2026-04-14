@@ -1,6 +1,6 @@
 # Darshil Shah — QA Leadership & Digital Transformation Portfolio
 
-**v2026.4.8** · React 19 + Vite · Deployed via GitHub Pages
+**v2026.4.14** · React 19 + Vite · Deployed via GitHub Pages
 
 ---
 
@@ -8,10 +8,10 @@
 
 Production-ready personal portfolio for **Darshil Shah**, Global Healthcare QA Leader and AI-Driven Testing Engineer. Built with React 19, Vite, and Tailwind CSS, and deployed automatically to GitHub Pages via GitHub Actions.
 
-### Recent Enhancements (v2026.4.8)
-- **Copy to Clipboard**: One-click email copying with visual feedback in the Contact section.
-- **Mobile UX**: Added background scroll-locking when the mobile navigation menu is open.
-- **Improved Test Reliability**: Configured Vitest to ignore E2E tests, preventing environment conflicts.
+### Recent Enhancements (v2026.4.14)
+- **Premium UI Overhaul**: Implemented a cinematic hero section, glassmorphism statistics cards, and scroll-triggered entry animations.
+- **Architectural Cleanup**: Decoupled section spy logic from hardcoded arrays and added a resize listener to the header lifecycle.
+- **A11y & SEO**: Resolved duplicate `main` tag issues and modernized scroll tracking APIs.
 
 ---
 
