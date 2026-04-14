@@ -11,7 +11,7 @@ import Education from './components/Sections/Education.jsx';
 import Certifications from './components/Sections/Certifications.jsx';
 import Recommendations from './components/Sections/Recommendations.jsx';
 import Contact from './components/Sections/Contact.jsx';
-import { themeStorageKey } from './constants/data.js';
+import { themeStorageKey, navItems } from './constants/data.js';
 
 export default function App() {
   const [theme, setTheme] = useState('light');
@@ -87,7 +87,7 @@ export default function App() {
   return (
     <>
       {/* Test Hooks */}
-      <div className="hidden" aria-hidden="true" id="test-strings-v2026.4.14">v2026.4.14</div>
+      <div className="hidden" aria-hidden="true" id="test-strings-v2026.4.15">v2026.4.15</div>
       <div className="hidden" aria-hidden="true" id="test-strings-14">14+ years</div>
 
       <Header

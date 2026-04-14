@@ -4,6 +4,15 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
+## [2026.4.15] — 2026-04-14
+
+### Fixes & Maintenance
+- **Resolved Runtime Error**: Fixed a critical reference error in `App.jsx` by properly importing `navItems` used in the scroll-spy logic.
+- **Dependency Refresh**: Performed conservative package updates to ensure latest security patches and library stability.
+- **Version Synchronization**: Unified project versioning to `2026.4.15` across metadata, source code, and test suites.
+
+---
+
 ## [2026.4.14] — 2026-04-14
 
 ### UI/UX Overhaul (Premium & Cinematic)
