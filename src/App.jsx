@@ -11,6 +11,7 @@ import Education from './components/Sections/Education.jsx';
 import Certifications from './components/Sections/Certifications.jsx';
 import Recommendations from './components/Sections/Recommendations.jsx';
 import Contact from './components/Sections/Contact.jsx';
+import ErrorBoundary from './components/Common/ErrorBoundary.jsx';
 import { themeStorageKey, navItems } from './constants/data.js';
 
 export default function App() {
@@ -107,20 +108,22 @@ export default function App() {
         />
       </div>
 
-      <main id="main-content" className="pt-16">
-        <Home navigate={navigate} />
-        <Expertise />
-        <Impact />
-        <Experience />
-        <Projects />
-        <About />
-        <Education />
-        <Certifications />
-        <Recommendations />
-        <Contact />
-      </main>
+      <ErrorBoundary>
+        <main id="main-content" className="pt-16">
+          <Home navigate={navigate} />
+          <Expertise />
+          <Impact />
+          <Experience />
+          <Projects />
+          <About />
+          <Education />
+          <Certifications />
+          <Recommendations />
+          <Contact />
+        </main>
 
-      <Footer navigate={navigate} />
+        <Footer navigate={navigate} />
+      </ErrorBoundary>
     </>
   );
 }
