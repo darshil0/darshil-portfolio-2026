@@ -11,3 +11,4 @@ export const navItems = [
 
 export const themeStorageKey = 'theme';
 export const contactEmail = 'darshils99@gmail.com';
+export const formId = 'YOUR_FORM_ID';

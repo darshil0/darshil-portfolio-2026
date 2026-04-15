@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { Mail, Github, Linkedin, Copy, Check } from 'lucide-react';
-import { contactEmail } from '../../constants/data.js';
+import { Mail, Github, Linkedin, Copy, Check, AlertCircle } from 'lucide-react';
+import { contactEmail, formId } from '../../constants/data.js';
 
 export default function Contact() {
   const [formStatus, setFormStatus] = useState(null);
   const [copied, setCopied] = useState(false);
+
+  const isFormSetupRequired = formId === 'YOUR_FORM_ID';
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(contactEmail);
@@ -14,15 +16,42 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Capture the form element before any async gap — React synthetic events
-    // are nullified after the call stack clears, so e.target becomes null
-    // inside a setTimeout or after an await without this capture.
     const form = e.target;
     setFormStatus('sending');
-    setTimeout(() => {
-      setFormStatus('success');
-      form.reset();
-    }, 1000);
+
+    if (isFormSetupRequired) {
+      // Simulation fallback
+      setTimeout(() => {
+        setFormStatus('success');
+        form.reset();
+      }, 1000);
+      return;
+    }
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(`https://formspree.io/f/${formId}`, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setFormStatus('success');
+        form.reset();
+      } else {
+        const data = await response.json();
+        if (Object.hasOwn(data, 'errors')) {
+          console.error(data['errors'].map(error => error['message']).join(', '));
+        }
+        setFormStatus('error');
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      setFormStatus('error');
+    }
   };
 
   return (
@@ -83,25 +112,45 @@ export default function Contact() {
 
           <div className="bg-white dark:bg-slate-800/80 backdrop-blur-xl p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-2xl shadow-[#00685f]/5">
             <h3 className="text-2xl font-black mb-8 tracking-tight">Send a Message</h3>
+
+            {isFormSetupRequired && (
+              <div className="mb-8 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex items-start gap-4 animate-in fade-in slide-in-from-top-4 duration-500">
+                <AlertCircle className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" size={18} />
+                <div>
+                  <h4 className="text-sm font-bold text-amber-900 dark:text-amber-100">Setup Required</h4>
+                  <p className="text-xs text-amber-700 dark:text-amber-300 mt-1 leading-relaxed">
+                    Form submission is currently in simulation mode. Replace <code>YOUR_FORM_ID</code> in <code>src/constants/data.js</code> with a valid Formspree ID to enable live delivery.
+                  </p>
+                </div>
+              </div>
+            )}
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="space-y-2">
                 <label htmlFor="contact-name" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Full Name</label>
-                <input type="text" id="contact-name" required className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium transition-all" placeholder="Enter your name" />
+                <input type="text" id="contact-name" name="name" required className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium transition-all" placeholder="Enter your name" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="contact-email" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Email Address</label>
-                <input type="email" id="contact-email" required className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium transition-all" placeholder="name@company.com" />
+                <input type="email" id="contact-email" name="email" required className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium transition-all" placeholder="name@company.com" />
               </div>
               <div className="space-y-2">
                 <label htmlFor="contact-message" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Your Message</label>
-                <textarea id="contact-message" required rows="4" className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium resize-none transition-all" placeholder="How can I help you?"></textarea>
+                <textarea id="contact-message" name="message" required rows="4" className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium resize-none transition-all" placeholder="How can I help you?"></textarea>
               </div>
               <button type="submit" disabled={formStatus === 'sending'} className="w-full bg-[#00685f] text-white py-5 rounded-2xl font-black text-base shadow-xl shadow-[#00685f]/20 hover:bg-[#00514a] hover:-translate-y-1 transition-all disabled:opacity-60 disabled:cursor-not-allowed">
                 {formStatus === 'sending' ? 'Initiating...' : 'Secure Submit'}
               </button>
+
               {formStatus === 'success' && (
                 <div className="p-5 bg-green-500/10 border border-green-500/20 text-green-600 dark:text-green-400 rounded-2xl text-center text-sm font-black animate-in fade-in zoom-in-95">
                   ✓ Message sent! I'll be in touch soon.
+                </div>
+              )}
+
+              {formStatus === 'error' && (
+                <div className="p-5 bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 rounded-2xl text-center text-sm font-black animate-in fade-in zoom-in-95">
+                  ✕ Something went wrong. Please try again.
                 </div>
               )}
             </form>
