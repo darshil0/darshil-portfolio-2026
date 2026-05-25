@@ -119,7 +119,7 @@ The Vite config uses `base: './'`, which helps keep built asset paths relative s
 | Projects | Kaiser Permanente, Prime Therapeutics, Sony Pictures case studies |
 | About | Mission statement, core strengths, languages |
 | Education | MBA in IT (Sikkim Manipal), BE in IT (Sardar Patel University) |
-| Certifications | 15 credentials across AI/ML, Cloud, Agile, DevOps |
+| Certifications | 100+ credentials across AI/ML, Cloud, Agile, DevOps |
 | Recommendations | Colleague feedback from Kaiser Permanente |
 | Contact | Email, LinkedIn, GitHub, contact form, PDF resume download |
 
