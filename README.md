@@ -182,9 +182,9 @@ Content for each section lives in its corresponding component under `src/compone
 
 ---
 
-## Certifications (15 Total)
+## Certifications (100+ Total)
 
-Anthropic (4) · DeepLearning.AI · IBM (2) · Coursera · Google · Microsoft · Amazon Web Services · PMI · Scrum Inc. · Scrum Alliance
+Anthropic · DeepLearning.AI · IBM  · Coursera · Google · Microsoft · Amazon Web Services · PMI · Scrum Inc. · Scrum Alliance
 
 Categories: AI/ML · Cloud · DevOps · Agile · Leadership · Technical
 
