@@ -4,7 +4,7 @@
 
 ## Overview
 
-This is a production-ready personal portfolio for **Darshil Shah**, a Global Healthcare QA Leader and AI-driven Testing Engineer with 10+ years of experience. It is built with React 19, Vite, and Tailwind CSS, and deploys automatically to GitHub Pages through GitHub Actions.
+This is a production-ready personal portfolio for **Darshil Shah**, a Global Healthcare QA Leader and AI-driven Testing Engineer with 14+ years of experience. It is built with React 19, Vite, and Tailwind CSS, and deploys automatically to GitHub Pages through GitHub Actions.
 
 ## Recent Fixes (2026-05-25)
 
@@ -138,7 +138,7 @@ The Vite config uses `base: './'`, which keeps built asset paths relative so the
 | Cost Reduction | 40% |
 | Defect Resolution Improvement | 20% |
 | Defect Leakage Rate | < 5% |
-| Years of Experience | 10+ |
+| Years of Experience | 14+ |
 | Certifications | 100+ |
 | Global QA Teams Led | 15+ |
 

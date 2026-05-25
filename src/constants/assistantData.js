@@ -16,9 +16,9 @@ export const assistantData = {
     "What certifications does he have?"
   ],
   personal: {
-    // BUG FIX: "over 14 years" updated to "10+" to match metadata.json, README,
-    // Experience section subtitle, and About section card — all of which state 10+.
-    background: "Darshil is a Global Healthcare QA Leader and SDET with over 10 years of experience. He specializes in building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
+    // BUG FIX: Synchronized to "14+" to match metadata.json, README,
+    // Experience section subtitle, and About section card — all of which state 14+.
+    background: "Darshil is a Global Healthcare QA Leader and SDET with over 14 years of experience. He specializes in building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
     strengths: "His core strengths include Strategic QA Leadership, Agentic AI Development, Healthcare Compliance (HIPAA, FDA), and scaling quality for mission-critical applications. He's an expert in modern automation stacks like Playwright, Selenium, and Appium.",
     experience: "Darshil has led QA efforts at major organizations:\n• Phynix (IT QA Analyst)\n• Accenture (QA Lead for Kaiser Permanente)\n• Infosys (SDET for Prime Therapeutics)\n• TCS (Automation Engineer for Sony Pictures)\n• Eternal Web (QA Engineer)",
     certifications: "He holds 100+ professional certifications across AI/ML, Cloud, and Agile from providers like Anthropic, IBM, Google, Microsoft, AWS, and PMI, specializing in Agentic AI and Prompt Engineering."
