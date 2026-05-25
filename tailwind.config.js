@@ -64,7 +64,22 @@ export default {
         "body": ["Inter"],
         "label": ["Inter"]
       },
-      borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      // BUG FIX: Restore the full Tailwind borderRadius scale.
+      // The previous config overrode 'full' to 0.75rem (breaking rounded-full on
+      // avatars, badges, progress bars, etc.) and omitted '2xl' and '3xl' entirely,
+      // causing every rounded-2xl / rounded-3xl instance to fall back to the browser
+      // default (0). Only DEFAULT and lg/xl need custom values per the design system;
+      // all other keys are restored to Tailwind's standard values.
+      borderRadius: {
+        "DEFAULT": "0.125rem",
+        "sm":      "0.125rem",
+        "md":      "0.25rem",
+        "lg":      "0.25rem",
+        "xl":      "0.5rem",
+        "2xl":     "1rem",
+        "3xl":     "1.5rem",
+        "full":    "9999px",
+      },
     },
   },
   plugins: [
