@@ -8,6 +8,7 @@ export default function VoiceAssistant() {
     { role: 'assistant', content: assistantData.welcomeMessage }
   ]);
   const [selectedRepo, setSelectedRepo] = useState(null);
+  const [mode, setMode] = useState('menu'); // 'menu', 'projects', 'about'
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
@@ -23,6 +24,7 @@ export default function VoiceAssistant() {
 
   const handleRepoSelect = (repo) => {
     setSelectedRepo(repo);
+    setMode('projects');
     setMessages(prev => [
       ...prev,
       { role: 'user', content: `Tell me about ${repo.name}` },
@@ -30,37 +32,68 @@ export default function VoiceAssistant() {
     ]);
   };
 
-  const handleQuestion = (question) => {
-    if (!selectedRepo) {
-      setMessages(prev => [...prev, { role: 'assistant', content: "Please select a repository first!" }]);
-      return;
-    }
+  const handleAboutSelect = () => {
+    setMode('about');
+    setMessages(prev => [
+      ...prev,
+      { role: 'user', content: "Tell me about Darshil" },
+      { role: 'assistant', content: "I'd love to! Darshil is a seasoned QA leader with over 14 years of experience. You can ask me about his background, strengths, experience, or certifications." }
+    ]);
+  };
 
+  const handleQuestion = (question) => {
     let answer = "";
-    switch (question) {
-      case "What does this repo do?":
-        answer = selectedRepo.fullPurpose;
-        break;
-      case "How do I run it?":
-        answer = selectedRepo.run;
-        break;
-      case "What technologies does it use?":
-        answer = `It uses: ${selectedRepo.tech.join(', ')}.`;
-        break;
-      case "How do I test it?":
-        answer = selectedRepo.test;
-        break;
-      case "How can I contribute?":
-        answer = selectedRepo.contribute;
-        break;
-      case "Summary in plain English":
-        answer = selectedRepo.summary;
-        break;
-      case "Important files & entry points":
-        answer = selectedRepo.files;
-        break;
-      default:
-        answer = "I'm not sure about that. Try one of the suggested questions!";
+
+    // Handle personal questions
+    if (assistantData.personalQuestions.includes(question)) {
+      switch (question) {
+        case "Tell me about Darshil's background":
+          answer = assistantData.personal.background;
+          break;
+        case "What are his core strengths?":
+          answer = assistantData.personal.strengths;
+          break;
+        case "Where has he worked?":
+          answer = assistantData.personal.experience;
+          break;
+        case "What certifications does he have?":
+          answer = assistantData.personal.certifications;
+          break;
+        default:
+          answer = "I'm not sure about that. Try one of the suggested questions!";
+      }
+    } else {
+      // Handle repository questions
+      if (!selectedRepo) {
+        setMessages(prev => [...prev, { role: 'assistant', content: "Please select a repository first!" }]);
+        return;
+      }
+
+      switch (question) {
+        case "What does this repo do?":
+          answer = selectedRepo.fullPurpose;
+          break;
+        case "How do I run it?":
+          answer = selectedRepo.run;
+          break;
+        case "What technologies does it use?":
+          answer = `It uses: ${selectedRepo.tech.join(', ')}.`;
+          break;
+        case "How do I test it?":
+          answer = selectedRepo.test;
+          break;
+        case "How can I contribute?":
+          answer = selectedRepo.contribute;
+          break;
+        case "Summary in plain English":
+          answer = selectedRepo.summary;
+          break;
+        case "Important files & entry points":
+          answer = selectedRepo.files;
+          break;
+        default:
+          answer = "I'm not sure about that. Try one of the suggested questions!";
+      }
     }
 
     setMessages(prev => [...prev, { role: 'user', content: question }]);
@@ -74,6 +107,7 @@ export default function VoiceAssistant() {
 
   const resetAssistant = () => {
     setSelectedRepo(null);
+    setMode('menu');
     setMessages([{ role: 'assistant', content: assistantData.welcomeMessage }]);
   };
 
@@ -150,15 +184,43 @@ export default function VoiceAssistant() {
 
           {/* Controls / Suggestions */}
           <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
-            {!selectedRepo ? (
+            {mode === 'menu' ? (
               <div className="space-y-3">
-                <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-2">Select a Repository</p>
+                <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-2">How can I help you today?</p>
                 <div className="grid grid-cols-1 gap-2">
+                  <button
+                    onClick={() => setMode('projects_list')}
+                    className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group"
+                  >
+                    <span className="text-xs font-bold dark:text-slate-300">Explore Repositories</span>
+                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
+                  </button>
+                  <button
+                    onClick={handleAboutSelect}
+                    className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group"
+                  >
+                    <span className="text-xs font-bold dark:text-slate-300">About Darshil's Background</span>
+                    <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
+                  </button>
+                </div>
+              </div>
+            ) : mode === 'projects_list' ? (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Select a Repository</p>
+                  <button
+                    onClick={() => setMode('menu')}
+                    className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
+                  >
+                    Back
+                  </button>
+                </div>
+                <div className="grid grid-cols-1 gap-2 max-h-[150px] overflow-y-auto pr-2">
                   {assistantData.repositories.map(repo => (
                     <button
                       key={repo.id}
                       onClick={() => handleRepoSelect(repo)}
-                      className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group"
+                      className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group text-left"
                     >
                       <span className="text-xs font-bold dark:text-slate-300">{repo.name}</span>
                       <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
@@ -166,12 +228,12 @@ export default function VoiceAssistant() {
                   ))}
                 </div>
               </div>
-            ) : (
+            ) : mode === 'projects' ? (
               <div className="space-y-3">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Asking about: {selectedRepo.name}</p>
                   <button
-                    onClick={resetAssistant}
+                    onClick={() => setMode('projects_list')}
                     className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
                   >
                     Change Repo
@@ -179,6 +241,29 @@ export default function VoiceAssistant() {
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {assistantData.commonQuestions.map((q, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleQuestion(q)}
+                      className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-[11px] font-medium hover:border-[#00685f] dark:hover:border-[#6bd8cb] hover:text-[#00685f] dark:hover:text-[#6bd8cb] transition-all"
+                    >
+                      {q}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between mb-2">
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">About Darshil Shah</p>
+                  <button
+                    onClick={() => setMode('menu')}
+                    className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
+                  >
+                    Main Menu
+                  </button>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {assistantData.personalQuestions.map((q, i) => (
                     <button
                       key={i}
                       onClick={() => handleQuestion(q)}

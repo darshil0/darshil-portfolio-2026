@@ -1,5 +1,5 @@
 export const assistantData = {
-  welcomeMessage: "Hi! I'm Darshil's AI assistant. I can help you explore his repositories. What would you like to know?",
+  welcomeMessage: "Hi! I'm Darshil's AI assistant. I can help you explore his repositories and professional background. What would you like to know?",
   commonQuestions: [
     "What does this repo do?",
     "How do I run it?",
@@ -9,6 +9,18 @@ export const assistantData = {
     "Summary in plain English",
     "Important files & entry points"
   ],
+  personalQuestions: [
+    "Tell me about Darshil's background",
+    "What are his core strengths?",
+    "Where has he worked?",
+    "What certifications does he have?"
+  ],
+  personal: {
+    background: "Darshil is a Global Healthcare QA Leader and SDET with over 14 years of experience. He specializes in building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
+    strengths: "His core strengths include Strategic QA Leadership, Agentic AI Development, Healthcare Compliance (HIPAA, FDA), and scaling quality for mission-critical applications. He's an expert in modern automation stacks like Playwright, Selenium, and Appium.",
+    experience: "Darshil has led QA efforts at major organizations:\n• Phynix (IT QA Analyst)\n• Accenture (QA Lead for Kaiser Permanente)\n• Infosys (SDET for Prime Therapeutics)\n• TCS (Automation Engineer for Sony Pictures)\n• Eternal Web (QA Engineer)",
+    certifications: "He holds 15 professional certifications across AI/ML, Cloud, and Agile from providers like Anthropic, IBM, Google, Microsoft, AWS, and PMI, specializing in Agentic AI and Prompt Engineering."
+  },
   repositories: [
     {
       id: "darshil-portfolio-2026",
