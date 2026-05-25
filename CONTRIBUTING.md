@@ -8,14 +8,15 @@ Please be respectful and professional in all interactions.
 
 ## How to Contribute
 
-1. **Fork the Repository**: Create your own fork of the project.
-2. **Clone the Fork**: `git clone https://github.com/your-username/darshil-portfolio-2026.git`
-3. **Create a Feature Branch**: `git checkout -b feature/your-feature-name`
-4. **Make Changes**: Implement your feature or fix.
-5. **Add Tests**: Ensure your changes are covered by tests (Vitest for units, Playwright for E2E).
-6. **Verify Changes**: Run `npm test` and `npm run test:e2e`.
-7. **Commit Changes**: Use clear, descriptive commit messages.
-8. **Push and PR**: Push to your fork and submit a Pull Request.
+1. **Ask Jules**: If you're unsure where to start, ask the Jules AI Assistant for contribution tips or an overview of the codebase.
+2. **Fork the Repository**: Create your own fork of the project.
+3. **Clone the Fork**: `git clone https://github.com/your-username/darshil-portfolio-2026.git`
+4. **Create a Feature Branch**: `git checkout -b feature/your-feature-name`
+5. **Make Changes**: Implement your feature or fix.
+6. **Add Tests**: Ensure your changes are covered by tests (Vitest for units, Playwright for E2E).
+7. **Verify Changes**: Run `npm test` and `npm run test:e2e`.
+8. **Commit Changes**: Use clear, descriptive commit messages.
+9. **Push and PR**: Push to your fork and submit a Pull Request.
 
 ## Development Setup
 

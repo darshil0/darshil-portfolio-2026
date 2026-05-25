@@ -9,6 +9,7 @@
 Production-ready personal portfolio for **Darshil Shah**, Global Healthcare QA Leader and AI-Driven Testing Engineer. Built with React 19, Vite, and Tailwind CSS, and deployed automatically to GitHub Pages via GitHub Actions.
 
 ### Recent Enhancements (v2026.4.15)
+- **Jules AI Assistant**: Integrated a menu-driven AI voice assistant that provides repository-specific guidance and personal background insights.
 - **Premium UI Overhaul**: Implemented a cinematic hero section, glassmorphism statistics cards, and scroll-triggered entry animations.
 - **Architectural Cleanup**: Decoupled section spy logic from hardcoded arrays and added a resize listener to the header lifecycle.
 - **A11y & SEO**: Resolved duplicate `main` tag issues and modernized scroll tracking APIs.
@@ -76,6 +77,15 @@ portfolio/
 | CI/CD        | GitHub Actions → GitHub Pages                                            |
 
 ---
+
+## Newcomer's Guide
+
+Welcome to the portfolio! If you're new here, follow these steps to get started:
+
+1.  **Meet Jules**: Click the bot icon in the bottom-right corner to open the Jules AI Assistant. Jules can guide you through the repositories and provide details about Darshil's professional journey.
+2.  **Explore Sections**: Use the navigation menu at the top to jump to different parts of the portfolio.
+3.  **Check the Metrics**: The "Impact" section provides quantified results from 14+ years of QA leadership.
+4.  **View Projects**: Each project card links to its respective repository for deeper technical review.
 
 ## Quick Start
 
