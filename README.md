@@ -82,7 +82,7 @@ portfolio/
 
 Welcome to the portfolio! If you're new here, follow these steps to get started:
 
-1.  **Meet Jules**: Click the bot icon in the bottom-right corner to open the Jules AI Assistant. Jules can guide you through the repositories and provide details about Darshil's professional journey.
+1.  **Meet Jules**: Click the bot icon in the bottom-right corner to open the Jules AI Assistant. Jules can guide you through the repositories and provide details about my professional journey.
 2.  **Explore Sections**: Use the navigation menu at the top to jump to different parts of the portfolio.
 3.  **Check the Metrics**: The "Impact" section provides quantified results from 14+ years of QA leadership.
 4.  **View Projects**: Each project card links to its respective repository for deeper technical review.
@@ -182,9 +182,9 @@ Content for each section lives in its corresponding component under `src/compone
 
 ---
 
-## Certifications (15 Total)
+## Certifications (100+ Total)
 
-Anthropic (4) · DeepLearning.AI · IBM (2) · Coursera · Google · Microsoft · Amazon Web Services · PMI · Scrum Inc. · Scrum Alliance
+Anthropic · DeepLearning.AI · IBM  · Coursera · Google · Microsoft · Amazon Web Services · PMI · Scrum Inc. · Scrum Alliance
 
 Categories: AI/ML · Cloud · DevOps · Agile · Leadership · Technical
 

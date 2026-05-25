@@ -13,7 +13,7 @@ All notable changes to the portfolio website are documented here.
 
 ### Assistant Enhancements
 - **Deep Repository Insights**: Populated the AI Assistant with comprehensive technical and functional data for all primary repositories, including ATLAS Strategic Matrix, Customer Support Agent, and AI Evaluation QA.
-- **Enhanced Personal Background**: Expanded the assistant's knowledge base regarding professional certifications (15 credentials across AI/ML, Cloud, and Agile) and leadership roles.
+- **Enhanced Personal Background**: Expanded the assistant's knowledge base regarding professional certifications (100+ credentials across AI/ML, Cloud, and Agile) and leadership roles.
 
 ### Version Synchronization
 - Updated version to `2026.5.25` across all project files:
