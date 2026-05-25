@@ -127,7 +127,7 @@ The Vite config uses `base: './'`, so asset paths in the built output remain rel
 | Home | Hero headline, key metrics card, CTAs |
 | Expertise | Functional/E2E testing skills, team leadership |
 | Impact | 6 quantified achievement stats |
-| Experience | 7 roles across 14+ years (Phynix, Accenture/KP, Infosys, TCS, Freelance, Eternal Web) |
+| Experience | 7 roles across 10+ years (Phynix, Accenture/KP, Infosys, TCS, Freelance, Eternal Web) |
 | Projects | Kaiser Permanente, Prime Therapeutics, Sony Pictures case studies |
 | About | Mission statement, core strengths, languages |
 | Education | MBA in IT (Sikkim Manipal), BE in IT (Sardar Patel University) |
@@ -148,8 +148,8 @@ The Vite config uses `base: './'`, so asset paths in the built output remain rel
 | Cost Reduction | 40% |
 | Defect Resolution Improvement | 20% |
 | Defect Leakage Rate | < 5% |
-| Years of Experience | 14+ |
-| Certifications | 15 |
+| Years of Experience | 10+ |
+| Certifications | 100+ |
 | Global QA Teams Led | 15+ |
 
 ---
