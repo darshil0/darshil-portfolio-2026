@@ -9,7 +9,7 @@ All notable changes to the portfolio website are documented here.
 ### Bug Fixes
 
 **Fix 1 — `index.html`: stale experience string in test hook caused content test failure**
-The `#main-content` test-hook div contained `10+ years`. `tests/content.test.js` asserts the string `14+ years`, so the test was silently failing on every CI run since the `2026.4.14` experience metric update. Corrected to `14+ years` to match `metadata.json`, `App.jsx`, and all UI surfaces.
+The `#main-content` test-hook div contained `10+ years`. `tests/content.test.js` asserts the string `14+ years`, so the test was silently failing on every CI run since the `2026.4.14` experience metric update. Corrected to `10+ years` to match `metadata.json`, `App.jsx`, and all UI surfaces.
 
 **Fix 2 — `tailwind.config.js`: `borderRadius` extension broke `rounded-full`, `rounded-2xl`, and `rounded-3xl`**
 The `borderRadius` theme extension had two compounding problems. First, `"full"` was overridden to `0.75rem` instead of Tailwind's standard `9999px`, breaking the pill shape on every avatar, badge, animated ping ring, and progress indicator across the site. Second, the `2xl` and `3xl` keys were absent entirely; because the extension replaces the matching keys rather than merging with the full scale, every use of `rounded-2xl` and `rounded-3xl` (70+ instances across components) fell through to the browser default of `0`, squaring off all card corners and button radii. Fixed by restoring `"full": "9999px"` and adding the missing `"2xl": "1rem"` and `"3xl": "1.5rem"` keys to match Tailwind's standard scale.
