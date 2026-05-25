@@ -1,88 +1,151 @@
-# Design System: The Clinical Architect
+The Clinical Architect — DESIGN.md
+1 Core Visual Principles
+Professional & Precise: high contrast, clean lines, intentional spacing for Healthcare QA leadership.
 
-This file defines the visual language and design tokens for the Darshil Shah Portfolio, following Google Stitch standards for AI-assisted design and development.
+Modern Healthcare Aesthetic: teal/green primaries with slate and glassmorphism.
 
-## 1. Core Visual Principles
-- **Professional & Precise**: High contrast, clean lines, and intentional spacing reflecting Healthcare QA leadership.
-- **Modern Healthcare Aesthetic**: Use of teal/green primaries combined with slate and glassmorphism.
-- **Adaptive**: Seamless transitions between light and dark modes with persistent brand identity.
+Adaptive: consistent brand tokens with light/dark variants for seamless mode switching.
 
-## 2. Color Palette
+2 Color Palette (tokens)
+System note: each token is semantic; tools should map tokens to Tailwind or CSS variables as needed.
 
-### Primary Colors
-| Token | Hex (Light) | Hex (Dark) | Description |
-|-------|-------------|------------|-------------|
-| `primary` | `#00685f` | `#6bd8cb` | Brand primary color |
-| `primary-container` | `#008378` | - | Deep teal container |
-| `primary-fixed` | `#89f5e7` | - | Light teal highlight |
-| `on-primary` | `#ffffff` | `#003732` | Text on primary |
+Primary
+color.primary.light: #00685f
 
-### Secondary & Surface
-| Token | Hex | Description |
-|-------|-----|-------------|
-| `secondary` | `#006c4a` | Accent green |
-| `surface` | `#f8f9ff` | Default background |
-| `surface-dim` | `#d1dbec` | Subtle backgrounds |
-| `on-surface` | `#121c28` | Main text color |
-| `background` | `#f8f9ff` | App background |
+color.primary.dark: #6bd8cb
 
-### Slate Overrides (Tailwind Defaults)
-- **Dark Mode Background**: `slate-900` (#0f172a)
-- **Dark Mode Text**: `slate-100` (#f1f5f9)
-- **Muted Text**: `slate-500` (Light) / `slate-400` (Dark)
+color.primary-container: #008378
 
-## 3. Typography
+color.primary-fixed: #89f5e7
 
-### Font Families
-- **Headline**: `Manrope`, sans-serif (Weights: 700, 800)
-- **Body**: `Inter`, sans-serif (Weights: 400, 500, 600)
-- **Label**: `Inter`, sans-serif (Weights: 600, 900)
+color.on-primary.light: #ffffff
 
-### Typographic Scale
-| Level | Size | Weight | Line Height | Usage |
-|-------|------|--------|-------------|-------|
-| `h1` | `clamp(2.25rem, 5vw, 4rem)` | 800 | 1.1 | Hero headlines |
-| `h2` | `clamp(1.85rem, 4vw, 3rem)` | 800 | 1.2 | Section titles |
-| `h3` | `clamp(1.35rem, 3vw, 2rem)` | 700 | 1.3 | Card titles |
-| `body` | `1rem` | 400 | 1.6 | Paragraphs |
-| `label` | `0.75rem` | 900 | 1.0 | Small uppercase caps |
+color.on-primary.dark: #003732
 
-## 4. Spacing & Grid
+Secondary & Surface
+color.secondary: #006c4a
 
-### Layout Constants
-- **Section Spacing**: `py-24` (96px) vertical padding.
-- **Container**: Max-width `7xl` (1280px) with `px-6` (24px) padding.
-- **Gutter**: `gap-8` (32px) for grids.
+color.surface: #f8f9ff
 
-### Border Radii
-- **Base**: `0.125rem`
-- **Large**: `0.25rem`
-- **Extra Large**: `0.5rem`
-- **Full**: `9999px`
-- **Custom Card**: `rounded-3xl` (1.5rem)
-- **Custom Button**: `rounded-[2rem]` (2rem)
+color.surface-dim: #d1dbec
 
-## 5. Component Specifications
+color.on-surface: #121c28
 
-### Buttons
-- **Primary**: Background `primary`, Text `on-primary`, Padding `px-8 py-5`, Radius `rounded-[2rem]`.
-- **Secondary**: Background `white` (or `slate-800`), Border `slate-200`, Radius `rounded-[2rem]`.
+color.background: #f8f9ff
 
-### Cards
-- **Style**: White background (or `slate-900`), Border `slate-100`, Radius `rounded-3xl`, Shadow `xl`.
-- **Interaction**: Hover `shadow-2xl`, `-translate-y-2` transition.
+Slate overrides (semantic mapping to Tailwind)
+color.slate.dark-bg: #0f172a (slate-900)
 
-### Navigation
-- **Header**: Fixed, `h-16`, `backdrop-blur-2xl`.
-- **Progress Bar**: Height `h-1`, Color `primary`.
+color.slate.dark-text: #f1f5f9 (slate-100)
 
-## 6. Visual Effects
-- **Glassmorphism**: `backdrop-blur-3xl`, `bg-white/40`.
-- **Gradients**: `from-[#00685f] to-[#004e47]`.
-- **Animations**: `animate-in`, `fade-in`, `slide-in-from-bottom-4`.
+color.slate.muted.light: #6b7280 (slate-500)
 
-## 7. Accessibility Standards
-- **Contrast**: WCAG AA compliant text colors.
-- **Touch Targets**: Minimum `44px` for interactive elements.
-- **Focus States**: `focus:ring-2 focus:ring-[#00685f]`.
-- **Motion**: `transition-all duration-300` for smooth state changes.
+color.slate.muted.dark: #94a3b8 (slate-400)
+
+3 Typography (tokens)
+type.headline.family: "Manrope, sans-serif" (weights: 700, 800)
+
+type.body.family: "Inter, sans-serif" (weights: 400, 500, 600)
+
+type.label.family: "Inter, sans-serif" (weights: 600, 900)
+
+Typographic scale:
+
+type.h1.size: clamp(2.25rem, 5vw, 4rem); weight: 800; line-height: 1.1; usage: hero headlines.
+
+type.h2.size: clamp(1.85rem, 4vw, 3rem); weight: 800; line-height: 1.2; usage: section titles.
+
+type.h3.size: clamp(1.35rem, 3vw, 2rem); weight: 700; line-height: 1.3; usage: card titles.
+
+type.body.size: 1rem; weight: 400; line-height: 1.6; usage: paragraphs.
+
+type.label.size: 0.75rem; weight: 900; line-height: 1.0; usage: small uppercase caps.
+
+4 Spacing & Grid
+spacing.section-vertical: 96px (py-24).
+
+layout.container.maxWidth: 1280px (7xl); padding-x: 24px (px-6).
+
+layout.gutter: 32px (gap-8).
+
+Border radii:
+
+radius.base: 0.125rem.
+
+radius.large: 0.25rem.
+
+radius.xl: 0.5rem.
+
+radius.full: 9999px.
+
+radius.card: 1.5rem (rounded-3xl).
+
+radius.button: 2rem (rounded-[2rem]).
+
+5 Component Specifications (tokens + examples)
+Buttons
+
+button.primary.bg: color.primary.light; button.primary.text: color.on-primary.light; padding: px-8 py-5; radius: radius.button.
+
+button.secondary.bg: white (light) / slate-800 (dark); border: slate-200; radius: radius.button.
+
+Cards
+
+card.bg: white (light) / slate-900 (dark); border: slate-100; radius: radius.card; shadow: xl; hover: shadow-2xl + -translate-y-2 transition.
+
+Navigation
+
+nav.header.height: 4rem (h-16); position: fixed; backdrop: backdrop-blur-2xl.
+
+nav.progress.height: 0.25rem (h-1); color: color.primary.light.
+
+6 Visual Effects
+glassmorphism.surface: backdrop-blur-3xl + bg-white/40 (adjust opacity in dark mode).
+
+gradients.brand: linear-gradient(from #00685f to #004e47).
+
+animations: animate-in, fade-in, slide-in-from-bottom-4; default transition: transition-all duration-300.
+
+7 Accessibility
+contrast: text tokens selected to meet WCAG AA for normal text; ensure color pairing tools are used when generating derived tokens.
+
+touch-targets: interactive min size 44px.
+
+focus: focus.ring: 2px ring with color.primary.light (focus:ring-2 focus:ring-[#00685f]).
+
+motion: provide reduced-motion alternative; default transitions: duration-300.
+
+8 Implementation notes (for developers)
+Token mapping: export tokens as CSS variables and as Tailwind theme extensions (system tokens -> design tokens -> Tailwind keys) so components can consume either variables or classes.
+
+Single source for baseURL-like values: keep shared tokens (colors, radii, spacing) defined once and reused across component token files. This avoids drift between design and code.
+
+Tailwind integration: prefer Tailwind v4 token mapping (use CSS variables + theme extension) or keep v3 PostCSS setup if pinned to Tailwind v3. Map semantic tokens to Tailwind keys (colors, backgroundColor, borderColor) as needed.
+
+Stitch-friendly: format tokens as clear key/value pairs and include light/dark variants so Stitch or other agents can consume and export code.
+
+9 Example token JSON (machine-friendly)
+{
+"color": {
+"primary": {"light":"#00685f","dark":"#6bd8cb"},
+"primary-container":"#008378",
+"primary-fixed":"#89f5e7",
+"on-primary":{"light":"#ffffff","dark":"#003732"},
+"secondary":"#006c4a",
+"surface":"#f8f9ff",
+"surface-dim":"#d1dbec",
+"on-surface":"#121c28",
+"background":"#f8f9ff",
+"slate": {"dark-bg":"#0f172a","dark-text":"#f1f5f9","muted-light":"#6b7280","muted-dark":"#94a3b8"}
+},
+"type": {
+"h1":{"size":"clamp(2.25rem, 5vw, 4rem)","weight":800,"lineHeight":1.1},
+"h2":{"size":"clamp(1.85rem, 4vw, 3rem)","weight":800,"lineHeight":1.2},
+"h3":{"size":"clamp(1.35rem, 3vw, 2rem)","weight":700,"lineHeight":1.3},
+"body":{"size":"1rem","weight":400,"lineHeight":1.6},
+"label":{"size":"0.75rem","weight":900,"lineHeight":1.0}
+},
+"spacing":{"section-vertical":"96px","gutter":"32px","container":{"maxWidth":"1280px","px":"24px"}},
+"radius":{"base":"0.125rem","large":"0.25rem","xl":"0.5rem","card":"1.5rem","button":"2rem","full":"9999px"},
+"component":{"button":{"primary":{"bg":"color.primary.light","text":"color.on-primary.light","px":"32px","py":"20px","radius":"radius.button"}}}
+}
