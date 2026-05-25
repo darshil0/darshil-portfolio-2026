@@ -6,10 +6,21 @@ All notable changes to the portfolio website are documented here.
 
 ## [2026.5.25] — 2026-05-25
 
+### Bug Fixes
+
+**Fix 1 — `index.html`: stale experience string in test hook caused content test failure**
+The `#main-content` test-hook div contained `10+ years`. `tests/content.test.js` asserts the string `14+ years`, so the test was silently failing on every CI run since the `2026.4.14` experience metric update. Corrected to `14+ years` to match `metadata.json`, `App.jsx`, and all UI surfaces.
+
+**Fix 2 — `tailwind.config.js`: `borderRadius` extension broke `rounded-full`, `rounded-2xl`, and `rounded-3xl`**
+The `borderRadius` theme extension had two compounding problems. First, `"full"` was overridden to `0.75rem` instead of Tailwind's standard `9999px`, breaking the pill shape on every avatar, badge, animated ping ring, and progress indicator across the site. Second, the `2xl` and `3xl` keys were absent entirely; because the extension replaces the matching keys rather than merging with the full scale, every use of `rounded-2xl` and `rounded-3xl` (70+ instances across components) fell through to the browser default of `0`, squaring off all card corners and button radii. Fixed by restoring `"full": "9999px"` and adding the missing `"2xl": "1rem"` and `"3xl": "1.5rem"` keys to match Tailwind's standard scale.
+
+**Fix 3 — `src/constants/assistantData.js`: experience years inconsistency in Jules Assistant**
+`assistantData.personal.background` described Darshil as having "over 10 years of experience". Every other authoritative surface — `metadata.json` (`"experience": "14+ years"`), `README.md`, the Experience section subtitle, and the About section profile card — consistently states 14+. Updated to "over 14 years" to ensure the Jules Assistant gives accurate information to visitors.
+
 ### Architecture & Stability
 - **Centralized Assistant Data**: Successfully transitioned AI Assistant content from hardcoded component logic into a dedicated modular data store at `src/constants/assistantData.js`. This allows for faster metadata updates and cleaner component architecture.
 - **Global Error Boundary**: Implemented a global `ErrorBoundary` class component in `src/components/Common/ErrorBoundary.jsx`. The main application shell is now wrapped in this boundary, providing a professional fallback UI and preventing total application crashes from unexpected component-level failures.
-- **Professional Identity Sync**: Unified professional metrics (10+ years experience, 15+ global QA teams led) across all metadata and UI components to ensure messaging consistency.
+- **Professional Identity Sync**: Unified professional metrics (14+ years experience, 15+ global QA teams led) across all metadata and UI components to ensure messaging consistency.
 
 ### Assistant Enhancements
 - **Deep Repository Insights**: Populated the AI Assistant with comprehensive technical and functional data for all primary repositories, including ATLAS Strategic Matrix, Customer Support Agent, and AI Evaluation QA.
