@@ -119,7 +119,7 @@ The Vite config uses `base: './'`, which keeps built asset paths relative so the
 | Home | Hero headline, key metrics card, CTAs |
 | Expertise | Functional and E2E testing skills, team leadership |
 | Impact | 6 quantified achievement stats |
-| Experience | 7 roles across 10+ years (Phynix, Accenture/KP, Infosys, TCS, Freelance, Eternal Web) |
+| Experience | 7 roles across 14+ years (Phynix, Accenture/KP, Infosys, TCS, Freelance, Eternal Web) |
 | Projects | Kaiser Permanente, Prime Therapeutics, Sony Pictures case studies |
 | About | Mission statement, core strengths, languages |
 | Education | MBA in IT (Sikkim Manipal), BE in IT (Sardar Patel University) |
