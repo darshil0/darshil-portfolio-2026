@@ -138,7 +138,7 @@ The Vite config uses `base: './'`, which keeps built asset paths relative so the
 | Cost Reduction | 40% |
 | Defect Resolution Improvement | 20% |
 | Defect Leakage Rate | < 5% |
-| Years of Experience | 14+ |
+| Years of Experience | 10+ |
 | Certifications | 100+ |
 | Global QA Teams Led | 15+ |
 
