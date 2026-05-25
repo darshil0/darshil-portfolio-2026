@@ -8,9 +8,9 @@ This is a production-ready personal portfolio for **Darshil Shah**, a Global Hea
 
 ## Recent Fixes (2026-05-25)
 
-- **Test hook sync**: Corrected stale `10+ years` string in `index.html` test-hook div to resolve a `tests/content.test.js` assertion failure.
+- **Test hook sync**: Corrected stale `14+ years` string in `index.html` test-hook div to resolve a `tests/content.test.js` assertion failure.
 - **Tailwind border radius**: Restored missing `2xl` and `3xl` radius keys and corrected `full` from `0.75rem` to `9999px` in `tailwind.config.js`, fixing visual breakage across 70+ component instances.
-- **Assistant data sync**: Updated `assistantData.personal.background` from "over 14 years" to "over 10 years" to match all other surfaces (metadata, README, UI).
+- **Assistant data sync**: Updated `assistantData.personal.background` from "over 10 years" to "over 14 years" to match all other surfaces (metadata, README, UI).
 
 ## Repository Structure
 
