@@ -9,7 +9,7 @@ All notable changes to the portfolio website are documented here.
 ### Architecture & Stability
 - **Centralized Assistant Data**: Successfully transitioned AI Assistant content from hardcoded component logic into a dedicated modular data store at `src/constants/assistantData.js`. This allows for faster metadata updates and cleaner component architecture.
 - **Global Error Boundary**: Implemented a global `ErrorBoundary` class component in `src/components/Common/ErrorBoundary.jsx`. The main application shell is now wrapped in this boundary, providing a professional fallback UI and preventing total application crashes from unexpected component-level failures.
-- **Professional Identity Sync**: Unified professional metrics (14+ years experience, 15+ global QA teams led) across all metadata and UI components to ensure messaging consistency.
+- **Professional Identity Sync**: Unified professional metrics (10+ years experience, 15+ global QA teams led) across all metadata and UI components to ensure messaging consistency.
 
 ### Assistant Enhancements
 - **Deep Repository Insights**: Populated the AI Assistant with comprehensive technical and functional data for all primary repositories, including ATLAS Strategic Matrix, Customer Support Agent, and AI Evaluation QA.
