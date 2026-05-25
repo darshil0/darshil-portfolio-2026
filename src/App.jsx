@@ -12,6 +12,7 @@ import Certifications from './components/Sections/Certifications.jsx';
 import Recommendations from './components/Sections/Recommendations.jsx';
 import Contact from './components/Sections/Contact.jsx';
 import ErrorBoundary from './components/Common/ErrorBoundary.jsx';
+import VoiceAssistant from './components/Common/VoiceAssistant.jsx';
 import { themeStorageKey, navItems } from './constants/data.js';
 
 export default function App() {
@@ -124,6 +125,8 @@ export default function App() {
 
         <Footer navigate={navigate} />
       </ErrorBoundary>
+
+      <VoiceAssistant />
     </>
   );
 }
