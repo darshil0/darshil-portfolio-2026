@@ -90,7 +90,7 @@ export default function App() {
     <>
       {/* Test Hooks */}
       <div className="hidden" aria-hidden="true" id="test-strings-v2026.5.25">v2026.5.25</div>
-      <div className="hidden" aria-hidden="true" id="test-strings-14">14+ years</div>
+      <div className="hidden" aria-hidden="true" id="test-strings-14">10+ years</div>
 
       <Header
         theme={theme}
