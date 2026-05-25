@@ -1,4 +1,4 @@
-# Darshil Shah — QA Leadership & Digital Transformation Portfolio
+# Darshil Shah:QA Leadership & Digital Transformation Portfolio
 
 **v2026.5.25** · React 19 + Vite · Deployed via GitHub Pages
 
