@@ -67,7 +67,7 @@ export default function About() {
               <h3 className="text-3xl font-black mb-2 tracking-tight">Darshil Shah</h3>
               <p className="text-sm text-[#89f5e7] font-bold uppercase tracking-widest mb-10 opacity-80">Global QA Leader</p>
               <ul className="space-y-6">
-                {['US Citizen', '14+ Years Leading QA', 'AWS Certified Architect', 'Dallas-Fort Worth, TX'].map(item => (
+                {['US Citizen', '10+ Years Leading QA', 'AWS Certified Architect', 'Dallas-Fort Worth, TX'].map(item => (
                   <li key={item} className="flex items-center gap-4 text-sm font-medium">
                     <div className="w-6 h-6 rounded-lg bg-[#89f5e7]/10 flex items-center justify-center">
                       <Check size={14} className="text-[#89f5e7]" />
