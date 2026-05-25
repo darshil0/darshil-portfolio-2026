@@ -4,14 +4,13 @@
 
 ## Overview
 
-This is a production-ready personal portfolio for **Darshil Shah**, a Global Healthcare QA Leader and AI-driven Testing Engineer. It is built with React 19, Vite, and Tailwind CSS, and it deploys automatically to GitHub Pages through GitHub Actions. Vite’s static deployment guidance and GitHub Pages’ publishing model support this type of workflow, and relative links are recommended in repository markdown files for portability. [docs.github](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+This is a production-ready personal portfolio for **Darshil Shah**, a Global Healthcare QA Leader and AI-driven Testing Engineer with 14+ years of experience. It is built with React 19, Vite, and Tailwind CSS, and deploys automatically to GitHub Pages through GitHub Actions.
 
-## Recent Enhancements
+## Recent Fixes (2026-05-25)
 
-- **Centralized assistant data**: Moved AI Assistant content into `src/constants/assistantData.js` to improve scalability and maintainability.
-- **Global error handling**: Added an `ErrorBoundary` component for graceful fallback UI during component-level failures.
-- **Expanded project metadata**: Added richer technical and functional details for major repositories, including ATLAS Strategic Matrix, Customer Support Agent, and AI Evaluation QA.
-- **Jules AI Assistant**: Added a menu-driven AI voice assistant that provides repository-specific guidance and personal background context.
+- **Test hook sync**: Corrected stale `10+ years` string in `index.html` test-hook div to `14+ years`, resolving a `tests/content.test.js` assertion failure.
+- **Tailwind border radius**: Restored missing `2xl` and `3xl` radius keys and corrected `full` from `0.75rem` to `9999px` in `tailwind.config.js`, fixing visual breakage across 70+ component instances.
+- **Assistant data sync**: Updated `assistantData.personal.background` from "over 10 years" to "over 14 years" to match all other surfaces (metadata, README, UI).
 
 ## Repository Structure
 
@@ -22,8 +21,12 @@ portfolio/
 │   ├── main.jsx
 │   ├── index.css
 │   ├── constants/
-│   │   └── data.js
+│   │   ├── data.js
+│   │   └── assistantData.js
 │   └── components/
+│       ├── Common/
+│       │   ├── ErrorBoundary.jsx
+│       │   └── VoiceAssistant.jsx
 │       ├── Layout/
 │       │   ├── Header.jsx
 │       │   └── Footer.jsx
@@ -41,6 +44,7 @@ portfolio/
 ├── tests/
 │   ├── basic.test.js
 │   ├── content.test.js
+│   ├── assistant.test.js
 │   └── e2e/
 │       └── basic.spec.js
 ├── public/
@@ -106,7 +110,7 @@ npm run test:e2e
 
 Pushes to `main` trigger the GitHub Actions workflow in `.github/workflows/static.yml`. The workflow installs dependencies, runs `npm run build`, and deploys `./dist` to GitHub Pages automatically.
 
-The Vite config uses `base: './'`, which helps keep built asset paths relative so the site works correctly when served from a GitHub Pages subdirectory. GitHub recommends relative links in repository markdown files, which also helps keep links portable across clones and repository contexts. [docs.github](https://docs.github.com/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+The Vite config uses `base: './'`, which keeps built asset paths relative so the site works correctly when served from a GitHub Pages subdirectory.
 
 ## Portfolio Sections
 
@@ -134,7 +138,7 @@ The Vite config uses `base: './'`, which helps keep built asset paths relative s
 | Cost Reduction | 40% |
 | Defect Resolution Improvement | 20% |
 | Defect Leakage Rate | < 5% |
-| Years of Experience | 10+ |
+| Years of Experience | 14+ |
 | Certifications | 100+ |
 | Global QA Teams Led | 15+ |
 
@@ -163,11 +167,11 @@ To update contact details, edit the constants in `src/constants/data.js`:
 
 Content for each section lives in its corresponding component under `src/components/Sections/`. Experience bullets, certification data, and project descriptions are defined as inline arrays within their respective files.
 
+AI Assistant content (repository metadata, personal background, Q&A) lives in `src/constants/assistantData.js`.
+
 ## Certifications
 
-The portfolio includes **100+ total** certifications from Anthropic, DeepLearning.AI, IBM, Coursera, Google, Microsoft, Amazon Web Services, PMI, Scrum Inc., and Scrum Alliance.
-
-The certification set spans AI/ML, Cloud, DevOps, Agile, Leadership, and Technical tracks.
+The portfolio includes **100+** certifications from Anthropic, DeepLearning.AI, IBM, Coursera, Google, Microsoft, Amazon Web Services, PMI, Scrum Inc., and Scrum Alliance, spanning AI/ML, Cloud, DevOps, Agile, Leadership, and Technical tracks.
 
 ## Contact
 
@@ -178,7 +182,7 @@ The certification set spans AI/ML, Cloud, DevOps, Agile, Leadership, and Technic
 | GitHub | [github.com/darshil0](https://github.com/darshil0) |
 | Location | Dallas–Fort Worth, TX |
 
-PDF resume is available at [Darshil_Shah_QA_Engineering_Portfolio.pdf](./public/Darshil_Shah_QA_Engineering_Portfolio.pdf). GitHub recommends relative links for repository files, which is why the path is written this way. [docs.github](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+PDF resume is available at [Darshil_Shah_QA_Engineering_Portfolio.pdf](./public/Darshil_Shah_QA_Engineering_Portfolio.pdf).
 
 ## Changelog
 
