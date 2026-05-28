@@ -12,7 +12,6 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 - **Dynamic Content**: Portfolio data is centralized in `src/constants/` for easy updates.
 - **Cinematic UI**: Smooth transitions and entry animations using `tailwindcss-animate`.
 - **Dark Mode**: System-aware and user-toggled dark mode with persistent state.
-- **Responsive Design**: Fully optimized for mobile, tablet, and desktop viewports.
 - **Automated Deployment**: GitHub Actions workflow for seamless deployment to GitHub Pages.
 
 ## Tech Stack
