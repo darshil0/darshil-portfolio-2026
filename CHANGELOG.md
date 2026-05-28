@@ -4,6 +4,22 @@ All notable changes to the portfolio website are documented here.
 
 ---
 
+## [2026.5.28] — 2026-05-28
+
+### Bug Fixes
+- **AI Assistant Reset Logic**: Fixed an issue where the conversation history and mode were not fully cleared when using the 'Back' or 'Main Menu' buttons in `VoiceAssistant.jsx`. The `resetAssistant()` function now correctly resets the state to the initial welcome message and menu mode.
+- **Header Navigation Logic**: Improved the reliability of the mobile menu and scroll-spy by ensuring state synchronization during viewport resizing.
+
+### Architecture & Stability
+- **Tailwind Animations Integration**: Properly registered the `tailwindcss-animate` plugin in `tailwind.config.js` and ensured all cinematic entry animations are functional across the SPA.
+- **Enhanced Mobile Robustness**: Standardized the mobile menu background and z-index to prevent content bleed-through and ensure a consistent premium feel on touch devices.
+
+### Documentation & Compliance
+- **Version Synchronization**: Updated all project metadata, UI version strings, and test assertions to `2026.5.28`.
+- **Test Suite Expansion**: Added `tests/assistant-reset.test.jsx` to verify the robustness of the AI Assistant's state management.
+
+---
+
 ## [2026.5.25] — 2026-05-25
 
 ### Bug Fixes

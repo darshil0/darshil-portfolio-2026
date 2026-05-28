@@ -1,16 +1,16 @@
 # Darshil Shah:QA Leadership & Digital Transformation Portfolio
 
-**v2026.5.25** · React 19 + Vite · Deployed via GitHub Pages
+**v2026.5.28** · React 19 + Vite · Deployed via GitHub Pages
 
 ## Overview
 
 This is a production-ready personal portfolio for **Darshil Shah**, a Global Healthcare QA Leader and AI-driven Testing Engineer with 14+ years of experience. It is built with React 19, Vite, and Tailwind CSS, and deploys automatically to GitHub Pages through GitHub Actions.
 
-## Recent Fixes (2026-05-25)
+## Recent Fixes (2026-05-28)
 
-- **Test hook sync**: Corrected stale `14+ years` string in `index.html` test-hook div to resolve a `tests/content.test.js` assertion failure.
-- **Tailwind border radius**: Restored missing `2xl` and `3xl` radius keys and corrected `full` from `0.75rem` to `9999px` in `tailwind.config.js`, fixing visual breakage across 70+ component instances.
-- **Assistant data sync**: Updated `assistantData.personal.background` from "over 10 years" to "over 14 years" to match all other surfaces (metadata, README, UI).
+- **AI Assistant state management**: Resolved an issue where conversation history persisted after resetting, ensuring a clean state for newcomers.
+- **Navigation robustness**: Refined mobile menu logic and scroll-spy synchronization for better cross-device consistency.
+- **Visual fidelity**: Verified `tailwindcss-animate` integration to ensure smooth cinematic transitions across all sections.
 
 ## Repository Structure
 
