@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Bot, Mic } from 'lucide-react';
+import { X, Bot, Mic, ChevronRight } from 'lucide-react';
 import { assistantData } from '../../constants/assistantData';
 
 export default function VoiceAssistant() {

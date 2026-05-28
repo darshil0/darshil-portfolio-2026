@@ -19,6 +19,6 @@ describe('Jules AI Assistant Data', () => {
   it('should have correct details for the ATLAS Strategic Matrix repo', () => {
     const atlas = assistantData.repositories.find(r => r.id === 'atlas-strategic-matrix');
     expect(atlas).toBeDefined();
-    expect(atlas.tech).toContain('Google Gemini Flash 1.5');
+    expect(atlas.tech).toContain('Google Gemini 1.5 Flash');
   });
 });
