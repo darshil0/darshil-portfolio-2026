@@ -209,7 +209,7 @@ export default function VoiceAssistant() {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Select a Repository</p>
                   <button
-                    onClick={() => setMode('menu')}
+                    onClick={resetAssistant}
                     className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
                   >
                     Back
@@ -256,7 +256,7 @@ export default function VoiceAssistant() {
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">About Darshil Shah</p>
                   <button
-                    onClick={() => setMode('menu')}
+                    onClick={resetAssistant}
                     className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
                   >
                     Main Menu

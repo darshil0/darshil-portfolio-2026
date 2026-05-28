@@ -55,11 +55,7 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
           </button>
 
           <div className="hidden lg:flex items-center gap-6">
-            {[
-              { id: 'expertise', label: 'Expertise' },
-              { id: 'impact', label: 'Impact' },
-              { id: 'experience', label: 'Experience' }
-            ].map(item => (
+            {navItems.slice(0, 3).map(item => (
               <button
                 key={item.id}
                 onClick={() => navigate(item.id)}
@@ -77,7 +73,7 @@ export default function Header({ theme, toggleTheme, isMenuOpen, setIsMenuOpen, 
                 More <ChevronDown size={14} />
               </button>
               <div className="absolute right-0 top-full hidden group-hover:block bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-xl p-2 min-w-[200px] animate-in fade-in slide-in-from-top-2">
-                {navItems.filter(item => !['expertise', 'impact', 'experience'].includes(item.id)).map(item => (
+                {navItems.slice(3).map(item => (
                   <button
                     key={item.id}
                     id={`nav-${item.id}`}
