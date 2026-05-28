@@ -1,5 +1,5 @@
 import React from 'react';
-import { Verified, TrendingUp, UserCheck } from 'lucide-react';
+import { BadgeCheck, TrendingUp, UserCheck } from 'lucide-react';
 
 export default function Home({ navigate }) {
   return (
@@ -11,7 +11,7 @@ export default function Home({ navigate }) {
       <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16">
         <div className="flex-1 max-w-4xl text-center lg:text-left">
           <div className="inline-flex items-center gap-3 px-4 py-2 rounded-2xl bg-white dark:bg-slate-800 shadow-xl shadow-[#00685f]/5 border border-[#00685f]/10 text-[#00685f] dark:text-[#6bd8cb] text-[11px] tracking-[0.2em] font-black mb-10 uppercase animate-in fade-in slide-in-from-bottom-4 duration-700 mx-auto lg:mx-0">
-            <Verified size={16} /> Precision Digital Transformation
+            <BadgeCheck size={16} /> Precision Digital Transformation
           </div>
           <h1 className="text-5xl md:text-7xl font-black font-headline leading-[1.1] tracking-tight mb-8 animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-100">
             Global Healthcare <br/>
