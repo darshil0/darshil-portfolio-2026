@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Bot, ChevronRight, Mic } from 'lucide-react';
+import { X, Bot, Mic } from 'lucide-react';
 import { assistantData } from '../../constants/assistantData';
 
 export default function VoiceAssistant() {
@@ -8,7 +8,7 @@ export default function VoiceAssistant() {
     { role: 'assistant', content: assistantData.welcomeMessage }
   ]);
   const [selectedRepo, setSelectedRepo] = useState(null);
-  const [mode, setMode] = useState('menu'); // 'menu', 'projects', 'about'
+  const [mode, setMode] = useState('menu'); // 'menu', 'projects_list', 'projects', 'about'
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
