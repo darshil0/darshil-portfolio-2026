@@ -23,7 +23,7 @@ test('index.html has lang="en"', () => {
   expect(content).toContain('html lang="en"')
 })
 
-test('index.html has main-content', () => {
+test('index.html has legacy-main-content', () => {
   const content = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8')
-  expect(content).toContain('id="main-content"')
+  expect(content).toContain('id="legacy-main-content"')
 })
