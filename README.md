@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository contains the source code for Darshil Shah's personal portfolio. It is a modern, single-page application (SPA) designed to demonstrate technical proficiency, leadership impact, and a comprehensive suite of certifications. The project features a custom AI assistant, "Jules," to guide visitors through the repository and professional background.
+This repository contains the source code for Darshil Shah's personal portfolio. It is a modern, single-page application (SPA) designed to demonstrate technical proficiency, leadership impact, and a comprehensive suite of certifications. The project features a custom voice AI assistant, "Jules," to guide visitors through the repository and professional background.
 
 ## Key Features
 
