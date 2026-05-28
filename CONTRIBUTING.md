@@ -13,7 +13,7 @@ Please be respectful and professional in all interactions.
 3. **Clone the Fork**: `git clone https://github.com/your-username/darshil-portfolio-2026.git`
 4. **Create a Feature Branch**: `git checkout -b feature/your-feature-name`
 5. **Make Changes**: Implement your feature or fix.
-6. **Add Tests**: Ensure your changes are covered by tests (Vitest for units, Playwright for E2E).
+6. **Add Tests**: Ensure your changes are covered by tests (Vitest for units, Playwright for E2E). When modifying the AI Assistant, update or add relevant cases in `tests/assistant-reset.test.jsx`.
 7. **Verify Changes**: Run `npm test` and `npm run test:e2e`.
 8. **Commit Changes**: Use clear, descriptive commit messages.
 9. **Push and PR**: Push to your fork and submit a Pull Request.
