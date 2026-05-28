@@ -31,6 +31,7 @@ npm run test:e2e
 
 - `tests/basic.test.js`: Assertions for versioning and experience strings.
 - `tests/content.test.js`: Verifies file-level content and structure.
+- `tests/assistant-reset.test.jsx`: Unit tests for the AI Assistant's reset functionality.
 - `tests/e2e/basic.spec.js`: Playwright scenarios for the SPA.
 
 ## Adding New Tests
