@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename)
 
 test('index.html has correct version and experience', () => {
   const content = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8')
-  expect(content).toContain('v2026.5.25')
+  expect(content).toContain('v2026.5.28')
   expect(content).toContain('14+ years')
 })
 
