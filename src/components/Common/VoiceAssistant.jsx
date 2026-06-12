@@ -194,6 +194,7 @@ export default function VoiceAssistant() {
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
+                  tabIndex={msg.role === 'assistant' ? 0 : undefined}
                   className={`max-w-[85%] p-3 rounded-2xl text-sm ${
                     msg.role === 'user'
                       ? 'bg-[#00685f] text-white rounded-tr-none'
