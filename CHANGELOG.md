@@ -2,6 +2,20 @@
 
 All notable changes to the Darshil Shah Portfolio project will be documented in this file.
 
+## [v2026.5.29] - 2026-05-29
+
+### Added
+- Expanded `assistantData.js` with comprehensive data for 33 repositories, including `fullPurpose`, `summary`, `run`, `tech`, `test`, `contribute`, and `files` fields.
+- Added accessibility support to `VoiceAssistant.jsx` with `aria-live="polite"` and `focus-visible` styling for interactive elements.
+
+### Fixed
+- Corrected the `atlas-strategic-matrix` tech stack in `assistantData.js` to include 'Google Gemini 1.5 Flash', resolving a Vitest failure.
+- Updated the description of `atlas-strategic-matrix` to accurately reflect the AI model version.
+- Audited and updated metadata for several key repositories (PDF Retrieval, Customer Support, Mindful Coach) to align with `WORKSPACE_MAP.md`.
+
+### Changed
+- Incremented project version to `v2026.5.29` across 7 files including `package.json`, `metadata.json`, and `index.html`.
+
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to a date-based versioning scheme (**YYYY.M.D**).
 
 ## [2026.5.28] - 2026-05-28

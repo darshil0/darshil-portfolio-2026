@@ -184,17 +184,21 @@ export default function VoiceAssistant() {
             </button>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800">
+          <div
+            className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800"
+            aria-live="polite"
+          >
             {messages.map((msg, i) => (
               <div
                 key={`${msg.role}-${i}`}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
+                  tabIndex={msg.role === 'assistant' ? 0 : undefined}
                   className={`max-w-[85%] p-3 rounded-2xl text-sm ${
                     msg.role === 'user'
                       ? 'bg-[#00685f] text-white rounded-tr-none'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none'
                   }`}
                 >
                   {msg.content}
@@ -226,14 +230,14 @@ export default function VoiceAssistant() {
                 <div className="grid grid-cols-1 gap-2">
                   <button
                     onClick={() => setMode('projects_list')}
-                    className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group"
+                    className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-colors group"
                   >
                     <span className="text-xs font-bold dark:text-slate-300">Explore Repositories</span>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
                   </button>
                   <button
                     onClick={handleAboutSelect}
-                    className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group"
+                    className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-colors group"
                   >
                     <span className="text-xs font-bold dark:text-slate-300">About Darshil&apos;s Background</span>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
@@ -256,7 +260,7 @@ export default function VoiceAssistant() {
                     <button
                       key={repo.id}
                       onClick={() => handleRepoSelect(repo)}
-                      className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] transition-colors group text-left"
+                      className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-colors group text-left"
                     >
                       <span className="text-xs font-bold dark:text-slate-300">{repo.name}</span>
                       <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
@@ -282,7 +286,7 @@ export default function VoiceAssistant() {
                     <button
                       key={i}
                       onClick={() => handleQuestion(q)}
-                      className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-[11px] font-medium hover:border-[#00685f] dark:hover:border-[#6bd8cb] hover:text-[#00685f] dark:hover:text-[#6bd8cb] transition-all"
+                      className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-[11px] font-medium hover:border-[#00685f] dark:hover:border-[#6bd8cb] hover:text-[#00685f] dark:hover:text-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-all"
                     >
                       {q}
                     </button>
@@ -305,7 +309,7 @@ export default function VoiceAssistant() {
                     <button
                       key={i}
                       onClick={() => handleQuestion(q)}
-                      className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-[11px] font-medium hover:border-[#00685f] dark:hover:border-[#6bd8cb] hover:text-[#00685f] dark:hover:text-[#6bd8cb] transition-all"
+                      className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-[11px] font-medium hover:border-[#00685f] dark:hover:border-[#6bd8cb] hover:text-[#00685f] dark:hover:text-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-all"
                     >
                       {q}
                     </button>
