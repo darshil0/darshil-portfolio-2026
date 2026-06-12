@@ -133,11 +133,11 @@ export const assistantData = {
     {
       id: "AI-Evaluation-QA",
       name: "AI Evaluation QA",
-      description: "Repository containing test cases for evaluating various AI models.",
-      fullPurpose: "A Python framework for comparing and evaluating AI model responses.",
+      description: "Python framework for scoring and comparing AI model performance.",
+      fullPurpose: "A Python framework for comparing and evaluating AI model responses with rubric-based scoring and hallucination detection.",
       summary: "This tool tests AIs and scores how well they respond.",
       run: "1. Create a Python environment\n2. Install dependencies\n3. Configure environment variables\n4. Run the evaluation commands in the README",
-      tech: ["Python"],
+      tech: ["Python 3.9+", "OpenAI SDK", "Anthropic SDK", "Docker"],
       test: "Run the repo test suite using its Python test command.",
       contribute: "Follow the contributing instructions in the repository.",
       files: "• `main.py`: Entry point\n• `evaluation/`: Evaluation logic"
@@ -197,7 +197,7 @@ export const assistantData = {
       fullPurpose: "A customer-support platform that routes issues to specialized agents for handling different support needs.",
       summary: "This repo creates a smart support system that can answer different types of customer questions automatically.",
       run: "1. Install Java and Maven\n2. Configure API keys\n3. Run `mvn clean install`\n4. Run `mvn spring-boot:run`",
-      tech: ["TypeScript"],
+      tech: ["Java 17", "Spring Boot 3.4.5", "Google ADK 1.3.0", "React 19"],
       test: "Follow the repository test instructions.",
       contribute: "Open a PR after validating your changes.",
       files: "• `src/`: Project code\n• `README.md`: Instructions"
@@ -209,7 +209,7 @@ export const assistantData = {
       fullPurpose: "A wellness app that provides coaching, goal tracking, and health insights.",
       summary: "This app helps users build better health habits with a calm experience.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Add the Gemini key\n4. Run `npm run dev`",
-      tech: ["TypeScript"],
+      tech: ["React 19", "TypeScript", "Google Gemini 2.0 Flash", "Recharts"],
       test: "Run project tests if configured.",
       contribute: "Use GitHub issues and pull requests.",
       files: "• `src/`: App code\n• `README.md`: Usage guide"
@@ -233,7 +233,7 @@ export const assistantData = {
       fullPurpose: "An AI workspace with email help, image generation, and live voice interaction.",
       summary: "This repo is a futuristic AI dashboard for talking, writing, and creating.",
       run: "1. Set the API key\n2. Run `npm install`\n3. Run `npm run dev`",
-      tech: ["TypeScript"],
+      tech: ["React 19", "Google Gemini 2.0 Flash", "Framer Motion", "TypeScript"],
       test: "Run the available test scripts if defined.",
       contribute: "Follow the repository PR process.",
       files: "• `src/`: UI source\n• `server.ts`: Backend proxy"
@@ -241,11 +241,11 @@ export const assistantData = {
     {
       id: "atlas-strategic-matrix",
       name: "ATLAS Strategic Matrix",
-      description: "Atlas is a production-ready multi-agent AI orchestrator that transforms high-level strategic directives into actionable 2026 quarterly roadmaps. Powered by Google Gemini 2.0 Flash, with React Flow visualization.",
+      description: "Atlas is a production-ready multi-agent AI orchestrator that transforms high-level strategic directives into actionable 2026 quarterly roadmaps. Powered by Google Gemini 1.5 Flash, with React Flow visualization.",
       fullPurpose: "A planning orchestrator that converts strategy into quarterly execution roadmaps.",
       summary: "This repo helps teams turn big goals into structured action plans.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Configure environment variables\n4. Run `npm run dev`",
-      tech: ["TypeScript"],
+      tech: ["TypeScript", "React 19", "Vite 6", "Google Gemini 1.5 Flash", "@xyflow/react", "Firestore"],
       test: "Run the repository test commands if present.",
       contribute: "Submit improvements through a branch and PR.",
       files: "• `src/`: Main app\n• `README.md`: Setup notes"
@@ -253,11 +253,11 @@ export const assistantData = {
     {
       id: "gemini-pdf-retrieval-agent",
       name: "Gemini PDF Retrieval Agent",
-      description: "An intelligent document search engine powered by Google Gemini 1.5. Upload multiple PDFs, perform context-aware keyword searches, and jump to exact page citations with a built-in viewer.",
+      description: "An intelligent document search engine powered by Google Gemini 2.5. Upload multiple PDFs, perform context-aware keyword searches, and jump to exact page citations with a built-in viewer.",
       fullPurpose: "A document search tool for PDFs with citations and contextual search.",
       summary: "This repo makes it easy to search PDFs and jump to exact citations.",
       run: "1. Clone the repo\n2. Install dependencies\n3. Add the Gemini API key\n4. Run the app",
-      tech: ["TypeScript"],
+      tech: ["TypeScript", "Google Gemini 2.5", "PDF.js"],
       test: "Use the repository's test workflow if defined.",
       contribute: "Open a PR after testing your changes.",
       files: "• `src/`: App source\n• `README.md`: Documentation"
@@ -385,11 +385,11 @@ export const assistantData = {
     {
       id: "ai-prompts-2026",
       name: "AI Prompts 2026",
-      description: "",
+      description: "A comprehensive library of optimized AI prompts and frameworks for 2026.",
       fullPurpose: "A prompt collection or prompt library for AI workflows.",
       summary: "This repo likely stores prompt examples and templates.",
       run: "1. Clone the repo\n2. Open the HTML files in a browser or serve the app if needed",
-      tech: ["HTML"],
+      tech: ["HTML", "Markdown"],
       test: "No formal tests indicated.",
       contribute: "Update prompts and submit a PR if appropriate.",
       files: "• `index.html`: Main page\n• `README.md`: Notes"
