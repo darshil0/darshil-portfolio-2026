@@ -2,7 +2,7 @@
 
 All notable changes to the Darshil Shah Portfolio project will be documented in this file.
 
-## [v2026.5.29] - 2026-05-29
+## [v2026.6.12] - 2026-06-12
 
 ### Added
 - Expanded `assistantData.js` with comprehensive data for 33 repositories, including `fullPurpose`, `summary`, `run`, `tech`, `test`, `contribute`, and `files` fields.
