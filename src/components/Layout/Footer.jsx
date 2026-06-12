@@ -34,7 +34,7 @@ export default function Footer({ navigate }) {
           </button>
         </div>
         <p className="text-[10px] uppercase tracking-tighter text-slate-400 font-medium">
-          © 2026 Darshil Shah. QA Leadership & Digital Excellence. v2026.5.29
+          © 2026 Darshil Shah. QA Leadership & Digital Excellence. v2026.6.12
         </p>
       </div>
     </footer>
