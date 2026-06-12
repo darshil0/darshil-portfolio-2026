@@ -186,7 +186,10 @@ export default function VoiceAssistant() {
 
           <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800">
             {messages.map((msg, i) => (
-              <div key={`${msg.role}-${i}`} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div
+                key={`${msg.role}-${i}`}
+                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              >
                 <div
                   className={`max-w-[85%] p-3 rounded-2xl text-sm ${
                     msg.role === 'user'
