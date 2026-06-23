@@ -11,7 +11,9 @@ test("navigation interactions", async ({ page }) => {
   await page.waitForSelector("#root");
 
   // Use a more specific locator to avoid strict mode violations
-  const logoText = page.getByRole('navigation').getByText(/The Clinical Architect/i);
+  const logoText = page
+    .getByRole("navigation")
+    .getByText(/The Clinical Architect/i);
   await expect(logoText).toBeVisible({ timeout: 10000 });
 });
 
@@ -40,7 +42,9 @@ test("navigation to sections", async ({ page }) => {
   await page.waitForSelector("#root");
 
   // Use getByRole for better accessibility and robustness
-  const expertiseLink = page.getByRole("button", { name: /^Expertise$/i }).first();
+  const expertiseLink = page
+    .getByRole("button", { name: /^Expertise$/i })
+    .first();
   await expect(expertiseLink).toBeVisible();
   await expertiseLink.click();
 
@@ -60,7 +64,9 @@ test("mobile menu interaction", async ({ page }) => {
   const mobileMenu = page.locator("#mobile-menu");
   await expect(mobileMenu).toBeVisible();
 
-  const mobileMenuLink = mobileMenu.getByRole("button", { name: /^Expertise$/i });
+  const mobileMenuLink = mobileMenu.getByRole("button", {
+    name: /^Expertise$/i,
+  });
   await expect(mobileMenuLink).toBeVisible();
 
   await menuButton.click();
@@ -84,6 +90,8 @@ test("contact form submission", async ({ page }) => {
   await expect(submitButton).toBeVisible();
   await submitButton.click();
 
-  const successMessage = page.getByText(/Message sent! I'll be in touch soon\./i);
+  const successMessage = page.getByText(
+    /Message sent! I'll be in touch soon\./i,
+  );
   await expect(successMessage).toBeVisible();
 });

@@ -10,10 +10,12 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 ## [2026.7.15] - 2026-07-15
 
 ### Added
+
 - Integrated Prettier for automated codebase formatting.
 - Centralized `experienceYears` and `portfolioVersion` constants in `src/constants/data.js` for better maintainability.
 
 ### Changed
+
 - Updated project dependencies to latest versions (Vite 8, Vitest 4, React 19.2.7).
 - Pinned `lucide-react` to `0.475.0` to ensure stable icon exports and compatibility.
 - Synchronized version `v2026.7.15` across all project metadata, UI components, and tests.
