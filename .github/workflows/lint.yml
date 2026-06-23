@@ -11,35 +11,49 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Use Node.js 24.x
+      - name: Use Node.js 22.x
         uses: actions/setup-node@v4
         with:
-          node-version: 24.x
+          node-version: 22.x
           cache: npm
           cache-dependency-path: package-lock.json
+
+      - name: Verify lockfile exists
+        run: |
+          if [ ! -f package-lock.json ]; then
+            echo "ERROR: package-lock.json is missing"
+            exit 1
+          fi
 
       - name: Install dependencies
         run: npm ci --prefer-offline
 
       - name: Check Prettier formatting
-        run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}"
+        run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}" .
 
       - name: Validate package.json
-        run: |
-          npm ls --depth=0
+        run: npm ls --depth=0
 
       - name: Verify version consistency
         run: |
+          if [ ! -f metadata.json ]; then
+            echo "ERROR: metadata.json is missing"
+            exit 1
+          fi
+
           PACKAGE_VERSION=$(jq -r '.version' package.json)
           METADATA_VERSION=$(jq -r '.version' metadata.json)
+
           if [ "$PACKAGE_VERSION" != "$METADATA_VERSION" ]; then
             echo "ERROR: Version mismatch between package.json and metadata.json"
             echo "  package.json: $PACKAGE_VERSION"
             echo "  metadata.json: $METADATA_VERSION"
             exit 1
           fi
+
           echo "✓ Version verified: $PACKAGE_VERSION"
