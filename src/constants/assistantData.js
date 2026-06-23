@@ -29,7 +29,7 @@ export const assistantData = {
       fullPurpose: "This repository hosts Darshil's professional portfolio. It's designed to demonstrate modern web development practices (React 19, Vite 6) alongside robust QA processes (Vitest, Playwright). It serves as a central hub for his experience, projects, and certifications.",
       summary: "In simple terms, this is Darshil's digital resume and showcase. It's a fast, modern website that looks great on all devices and tells the story of his 14+ years in QA engineering.",
       run: "1. Clone the repo\n2. Run `npm install` to install dependencies\n3. Run `npm run dev` to start the local development server at http://localhost:5173",
-      tech: ["React 19", "Vite 6", "Tailwind CSS 4", "Lucide React", "Framer Motion", "Vitest", "Playwright"],
+      tech: ["React 19", "Vite 6", "Tailwind CSS 3", "Lucide React", "Framer Motion", "Vitest", "Playwright"],
       test: "Execute `npm test` for unit and content tests, or `npm run test:e2e` for Playwright end-to-end tests.",
       contribute: "Contributions are welcome! Please check the `CONTRIBUTING.md` file for guidelines on code style and pull request processes.",
       files: "• `src/App.jsx`: Main application shell\n• `src/constants/data.js`: Central data store for content\n• `src/components/Sections/`: UI components for each page section\n• `tests/`: Unit and E2E test suites"
