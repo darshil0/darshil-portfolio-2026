@@ -23,7 +23,6 @@ Thumbs.db
 
 # Node & Package Management (if using npm)
 node_modules/
-package-lock.json
 yarn.lock
 npm-debug.log
 yarn-error.log
