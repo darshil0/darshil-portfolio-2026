@@ -12,15 +12,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Use Node.js 20.x
         uses: actions/setup-node@v4
         with:
           node-version: 20.x
           cache: npm
+          cache-dependency-path: package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --prefer-offline
 
       - name: Check Prettier formatting
         run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}"
@@ -35,8 +38,8 @@ jobs:
           METADATA_VERSION=$(jq -r '.version' metadata.json)
           if [ "$PACKAGE_VERSION" != "$METADATA_VERSION" ]; then
             echo "ERROR: Version mismatch between package.json and metadata.json"
-            echo "package.json: $PACKAGE_VERSION"
-            echo "metadata.json: $METADATA_VERSION"
+            echo "  package.json: $PACKAGE_VERSION"
+            echo "  metadata.json: $METADATA_VERSION"
             exit 1
           fi
           echo "✓ Version verified: $PACKAGE_VERSION"
