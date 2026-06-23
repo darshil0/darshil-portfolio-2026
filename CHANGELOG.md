@@ -2,12 +2,12 @@
 
 All notable changes to the Darshil Shah Portfolio project will be documented in this file.
 
-## [v2026.7.16] - 2026-07-16
+## [2026.7.16] - 2026-07-16
 
 ### Fixed
 - Fixed CI/CD pipeline by updating Node.js version to 22.x and 24.x in GitHub Actions workflows to ensure compatibility and avoid deprecated runners.
 
-## [v2026.7.15] - 2026-07-15
+## [2026.7.15] - 2026-07-15
 
 ### Added
 - Integrated Prettier for automated codebase formatting.
