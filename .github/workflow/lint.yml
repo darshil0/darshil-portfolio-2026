@@ -1,0 +1,42 @@
+name: Code Quality & Lint
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js 20.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check Prettier formatting
+        run: npx prettier --check "src/**/*.{js,jsx,ts,tsx,css,md}"
+
+      - name: Validate package.json
+        run: |
+          npm ls --depth=0
+
+      - name: Verify version consistency
+        run: |
+          PACKAGE_VERSION=$(jq -r '.version' package.json)
+          METADATA_VERSION=$(jq -r '.version' metadata.json)
+          if [ "$PACKAGE_VERSION" != "$METADATA_VERSION" ]; then
+            echo "ERROR: Version mismatch between package.json and metadata.json"
+            echo "package.json: $PACKAGE_VERSION"
+            echo "metadata.json: $METADATA_VERSION"
+            exit 1
+          fi
+          echo "✓ Version verified: $PACKAGE_VERSION"
