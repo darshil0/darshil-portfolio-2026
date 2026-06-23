@@ -30,8 +30,6 @@ jobs:
           node-version: "20"
 
       - name: Install dependencies
-        # npm ci requires package-lock.json — use npm install instead
-        # since package-lock.json is excluded from this repo's .gitignore
         run: npm install
 
       - name: Build
