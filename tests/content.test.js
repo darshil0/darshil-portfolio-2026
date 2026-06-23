@@ -12,7 +12,7 @@ test("index.html has correct version and experience", () => {
     path.resolve(__dirname, "../index.html"),
     "utf8",
   );
-  expect(content).toContain("v2026.7.15");
+  expect(content).toContain("v2026.7.17");
   expect(content).toContain("14+ years");
 });
 
@@ -26,7 +26,7 @@ test("src/App.jsx uses centralized version and experience", () => {
 });
 
 test("constants have correct values", () => {
-  expect(data.portfolioVersion).toBe("v2026.7.15");
+  expect(data.portfolioVersion).toBe("v2026.7.17");
   expect(data.experienceYears).toBe("14+ years");
 });
 
