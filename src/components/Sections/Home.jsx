@@ -31,7 +31,7 @@ export default function Home({ navigate }) {
         </div>
         
         <div className="flex-shrink-0 w-full max-w-md animate-in fade-in zoom-in-95 duration-1000 delay-500">
-          <div className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-3xl rounded-[3rem] p-10 border border-white/60 dark:border-slate-700/60 shadow-[0_32px_64px_-16px_rgba(0,104,95,0.1)]">
+          <div className="bg-white/40 dark:bg-slate-800/40 backdrop-blur-3xl rounded-[3rem] p-10 border border-white/20 dark:border-white/10 shadow-[0_32px_64px_-16px_rgba(0,104,95,0.1)]">
             <div className="flex items-center gap-5 mb-10">
               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#00685f] to-[#004e47] flex items-center justify-center text-white shadow-xl"><UserCheck size={32} /></div>
               <div className="text-left">

@@ -86,14 +86,14 @@ export default function Contact() {
                   </button>
                 </div>
 
-                <a href="https://www.linkedin.com/in/darshil-qa-lead/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
+                <a href="https://www.linkedin.com/in/darshil-qa-lead/" target="_blank" rel="noopener noreferrer" aria-label="Visit Darshil's LinkedIn profile" className="flex items-center gap-5 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
                   <div className="w-12 h-12 rounded-2xl bg-[#00685f]/10 text-[#00685f] dark:text-[#6bd8cb] flex items-center justify-center group-hover:bg-[#00685f] group-hover:text-white transition-all shadow-sm">
                     <Linkedin size={22} />
                   </div>
                   <span className="font-bold text-sm tracking-wide text-slate-700 dark:text-slate-200">LinkedIn Profile</span>
                 </a>
 
-                <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" className="flex items-center gap-5 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
+                <a href="https://github.com/darshil0" target="_blank" rel="noopener noreferrer" aria-label="Visit Darshil's GitHub profile" className="flex items-center gap-5 p-5 rounded-2xl bg-slate-50 dark:bg-slate-900/50 border border-transparent hover:border-[#00685f]/20 transition-all group">
                   <div className="w-12 h-12 rounded-2xl bg-[#00685f]/10 text-[#00685f] dark:text-[#6bd8cb] flex items-center justify-center group-hover:bg-[#00685f] group-hover:text-white transition-all shadow-sm">
                     <Github size={22} />
                   </div>
@@ -138,7 +138,7 @@ export default function Contact() {
                 <label htmlFor="contact-message" className="block text-[10px] font-black text-[#00685f] dark:text-[#6bd8cb] uppercase tracking-[0.2em] ml-1">Your Message</label>
                 <textarea id="contact-message" name="message" required rows="4" className="w-full px-6 py-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-[#00685f] focus:border-transparent outline-none text-sm font-medium resize-none transition-all" placeholder="How can I help you?"></textarea>
               </div>
-              <button type="submit" disabled={formStatus === 'sending'} className="w-full bg-[#00685f] text-white py-5 rounded-2xl font-black text-base shadow-xl shadow-[#00685f]/20 hover:bg-[#00514a] hover:-translate-y-1 transition-all disabled:opacity-60 disabled:cursor-not-allowed">
+              <button type="submit" disabled={formStatus === 'sending'} className="w-full bg-[#00685f] text-white py-5 rounded-2xl font-black text-base shadow-xl shadow-[#00685f]/20 hover:bg-[#00514a] hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[#00685f] focus-visible:ring-offset-2 transition-all disabled:opacity-60 disabled:cursor-not-allowed">
                 {formStatus === 'sending' ? 'Initiating...' : 'Secure Submit'}
               </button>
 
