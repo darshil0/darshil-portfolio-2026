@@ -1,5 +1,6 @@
 export const assistantData = {
-  welcomeMessage: "Hi! I'm Darshil's AI assistant. I can help you explore his repositories and professional background. What would you like to know?",
+  welcomeMessage:
+    "Hi! I'm Darshil's AI assistant. I can help you explore his repositories and professional background. What would you like to know?",
   commonQuestions: [
     "What does this repo do?",
     "How do I run it?",
@@ -7,104 +8,138 @@ export const assistantData = {
     "How do I test it?",
     "How can I contribute?",
     "Summary in plain English",
-    "Important files & entry points"
+    "Important files & entry points",
   ],
   personalQuestions: [
     "Tell me about Darshil's background",
     "What are his core strengths?",
     "Where has he worked?",
-    "What certifications does he have?"
+    "What certifications does he have?",
   ],
   personal: {
-    background: "Darshil is a Global Healthcare QA Leader and SDET with over 14 years of experience. He specializes in building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
-    strengths: "His core strengths include Strategic QA Leadership, Agentic AI Development, Healthcare Compliance (HIPAA, FDA), and scaling quality for mission-critical applications. He's an expert in modern automation stacks like Playwright, Selenium, and Appium.",
-    experience: "Darshil has led QA efforts at major organizations:\n• Phynix (IT QA Analyst)\n• Accenture (QA Lead for Kaiser Permanente)\n• Infosys (SDET for Prime Therapeutics)\n• TCS (Automation Engineer for Sony Pictures)\n• Eternal Web (QA Engineer)",
-    certifications: "He holds 100+ professional certifications across AI/ML, Cloud, and Agile from providers like Anthropic, IBM, Google, Microsoft, AWS, and PMI, specializing in Agentic AI and Prompt Engineering."
+    background:
+      "Darshil is a Global Healthcare QA Leader and SDET with over 14 years of experience. He specializes in building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
+    strengths:
+      "His core strengths include Strategic QA Leadership, Agentic AI Development, Healthcare Compliance (HIPAA, FDA), and scaling quality for mission-critical applications. He's an expert in modern automation stacks like Playwright, Selenium, and Appium.",
+    experience:
+      "Darshil has led QA efforts at major organizations:\n• Phynix (IT QA Analyst)\n• Accenture (QA Lead for Kaiser Permanente)\n• Infosys (SDET for Prime Therapeutics)\n• TCS (Automation Engineer for Sony Pictures)\n• Eternal Web (QA Engineer)",
+    certifications:
+      "He holds 100+ professional certifications across AI/ML, Cloud, and Agile from providers like Anthropic, IBM, Google, Microsoft, AWS, and PMI, specializing in Agentic AI and Prompt Engineering.",
   },
   repositories: [
     {
       id: "darshil-portfolio-2026",
       name: "Portfolio 2026",
-      description: "A high-fidelity personal portfolio showcasing QA leadership and AI testing expertise.",
-      fullPurpose: "This repository hosts Darshil's professional portfolio. It's designed to demonstrate modern web development practices (React 19, Vite 6) alongside robust QA processes (Vitest, Playwright). It serves as a central hub for his experience, projects, and certifications.",
-      summary: "In simple terms, this is Darshil's digital resume and showcase. It's a fast, modern website that looks great on all devices and tells the story of his 14+ years in QA engineering.",
+      description:
+        "A high-fidelity personal portfolio showcasing QA leadership and AI testing expertise.",
+      fullPurpose:
+        "This repository hosts Darshil's professional portfolio. It's designed to demonstrate modern web development practices (React 19, Vite 8) alongside robust QA processes (Vitest, Playwright). It serves as a central hub for his experience, projects, and certifications.",
+      summary:
+        "In simple terms, this is Darshil's digital resume and showcase. It's a fast, modern website that looks great on all devices and tells the story of his 14+ years in QA engineering.",
       run: "1. Clone the repo\n2. Run `npm install` to install dependencies\n3. Run `npm run dev` to start the local development server at http://localhost:5173",
-      tech: ["React 19", "Vite 6", "Tailwind CSS 3", "Lucide React", "Framer Motion", "Vitest", "Playwright"],
+      tech: [
+        "React 19",
+        "Vite 8",
+        "Tailwind CSS 3",
+        "Lucide React",
+        "Framer Motion",
+        "Vitest",
+        "Playwright",
+      ],
       test: "Execute `npm test` for unit and content tests, or `npm run test:e2e` for Playwright end-to-end tests.",
-      contribute: "Contributions are welcome! Please check the `CONTRIBUTING.md` file for guidelines on code style and pull request processes.",
-      files: "• `src/App.jsx`: Main application shell\n• `src/constants/data.js`: Central data store for content\n• `src/components/Sections/`: UI components for each page section\n• `tests/`: Unit and E2E test suites"
+      contribute:
+        "Contributions are welcome! Please check the `CONTRIBUTING.md` file for guidelines on code style and pull request processes.",
+      files:
+        "• `src/App.jsx`: Main application shell\n• `src/constants/data.js`: Central data store for content\n• `src/components/Sections/`: UI components for each page section\n• `tests/`: Unit and E2E test suites",
     },
     {
       id: "nourishbot-ai-coach",
       name: "NourishBot AI Coach",
-      description: "A sophisticated multi-agent AI nutrition coach powered by Google Gemini. Uses multimodal vision and specialized culinary agents to transform food photos into detailed nutritional insights.",
-      fullPurpose: "A multi-agent nutrition assistant that analyzes food images and generates nutritional insights using specialized culinary agents and multimodal AI.",
-      summary: "This app helps users understand what is in their food by turning photos into nutrition guidance and meal insights.",
+      description:
+        "A sophisticated multi-agent AI nutrition coach powered by Google Gemini. Uses multimodal vision and specialized culinary agents to transform food photos into detailed nutritional insights.",
+      fullPurpose:
+        "A multi-agent nutrition assistant that analyzes food images and generates nutritional insights using specialized culinary agents and multimodal AI.",
+      summary:
+        "This app helps users understand what is in their food by turning photos into nutrition guidance and meal insights.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Set the required Gemini API key in your environment\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the project tests if available in the repository scripts.",
-      contribute: "Open an issue or submit a pull request following the repository contribution guidelines.",
-      files: "• `src/`: Main app source\n• `README.md`: Setup and usage notes"
+      contribute:
+        "Open an issue or submit a pull request following the repository contribution guidelines.",
+      files: "• `src/`: Main app source\n• `README.md`: Setup and usage notes",
     },
     {
       id: "colorjoy-ai",
       name: "ColorJoy AI",
-      description: "A personalized children's coloring book generator powered by Google Gemini. Creates custom, high-quality coloring books with AI-generated line art, professional PDF layouts, and an interactive brain-training mode.",
-      fullPurpose: "An AI tool that generates custom coloring books for children using image and prompt-driven generation workflows.",
-      summary: "This repo makes personalized coloring books with AI, then packages them into polished PDF layouts.",
+      description:
+        "A personalized children's coloring book generator powered by Google Gemini. Creates custom, high-quality coloring books with AI-generated line art, professional PDF layouts, and an interactive brain-training mode.",
+      fullPurpose:
+        "An AI tool that generates custom coloring books for children using image and prompt-driven generation workflows.",
+      summary:
+        "This repo makes personalized coloring books with AI, then packages them into polished PDF layouts.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Configure the required API key\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Use the repository test script if provided.",
-      contribute: "Follow the repo contribution instructions and submit a pull request.",
-      files: "• `src/`: Application source\n• `README.md`: Setup instructions"
+      contribute:
+        "Follow the repo contribution instructions and submit a pull request.",
+      files: "• `src/`: Application source\n• `README.md`: Setup instructions",
     },
     {
       id: "map-genie-ai",
       name: "Map-Genie AI",
-      description: "Map-Genie AI — an AI-powered travel planning web application.",
-      fullPurpose: "A travel-planning web app that uses AI to help users organize destinations, plans, and trip details.",
+      description:
+        "Map-Genie AI — an AI-powered travel planning web application.",
+      fullPurpose:
+        "A travel-planning web app that uses AI to help users organize destinations, plans, and trip details.",
       summary: "This app helps users plan trips with AI assistance.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Configure environment variables if needed\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the project tests if defined in package scripts.",
       contribute: "Use the standard GitHub PR workflow.",
-      files: "• `src/`: Main application code\n• `README.md`: Project overview"
+      files: "• `src/`: Main application code\n• `README.md`: Project overview",
     },
     {
       id: "QA-Architect-Career-Intelligence-Dashboard",
       name: "QA Architect Career Intelligence Dashboard",
-      description: "Career intelligence hub for senior QA/SDET architects. Features resume tailoring, job search dashboard, stale application tracking, and an auditable job scraping sandbox.",
-      fullPurpose: "A career management dashboard designed for QA/SDET professionals to track applications, tailor resumes, and manage job search workflows.",
+      description:
+        "Career intelligence hub for senior QA/SDET architects. Features resume tailoring, job search dashboard, stale application tracking, and an auditable job scraping sandbox.",
+      fullPurpose:
+        "A career management dashboard designed for QA/SDET professionals to track applications, tailor resumes, and manage job search workflows.",
       summary: "This is a job-search command center for senior QA people.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Set up required environment variables\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Follow the repository's available test scripts.",
-      contribute: "Submit changes through pull requests and keep code aligned with the existing dashboard architecture.",
-      files: "• `src/`: App source\n• `README.md`: Usage details"
+      contribute:
+        "Submit changes through pull requests and keep code aligned with the existing dashboard architecture.",
+      files: "• `src/`: App source\n• `README.md`: Usage details",
     },
     {
       id: "Kronos-AI",
       name: "Kronos-AI",
       description: "AI-driven calendar app and event handling.",
-      fullPurpose: "An AI-assisted calendar application for scheduling and event handling.",
+      fullPurpose:
+        "An AI-assisted calendar application for scheduling and event handling.",
       summary: "This app helps manage calendars and events using AI.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Configure environment variables\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the repository test scripts if available.",
       contribute: "Use the usual GitHub pull request process.",
-      files: "• `src/`: Application source\n• `README.md`: Documentation"
+      files: "• `src/`: Application source\n• `README.md`: Documentation",
     },
     {
       id: "DineAI",
       name: "DineAI",
-      description: "An AI-powered restaurant recommendation engine that orchestrates specialized agents to deliver real-time dining suggestions. Utilizes Retrieval-Augmented Generation (RAG), Gemini embeddings, and multi-agent coordination.",
-      fullPurpose: "A restaurant recommendation engine that uses multi-agent AI coordination to suggest places to eat in real time.",
-      summary: "This app helps users decide where to eat by combining recommendations from several AI agents.",
+      description:
+        "An AI-powered restaurant recommendation engine that orchestrates specialized agents to deliver real-time dining suggestions. Utilizes Retrieval-Augmented Generation (RAG), Gemini embeddings, and multi-agent coordination.",
+      fullPurpose:
+        "A restaurant recommendation engine that uses multi-agent AI coordination to suggest places to eat in real time.",
+      summary:
+        "This app helps users decide where to eat by combining recommendations from several AI agents.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Set the required API key\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Use the available repository test commands.",
       contribute: "Create a branch, make changes, and open a pull request.",
-      files: "• `src/`: App source\n• `README.md`: Project instructions"
+      files: "• `src/`: App source\n• `README.md`: Project instructions",
     },
     {
       id: "SplitSmart-AI",
@@ -116,235 +151,292 @@ export const assistantData = {
       tech: ["TypeScript"],
       test: "Run the project tests if defined.",
       contribute: "Follow standard pull request practices.",
-      files: "• `src/`: Application files\n• `README.md`: Instructions"
+      files: "• `src/`: Application files\n• `README.md`: Instructions",
     },
     {
       id: "ai-financial-auditor",
       name: "AI Financial Auditor",
-      description: "Transform raw earnings PDFs into actionable financial insights with Gemini 3 Pro. Features dashboarding, sentiment analysis, and comparative intelligence for financial professionals.",
-      fullPurpose: "A financial analysis tool that extracts insights from earnings PDFs and presents structured intelligence.",
-      summary: "This app reads earnings reports and turns them into useful financial insights.",
+      description:
+        "Transform raw earnings PDFs into actionable financial insights with Gemini 3 Pro. Features dashboarding, sentiment analysis, and comparative intelligence for financial professionals.",
+      fullPurpose:
+        "A financial analysis tool that extracts insights from earnings PDFs and presents structured intelligence.",
+      summary:
+        "This app reads earnings reports and turns them into useful financial insights.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Configure the API key\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Use the repository test scripts if present.",
       contribute: "Open issues and pull requests through the normal workflow.",
-      files: "• `src/`: App source\n• `README.md`: Project guide"
+      files: "• `src/`: App source\n• `README.md`: Project guide",
     },
     {
       id: "AI-Evaluation-QA",
       name: "AI Evaluation QA",
-      description: "Python framework for scoring and comparing AI model performance.",
-      fullPurpose: "A Python framework for comparing and evaluating AI model responses with rubric-based scoring and hallucination detection.",
+      description:
+        "Python framework for scoring and comparing AI model performance.",
+      fullPurpose:
+        "A Python framework for comparing and evaluating AI model responses with rubric-based scoring and hallucination detection.",
       summary: "This tool tests AIs and scores how well they respond.",
       run: "1. Create a Python environment\n2. Install dependencies\n3. Configure environment variables\n4. Run the evaluation commands in the README",
       tech: ["Python 3.9+", "OpenAI SDK", "Anthropic SDK", "Docker"],
       test: "Run the repo test suite using its Python test command.",
       contribute: "Follow the contributing instructions in the repository.",
-      files: "• `main.py`: Entry point\n• `evaluation/`: Evaluation logic"
+      files: "• `main.py`: Entry point\n• `evaluation/`: Evaluation logic",
     },
     {
       id: "AI-meme-generator",
       name: "AI Meme Generator",
-      description: "Create viral-worthy memes in seconds. This Angular app uses the Google Gemini API to generate hilarious, context-aware captions for your images. Supports file upload, template selection, and text customization.",
-      fullPurpose: "An AI meme creation app that generates captions and layouts for images.",
+      description:
+        "Create viral-worthy memes in seconds. This Angular app uses the Google Gemini API to generate hilarious, context-aware captions for your images. Supports file upload, template selection, and text customization.",
+      fullPurpose:
+        "An AI meme creation app that generates captions and layouts for images.",
       summary: "This repo helps you make memes with AI in a few clicks.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Set up the required API key\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the project tests if available.",
       contribute: "Create a PR after testing your changes.",
-      files: "• `src/`: Angular app source\n• `README.md`: Usage instructions"
+      files: "• `src/`: Angular app source\n• `README.md`: Usage instructions",
     },
     {
       id: "socratic-math-tutor",
       name: "Socratic Math Tutor",
-      description: "A compassionate AI math tutor that guides students through complex problems step-by-step using the Socratic method. Features image upload for problem analysis, interactive analogies, and a comprehensive hint system.",
-      fullPurpose: "An AI tutoring app that teaches math by guiding students step by step instead of giving direct answers.",
-      summary: "This app helps people solve math problems by asking smart questions and giving hints.",
+      description:
+        "A compassionate AI math tutor that guides students through complex problems step-by-step using the Socratic method. Features image upload for problem analysis, interactive analogies, and a comprehensive hint system.",
+      fullPurpose:
+        "An AI tutoring app that teaches math by guiding students step by step instead of giving direct answers.",
+      summary:
+        "This app helps people solve math problems by asking smart questions and giving hints.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Set the API key\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the repository tests if configured.",
       contribute: "Contribute through GitHub pull requests.",
-      files: "• `src/`: Application code\n• `README.md`: Setup details"
+      files: "• `src/`: Application code\n• `README.md`: Setup details",
     },
     {
       id: "Enterprise-Prompt-Engineering-Portal-2025",
       name: "Enterprise Prompt Engineering Portal 2025",
-      description: "An interactive, AI-powered manual for modern prompt engineering, featuring frameworks, super-prompts, and real-time model benchmarking.",
-      fullPurpose: "A portal for learning and comparing prompt engineering techniques.",
+      description:
+        "An interactive, AI-powered manual for modern prompt engineering, featuring frameworks, super-prompts, and real-time model benchmarking.",
+      fullPurpose:
+        "A portal for learning and comparing prompt engineering techniques.",
       summary: "This repo is a guide and toolkit for writing better prompts.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run repository tests if included.",
       contribute: "Submit a PR following the repo guidelines.",
-      files: "• `src/`: Main source\n• `README.md`: Documentation"
+      files: "• `src/`: Main source\n• `README.md`: Documentation",
     },
     {
       id: "deep-research-agent",
       name: "Deep Research Agent",
-      description: "An autonomous, iterative research agent that plans, searches, fetches, and synthesizes high-quality reports with citations.",
-      fullPurpose: "A research automation agent that gathers information and produces cited reports.",
+      description:
+        "An autonomous, iterative research agent that plans, searches, fetches, and synthesizes high-quality reports with citations.",
+      fullPurpose:
+        "A research automation agent that gathers information and produces cited reports.",
       summary: "This repo acts like an autonomous research assistant.",
       run: "1. Clone the repo\n2. Install dependencies\n3. Add API keys if required\n4. Run the app from the README instructions",
       tech: ["TypeScript"],
       test: "Use the project test workflow if available.",
       contribute: "Follow the repository's contribution guide.",
-      files: "• `src/`: Core code\n• `README.md`: Setup info"
+      files: "• `src/`: Core code\n• `README.md`: Setup info",
     },
     {
       id: "customer-support-agent",
       name: "Customer Support Agent",
-      description: "A production-ready, intelligent customer support solution built with Google Agent Development Kit (ADK) for Java, showcasing enterprise-grade multi-agent orchestration and robust tooling.",
-      fullPurpose: "A customer-support platform that routes issues to specialized agents for handling different support needs.",
-      summary: "This repo creates a smart support system that can answer different types of customer questions automatically.",
+      description:
+        "A production-ready, intelligent customer support solution built with Google Agent Development Kit (ADK) for Java, showcasing enterprise-grade multi-agent orchestration and robust tooling.",
+      fullPurpose:
+        "A customer-support platform that routes issues to specialized agents for handling different support needs.",
+      summary:
+        "This repo creates a smart support system that can answer different types of customer questions automatically.",
       run: "1. Install Java and Maven\n2. Configure API keys\n3. Run `mvn clean install`\n4. Run `mvn spring-boot:run`",
       tech: ["Java 17", "Spring Boot 3.4.5", "Google ADK 1.3.0", "React 19"],
       test: "Follow the repository test instructions.",
       contribute: "Open a PR after validating your changes.",
-      files: "• `src/`: Project code\n• `README.md`: Instructions"
+      files: "• `src/`: Project code\n• `README.md`: Instructions",
     },
     {
       id: "mindful-coach-app",
       name: "Mindful Coach App",
-      description: "A calm, minimalist health coaching application designed for mindful wellness, goal tracking, and AI-powered health insights.",
-      fullPurpose: "A wellness app that provides coaching, goal tracking, and health insights.",
-      summary: "This app helps users build better health habits with a calm experience.",
+      description:
+        "A calm, minimalist health coaching application designed for mindful wellness, goal tracking, and AI-powered health insights.",
+      fullPurpose:
+        "A wellness app that provides coaching, goal tracking, and health insights.",
+      summary:
+        "This app helps users build better health habits with a calm experience.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Add the Gemini key\n4. Run `npm run dev`",
       tech: ["React 19", "TypeScript", "Google Gemini 2.0 Flash", "Recharts"],
       test: "Run project tests if configured.",
       contribute: "Use GitHub issues and pull requests.",
-      files: "• `src/`: App code\n• `README.md`: Usage guide"
+      files: "• `src/`: App code\n• `README.md`: Usage guide",
     },
     {
       id: "darshil0-readme",
       name: "darshil0 (README)",
-      description: "10+ years verifying mission-critical healthcare software, with expertise in compliance-driven quality assurance, functional testing, and defect lifecycle management.",
-      fullPurpose: "A profile README that summarizes Darshil's QA experience and professional focus.",
+      description:
+        "10+ years verifying mission-critical healthcare software, with expertise in compliance-driven quality assurance, functional testing, and defect lifecycle management.",
+      fullPurpose:
+        "A profile README that summarizes Darshil's QA experience and professional focus.",
       summary: "This is a GitHub profile overview rather than a full app.",
       run: "No runtime; this is a profile README.",
       tech: [],
       test: "Not applicable.",
       contribute: "Not applicable.",
-      files: "• `README.md`: Profile content"
+      files: "• `README.md`: Profile content",
     },
     {
       id: "Gemini-Pulsar-Workspace",
       name: "Gemini Pulsar Workspace",
-      description: "A high-performance AI dashboard featuring an intelligent email assistant, generative image studio, and a real-time vocal workspace powered by Gemini.",
-      fullPurpose: "An AI workspace with email help, image generation, and live voice interaction.",
-      summary: "This repo is a futuristic AI dashboard for talking, writing, and creating.",
+      description:
+        "A high-performance AI dashboard featuring an intelligent email assistant, generative image studio, and a real-time vocal workspace powered by Gemini.",
+      fullPurpose:
+        "An AI workspace with email help, image generation, and live voice interaction.",
+      summary:
+        "This repo is a futuristic AI dashboard for talking, writing, and creating.",
       run: "1. Set the API key\n2. Run `npm install`\n3. Run `npm run dev`",
-      tech: ["React 19", "Google Gemini 2.0 Flash", "Framer Motion", "TypeScript"],
+      tech: [
+        "React 19",
+        "Google Gemini 2.0 Flash",
+        "Framer Motion",
+        "TypeScript",
+      ],
       test: "Run the available test scripts if defined.",
       contribute: "Follow the repository PR process.",
-      files: "• `src/`: UI source\n• `server.ts`: Backend proxy"
+      files: "• `src/`: UI source\n• `server.ts`: Backend proxy",
     },
     {
       id: "atlas-strategic-matrix",
       name: "ATLAS Strategic Matrix",
-      description: "Atlas is a production-ready multi-agent AI orchestrator that transforms high-level strategic directives into actionable 2026 quarterly roadmaps. Powered by Google Gemini 1.5 Flash, with React Flow visualization.",
-      fullPurpose: "A planning orchestrator that converts strategy into quarterly execution roadmaps.",
-      summary: "This repo helps teams turn big goals into structured action plans.",
+      description:
+        "Atlas is a production-ready multi-agent AI orchestrator that transforms high-level strategic directives into actionable 2026 quarterly roadmaps. Powered by Google Gemini 1.5 Flash, with React Flow visualization.",
+      fullPurpose:
+        "A planning orchestrator that converts strategy into quarterly execution roadmaps.",
+      summary:
+        "This repo helps teams turn big goals into structured action plans.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Configure environment variables\n4. Run `npm run dev`",
-      tech: ["TypeScript", "React 19", "Vite 6", "Google Gemini 1.5 Flash", "@xyflow/react", "Firestore"],
+      tech: [
+        "TypeScript",
+        "React 19",
+        "Vite 8",
+        "Google Gemini 1.5 Flash",
+        "@xyflow/react",
+        "Firestore",
+      ],
       test: "Run the repository test commands if present.",
       contribute: "Submit improvements through a branch and PR.",
-      files: "• `src/`: Main app\n• `README.md`: Setup notes"
+      files: "• `src/`: Main app\n• `README.md`: Setup notes",
     },
     {
       id: "gemini-pdf-retrieval-agent",
       name: "Gemini PDF Retrieval Agent",
-      description: "An intelligent document search engine powered by Google Gemini 2.5. Upload multiple PDFs, perform context-aware keyword searches, and jump to exact page citations with a built-in viewer.",
-      fullPurpose: "A document search tool for PDFs with citations and contextual search.",
-      summary: "This repo makes it easy to search PDFs and jump to exact citations.",
+      description:
+        "An intelligent document search engine powered by Google Gemini 2.5. Upload multiple PDFs, perform context-aware keyword searches, and jump to exact page citations with a built-in viewer.",
+      fullPurpose:
+        "A document search tool for PDFs with citations and contextual search.",
+      summary:
+        "This repo makes it easy to search PDFs and jump to exact citations.",
       run: "1. Clone the repo\n2. Install dependencies\n3. Add the Gemini API key\n4. Run the app",
       tech: ["TypeScript", "Google Gemini 2.5", "PDF.js"],
       test: "Use the repository's test workflow if defined.",
       contribute: "Open a PR after testing your changes.",
-      files: "• `src/`: App source\n• `README.md`: Documentation"
+      files: "• `src/`: App source\n• `README.md`: Documentation",
     },
     {
       id: "mashroom-kingdom-mashup-maker",
       name: "Mashroom Kingdom Mashup Maker",
       description: "Mashroom Kingdom Maker.",
       fullPurpose: "A creative mashup generator project.",
-      summary: "This repo appears to be a fun mashup or creative media project.",
+      summary:
+        "This repo appears to be a fun mashup or creative media project.",
       run: "1. Clone the repo\n2. Install dependencies if any\n3. Run the app or build script from the README",
       tech: ["TypeScript"],
       test: "Check the repository README for test instructions.",
       contribute: "Use the standard GitHub contribution flow.",
-      files: "• `src/`: Main source\n• `README.md`: Project notes"
+      files: "• `src/`: Main source\n• `README.md`: Project notes",
     },
     {
       id: "FinPulse-AI-Researcher",
       name: "FinPulse AI Researcher",
-      description: "AI-powered financial news research agent that extracts credible market data into structured CSV format.",
-      fullPurpose: "A finance research assistant that finds and structures market information.",
+      description:
+        "AI-powered financial news research agent that extracts credible market data into structured CSV format.",
+      fullPurpose:
+        "A finance research assistant that finds and structures market information.",
       summary: "This repo helps turn financial news into structured data.",
       run: "1. Clone the repo\n2. Install dependencies\n3. Set up environment variables\n4. Run the app",
       tech: ["TypeScript"],
       test: "Run the repo tests if defined.",
       contribute: "Submit a PR after validating changes.",
-      files: "• `src/`: Source code\n• `README.md`: Guide"
+      files: "• `src/`: Source code\n• `README.md`: Guide",
     },
     {
       id: "skytrack",
       name: "SkyTrack",
-      description: "SkyTrack is a high-performance, real-time flight tracking application built with React, Vite, and D3.js. Features a tactical, air traffic control-inspired interface for monitoring global aviation.",
-      fullPurpose: "A real-time flight tracking application with a tactical aviation-style interface.",
-      summary: "This repo shows flights on a live, high-performance map-style interface.",
+      description:
+        "SkyTrack is a high-performance, real-time flight tracking application built with React, Vite, and D3.js. Features a tactical, air traffic control-inspired interface for monitoring global aviation.",
+      fullPurpose:
+        "A real-time flight tracking application with a tactical aviation-style interface.",
+      summary:
+        "This repo shows flights on a live, high-performance map-style interface.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the test suite if available.",
       contribute: "Use GitHub PRs to contribute changes.",
-      files: "• `src/`: UI and logic\n• `README.md`: Setup info"
+      files: "• `src/`: UI and logic\n• `README.md`: Setup info",
     },
     {
       id: "Tripgroup",
       name: "Tripgroup",
-      description: "An AI-powered group holiday coordination platform featuring smart destination discovery, real-time financial tracking, and an editorial design system.",
-      fullPurpose: "A group travel planning platform with AI-based coordination and financial tracking.",
+      description:
+        "An AI-powered group holiday coordination platform featuring smart destination discovery, real-time financial tracking, and an editorial design system.",
+      fullPurpose:
+        "A group travel planning platform with AI-based coordination and financial tracking.",
       summary: "This repo helps groups plan trips together more easily.",
       run: "1. Clone the repo\n2. Install dependencies\n3. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Use the repository tests if provided.",
       contribute: "Follow the contribution guide in the repo.",
-      files: "• `src/`: Application source\n• `README.md`: Project details"
+      files: "• `src/`: Application source\n• `README.md`: Project details",
     },
     {
       id: "Mobile-Testing-Framework",
       name: "Mobile Testing Framework",
-      description: "Repository for mobile testing framework design and test case creation.",
-      fullPurpose: "A Java-based framework for mobile testing design and test case management.",
+      description:
+        "Repository for mobile testing framework design and test case creation.",
+      fullPurpose:
+        "A Java-based framework for mobile testing design and test case management.",
       summary: "This repo is for mobile QA framework work.",
       run: "1. Clone the repo\n2. Install the required Java dependencies\n3. Run the build or test commands in the README",
       tech: ["Java"],
       test: "Run the framework's test suite if present.",
-      contribute: "Contributions should follow the repo's Java testing standards.",
-      files: "• `src/`: Framework code\n• `README.md`: Documentation"
+      contribute:
+        "Contributions should follow the repo's Java testing standards.",
+      files: "• `src/`: Framework code\n• `README.md`: Documentation",
     },
     {
       id: "ZenJournal-AI",
       name: "ZenJournal AI",
       description: "AI-powered journaling app.",
-      fullPurpose: "A journaling app that uses AI to help users reflect and write entries.",
+      fullPurpose:
+        "A journaling app that uses AI to help users reflect and write entries.",
       summary: "This repo helps users journal with AI support.",
       run: "1. Clone the repo\n2. Install dependencies\n3. Set environment variables\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Use the repository test scripts if available.",
       contribute: "Open a PR after verifying your change.",
-      files: "• `src/`: App source\n• `README.md`: Usage guide"
+      files: "• `src/`: App source\n• `README.md`: Usage guide",
     },
     {
       id: "linkedin-post-generator",
       name: "LinkedIn Post Generator",
-      description: "PostGenius is a high-fidelity, lightweight LinkedIn post generator. Transforms raw ideas into structured, high-performing drafts using proven content frameworks.",
-      fullPurpose: "A generator that turns raw ideas into polished LinkedIn posts.",
+      description:
+        "PostGenius is a high-fidelity, lightweight LinkedIn post generator. Transforms raw ideas into structured, high-performing drafts using proven content frameworks.",
+      fullPurpose:
+        "A generator that turns raw ideas into polished LinkedIn posts.",
       summary: "This repo helps create strong LinkedIn posts quickly.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Run `npm run dev`",
       tech: ["JavaScript"],
       test: "Check the repo scripts for testing commands.",
       contribute: "Submit improvements through a pull request.",
-      files: "• `src/`: App code\n• `README.md`: Project instructions"
+      files: "• `src/`: App code\n• `README.md`: Project instructions",
     },
     {
       id: "java-projects",
@@ -356,7 +448,7 @@ export const assistantData = {
       tech: ["Java"],
       test: "Run the tests if they are included.",
       contribute: "Use normal GitHub contribution flow.",
-      files: "• `src/`: Java source files\n• `README.md`: Notes"
+      files: "• `src/`: Java source files\n• `README.md`: Notes",
     },
     {
       id: "finagent-pro",
@@ -368,55 +460,63 @@ export const assistantData = {
       tech: ["TypeScript"],
       test: "Use the repository test setup if present.",
       contribute: "Contribute through the normal pull request process.",
-      files: "• `src/`: Main app\n• `README.md`: Setup steps"
+      files: "• `src/`: Main app\n• `README.md`: Setup steps",
     },
     {
       id: "qa-nexus-autonomous",
       name: "QA Nexus Autonomous",
-      description: "A high-fidelity, multi-agent AI orchestrator powered by Gemini 3 that automates the end-to-end QA lifecycle — from intelligent requirements analysis and ambiguity detection to traceable test case generation.",
-      fullPurpose: "An autonomous QA system that analyzes requirements, finds ambiguity, and generates traceable test cases.",
+      description:
+        "A high-fidelity, multi-agent AI orchestrator powered by Gemini 3 that automates the end-to-end QA lifecycle — from intelligent requirements analysis and ambiguity detection to traceable test case generation.",
+      fullPurpose:
+        "An autonomous QA system that analyzes requirements, finds ambiguity, and generates traceable test cases.",
       summary: "This repo automates much of the QA lifecycle with AI.",
       run: "1. Clone the repo\n2. Run `npm install`\n3. Set up the required API keys\n4. Run `npm run dev`",
       tech: ["TypeScript"],
       test: "Run the repository test commands if available.",
       contribute: "Open a PR after testing and validating changes.",
-      files: "• `src/`: Source code\n• `README.md`: Project instructions"
+      files: "• `src/`: Source code\n• `README.md`: Project instructions",
     },
     {
       id: "ai-prompts-2026",
       name: "AI Prompts 2026",
-      description: "A comprehensive library of optimized AI prompts and frameworks for 2026.",
+      description:
+        "A comprehensive library of optimized AI prompts and frameworks for 2026.",
       fullPurpose: "A prompt collection or prompt library for AI workflows.",
       summary: "This repo likely stores prompt examples and templates.",
       run: "1. Clone the repo\n2. Open the HTML files in a browser or serve the app if needed",
       tech: ["HTML", "Markdown"],
       test: "No formal tests indicated.",
       contribute: "Update prompts and submit a PR if appropriate.",
-      files: "• `index.html`: Main page\n• `README.md`: Notes"
+      files: "• `index.html`: Main page\n• `README.md`: Notes",
     },
     {
       id: "AI-Testing",
       name: "AI Testing",
-      description: "Repository containing test cases for evaluating various AI models.",
-      fullPurpose: "A repository of test cases and evaluation content for AI model testing.",
+      description:
+        "Repository containing test cases for evaluating various AI models.",
+      fullPurpose:
+        "A repository of test cases and evaluation content for AI model testing.",
       summary: "This repo holds test data for evaluating AI behavior.",
       run: "1. Clone the repo\n2. Set up Python dependencies\n3. Run the test commands from the README",
       tech: ["Python"],
       test: "Run the Python test suite if present.",
       contribute: "Follow the contributing instructions in the repo.",
-      files: "• `tests/`: Test cases\n• `README.md`: Documentation"
+      files: "• `tests/`: Test cases\n• `README.md`: Documentation",
     },
     {
       id: "Web-Testing-Framework",
       name: "Web Testing Framework",
-      description: "A lightweight web testing framework built with Java, Selenium, and TestNG.",
-      fullPurpose: "A framework for automated web testing using Java, Selenium, and TestNG.",
+      description:
+        "A lightweight web testing framework built with Java, Selenium, and TestNG.",
+      fullPurpose:
+        "A framework for automated web testing using Java, Selenium, and TestNG.",
       summary: "This repo is for web QA automation.",
       run: "1. Clone the repo\n2. Install Java dependencies\n3. Run the framework setup and tests from the README",
       tech: ["Java"],
       test: "Run the TestNG test suite if configured.",
-      contribute: "Use the project's Java testing conventions when contributing.",
-      files: "• `src/`: Framework source\n• `README.md`: Setup instructions"
-    }
-  ]
+      contribute:
+        "Use the project's Java testing conventions when contributing.",
+      files: "• `src/`: Framework source\n• `README.md`: Setup instructions",
+    },
+  ],
 };

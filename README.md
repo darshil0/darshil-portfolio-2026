@@ -1,6 +1,6 @@
 # Darshil Shah: QA Leadership & Digital Transformation Portfolio
 
-**v2026.6.23** · A high-fidelity, professional portfolio showcasing 14+ years of expertise in Healthcare QA Engineering and AI-driven testing.
+**v2026.7.15** · A high-fidelity, professional portfolio showcasing 14+ years of expertise in Healthcare QA Engineering and AI-driven testing.
 
 ## Overview
 
@@ -17,7 +17,7 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 ## Tech Stack
 
 - **Framework**: [React 19](https://react.dev/)
-- **Build Tool**: [Vite 6](https://vitejs.dev/)
+- **Build Tool**: [Vite 8](https://vitejs.dev/)
 - **Styling**: [Tailwind CSS 3](https://tailwindcss.com/) with `@tailwindcss/forms` and `@tailwindcss/container-queries`
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Testing**: [Vitest 3](https://vitest.dev/) (Unit/Integration) & [Playwright 1.51](https://playwright.dev/) (E2E)
@@ -31,6 +31,7 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 ## Installation
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/darshil0/darshil-portfolio-2026.git
    cd darshil-portfolio-2026
@@ -44,20 +45,25 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 ## Development Commands
 
 Start the local development server with Hot Module Replacement (HMR):
+
 ```bash
 npm run dev
 ```
+
 The application will be available at `http://localhost:5173`.
 
 ## Build and Preview
 
 Build the production-ready application:
+
 ```bash
 npm run build
 ```
+
 The output will be generated in the `dist/` directory.
 
 Preview the production build locally:
+
 ```bash
 npm run preview
 ```
@@ -65,13 +71,17 @@ npm run preview
 ## Testing Instructions
 
 ### Unit and Integration Tests
+
 Run Vitest to verify component logic and content consistency:
+
 ```bash
 npm test
 ```
 
 ### End-to-End Tests
+
 Run Playwright to verify user flows and responsiveness:
+
 ```bash
 # Install required browser binaries (first time only)
 npx playwright install chromium
@@ -107,12 +117,15 @@ This project does not currently require any environment variables. Contact form 
 ## License and Contact
 
 ### License
+
 Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Contact
+
 - **Email**: [darshils99@gmail.com](mailto:darshils99@gmail.com)
 - **LinkedIn**: [linkedin.com/in/darshil-qa-lead](https://www.linkedin.com/in/darshil-qa-lead/)
 - **GitHub**: [github.com/darshil0](https://github.com/darshil0)
 
 ---
+
 © 2026 Darshil Shah

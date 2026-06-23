@@ -5,6 +5,7 @@ This project maintains high quality through a comprehensive testing strategy tha
 ## Testing Strategy
 
 Our strategy ensures that:
+
 1. **Business Logic**: Core utilities and data constants are accurate.
 2. **Component Integrity**: React components render correctly and handle state changes.
 3. **User Experience**: Critical paths (navigation, forms, theme toggling) work across different browsers and devices.
@@ -18,16 +19,21 @@ Our strategy ensures that:
 ## How to Run Tests Locally
 
 ### Unit and Integration Tests
+
 ```bash
 npm test
 ```
+
 To run tests in watch mode:
+
 ```bash
 npx vitest
 ```
 
 ### End-to-End Tests
+
 Ensure the development server is running or the project is built before running E2E tests.
+
 ```bash
 # Install browsers (required once)
 npx playwright install chromium
@@ -35,7 +41,9 @@ npx playwright install chromium
 # Run tests
 npm run test:e2e
 ```
+
 To open the Playwright UI for debugging:
+
 ```bash
 npx playwright test --ui
 ```
@@ -43,14 +51,17 @@ npx playwright test --ui
 ## How to Write and Organize Tests
 
 ### File Naming Conventions
+
 - **Unit/Integration Tests**: `tests/*.test.js` or `tests/*.test.jsx`.
 - **E2E Tests**: `tests/e2e/*.spec.js`.
 
 ### Organization
+
 - Store unit tests for specific features or components in the `tests/` directory.
 - Store E2E user flow scenarios in the `tests/e2e/` directory.
 
 ### Mocking and Coverage
+
 - Use Vitest's mocking capabilities for external dependencies if necessary.
 - To check code coverage:
   ```bash
@@ -59,12 +70,12 @@ npx playwright test --ui
 
 ## Common Test Commands
 
-| Command | Description |
-| --- | --- |
-| `npm test` | Runs all Vitest unit and integration tests. |
-| `npm run test:e2e` | Runs all Playwright E2E tests. |
-| `npx vitest --ui` | Opens the Vitest UI. |
-| `npx playwright show-report` | Shows the last Playwright test report. |
+| Command                      | Description                                 |
+| ---------------------------- | ------------------------------------------- |
+| `npm test`                   | Runs all Vitest unit and integration tests. |
+| `npm run test:e2e`           | Runs all Playwright E2E tests.              |
+| `npx vitest --ui`            | Opens the Vitest UI.                        |
+| `npx playwright show-report` | Shows the last Playwright test report.      |
 
 ## Troubleshooting
 
@@ -73,4 +84,5 @@ npx playwright test --ui
 - **Hydration Errors**: Ensure tests are not failing due to subtle differences between server and client rendering (though this is a pure SPA).
 
 ---
+
 © 2026 Darshil Shah

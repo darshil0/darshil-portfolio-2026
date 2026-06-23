@@ -1,28 +1,25 @@
-import tailwindForms from '@tailwindcss/forms';
-import tailwindContainerQueries from '@tailwindcss/container-queries';
-import tailwindAnimate from 'tailwindcss-animate';
+import tailwindForms from "@tailwindcss/forms";
+import tailwindContainerQueries from "@tailwindcss/container-queries";
+import tailwindAnimate from "tailwindcss-animate";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
       colors: {
         "primary-fixed": "#89f5e7",
-        "secondary": "#006c4a",
+        secondary: "#006c4a",
         "outline-variant": "#bcc9c6",
         "primary-fixed-dim": "#6bd8cb",
         "surface-tint": "#006a61",
         "on-background": "#121c28",
         "on-secondary-fixed": "#002114",
         "inverse-on-surface": "#eaf1ff",
-        "background": "#f8f9ff",
-        "tertiary": "#00647c",
-        "outline": "#6d7a77",
+        background: "#f8f9ff",
+        tertiary: "#00647c",
+        outline: "#6d7a77",
         "on-secondary": "#ffffff",
         "on-primary-container": "#f4fffc",
         "error-container": "#ffdad6",
@@ -36,10 +33,10 @@ export default {
         "surface-variant": "#d9e3f4",
         "primary-container": "#008378",
         "on-primary-fixed-variant": "#005049",
-        "error": "#ba1a1a",
+        error: "#ba1a1a",
         "tertiary-container": "#007f9d",
         "on-error": "#ffffff",
-        "surface": "#f8f9ff",
+        surface: "#f8f9ff",
         "on-tertiary-container": "#fafdff",
         "surface-container-lowest": "#ffffff",
         "on-primary-fixed": "#00201d",
@@ -54,16 +51,16 @@ export default {
         "tertiary-fixed": "#b7eaff",
         "surface-bright": "#f8f9ff",
         "on-tertiary-fixed": "#001f28",
-        "primary": "#00685f",
+        primary: "#00685f",
         "surface-container": "#e5eeff",
         "surface-dim": "#d1dbec",
         "secondary-container": "#82f5c1",
-        "on-surface": "#121c28"
+        "on-surface": "#121c28",
       },
       fontFamily: {
-        "headline": ["Manrope"],
-        "body": ["Inter"],
-        "label": ["Inter"]
+        headline: ["Manrope"],
+        body: ["Inter"],
+        label: ["Inter"],
       },
       // BUG FIX: Restore the full Tailwind borderRadius scale.
       // The previous config overrode 'full' to 0.75rem (breaking rounded-full on
@@ -72,20 +69,16 @@ export default {
       // default (0). Only DEFAULT and lg/xl need custom values per the design system;
       // all other keys are restored to Tailwind's standard values.
       borderRadius: {
-        "DEFAULT": "0.125rem",
-        "sm":      "0.125rem",
-        "md":      "0.25rem",
-        "lg":      "0.25rem",
-        "xl":      "0.5rem",
-        "2xl":     "1rem",
-        "3xl":     "1.5rem",
-        "full":    "9999px",
+        DEFAULT: "0.125rem",
+        sm: "0.125rem",
+        md: "0.25rem",
+        lg: "0.25rem",
+        xl: "0.5rem",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        full: "9999px",
       },
     },
   },
-  plugins: [
-    tailwindForms,
-    tailwindContainerQueries,
-    tailwindAnimate,
-  ],
-}
+  plugins: [tailwindForms, tailwindContainerQueries, tailwindAnimate],
+};
