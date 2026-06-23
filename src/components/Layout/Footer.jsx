@@ -40,8 +40,8 @@ export default function Footer({ navigate }) {
           </button>
         </div>
         <p className="text-[10px] uppercase tracking-tighter text-slate-400 font-medium">
-          © 2026 Darshil Shah. QA Leadership & Digital Excellence. {experienceYears}{" "}
-          {portfolioVersion}
+          © 2026 Darshil Shah. QA Leadership & Digital Excellence.{" "}
+          {experienceYears} {portfolioVersion}
         </p>
       </div>
     </footer>

@@ -5,7 +5,9 @@ test("verify assistant reset and header nav", async ({ page }) => {
   await page.waitForSelector("#root");
 
   // Verify Header using more robust role-based locators
-  const expertiseLink = page.getByRole("button", { name: /^Expertise$/i }).first();
+  const expertiseLink = page
+    .getByRole("button", { name: /^Expertise$/i })
+    .first();
   await expect(expertiseLink).toBeVisible();
 
   const impactLink = page.getByRole("button", { name: /^Impact$/i }).first();
@@ -26,7 +28,9 @@ test("verify assistant reset and header nav", async ({ page }) => {
   await expect(assistantButton).toBeVisible();
   await assistantButton.click();
 
-  const exploreButton = page.getByRole("button", { name: /Explore Repositories/i });
+  const exploreButton = page.getByRole("button", {
+    name: /Explore Repositories/i,
+  });
   await expect(exploreButton).toBeVisible();
   await exploreButton.click();
 
