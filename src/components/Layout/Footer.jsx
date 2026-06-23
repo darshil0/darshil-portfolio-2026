@@ -1,6 +1,10 @@
-import React from 'react';
-import { Layout } from 'lucide-react';
-import { navItems } from '../../constants/data.js';
+import React from "react";
+import { Layout } from "lucide-react";
+import {
+  navItems,
+  portfolioVersion,
+  experienceYears,
+} from "../../constants/data.js";
 
 export default function Footer({ navigate }) {
   return (
@@ -8,16 +12,18 @@ export default function Footer({ navigate }) {
       <div className="max-w-7xl mx-auto px-6 text-center">
         <div className="flex items-center justify-center gap-2 mb-6">
           <Layout className="text-[#00685f]" size={20} />
-          <span className="font-headline font-extrabold">The Clinical Architect</span>
+          <span className="font-headline font-extrabold">
+            The Clinical Architect
+          </span>
         </div>
         <div className="flex flex-wrap justify-center gap-x-8 gap-y-4 mb-8">
           <button
-            onClick={() => navigate('home')}
+            onClick={() => navigate("home")}
             className="text-xs font-bold text-slate-400 hover:text-[#00685f] uppercase tracking-widest transition-colors"
           >
             Home
           </button>
-          {navItems.map(item => (
+          {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => navigate(item.id)}
@@ -27,14 +33,15 @@ export default function Footer({ navigate }) {
             </button>
           ))}
           <button
-            onClick={() => navigate('contact')}
+            onClick={() => navigate("contact")}
             className="text-xs font-bold text-slate-400 hover:text-[#00685f] uppercase tracking-widest transition-colors"
           >
             Contact
           </button>
         </div>
         <p className="text-[10px] uppercase tracking-tighter text-slate-400 font-medium">
-          © 2026 Darshil Shah. QA Leadership & Digital Excellence. v2026.6.12
+          © 2026 Darshil Shah. QA Leadership & Digital Excellence. {experienceYears}{" "}
+          {portfolioVersion}
         </p>
       </div>
     </footer>

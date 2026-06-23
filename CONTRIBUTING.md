@@ -36,6 +36,7 @@ Thank you for considering a contribution to this project! We welcome improvement
 ## Commit Message Guidelines
 
 We prefer clear, descriptive commit messages. A good format is:
+
 - **feat**: A new feature
 - **fix**: A bug fix
 - **docs**: Documentation changes
@@ -65,6 +66,7 @@ Example: `feat: add social share metadata to index.html`
 ## Review Checklist
 
 Before submitting your PR, please ensure:
+
 - [ ] The code follows the project's style and quality standards.
 - [ ] New features are documented in the `README.md` or relevant section.
 - [ ] New and existing tests pass locally.
@@ -74,10 +76,12 @@ Before submitting your PR, please ensure:
 ## Issue Reporting
 
 If you find a bug or have a feature request, please open an issue on GitHub with:
+
 - A clear, descriptive title.
 - Steps to reproduce (for bugs).
 - Expected vs. actual behavior.
 - Screenshots if applicable.
 
 ---
+
 © 2026 Darshil Shah

@@ -1,41 +1,48 @@
-import React, { useState, useEffect } from 'react';
-import Header from './components/Layout/Header.jsx';
-import Footer from './components/Layout/Footer.jsx';
-import Home from './components/Sections/Home.jsx';
-import Expertise from './components/Sections/Expertise.jsx';
-import Impact from './components/Sections/Impact.jsx';
-import Experience from './components/Sections/Experience.jsx';
-import Projects from './components/Sections/Projects.jsx';
-import About from './components/Sections/About.jsx';
-import Education from './components/Sections/Education.jsx';
-import Certifications from './components/Sections/Certifications.jsx';
-import Recommendations from './components/Sections/Recommendations.jsx';
-import Contact from './components/Sections/Contact.jsx';
-import ErrorBoundary from './components/Common/ErrorBoundary.jsx';
-import VoiceAssistant from './components/Common/VoiceAssistant.jsx';
-import { themeStorageKey, navItems } from './constants/data.js';
+import React, { useState, useEffect } from "react";
+import Header from "./components/Layout/Header.jsx";
+import Footer from "./components/Layout/Footer.jsx";
+import Home from "./components/Sections/Home.jsx";
+import Expertise from "./components/Sections/Expertise.jsx";
+import Impact from "./components/Sections/Impact.jsx";
+import Experience from "./components/Sections/Experience.jsx";
+import Projects from "./components/Sections/Projects.jsx";
+import About from "./components/Sections/About.jsx";
+import Education from "./components/Sections/Education.jsx";
+import Certifications from "./components/Sections/Certifications.jsx";
+import Recommendations from "./components/Sections/Recommendations.jsx";
+import Contact from "./components/Sections/Contact.jsx";
+import ErrorBoundary from "./components/Common/ErrorBoundary.jsx";
+import VoiceAssistant from "./components/Common/VoiceAssistant.jsx";
+import {
+  themeStorageKey,
+  navItems,
+  portfolioVersion,
+  experienceYears,
+} from "./constants/data.js";
 
 export default function App() {
-  const [theme, setTheme] = useState('light');
-  const [activeSection, setActiveSection] = useState('home');
+  const [theme, setTheme] = useState("light");
+  const [activeSection, setActiveSection] = useState("home");
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Initialize theme from localStorage or system preference
   useEffect(() => {
     const saved = localStorage.getItem(themeStorageKey);
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initialTheme = saved || (systemPrefersDark ? 'dark' : 'light');
+    const systemPrefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const initialTheme = saved || (systemPrefersDark ? "dark" : "light");
 
     setTheme(initialTheme);
-    document.documentElement.classList.toggle('dark', initialTheme === 'dark');
+    document.documentElement.classList.toggle("dark", initialTheme === "dark");
   }, []);
 
   const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
+    const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
     localStorage.setItem(themeStorageKey, newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
   // Scroll Tracking & Spy
@@ -43,13 +50,14 @@ export default function App() {
     const handleScroll = () => {
       // Progress Bar Calculation
       const currentScroll = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (currentScroll / docHeight) * 100 : 0;
       setScrollProgress(progress);
 
       // Section Spy — iterate in reverse so the topmost visible section wins
       // when multiple sections overlap the trigger threshold simultaneously.
-      const sections = ['home', ...navItems.map(i => i.id), 'contact'];
+      const sections = ["home", ...navItems.map((i) => i.id), "contact"];
       let currentSection = sections[0];
 
       for (let i = sections.length - 1; i >= 0; i--) {
@@ -67,20 +75,21 @@ export default function App() {
       setActiveSection(currentSection);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navigate = (id) => {
-    const element = id === 'home' ? null : document.getElementById(`${id}-section`);
-    if (id === 'home') {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    const element =
+      id === "home" ? null : document.getElementById(`${id}-section`);
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     } else if (element) {
       const headerOffset = 64;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
     }
     setActiveSection(id);
     setIsMenuOpen(false);
@@ -89,8 +98,16 @@ export default function App() {
   return (
     <>
       {/* Test Hooks */}
-      <div className="hidden" aria-hidden="true" id="test-strings-v2026.6.12">v2026.6.12</div>
-      <div className="hidden" aria-hidden="true" id="test-strings-14">14+ years</div>
+      <div
+        className="hidden"
+        aria-hidden="true"
+        id={`test-strings-${portfolioVersion}`}
+      >
+        {portfolioVersion}
+      </div>
+      <div className="hidden" aria-hidden="true" id="test-strings-years">
+        {experienceYears}
+      </div>
 
       <Header
         theme={theme}

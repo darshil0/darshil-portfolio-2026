@@ -12,22 +12,22 @@ This file defines the visual language and design tokens for the Darshil Shah Por
 
 ### Primary Colors
 
-| Token | Hex (Light) | Hex (Dark) | Description |
-|-------|-------------|------------|-------------|
-| `primary` | `#00685f` | `#6bd8cb` | Brand primary color |
-| `primary-container` | `#008378` | `#004e47` | Deep teal container |
-| `primary-fixed` | `#89f5e7` | `#89f5e7` | Light teal highlight |
-| `on-primary` | `#ffffff` | `#003732` | Text on primary |
+| Token               | Hex (Light) | Hex (Dark) | Description          |
+| ------------------- | ----------- | ---------- | -------------------- |
+| `primary`           | `#00685f`   | `#6bd8cb`  | Brand primary color  |
+| `primary-container` | `#008378`   | `#004e47`  | Deep teal container  |
+| `primary-fixed`     | `#89f5e7`   | `#89f5e7`  | Light teal highlight |
+| `on-primary`        | `#ffffff`   | `#003732`  | Text on primary      |
 
 ### Secondary & Surface
 
-| Token | Hex (Light) | Hex (Dark) | Description |
-|-------|-------------|------------|-------------|
-| `secondary` | `#006c4a` | `#5cd4a0` | Accent green |
-| `surface` | `#f8f9ff` | `#0f172a` | Default background |
-| `surface-dim` | `#d1dbec` | `#1e293b` | Subtle backgrounds |
-| `on-surface` | `#121c28` | `#f1f5f9` | Main text color |
-| `background` | `#f8f9ff` | `#0f172a` | App background |
+| Token         | Hex (Light) | Hex (Dark) | Description        |
+| ------------- | ----------- | ---------- | ------------------ |
+| `secondary`   | `#006c4a`   | `#5cd4a0`  | Accent green       |
+| `surface`     | `#f8f9ff`   | `#0f172a`  | Default background |
+| `surface-dim` | `#d1dbec`   | `#1e293b`  | Subtle backgrounds |
+| `on-surface`  | `#121c28`   | `#f1f5f9`  | Main text color    |
+| `background`  | `#f8f9ff`   | `#0f172a`  | App background     |
 
 ### Slate Overrides (Tailwind Defaults)
 
@@ -41,17 +41,17 @@ This file defines the visual language and design tokens for the Darshil Shah Por
 
 - **Headline**: `Manrope`, sans-serif (Weights: 700, 800)
 - **Body**: `Inter`, sans-serif (Weights: 400, 500, 600)
-- **Label**: `Inter`, sans-serif (Weights: 600, 700) *(Inter does not support weight 900; use 700 max)*
+- **Label**: `Inter`, sans-serif (Weights: 600, 700) _(Inter does not support weight 900; use 700 max)_
 
 ### Typographic Scale
 
-| Level | Size | Weight | Line Height | Usage |
-|-------|------|--------|-------------|-------|
-| `h1` | `clamp(2.25rem, 5vw, 4rem)` | 800 | 1.1 | Hero headlines |
-| `h2` | `clamp(1.85rem, 4vw, 3rem)` | 800 | 1.2 | Section titles |
-| `h3` | `clamp(1.35rem, 3vw, 2rem)` | 700 | 1.3 | Card titles |
-| `body` | `1rem` | 400 | 1.6 | Paragraphs |
-| `label` | `0.75rem` | 700 | 1.0 | Small uppercase caps |
+| Level   | Size                        | Weight | Line Height | Usage                |
+| ------- | --------------------------- | ------ | ----------- | -------------------- |
+| `h1`    | `clamp(2.25rem, 5vw, 4rem)` | 800    | 1.1         | Hero headlines       |
+| `h2`    | `clamp(1.85rem, 4vw, 3rem)` | 800    | 1.2         | Section titles       |
+| `h3`    | `clamp(1.35rem, 3vw, 2rem)` | 700    | 1.3         | Card titles          |
+| `body`  | `1rem`                      | 400    | 1.6         | Paragraphs           |
+| `label` | `0.75rem`                   | 700    | 1.0         | Small uppercase caps |
 
 ## 4. Spacing & Grid
 
@@ -63,14 +63,14 @@ This file defines the visual language and design tokens for the Darshil Shah Por
 
 ### Border Radii
 
-| Token | Value | Tailwind Class | Usage |
-|-------|-------|----------------|-------|
-| `radius-sm` | `0.375rem` | `rounded` | Inputs, badges |
-| `radius-md` | `0.75rem` | `rounded-xl` | Chips, tags |
-| `radius-lg` | `1rem` | `rounded-2xl` | Panels, modals |
-| `radius-card` | `1.5rem` | `rounded-3xl` | Cards |
-| `radius-pill` | `2rem` | `rounded-[2rem]` | Buttons |
-| `radius-full` | `9999px` | `rounded-full` | Avatars, indicators |
+| Token         | Value      | Tailwind Class   | Usage               |
+| ------------- | ---------- | ---------------- | ------------------- |
+| `radius-sm`   | `0.375rem` | `rounded`        | Inputs, badges      |
+| `radius-md`   | `0.75rem`  | `rounded-xl`     | Chips, tags         |
+| `radius-lg`   | `1rem`     | `rounded-2xl`    | Panels, modals      |
+| `radius-card` | `1.5rem`   | `rounded-3xl`    | Cards               |
+| `radius-pill` | `2rem`     | `rounded-[2rem]` | Buttons             |
+| `radius-full` | `9999px`   | `rounded-full`   | Avatars, indicators |
 
 ## 5. Component Specifications
 
@@ -91,11 +91,11 @@ This file defines the visual language and design tokens for the Darshil Shah Por
 
 ## 6. Visual Effects
 
-- **Glassmorphism**: `backdrop-blur-3xl`, `bg-white/40`, `border border-white/20`. *(A subtle border is required for glassmorphism to render correctly.)*
+- **Glassmorphism**: `backdrop-blur-3xl`, `bg-white/40`, `border border-white/20`. _(A subtle border is required for glassmorphism to render correctly.)_
 - **Gradients**:
   - Light: `from-[#00685f] to-[#004e47]`
   - Dark: `from-[#6bd8cb] to-[#3ab8ab]`
-- **Animations**: `animate-in`, `fade-in`, `slide-in-from-bottom-4`. *(Requires `tailwindcss-animate` plugin — add to `tailwind.config.js` plugins.)*
+- **Animations**: `animate-in`, `fade-in`, `slide-in-from-bottom-4`. _(Requires `tailwindcss-animate` plugin — add to `tailwind.config.js` plugins.)_
 
 ## 7. Accessibility Standards
 

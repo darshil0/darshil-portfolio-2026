@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { X, Bot, Mic, ChevronRight } from 'lucide-react';
-import { assistantData } from '../../constants/assistantData';
+import React, { useEffect, useRef, useState } from "react";
+import { X, Bot, Mic, ChevronRight } from "lucide-react";
+import { assistantData } from "../../constants/assistantData";
 
 export default function VoiceAssistant() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { role: 'assistant', content: assistantData.welcomeMessage },
+    { role: "assistant", content: assistantData.welcomeMessage },
   ]);
   const [selectedRepo, setSelectedRepo] = useState(null);
-  const [mode, setMode] = useState('menu');
+  const [mode, setMode] = useState("menu");
   const [isTyping, setIsTyping] = useState(false);
 
   const messagesEndRef = useRef(null);
@@ -31,91 +31,93 @@ export default function VoiceAssistant() {
 
   useEffect(() => {
     if (isOpen) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   }, [messages, isOpen, isTyping]);
 
   const appendMessagePair = (userContent, assistantContent) => {
-    setMessages(prev => [
+    setMessages((prev) => [
       ...prev,
-      { role: 'user', content: userContent },
-      { role: 'assistant', content: assistantContent },
+      { role: "user", content: userContent },
+      { role: "assistant", content: assistantContent },
     ]);
   };
 
-  const handleRepoSelect = repo => {
+  const handleRepoSelect = (repo) => {
     setSelectedRepo(repo);
-    setMode('projects');
+    setMode("projects");
     appendMessagePair(`Tell me about ${repo.name}`, repo.description);
   };
 
   const handleAboutSelect = () => {
-    setMode('about');
+    setMode("about");
     appendMessagePair(
-      'Tell me about Darshil',
-      "I'd love to! Darshil is a seasoned QA leader with over 14 years of experience. You can ask me about his background, strengths, experience, or certifications."
+      "Tell me about Darshil",
+      "I'd love to! Darshil is a seasoned QA leader with over 14 years of experience. You can ask me about his background, strengths, experience, or certifications.",
     );
   };
 
-  const handleQuestion = question => {
-    let answer = '';
+  const handleQuestion = (question) => {
+    let answer = "";
 
     if (assistantData.personalQuestions.includes(question)) {
       switch (question) {
         case "Tell me about Darshil's background":
           answer = assistantData.personal.background;
           break;
-        case 'What are his core strengths?':
+        case "What are his core strengths?":
           answer = assistantData.personal.strengths;
           break;
-        case 'Where has he worked?':
+        case "Where has he worked?":
           answer = assistantData.personal.experience;
           break;
-        case 'What certifications does he have?':
+        case "What certifications does he have?":
           answer = assistantData.personal.certifications;
           break;
         default:
-          answer = "I'm not sure about that. Try one of the suggested questions!";
+          answer =
+            "I'm not sure about that. Try one of the suggested questions!";
       }
     } else {
       const repo = selectedRepoRef.current;
 
       if (!repo) {
-        setMessages(prev => [
+        setMessages((prev) => [
           ...prev,
-          { role: 'assistant', content: 'Please select a repository first!' },
+          { role: "assistant", content: "Please select a repository first!" },
         ]);
         return;
       }
 
       switch (question) {
-        case 'What does this repo do?':
+        case "What does this repo do?":
           answer = repo.fullPurpose;
           break;
-        case 'How do I run it?':
+        case "How do I run it?":
           answer = repo.run;
           break;
-        case 'What technologies does it use?':
-          answer = `It uses: ${repo.tech.join(', ')}.`;
+        case "What technologies does it use?":
+          answer = `It uses: ${repo.tech.join(", ")}.`;
           break;
-        case 'How do I test it?':
+        case "How do I test it?":
           answer = repo.test;
           break;
-        case 'How can I contribute?':
+        case "How can I contribute?":
           answer = repo.contribute;
           break;
-        case 'Summary in plain English':
+        case "Summary in plain English":
           answer = repo.summary;
           break;
-        case 'Important files & entry points':
+        case "Important files & entry points":
           answer = repo.files;
           break;
         default:
-          answer = "I'm not sure about that. Try one of the suggested questions!";
+          answer =
+            "I'm not sure about that. Try one of the suggested questions!";
       }
     }
 
-    setMessages(prev => [...prev, { role: 'user', content: question }]);
+    setMessages((prev) => [...prev, { role: "user", content: question }]);
     setIsTyping(true);
 
     if (typingTimeoutRef.current) {
@@ -124,14 +126,14 @@ export default function VoiceAssistant() {
 
     typingTimeoutRef.current = setTimeout(() => {
       if (!isMountedRef.current) return;
-      setMessages(prev => [...prev, { role: 'assistant', content: answer }]);
+      setMessages((prev) => [...prev, { role: "assistant", content: answer }]);
       setIsTyping(false);
     }, 600);
   };
 
   const resetAssistant = () => {
     setSelectedRepo(null);
-    setMode('menu');
+    setMode("menu");
     setIsTyping(false);
 
     if (typingTimeoutRef.current) {
@@ -139,7 +141,7 @@ export default function VoiceAssistant() {
       typingTimeoutRef.current = null;
     }
 
-    setMessages([{ role: 'assistant', content: assistantData.welcomeMessage }]);
+    setMessages([{ role: "assistant", content: assistantData.welcomeMessage }]);
   };
 
   return (
@@ -166,7 +168,9 @@ export default function VoiceAssistant() {
                 <Bot className="w-6 h-6 text-white dark:text-slate-900" />
               </div>
               <div>
-                <h3 className="font-headline font-bold text-white dark:text-slate-900">Jules Assistant</h3>
+                <h3 className="font-headline font-bold text-white dark:text-slate-900">
+                  Jules Assistant
+                </h3>
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
                   <span className="text-[10px] text-white/80 dark:text-slate-900/80 uppercase tracking-widest font-bold">
@@ -184,21 +188,21 @@ export default function VoiceAssistant() {
             </button>
           </div>
 
-          <div 
+          <div
             className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-slate-200 dark:scrollbar-thumb-slate-800"
             aria-live="polite"
           >
             {messages.map((msg, i) => (
               <div
                 key={`${msg.role}-${i}`}
-                className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
               >
                 <div
-                  tabIndex={msg.role === 'assistant' ? 0 : undefined}
+                  tabIndex={msg.role === "assistant" ? 0 : undefined}
                   className={`max-w-[85%] p-3 rounded-2xl text-sm ${
-                    msg.role === 'user'
-                      ? 'bg-[#00685f] text-white rounded-tr-none'
-                      : 'bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none'
+                    msg.role === "user"
+                      ? "bg-[#00685f] text-white rounded-tr-none"
+                      : "bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none"
                   }`}
                 >
                   {msg.content}
@@ -222,32 +226,38 @@ export default function VoiceAssistant() {
           </div>
 
           <div className="p-4 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-800">
-            {mode === 'menu' ? (
+            {mode === "menu" ? (
               <div className="space-y-3">
                 <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold mb-2">
                   How can I help you today?
                 </p>
                 <div className="grid grid-cols-1 gap-2">
                   <button
-                    onClick={() => setMode('projects_list')}
+                    onClick={() => setMode("projects_list")}
                     className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-colors group"
                   >
-                    <span className="text-xs font-bold dark:text-slate-300">Explore Repositories</span>
+                    <span className="text-xs font-bold dark:text-slate-300">
+                      Explore Repositories
+                    </span>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
                   </button>
                   <button
                     onClick={handleAboutSelect}
                     className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-colors group"
                   >
-                    <span className="text-xs font-bold dark:text-slate-300">About Darshil&apos;s Background</span>
+                    <span className="text-xs font-bold dark:text-slate-300">
+                      About Darshil&apos;s Background
+                    </span>
                     <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
                   </button>
                 </div>
               </div>
-            ) : mode === 'projects_list' ? (
+            ) : mode === "projects_list" ? (
               <div className="space-y-3">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Select a Repository</p>
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                    Select a Repository
+                  </p>
                   <button
                     onClick={resetAssistant}
                     className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
@@ -256,26 +266,28 @@ export default function VoiceAssistant() {
                   </button>
                 </div>
                 <div className="grid grid-cols-1 gap-2 max-h-[150px] overflow-y-auto pr-2">
-                  {assistantData.repositories.map(repo => (
+                  {assistantData.repositories.map((repo) => (
                     <button
                       key={repo.id}
                       onClick={() => handleRepoSelect(repo)}
                       className="flex items-center justify-between p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-[#00685f] dark:hover:border-[#6bd8cb] focus-visible:ring-2 focus-visible:ring-[#00685f] outline-none transition-colors group text-left"
                     >
-                      <span className="text-xs font-bold dark:text-slate-300">{repo.name}</span>
+                      <span className="text-xs font-bold dark:text-slate-300">
+                        {repo.name}
+                      </span>
                       <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-[#00685f] dark:group-hover:text-[#6bd8cb]" />
                     </button>
                   ))}
                 </div>
               </div>
-            ) : mode === 'projects' ? (
+            ) : mode === "projects" ? (
               <div className="space-y-3">
                 <div className="flex items-center justify-between mb-2">
                   <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">
                     Asking about: {selectedRepo?.name}
                   </p>
                   <button
-                    onClick={() => setMode('projects_list')}
+                    onClick={() => setMode("projects_list")}
                     className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
                   >
                     Change Repo
@@ -296,7 +308,9 @@ export default function VoiceAssistant() {
             ) : (
               <div className="space-y-3">
                 <div className="flex items-center justify-between mb-2">
-                  <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">About Darshil Shah</p>
+                  <p className="text-[10px] text-slate-400 uppercase tracking-widest font-bold">
+                    About Darshil Shah
+                  </p>
                   <button
                     onClick={resetAssistant}
                     className="text-[10px] text-[#00685f] dark:text-[#6bd8cb] font-bold uppercase hover:underline"
@@ -321,7 +335,7 @@ export default function VoiceAssistant() {
             <div className="mt-4 flex items-center gap-3 px-2">
               <div className="flex-1 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center px-4 overflow-hidden relative">
                 <div className="flex items-center gap-1">
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(i => (
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
                     <div
                       key={i}
                       className="w-0.5 h-3 bg-[#00685f] dark:bg-[#6bd8cb] animate-pulse"
@@ -329,7 +343,9 @@ export default function VoiceAssistant() {
                     />
                   ))}
                 </div>
-                <span className="ml-3 text-[10px] text-slate-400 italic">Listening for instructions...</span>
+                <span className="ml-3 text-[10px] text-slate-400 italic">
+                  Listening for instructions...
+                </span>
               </div>
               <button
                 className="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-400 hover:text-[#00685f]"
