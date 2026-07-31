@@ -7,6 +7,9 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 ### Added
 
 - Implemented a new CI/CD pipeline using GitHub Actions to automate formatting checks, unit testing (Vitest), and end-to-end testing (Playwright).
+- Integrated manual and automated fallback mechanisms to **Type-only Mode** in `VoiceAssistant.jsx` to suppress `SpeechSynthesis` and gracefully handle audio context issues.
+- Added automatic response truncation to a maximum of 10 lines in Type-only Mode to optimize tokens and content presentation.
+- Expanded the Vitest suite with robust unit tests for Voice Assistant manual fallback and automatic error-handling states.
 
 ## [2026.7.16] - 2026-07-16
 

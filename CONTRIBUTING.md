@@ -10,6 +10,7 @@ Thank you for considering a contribution to this project! We welcome improvement
    git clone https://github.com/your-username/darshil-portfolio-2026.git
    ```
 3. **Install dependencies**:
+   Make sure you are using Node.js `22.x` or `24.x`. Node `18.x` is incompatible with the Vitest 4/Rolldown dependencies, and Node `20.x` is deprecated on GitHub Actions runners.
    ```bash
    npm install
    ```

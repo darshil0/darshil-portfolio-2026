@@ -2,6 +2,8 @@
 
 This document serves as the repository-wide index for Darshil Shah's workspace, maintained by the Jules AI Agent.
 
+> **Note on Scale**: The full workspace tracks **33 repositories** in total. While the key systems are detailed below, `src/constants/assistantData.js` serves as the centralized, single source of truth containing metadata, setups, and file pointers for all 33 workspace projects.
+
 ## 1. Managed Repositories
 
 ### darshil-portfolio-2026 (Primary)
