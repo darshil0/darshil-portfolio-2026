@@ -18,7 +18,11 @@ Our strategy ensures that:
 
 ## How to Run Tests Locally
 
+Make sure you are using Node.js `22.x` or `24.x`. Node `18.x` is incompatible with Vitest 4/Rolldown dependencies (due to missing `styleText` in the native `node:util` module).
+
 ### Unit and Integration Tests
+
+Our unit and component tests run via **Vitest** (excluding E2E tests). Run the following to run tests once:
 
 ```bash
 npm test
@@ -32,7 +36,7 @@ npx vitest
 
 ### End-to-End Tests
 
-Ensure the development server is running or the project is built before running E2E tests.
+Our E2E tests run via **Playwright**. Ensure the local development server is running or the project has been built before running E2E tests.
 
 ```bash
 # Install browsers (required once)

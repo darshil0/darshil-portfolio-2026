@@ -96,6 +96,7 @@ This file defines the visual language and design tokens for the Darshil Shah Por
   - Light: `from-[#00685f] to-[#004e47]`
   - Dark: `from-[#6bd8cb] to-[#3ab8ab]`
 - **Animations**: `animate-in`, `fade-in`, `slide-in-from-bottom-4`. _(Requires `tailwindcss-animate` plugin — add to `tailwind.config.js` plugins.)_
+- **Tailwind Compilation**: The styling system is compiled natively via Vite inside `src/index.css` (not through legacy CDN links) to support proper tree-shaking, fast builds, and direct integration with `@tailwindcss/forms` and `@tailwindcss/container-queries`.
 
 ## 7. Accessibility Standards
 

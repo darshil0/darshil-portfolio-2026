@@ -20,13 +20,13 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 - **Build Tool**: [Vite 8](https://vitejs.dev/)
 - **Styling**: [Tailwind CSS 3](https://tailwindcss.com/) with `@tailwindcss/forms` and `@tailwindcss/container-queries`
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Testing**: [Vitest 3](https://vitest.dev/) (Unit/Integration) & [Playwright 1.51](https://playwright.dev/) (E2E)
+- **Testing**: [Vitest 4](https://vitest.dev/) (Unit/Integration) & [Playwright 1.61](https://playwright.dev/) (E2E)
 - **CI/CD**: GitHub Actions
 
 ## Prerequisites
 
-- **Node.js**: `^18.0.0` or higher
-- **npm**: `^9.0.0` or higher
+- **Node.js**: `^22.0.0` or `^24.0.0` (Node 18 is incompatible with Vitest 4/Rolldown dependencies due to missing 'styleText' in node:util, and Node 20 is deprecated on GitHub Actions runners)
+- **npm**: `^10.0.0` or higher
 
 ## Installation
 
