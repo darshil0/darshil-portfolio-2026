@@ -50,7 +50,7 @@ npm run test:e2e
 
 Our automated CI/CD pipeline contains specific enhancements to make E2E test runs fast, reliable, and debuggable:
 
-1. **Playwright Browser Caching**: To prevent downloading the ~180MB browser binary on every single commit, the pipeline caches the `~/.cache/ms-playwright` directory using `actions/cache@v4` with a key derived from `package-lock.json`. 
+1. **Playwright Browser Caching**: To prevent downloading the ~180MB browser binary on every single commit, the pipeline caches the `~/.cache/ms-playwright` directory using `actions/cache@v4` with a key derived from `package-lock.json`.
    - On a **cache miss**, it runs `npx playwright install --with-deps chromium`.
    - On a **cache hit**, it bypasses browser downloading and only runs `npx playwright install-deps chromium` to ensure system-level library dependencies are installed on the runner.
 2. **Playwright Report Artifacts**: If any E2E test fails or succeeds, Playwright compiles an HTML report of the run. The pipeline automatically uploads this folder (`playwright-report/`) using `actions/upload-artifact@v4` with a 30-day retention period. This allows developers to download and inspect traces, screenshots, and logs from the CI run directly.
