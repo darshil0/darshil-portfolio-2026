@@ -31,4 +31,4 @@ This document tracks identified enhancements, bug fixes, and future features for
 
 - [ ] **Test Coverage**: Add unit tests for `src/components/Common/ErrorBoundary.jsx`.
 - [ ] **E2E Expansion**: Add Playwright tests for the mobile menu interaction and theme persistence.
-- [ ] **CI/CD Enrichment**: Integrate Playwright report uploading to GitHub Actions artifacts.
+- [x] **CI/CD Enrichment**: Integrate Playwright report uploading to GitHub Actions artifacts.
