@@ -4,6 +4,9 @@ import { assistantData } from "../../constants/assistantData";
 
 export default function VoiceAssistant() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTypeOnly, setIsTypeOnly] = useState(false);
+  const [isListening, setIsListening] = useState(false);
+  const [recognitionError, setRecognitionError] = useState(null);
   const [messages, setMessages] = useState([
     { role: "assistant", content: assistantData.welcomeMessage },
   ]);
@@ -21,10 +24,25 @@ export default function VoiceAssistant() {
   }, [selectedRepo]);
 
   useEffect(() => {
+    if (isOpen && !isTypeOnly) {
+      speakText(assistantData.welcomeMessage);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isTypeOnly && typeof window !== "undefined" && window.speechSynthesis) {
+      window.speechSynthesis.cancel();
+    }
+  }, [isTypeOnly]);
+
+  useEffect(() => {
     return () => {
       isMountedRef.current = false;
       if (typingTimeoutRef.current) {
         clearTimeout(typingTimeoutRef.current);
+      }
+      if (typeof window !== "undefined" && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
       }
     };
   }, []);
@@ -35,12 +53,121 @@ export default function VoiceAssistant() {
     }
   }, [messages, isOpen, isTyping]);
 
+  const limitLines = (text, maxLines = 10) => {
+    if (!text) return "";
+    const lines = text.split(/\r?\n/);
+    if (lines.length <= maxLines) return text;
+    return lines.slice(0, maxLines).join("\n") + "\n... (truncated)";
+  };
+
+  const speakText = (text) => {
+    if (isTypeOnly) return;
+    if (typeof window !== "undefined" && window.speechSynthesis) {
+      try {
+        window.speechSynthesis.cancel();
+        const cleanText = text.replace(/<[^>]*>/g, "");
+        const utterance = new SpeechSynthesisUtterance(cleanText);
+        utterance.onerror = () => {
+          setIsTypeOnly(true);
+        };
+        window.speechSynthesis.speak(utterance);
+      } catch (e) {
+        setIsTypeOnly(true);
+      }
+    } else {
+      setIsTypeOnly(true);
+    }
+  };
+
+  const handleVoiceInput = (transcript) => {
+    const query = transcript.toLowerCase().trim();
+
+    const matchedPersonal = assistantData.personalQuestions.find(
+      (q) => q.toLowerCase().includes(query) || query.includes(q.toLowerCase()),
+    );
+    if (matchedPersonal) {
+      handleQuestion(matchedPersonal);
+      return;
+    }
+
+    const matchedRepo = assistantData.repositories.find(
+      (r) =>
+        r.name.toLowerCase().includes(query) ||
+        query.includes(r.name.toLowerCase()),
+    );
+    if (matchedRepo) {
+      handleRepoSelect(matchedRepo);
+      return;
+    }
+
+    const matchedCommon = assistantData.commonQuestions.find(
+      (q) => q.toLowerCase().includes(query) || query.includes(q.toLowerCase()),
+    );
+    if (matchedCommon && selectedRepoRef.current) {
+      handleQuestion(matchedCommon);
+      return;
+    }
+
+    appendMessagePair(
+      transcript,
+      `I heard: "${transcript}". Please select or ask one of the options shown on screen.`,
+    );
+  };
+
+  const startListening = () => {
+    if (typeof window === "undefined") return;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      setIsTypeOnly(true);
+      return;
+    }
+
+    try {
+      const recognition = new SpeechRecognition();
+      recognition.continuous = false;
+      recognition.interimResults = false;
+      recognition.lang = "en-US";
+
+      recognition.onstart = () => {
+        setIsListening(true);
+        setRecognitionError(null);
+      };
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setIsListening(false);
+        handleVoiceInput(transcript);
+      };
+
+      recognition.onerror = (event) => {
+        setRecognitionError(event.error);
+        setIsListening(false);
+        setIsTypeOnly(true);
+      };
+
+      recognition.onend = () => {
+        setIsListening(false);
+      };
+
+      recognition.start();
+    } catch (e) {
+      setIsTypeOnly(true);
+    }
+  };
+
   const appendMessagePair = (userContent, assistantContent) => {
+    const limitedAssistantContent = isTypeOnly
+      ? limitLines(assistantContent, 10)
+      : assistantContent;
     setMessages((prev) => [
       ...prev,
       { role: "user", content: userContent },
-      { role: "assistant", content: assistantContent },
+      { role: "assistant", content: limitedAssistantContent },
     ]);
+    if (!isTypeOnly) {
+      speakText(assistantContent);
+    }
   };
 
   const handleRepoSelect = (repo) => {
@@ -126,8 +253,15 @@ export default function VoiceAssistant() {
 
     typingTimeoutRef.current = setTimeout(() => {
       if (!isMountedRef.current) return;
-      setMessages((prev) => [...prev, { role: "assistant", content: answer }]);
+      const limitedAnswer = isTypeOnly ? limitLines(answer, 10) : answer;
+      setMessages((prev) => [
+        ...prev,
+        { role: "assistant", content: limitedAnswer },
+      ]);
       setIsTyping(false);
+      if (!isTypeOnly) {
+        speakText(answer);
+      }
     }, 600);
   };
 
@@ -141,7 +275,13 @@ export default function VoiceAssistant() {
       typingTimeoutRef.current = null;
     }
 
-    setMessages([{ role: "assistant", content: assistantData.welcomeMessage }]);
+    const welcome = isTypeOnly
+      ? limitLines(assistantData.welcomeMessage, 10)
+      : assistantData.welcomeMessage;
+    setMessages([{ role: "assistant", content: welcome }]);
+    if (!isTypeOnly) {
+      speakText(assistantData.welcomeMessage);
+    }
   };
 
   return (
@@ -333,25 +473,63 @@ export default function VoiceAssistant() {
             )}
 
             <div className="mt-4 flex items-center gap-3 px-2">
-              <div className="flex-1 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center px-4 overflow-hidden relative">
-                <div className="flex items-center gap-1">
-                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-                    <div
-                      key={i}
-                      className="w-0.5 h-3 bg-[#00685f] dark:bg-[#6bd8cb] animate-pulse"
-                      style={{ animationDelay: `${i * 0.1}s` }}
-                    />
-                  ))}
+              {isTypeOnly ? (
+                <div className="flex-1 h-10 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center px-4 border border-dashed border-slate-300 dark:border-slate-700">
+                  <span className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
+                    Type-only Mode Active
+                  </span>
                 </div>
-                <span className="ml-3 text-[10px] text-slate-400 italic">
-                  Listening for instructions...
-                </span>
-              </div>
+              ) : (
+                <div className="flex-1 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center px-4 overflow-hidden relative">
+                  <div
+                    className={`flex items-center gap-1 ${isListening ? "" : "opacity-40"}`}
+                  >
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+                      <div
+                        key={i}
+                        className={`w-0.5 h-3 bg-[#00685f] dark:bg-[#6bd8cb] ${isListening ? "animate-pulse" : ""}`}
+                        style={{ animationDelay: `${i * 0.1}s` }}
+                      />
+                    ))}
+                  </div>
+                  <span className="ml-3 text-[10px] text-slate-400 italic">
+                    {isListening ? "Listening..." : "Voice mode ready..."}
+                  </span>
+                </div>
+              )}
+
               <button
-                className="w-10 h-10 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center text-slate-400 hover:text-[#00685f]"
-                aria-label="Voice input"
+                onClick={
+                  isTypeOnly ? () => setIsTypeOnly(false) : startListening
+                }
+                className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
+                  isTypeOnly
+                    ? "bg-slate-100 dark:bg-slate-700 text-slate-400 hover:text-[#00685f] hover:bg-slate-200"
+                    : isListening
+                      ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
+                      : "bg-[#00685f]/10 dark:bg-[#6bd8cb]/10 text-[#00685f] dark:text-[#6bd8cb] hover:bg-[#00685f]/20"
+                }`}
+                aria-label={
+                  isTypeOnly
+                    ? "Enable Voice input"
+                    : isListening
+                      ? "Stop listening"
+                      : "Voice input"
+                }
               >
                 <Mic className="w-5 h-5" />
+              </button>
+
+              <button
+                onClick={() => setIsTypeOnly((prev) => !prev)}
+                className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded-md border tracking-wider transition-colors ${
+                  isTypeOnly
+                    ? "bg-[#00685f] text-white border-transparent animate-pulse"
+                    : "bg-transparent text-slate-400 border-slate-300 dark:border-slate-700 hover:text-slate-600 dark:hover:text-slate-200"
+                }`}
+                aria-label="Toggle Type-only mode"
+              >
+                Type-Only
               </button>
             </div>
           </div>
