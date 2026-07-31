@@ -15,3 +15,14 @@ export const formId = "YOUR_FORM_ID"; // ⚠️ Replace with your actual Google 
 
 export const portfolioVersion = "v2026.7.17";
 export const experienceYears = "14+ years";
+
+export const metrics = {
+  defectEscapeRate: "< 1%",
+  automationReliability: "99.5%",
+  waitTimeReduction: "30%",
+  testCoverageGrowth: "25%",
+  manualTestReduction: "60%",
+  qualityRating: "100%",
+  costReduction: "40%",
+  fasterResolution: "20%",
+};

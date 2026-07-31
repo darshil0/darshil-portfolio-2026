@@ -1,5 +1,5 @@
 import React from "react";
-import { experienceYears } from "../../constants/data";
+import { experienceYears, metrics } from "../../constants/data";
 
 export default function Impact() {
   return (
@@ -23,32 +23,42 @@ export default function Impact() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              val: "30%",
+              val: metrics.defectEscapeRate,
+              label: "Defect Escape Rate",
+              desc: "Maintained an industry-leading production defect escape rate across critical healthcare systems.",
+            },
+            {
+              val: metrics.automationReliability,
+              label: "Automation Reliability",
+              desc: "Minimized flaky tests and maximized CI/CD pipeline stability with robust automation architectures.",
+            },
+            {
+              val: metrics.waitTimeReduction,
               label: "Wait Time Reduction",
               desc: "Optimized testing pipelines to accelerate product delivery cycles.",
             },
             {
-              val: "25%",
+              val: `+${metrics.testCoverageGrowth}`,
               label: "Test Coverage Growth",
               desc: "Expanded validation across complex clinical and mobile workflows.",
             },
             {
-              val: "60%",
+              val: metrics.manualTestReduction,
               label: "Manual Test Reduction",
               desc: "Strategic shift to high-value automation and AI-driven testing.",
             },
             {
-              val: "100%",
+              val: metrics.qualityRating,
               label: "Quality Rating",
               desc: "Transformed quality metrics from 40% to full excellence.",
             },
             {
-              val: "40%",
+              val: metrics.costReduction,
               label: "Cost Reduction",
               desc: "Streamlined operations and improved ROI through automation.",
             },
             {
-              val: "20%",
+              val: metrics.fasterResolution,
               label: "Faster Resolution",
               desc: "Streamlined feedback loops between QA and development teams.",
             },

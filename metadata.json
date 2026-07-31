@@ -5,6 +5,8 @@
   "metrics": {
     "cost_reduction": "40%",
     "wait_time_improvement": "30%",
-    "teams_led": "15+"
+    "teams_led": "15+",
+    "defect_escape_rate": "< 1%",
+    "automation_reliability": "99.5%"
   }
 }
