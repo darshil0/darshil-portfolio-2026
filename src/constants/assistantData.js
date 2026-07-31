@@ -463,4 +463,7 @@ export const assistantData = {
         "Add the Gemini API key",
         "Run the app",
       ],
-      tech: ["TypeScript", "Google Gemini"]
+      tech: ["TypeScript", "Google Gemini"],
+    },
+  ],
+};
