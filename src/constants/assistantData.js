@@ -41,12 +41,16 @@ export const assistantData = {
         "This repository hosts Darshil's professional portfolio. It is designed to demonstrate modern web development practices alongside QA processes and serves as a central hub for his experience, projects, and certifications.",
       summary:
         "A modern personal website that acts as a digital resume and showcase.",
-      run: [
-        "Clone the repo",
-        "Run `npm install`",
-        "Run `npm run dev`",
+      run: ["Clone the repo", "Run `npm install`", "Run `npm run dev`"],
+      tech: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Lucide React",
+        "Framer Motion",
+        "Vitest",
+        "Playwright",
       ],
-      tech: ["React", "Vite", "Tailwind CSS", "Lucide React", "Framer Motion", "Vitest", "Playwright"],
       test: ["Run `npm test`", "Run `npm run test:e2e`"],
       contribute:
         "Contributions are welcome. Check `CONTRIBUTING.md` for code style and pull request guidelines.",
@@ -60,8 +64,7 @@ export const assistantData = {
     {
       id: "nourishbot-ai-coach",
       name: "NourishBot AI Coach",
-      description:
-        "A multi-agent AI nutrition coach powered by Google Gemini.",
+      description: "A multi-agent AI nutrition coach powered by Google Gemini.",
       fullPurpose:
         "A nutrition assistant that analyzes food images and generates nutritional insights.",
       summary:
@@ -129,8 +132,7 @@ export const assistantData = {
     {
       id: "qa-architect-career-intelligence-dashboard",
       name: "QA Architect Career Intelligence Dashboard",
-      description:
-        "Career intelligence hub for senior QA/SDET architects.",
+      description: "Career intelligence hub for senior QA/SDET architects.",
       fullPurpose:
         "A career management dashboard for tracking applications, tailoring resumes, and managing job search workflows.",
       summary: "A job-search command center for senior QA professionals.",
@@ -152,8 +154,10 @@ export const assistantData = {
     {
       id: "kronos-ai",
       name: "Kronos AI",
-      description: "An AI-assisted calendar app for scheduling and event handling.",
-      fullPurpose: "An AI-assisted calendar application for scheduling and event handling.",
+      description:
+        "An AI-assisted calendar app for scheduling and event handling.",
+      fullPurpose:
+        "An AI-assisted calendar application for scheduling and event handling.",
       summary: "Helps manage calendars and events using AI.",
       run: [
         "Clone the repo",
@@ -198,11 +202,7 @@ export const assistantData = {
       description: "A smart bill-splitting app.",
       fullPurpose: "An app that helps users split shared expenses and bills.",
       summary: "Makes splitting bills easier for groups.",
-      run: [
-        "Clone the repo",
-        "Run `npm install`",
-        "Run `npm run dev`",
-      ],
+      run: ["Clone the repo", "Run `npm install`", "Run `npm run dev`"],
       tech: ["TypeScript"],
       test: "Run the project tests if defined.",
       contribute: "Follow standard pull request practices.",
@@ -261,7 +261,8 @@ export const assistantData = {
       name: "AI Meme Generator",
       description:
         "An Angular app that generates memes with Google Gemini captions.",
-      fullPurpose: "An AI meme creation app that generates captions and layouts for images.",
+      fullPurpose:
+        "An AI meme creation app that generates captions and layouts for images.",
       summary: "Helps you make memes with AI in a few clicks.",
       run: [
         "Clone the repo",
@@ -308,11 +309,7 @@ export const assistantData = {
       fullPurpose:
         "A portal for learning and comparing prompt engineering techniques.",
       summary: "A guide and toolkit for writing better prompts.",
-      run: [
-        "Clone the repo",
-        "Run `npm install`",
-        "Run `npm run dev`",
-      ],
+      run: ["Clone the repo", "Run `npm install`", "Run `npm run dev`"],
       tech: ["TypeScript"],
       test: "Run repository tests if included.",
       contribute: "Submit a PR following the repo guidelines.",
@@ -373,8 +370,7 @@ export const assistantData = {
         "A calm, minimalist health coaching application for wellness and goal tracking.",
       fullPurpose:
         "A wellness app that provides coaching, goal tracking, and health insights.",
-      summary:
-        "Helps users build better health habits with a calm experience.",
+      summary: "Helps users build better health habits with a calm experience.",
       run: [
         "Clone the repo",
         "Run `npm install`",
@@ -410,14 +406,14 @@ export const assistantData = {
         "A high-performance AI dashboard featuring email, image, and voice capabilities.",
       fullPurpose:
         "An AI workspace with email help, image generation, and live voice interaction.",
-      summary:
-        "A futuristic AI dashboard for talking, writing, and creating.",
-      run: [
-        "Set the API key",
-        "Run `npm install`",
-        "Run `npm run dev`",
+      summary: "A futuristic AI dashboard for talking, writing, and creating.",
+      run: ["Set the API key", "Run `npm install`", "Run `npm run dev`"],
+      tech: [
+        "React 19",
+        "Google Gemini 2.0 Flash",
+        "Framer Motion",
+        "TypeScript",
       ],
-      tech: ["React 19", "Google Gemini 2.0 Flash", "Framer Motion", "TypeScript"],
       test: "Run the available test scripts if defined.",
       contribute: "Follow the repository PR process.",
       files: [
@@ -432,15 +428,21 @@ export const assistantData = {
         "A multi-agent AI orchestrator that transforms strategic directives into quarterly roadmaps.",
       fullPurpose:
         "A planning orchestrator that converts strategy into quarterly execution roadmaps.",
-      summary:
-        "Helps teams turn big goals into structured action plans.",
+      summary: "Helps teams turn big goals into structured action plans.",
       run: [
         "Clone the repo",
         "Run `npm install`",
         "Configure environment variables",
         "Run `npm run dev`",
       ],
-      tech: ["TypeScript", "React 19", "Vite 8", "Google Gemini 1.5 Flash", "@xyflow/react", "Firestore"],
+      tech: [
+        "TypeScript",
+        "React 19",
+        "Vite 8",
+        "Google Gemini 1.5 Flash",
+        "@xyflow/react",
+        "Firestore",
+      ],
       test: "Run the repository test commands if present.",
       contribute: "Submit improvements through a branch and PR.",
       files: [
@@ -455,8 +457,7 @@ export const assistantData = {
         "An intelligent document search engine powered by Google Gemini.",
       fullPurpose:
         "A document search tool for PDFs with citations and contextual search.",
-      summary:
-        "Makes it easy to search PDFs and jump to exact citations.",
+      summary: "Makes it easy to search PDFs and jump to exact citations.",
       run: [
         "Clone the repo",
         "Install dependencies",

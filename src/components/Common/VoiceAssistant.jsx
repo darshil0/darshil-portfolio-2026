@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { X, Bot, Mic, ChevronRight } from "lucide-react";
+import { X, Bot, Mic, ChevronRight, Send } from "lucide-react";
 import { assistantData } from "../../constants/assistantData";
 
 export default function VoiceAssistant() {
@@ -13,6 +13,7 @@ export default function VoiceAssistant() {
   const [selectedRepo, setSelectedRepo] = useState(null);
   const [mode, setMode] = useState("menu");
   const [isTyping, setIsTyping] = useState(false);
+  const [typedInput, setTypedInput] = useState("");
 
   const messagesEndRef = useRef(null);
   const typingTimeoutRef = useRef(null);
@@ -36,6 +37,7 @@ export default function VoiceAssistant() {
   }, [isTypeOnly]);
 
   useEffect(() => {
+    isMountedRef.current = true;
     return () => {
       isMountedRef.current = false;
       if (typingTimeoutRef.current) {
@@ -79,8 +81,8 @@ export default function VoiceAssistant() {
     }
   };
 
-  const handleVoiceInput = (transcript) => {
-    const query = transcript.toLowerCase().trim();
+  const processInput = (inputText, isVoice = false) => {
+    const query = inputText.toLowerCase().trim();
 
     const matchedPersonal = assistantData.personalQuestions.find(
       (q) => q.toLowerCase().includes(query) || query.includes(q.toLowerCase()),
@@ -108,10 +110,23 @@ export default function VoiceAssistant() {
       return;
     }
 
-    appendMessagePair(
-      transcript,
-      `I heard: "${transcript}". Please select or ask one of the options shown on screen.`,
-    );
+    const feedbackMessage = isVoice
+      ? `I heard: "${inputText}". Please select or ask one of the options shown on screen.`
+      : `I received: "${inputText}". Please select or ask one of the options shown on screen.`;
+
+    appendMessagePair(inputText, feedbackMessage);
+  };
+
+  const handleVoiceInput = (transcript) => {
+    processInput(transcript, true);
+  };
+
+  const handleTextSubmit = (e) => {
+    e.preventDefault();
+    if (!typedInput.trim()) return;
+    const input = typedInput.trim();
+    setTypedInput("");
+    processInput(input, false);
   };
 
   const startListening = () => {
@@ -472,65 +487,93 @@ export default function VoiceAssistant() {
               </div>
             )}
 
-            <div className="mt-4 flex items-center gap-3 px-2">
-              {isTypeOnly ? (
-                <div className="flex-1 h-10 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center px-4 border border-dashed border-slate-300 dark:border-slate-700">
-                  <span className="text-[10px] text-slate-500 font-bold tracking-wider uppercase">
+            <div className="mt-4">
+              {isTypeOnly && (
+                <div className="px-2 mb-1.5 flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 bg-[#00685f]/50 dark:bg-[#6bd8cb]/50 rounded-full animate-pulse" />
+                  <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
                     Type-only Mode Active
-                  </span>
-                </div>
-              ) : (
-                <div className="flex-1 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center px-4 overflow-hidden relative">
-                  <div
-                    className={`flex items-center gap-1 ${isListening ? "" : "opacity-40"}`}
-                  >
-                    {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
-                      <div
-                        key={i}
-                        className={`w-0.5 h-3 bg-[#00685f] dark:bg-[#6bd8cb] ${isListening ? "animate-pulse" : ""}`}
-                        style={{ animationDelay: `${i * 0.1}s` }}
-                      />
-                    ))}
-                  </div>
-                  <span className="ml-3 text-[10px] text-slate-400 italic">
-                    {isListening ? "Listening..." : "Voice mode ready..."}
                   </span>
                 </div>
               )}
 
-              <button
-                onClick={
-                  isTypeOnly ? () => setIsTypeOnly(false) : startListening
-                }
-                className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${
-                  isTypeOnly
-                    ? "bg-slate-100 dark:bg-slate-700 text-slate-400 hover:text-[#00685f] hover:bg-slate-200"
-                    : isListening
-                      ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
-                      : "bg-[#00685f]/10 dark:bg-[#6bd8cb]/10 text-[#00685f] dark:text-[#6bd8cb] hover:bg-[#00685f]/20"
-                }`}
-                aria-label={
-                  isTypeOnly
-                    ? "Enable Voice input"
-                    : isListening
-                      ? "Stop listening"
-                      : "Voice input"
-                }
+              <form
+                onSubmit={handleTextSubmit}
+                className="flex items-center gap-3 px-2"
               >
-                <Mic className="w-5 h-5" />
-              </button>
+                <div className="flex-1 relative flex items-center">
+                  {isListening ? (
+                    <div className="flex-1 h-10 bg-slate-200 dark:bg-slate-700 rounded-full flex items-center px-4 overflow-hidden relative">
+                      <div className="flex items-center gap-1">
+                        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => (
+                          <div
+                            key={i}
+                            className="w-0.5 h-3 bg-[#00685f] dark:bg-[#6bd8cb] animate-pulse"
+                            style={{ animationDelay: `${i * 0.1}s` }}
+                          />
+                        ))}
+                      </div>
+                      <span className="ml-3 text-[10px] text-slate-400 italic">
+                        Listening...
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="w-full relative flex items-center">
+                      <input
+                        type="text"
+                        value={typedInput}
+                        onChange={(e) => setTypedInput(e.target.value)}
+                        placeholder="Ask Jules a question..."
+                        className="w-full h-10 pl-4 pr-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-full text-xs text-slate-800 dark:text-slate-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#00685f] dark:focus:ring-[#6bd8cb] focus:border-transparent transition-all"
+                      />
+                      <button
+                        type="submit"
+                        disabled={!typedInput.trim()}
+                        className="absolute right-2 p-1.5 text-slate-400 hover:text-[#00685f] dark:hover:text-[#6bd8cb] disabled:opacity-30 disabled:hover:text-slate-400 transition-colors"
+                        aria-label="Send question"
+                      >
+                        <Send className="w-4 h-4" />
+                      </button>
+                    </div>
+                  )}
+                </div>
 
-              <button
-                onClick={() => setIsTypeOnly((prev) => !prev)}
-                className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded-md border tracking-wider transition-colors ${
-                  isTypeOnly
-                    ? "bg-[#00685f] text-white border-transparent animate-pulse"
-                    : "bg-transparent text-slate-400 border-slate-300 dark:border-slate-700 hover:text-slate-600 dark:hover:text-slate-200"
-                }`}
-                aria-label="Toggle Type-only mode"
-              >
-                Type-Only
-              </button>
+                <button
+                  type="button"
+                  onClick={
+                    isTypeOnly ? () => setIsTypeOnly(false) : startListening
+                  }
+                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors shrink-0 ${
+                    isTypeOnly
+                      ? "bg-slate-100 dark:bg-slate-700 text-slate-400 hover:text-[#00685f] hover:bg-slate-200"
+                      : isListening
+                        ? "bg-red-500 text-white animate-pulse hover:bg-red-600"
+                        : "bg-[#00685f]/10 dark:bg-[#6bd8cb]/10 text-[#00685f] dark:text-[#6bd8cb] hover:bg-[#00685f]/20"
+                  }`}
+                  aria-label={
+                    isTypeOnly
+                      ? "Enable Voice input"
+                      : isListening
+                        ? "Stop listening"
+                        : "Voice input"
+                  }
+                >
+                  <Mic className="w-5 h-5" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setIsTypeOnly((prev) => !prev)}
+                  className={`px-2.5 py-1 text-[9px] font-bold uppercase rounded-md border tracking-wider transition-colors shrink-0 ${
+                    isTypeOnly
+                      ? "bg-[#00685f] text-white border-transparent animate-pulse"
+                      : "bg-transparent text-slate-400 border-slate-300 dark:border-slate-700 hover:text-slate-600 dark:hover:text-slate-200"
+                  }`}
+                  aria-label="Toggle Type-only mode"
+                >
+                  Type-Only
+                </button>
+              </form>
             </div>
           </div>
         </div>
