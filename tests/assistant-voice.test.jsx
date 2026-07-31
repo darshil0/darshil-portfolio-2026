@@ -221,7 +221,7 @@ describe("VoiceAssistant Speech and Type-only Mode", () => {
 
   it("should allow typing questions and getting answers", async () => {
     render(<VoiceAssistant />);
-    
+
     // Open assistant
     fireEvent.click(screen.getByLabelText("Open Assistant"));
 
@@ -230,7 +230,9 @@ describe("VoiceAssistant Speech and Type-only Mode", () => {
     expect(inputField).toBeDefined();
 
     // Type a question: "What are his core strengths?"
-    fireEvent.change(inputField, { target: { value: "What are his core strengths?" } });
+    fireEvent.change(inputField, {
+      target: { value: "What are his core strengths?" },
+    });
 
     // Submit the form
     const submitBtn = screen.getByLabelText("Send question");
