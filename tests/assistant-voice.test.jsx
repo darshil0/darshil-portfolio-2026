@@ -218,4 +218,35 @@ describe("VoiceAssistant Speech and Type-only Mode", () => {
     // It should have caught the error and set Type-only to true automatically
     expect(screen.getByText("Type-only Mode Active")).toBeDefined();
   });
+
+  it("should allow typing questions and getting answers", async () => {
+    render(<VoiceAssistant />);
+
+    // Open assistant
+    fireEvent.click(screen.getByLabelText("Open Assistant"));
+
+    // Ensure the input is visible
+    const inputField = screen.getByPlaceholderText("Ask Jules a question...");
+    expect(inputField).toBeDefined();
+
+    // Type a question: "What are his core strengths?"
+    fireEvent.change(inputField, {
+      target: { value: "What are his core strengths?" },
+    });
+
+    // Submit the form
+    const submitBtn = screen.getByLabelText("Send question");
+    fireEvent.click(submitBtn);
+
+    // Fast forward typing timeout (600ms)
+    act(() => {
+      vi.advanceTimersByTime(600);
+    });
+
+    // Check that user question is appended
+    expect(screen.getByText("What are his core strengths?")).toBeDefined();
+
+    // Check that assistant answer is appended
+    expect(screen.getByText(assistantData.personal.strengths)).toBeDefined();
+  });
 });
