@@ -11,12 +11,15 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 - Integrated manual and automated fallback mechanisms to **Type-only Mode** in `VoiceAssistant.jsx` to suppress `SpeechSynthesis` and gracefully handle audio context issues.
 - Added automatic response truncation to a maximum of 10 lines in Type-only Mode to optimize tokens and content presentation.
 - Expanded the Vitest suite with robust unit tests for Voice Assistant manual fallback and automatic error-handling states, as well as metrics configuration checks.
+- Integrated **Playwright Browser Caching** (`actions/cache@v4`) and automated system dependencies installation in the CI/CD pipeline, drastically optimizing build times.
+- Integrated **Playwright HTML Report Uploading** (`actions/upload-artifact@v4`) on pipeline runs to retain test results and allow deep debugging of E2E test failures.
 
 ### Changed
 
 - Dynamically integrated centralized performance metrics into the `Home` and `Impact` UI sections.
 - Synchronized latest professional QA metrics with the Jules AI assistant configurations in `src/constants/assistantData.js`.
 - Documented metrics calculations, formulas, and QA methodologies in `README.md` and updated `ENHANCEMENTS.md`.
+- Updated `TESTING.md` and `CHANGELOG.md` to document the newly optimized CI/CD pipeline structures, caching mechanism, and debugging features.
 
 ## [2026.7.16] - 2026-07-16
 
