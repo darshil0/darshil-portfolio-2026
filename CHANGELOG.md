@@ -47,7 +47,7 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 - Synchronized version `v2026.7.15` across all project metadata, UI components, and tests.
 - Refactored `Experience.jsx`, `About.jsx`, `Impact.jsx`, and `App.jsx` to use centralized constants.
 
-## [v2026.6.12] - 2026-06-12
+## [2026.6.12] - 2026-06-12
 
 ### Added
 
