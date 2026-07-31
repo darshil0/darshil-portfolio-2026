@@ -2,6 +2,12 @@
 
 All notable changes to the Darshil Shah Portfolio project will be documented in this file.
 
+## [2026.7.31] - 2026-07-31
+
+### Fixed
+
+- Resolved CI/CD pipeline failure caused by the Prettier formatting check flagging `TESTING.md` for inconsistent markdown spacing and table alignment; reformatted the file to satisfy `npx prettier --check .`.
+
 ## [2026.7.17] - 2026-07-17
 
 ### Added
