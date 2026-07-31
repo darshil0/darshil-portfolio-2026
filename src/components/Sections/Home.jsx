@@ -1,5 +1,6 @@
 import React from "react";
 import { BadgeCheck, TrendingUp, UserCheck } from "lucide-react";
+import { metrics } from "../../constants/data";
 
 export default function Home({ navigate }) {
   return (
@@ -64,15 +65,22 @@ export default function Home({ navigate }) {
             </div>
             <div className="space-y-6">
               {[
-                { label: "Wait Time Reduction", val: "30%" },
-                { label: "Test Coverage Growth", val: "+25%" },
-                { label: "Quality Rating", val: "100%" },
+                { label: "Defect Escape Rate", val: metrics.defectEscapeRate },
+                {
+                  label: "Wait Time Reduction",
+                  val: metrics.waitTimeReduction,
+                },
+                {
+                  label: "Test Coverage Growth",
+                  val: `+${metrics.testCoverageGrowth}`,
+                },
+                { label: "Quality Rating", val: metrics.qualityRating },
               ].map((stat, i, arr) => (
                 <div
                   key={i}
                   className={`flex justify-between items-center ${i !== arr.length - 1 ? "border-b border-[#00685f]/5 dark:border-slate-700/50 pb-5" : ""}`}
                 >
-                  <span className="text-slate-600 dark:text-slate-400 text-sm font-bold uppercase tracking-wider">
+                  <span className="text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-wider">
                     {stat.label}
                   </span>
                   <span className="text-3xl font-black text-[#00685f] dark:text-[#6bd8cb] tracking-tighter">

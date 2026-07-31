@@ -14,6 +14,18 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 - **Dark Mode**: System-aware and user-toggled dark mode with persistent state.
 - **Automated Deployment**: GitHub Actions workflow for seamless deployment to GitHub Pages.
 
+## Key QA & Performance Metrics
+
+This portfolio tracks and demonstrates high-fidelity QA metrics gathered across Darshil's 14+ years of leadership:
+
+- **Defect Escape Rate (< 1%)**: The percentage of software defects that escape to production. Calculated as:
+  $$\text{Defect Escape Rate} = \left( \frac{\text{Defects Found in Production}}{\text{Total Defects (QA + Production)}} \right) \times 100$$
+  Maintaining a rate $< 1\%$ ensures robust reliability, compliance, and patient safety across critical healthcare platforms.
+- **Automation Reliability (99.5%)**: High-reliability standard across CI/CD and automation test executions, ensuring zero flakiness.
+- **Manual Test Reduction (60%)**: Transitioned manual QA procedures to automated, high-value, and AI-assisted execution.
+- **Wait Time Reduction (30%)**: Optimized deployment and delivery flows, speeding up product time-to-market.
+- **Test Coverage Growth (+25%)**: Enhanced quality assurance coverage across API and device integrations.
+
 ## Tech Stack
 
 - **Framework**: [React 19](https://react.dev/)

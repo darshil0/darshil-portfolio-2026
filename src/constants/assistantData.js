@@ -18,9 +18,9 @@ export const assistantData = {
   ],
   personal: {
     background:
-      "Darshil is a Global Healthcare QA Leader and SDET with over 14 years of experience. He specializes in building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
+      "Darshil is a Global Healthcare QA Leader and SDET with over 14 years of experience. He specializes in maintaining an industry-leading production defect escape rate (< 1%), building autonomous agentic AI systems, enterprise-grade test automation frameworks, and leading global QA teams for Fortune 500 companies.",
     strengths:
-      "His core strengths include Strategic QA Leadership, Agentic AI Development, Healthcare Compliance (HIPAA, FDA), and scaling quality for mission-critical applications. He's an expert in modern automation stacks like Playwright, Selenium, and Appium.",
+      "His core strengths include Strategic QA Leadership, Defect Escape Rate optimization (< 1%), QA automation reliability (99.5%), Agentic AI Development, Healthcare Compliance (HIPAA, FDA), and scaling quality for mission-critical applications. He's an expert in modern automation stacks like Playwright, Selenium, and Appium.",
     experience:
       "Darshil has led QA efforts at major organizations:\n• Phynix (IT QA Analyst)\n• Accenture (QA Lead for Kaiser Permanente)\n• Infosys (SDET for Prime Therapeutics)\n• TCS (Automation Engineer for Sony Pictures)\n• Eternal Web (QA Engineer)",
     certifications:

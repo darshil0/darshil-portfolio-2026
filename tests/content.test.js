@@ -45,3 +45,11 @@ test("index.html has legacy-main-content", () => {
   );
   expect(content).toContain('id="legacy-main-content"');
 });
+
+test("metrics are centralized and correct", () => {
+  expect(data.metrics).toBeDefined();
+  expect(data.metrics.defectEscapeRate).toBe("< 1%");
+  expect(data.metrics.automationReliability).toBe("99.5%");
+  expect(data.metrics.waitTimeReduction).toBe("30%");
+  expect(data.metrics.testCoverageGrowth).toBe("25%");
+});
