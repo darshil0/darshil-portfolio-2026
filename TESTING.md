@@ -34,6 +34,22 @@ To run tests in watch mode:
 npx vitest
 ```
 
+### Formatting Check
+
+Before tests or the build even run, our CI/CD pipeline runs `npx prettier --check .` as the first step in `build-and-test`. **This step blocks everything downstream** — unit tests, the build, E2E tests, and the GitHub Pages deploy will not run if formatting fails, even though the code itself may be perfectly correct.
+
+Run this locally before pushing:
+
+```bash
+# Check formatting (matches what CI runs)
+npx prettier --check .
+
+# Auto-fix formatting issues
+npx prettier --write .
+```
+
+This has broken the pipeline twice already (`TESTING.md` on 2026-07-31, `VoiceAssistant.jsx` on 2026-08-01) — both times from a file being committed without running Prettier first. Run `npx prettier --write .` as a habit before every commit, or set up a pre-commit hook (see [CONTRIBUTING.md](./CONTRIBUTING.md)) so this is enforced automatically instead of relying on memory.
+
 ### End-to-End Tests
 
 Our E2E tests run via **Playwright**. Ensure the local development server is running or the project has been built before running E2E tests.
@@ -92,6 +108,7 @@ npx playwright test --ui
 
 ## Troubleshooting
 
+- **Pipeline fails at "Check formatting" with no test/build logs at all**: This is Prettier, not a test failure — the `build-and-test` job stops before reaching unit tests or the build. Run `npx prettier --write .` locally, commit, and push again.
 - **Failing E2E Tests**: Ensure no other process is using port `5173`. Check if browser binaries are installed via `npx playwright install`.
 - **Content Mismatch**: Content tests often check for specific version strings or metrics. Verify that `metadata.json` and components are synchronized.
 - **Hydration Errors**: Ensure tests are not failing due to subtle differences between server and client rendering (though this is a pure SPA).
