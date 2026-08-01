@@ -33,6 +33,7 @@ This portfolio tracks and demonstrates high-fidelity QA metrics gathered across 
 - **Styling**: [Tailwind CSS 3](https://tailwindcss.com/) with `@tailwindcss/forms` and `@tailwindcss/container-queries`
 - **Icons**: [Lucide React](https://lucide.dev/)
 - **Testing**: [Vitest 4](https://vitest.dev/) (Unit/Integration) & [Playwright 1.61](https://playwright.dev/) (E2E)
+- **Code Formatting**: [Prettier 3](https://prettier.io/)
 - **CI/CD**: GitHub Actions
 
 ## Prerequisites
@@ -101,6 +102,24 @@ npx playwright install chromium
 # Run E2E tests
 npm run test:e2e
 ```
+
+## Code Quality
+
+This project uses [Prettier](https://prettier.io/) to enforce consistent code formatting. Prettier is currently a devDependency only — there is no `format` or `format:check` script wired up in `package.json` yet, so it must be invoked directly via `npx`.
+
+Check formatting without making changes (recommended before opening a PR, since CI enforces this):
+
+```bash
+npx prettier --check .
+```
+
+Apply formatting fixes:
+
+```bash
+npx prettier --write .
+```
+
+> **Note:** CI runs a Prettier check as part of the pipeline. Formatting violations will fail the build, so run `npx prettier --check .` locally before pushing.
 
 ## Folder Structure
 
