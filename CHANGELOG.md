@@ -4,11 +4,18 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 
 ## [2026.8.1] - 2026-08-01
 
+### Added
+
+- **Documentation**: Introduced a dedicated "Project Documentation" section in `README.md` with descriptions and relative links for all primary workspace documents (`WORKSPACE_MAP.md`, `DESIGN.md`, `ENHANCEMENTS.md`, `TESTING.md`, `CONTRIBUTING.md`, and `CHANGELOG.md`), as well as inline references to `TESTING.md` and `LICENSE` for enhanced navigation.
+
 ### Fixed
 
 - **AI Assistant**: Resolved a crash where typed questions matching answers stored as arrays or arrays of objects (work history, run instructions, file listings) caused React to fail with "Objects are not valid as a React child"; all answers are now formatted to readable strings before rendering, speaking, or truncating.
 - **AI Assistant**: Replaced rigid exact-substring question matching with keyword-based scoring so natural typed variations (e.g., "certifications", "where has he worked", "background") now return the correct answer instead of falling through to a generic fallback message.
 - **CI/CD**: Resolved a pipeline failure caused by the Prettier `Check formatting` step flagging `VoiceAssistant.jsx` (the stopwords array and token-matching logic introduced above were committed unformatted). Since this step runs first in `build-and-test`, it was blocking unit tests, the build, and the GitHub Pages deploy on every push/PR. Reformatted the file to satisfy `npx prettier --check .`; no logic changes.
+- **CI/CD**: Granted top-level permissions for `pages: write` and `id-token: write` in the primary GitHub Actions workflow, authorizing Pages artifact uploads directly within the pipeline run.
+- **CI/CD**: Configured Playwright HTML report uploading with `if-no-files-found: ignore` to suppress artifact-related warnings and prevent step failures when end-to-end tests are skipped or failed.
+- **Version Sync**: Synchronized the project version to `v2026.8.1` across all project files including `metadata.json`, `index.html`, `src/constants/data.js`, and the Vitest test suites to satisfy project consistency.
 
 ## [2026.7.31] - 2026-07-31
 

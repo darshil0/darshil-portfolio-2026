@@ -13,7 +13,7 @@ export const themeStorageKey = "theme";
 export const contactEmail = "darshils99@gmail.com";
 export const formId = "YOUR_FORM_ID"; // ⚠️ Replace with your actual Google Forms ID
 
-export const portfolioVersion = "v2026.7.17";
+export const portfolioVersion = "v2026.8.1";
 export const experienceYears = "14+ years";
 
 export const metrics = {
