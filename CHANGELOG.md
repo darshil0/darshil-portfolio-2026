@@ -8,6 +8,7 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 
 - **AI Assistant**: Resolved a crash where typed questions matching answers stored as arrays or arrays of objects (work history, run instructions, file listings) caused React to fail with "Objects are not valid as a React child"; all answers are now formatted to readable strings before rendering, speaking, or truncating.
 - **AI Assistant**: Replaced rigid exact-substring question matching with keyword-based scoring so natural typed variations (e.g., "certifications", "where has he worked", "background") now return the correct answer instead of falling through to a generic fallback message.
+- **CI/CD**: Resolved a pipeline failure caused by the Prettier `Check formatting` step flagging `VoiceAssistant.jsx` (the stopwords array and token-matching logic introduced above were committed unformatted). Since this step runs first in `build-and-test`, it was blocking unit tests, the build, and the GitHub Pages deploy on every push/PR. Reformatted the file to satisfy `npx prettier --check .`; no logic changes.
 
 ## [2026.7.31] - 2026-07-31
 
