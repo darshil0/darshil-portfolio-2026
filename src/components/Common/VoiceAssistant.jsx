@@ -105,11 +105,48 @@ export default function VoiceAssistant() {
     if (query.includes(candidateLower)) return 70;
 
     const stopwords = new Set([
-      "the", "a", "an", "is", "are", "do", "does", "did", "how", "what",
-      "whats", "where", "who", "i", "me", "his", "her", "he", "she",
-      "tell", "about", "have", "has", "this", "that", "it", "to", "in",
-      "on", "of", "and", "or", "for", "with", "can", "could", "would",
-      "you", "please", "show", "list", "give",
+      "the",
+      "a",
+      "an",
+      "is",
+      "are",
+      "do",
+      "does",
+      "did",
+      "how",
+      "what",
+      "whats",
+      "where",
+      "who",
+      "i",
+      "me",
+      "his",
+      "her",
+      "he",
+      "she",
+      "tell",
+      "about",
+      "have",
+      "has",
+      "this",
+      "that",
+      "it",
+      "to",
+      "in",
+      "on",
+      "of",
+      "and",
+      "or",
+      "for",
+      "with",
+      "can",
+      "could",
+      "would",
+      "you",
+      "please",
+      "show",
+      "list",
+      "give",
     ]);
     const queryTokens = query
       .split(/[^a-z0-9]+/)
@@ -121,7 +158,11 @@ export default function VoiceAssistant() {
 
     let hits = 0;
     for (const token of queryTokens) {
-      if (candidateTokens.some((c) => c === token || c.includes(token) || token.includes(c))) {
+      if (
+        candidateTokens.some(
+          (c) => c === token || c.includes(token) || token.includes(c),
+        )
+      ) {
         hits++;
       }
     }
