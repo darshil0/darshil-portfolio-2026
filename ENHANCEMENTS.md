@@ -4,7 +4,7 @@ This document tracks identified enhancements, bug fixes, and future features for
 
 ## 1. Data & Versioning Synchronization
 
-- [x] **Unified Versioning**: Ensure the project version (currently `v2026.7.17`) is consistent across `package.json`, `metadata.json`, `index.html`, `src/App.jsx` (test hooks), and `src/components/Layout/Footer.jsx`.
+- [x] **Unified Versioning**: Ensure the project version (currently `v2026.8.1`) is consistent across `package.json`, `metadata.json`, `index.html`, `src/App.jsx` (test hooks), and `src/components/Layout/Footer.jsx`.
 - [x] **Accurate Tech Metadata**: Update `src/constants/assistantData.js` to correctly reflect the tech stack (Tailwind CSS 3 instead of 4, Vite 8, React 19).
 - [x] **Dynamic Experience**: Link the "14+ years" experience string to a central constant in `src/constants/data.js` or `metadata.json`.
 - [x] **Latest QA Metrics**: Standardized and implemented dynamic metrics, introducing "Defect Escape Rate" ($< 1\%$) and "Automation Reliability" ($99.5\%$) across `metadata.json`, `src/constants/data.js`, `Home.jsx`, `Impact.jsx`, and the AI Assistant data store.
