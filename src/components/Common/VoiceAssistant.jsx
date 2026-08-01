@@ -55,10 +55,26 @@ export default function VoiceAssistant() {
     }
   }, [messages, isOpen, isTyping]);
 
+  const formatAnswer = (answer) => {
+    if (answer == null) return "";
+    if (typeof answer === "string") return answer;
+    if (Array.isArray(answer)) {
+      return answer
+        .map((item) =>
+          typeof item === "object" && item !== null
+            ? `${item.path} — ${item.purpose}`
+            : String(item),
+        )
+        .join("\n");
+    }
+    return String(answer);
+  };
+
   const limitLines = (text, maxLines = 10) => {
-    if (!text) return "";
-    const lines = text.split(/\r?\n/);
-    if (lines.length <= maxLines) return text;
+    const safe = typeof text === "string" ? text : formatAnswer(text);
+    if (!safe) return "";
+    const lines = safe.split(/\r?\n/);
+    if (lines.length <= maxLines) return safe;
     return lines.slice(0, maxLines).join("\n") + "\n... (truncated)";
   };
 
@@ -67,8 +83,8 @@ export default function VoiceAssistant() {
     if (typeof window !== "undefined" && window.speechSynthesis) {
       try {
         window.speechSynthesis.cancel();
-        const cleanText = text.replace(/<[^>]*>/g, "");
-        const utterance = new SpeechSynthesisUtterance(cleanText);
+        const safeText = formatAnswer(text).replace(/<[^>]*>/g, "");
+        const utterance = new SpeechSynthesisUtterance(safeText);
         utterance.onerror = () => {
           setIsTypeOnly(true);
         };
@@ -172,16 +188,17 @@ export default function VoiceAssistant() {
   };
 
   const appendMessagePair = (userContent, assistantContent) => {
+    const formatted = formatAnswer(assistantContent);
     const limitedAssistantContent = isTypeOnly
-      ? limitLines(assistantContent, 10)
-      : assistantContent;
+      ? limitLines(formatted, 10)
+      : formatted;
     setMessages((prev) => [
       ...prev,
       { role: "user", content: userContent },
       { role: "assistant", content: limitedAssistantContent },
     ]);
     if (!isTypeOnly) {
-      speakText(assistantContent);
+      speakText(formatted);
     }
   };
 
@@ -259,6 +276,8 @@ export default function VoiceAssistant() {
       }
     }
 
+    const formattedAnswer = formatAnswer(answer);
+
     setMessages((prev) => [...prev, { role: "user", content: question }]);
     setIsTyping(true);
 
@@ -268,14 +287,16 @@ export default function VoiceAssistant() {
 
     typingTimeoutRef.current = setTimeout(() => {
       if (!isMountedRef.current) return;
-      const limitedAnswer = isTypeOnly ? limitLines(answer, 10) : answer;
+      const limitedAnswer = isTypeOnly
+        ? limitLines(formattedAnswer, 10)
+        : formattedAnswer;
       setMessages((prev) => [
         ...prev,
         { role: "assistant", content: limitedAnswer },
       ]);
       setIsTyping(false);
       if (!isTypeOnly) {
-        speakText(answer);
+        speakText(formattedAnswer);
       }
     }, 600);
   };
