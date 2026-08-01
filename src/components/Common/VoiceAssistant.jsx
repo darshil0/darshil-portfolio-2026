@@ -97,32 +97,87 @@ export default function VoiceAssistant() {
     }
   };
 
+  const scoreMatch = (query, candidate) => {
+    const candidateLower = candidate.toLowerCase();
+    if (!query) return 0;
+    if (candidateLower === query) return 100;
+    if (candidateLower.includes(query)) return 80;
+    if (query.includes(candidateLower)) return 70;
+
+    const stopwords = new Set([
+      "the", "a", "an", "is", "are", "do", "does", "did", "how", "what",
+      "whats", "where", "who", "i", "me", "his", "her", "he", "she",
+      "tell", "about", "have", "has", "this", "that", "it", "to", "in",
+      "on", "of", "and", "or", "for", "with", "can", "could", "would",
+      "you", "please", "show", "list", "give",
+    ]);
+    const queryTokens = query
+      .split(/[^a-z0-9]+/)
+      .filter((t) => t && !stopwords.has(t));
+    const candidateTokens = candidateLower
+      .split(/[^a-z0-9]+/)
+      .filter((t) => t && !stopwords.has(t));
+    if (queryTokens.length === 0) return 0;
+
+    let hits = 0;
+    for (const token of queryTokens) {
+      if (candidateTokens.some((c) => c === token || c.includes(token) || token.includes(c))) {
+        hits++;
+      }
+    }
+    return Math.round((hits / queryTokens.length) * 60);
+  };
+
   const processInput = (inputText, isVoice = false) => {
     const query = inputText.toLowerCase().trim();
 
-    const matchedPersonal = assistantData.personalQuestions.find(
-      (q) => q.toLowerCase().includes(query) || query.includes(q.toLowerCase()),
-    );
-    if (matchedPersonal) {
-      handleQuestion(matchedPersonal);
-      return;
+    let bestPersonal = null;
+    let bestPersonalScore = 0;
+    for (const q of assistantData.personalQuestions) {
+      const score = scoreMatch(query, q);
+      if (score > bestPersonalScore) {
+        bestPersonalScore = score;
+        bestPersonal = q;
+      }
     }
 
-    const matchedRepo = assistantData.repositories.find(
-      (r) =>
-        r.name.toLowerCase().includes(query) ||
-        query.includes(r.name.toLowerCase()),
-    );
-    if (matchedRepo) {
-      handleRepoSelect(matchedRepo);
-      return;
+    let bestRepo = null;
+    let bestRepoScore = 0;
+    for (const r of assistantData.repositories) {
+      const score = scoreMatch(query, r.name);
+      if (score > bestRepoScore) {
+        bestRepoScore = score;
+        bestRepo = r;
+      }
     }
 
-    const matchedCommon = assistantData.commonQuestions.find(
-      (q) => q.toLowerCase().includes(query) || query.includes(q.toLowerCase()),
-    );
-    if (matchedCommon && selectedRepoRef.current) {
-      handleQuestion(matchedCommon);
+    let bestCommon = null;
+    let bestCommonScore = 0;
+    for (const q of assistantData.commonQuestions) {
+      const score = scoreMatch(query, q);
+      if (score > bestCommonScore) {
+        bestCommonScore = score;
+        bestCommon = q;
+      }
+    }
+
+    const threshold = 40;
+    const candidates = [
+      { type: "personal", item: bestPersonal, score: bestPersonalScore },
+      { type: "repo", item: bestRepo, score: bestRepoScore },
+      {
+        type: "common",
+        item: bestCommon,
+        score: selectedRepoRef.current ? bestCommonScore : 0,
+      },
+    ];
+    candidates.sort((a, b) => b.score - a.score);
+    const winner = candidates[0];
+
+    if (winner && winner.score >= threshold) {
+      if (winner.type === "personal") handleQuestion(winner.item);
+      else if (winner.type === "repo") handleRepoSelect(winner.item);
+      else handleQuestion(winner.item);
       return;
     }
 
