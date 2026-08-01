@@ -6,6 +6,17 @@
 
 This repository contains the source code for Darshil Shah's personal portfolio. It is a modern, single-page application (SPA) designed to demonstrate technical proficiency, leadership impact, and a comprehensive suite of certifications. The project features a custom voice AI assistant, "Jules," to guide visitors through the repository and professional background.
 
+## Project Documentation
+
+To learn more about the project design, quality assurance standards, and repository structure, please refer to the following documentation files:
+
+- **[Workspace Knowledge Map (WORKSPACE_MAP.md)](./WORKSPACE_MAP.md)**: A repository-wide index documenting the purpose, stack, and architecture of all 33 connected repositories in the workspace.
+- **[Design System Manifest (DESIGN.md)](./DESIGN.md)**: Specifications for "The Clinical Architect" branding, Material Design 3 tokens, typography, spacing, and glassmorphism standards.
+- **[Enhancements Tracker (ENHANCEMENTS.md)](./ENHANCEMENTS.md)**: Current roadmap and log of identified improvements across features, content, accessibility, and automation.
+- **[Testing Guide (TESTING.md)](./TESTING.md)**: Detailed test strategy, local execution commands for Vitest and Playwright, and CI/CD optimization configurations.
+- **[Contributing Guidelines (CONTRIBUTING.md)](./CONTRIBUTING.md)**: Code style conventions, PR workflows, commit message rules, and repository-specific development guidelines.
+- **[Changelog (CHANGELOG.md)](./CHANGELOG.md)**: Chronological record of features, improvements, fixes, and version releases.
+
 ## Key Features
 
 - **AI Assistant (Jules)**: A menu-driven assistant for interactive repository exploration, with intelligent keyword-based typed-question matching that understands natural language variations.
@@ -103,6 +114,8 @@ npx playwright install chromium
 npm run test:e2e
 ```
 
+For more comprehensive information on our test suites, browser caching configurations in CI, and troubleshooting guidelines, please refer to the **[Testing Guide (TESTING.md)](./TESTING.md)**.
+
 ## Code Quality
 
 This project uses [Prettier](https://prettier.io/) to enforce consistent code formatting. Prettier is currently a devDependency only — there is no `format` or `format:check` script wired up in `package.json` yet, so it must be invoked directly via `npx`.
@@ -149,7 +162,7 @@ This project does not currently require any environment variables. Contact form 
 
 ### License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+Distributed under the MIT License. See **[LICENSE](./LICENSE)** for more information.
 
 ### Contact
 
