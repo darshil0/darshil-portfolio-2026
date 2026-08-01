@@ -53,6 +53,8 @@ Example: `feat: add social share metadata to index.html`
 - Use functional components and hooks.
 - Use Tailwind CSS for all styling.
 - Maintain WCAG AA accessibility standards (use semantic HTML, provide ARIA labels where needed).
+- **Run Prettier before every commit.** CI runs `npx prettier --check .` as the very first pipeline step, and an unformatted file blocks tests, the build, and the deploy for everyone — not just your PR. Run `npx prettier --write .` locally before committing.
+  - Optional but recommended: set up [husky](https://typicode.github.io/husky/) + [lint-staged](https://github.com/lint-staged/lint-staged) as a pre-commit hook so this is enforced automatically instead of relying on remembering to run it.
 
 ## How to Add Tests
 
@@ -69,6 +71,7 @@ Example: `feat: add social share metadata to index.html`
 Before submitting your PR, please ensure:
 
 - [ ] The code follows the project's style and quality standards.
+- [ ] `npx prettier --check .` passes locally.
 - [ ] New features are documented in the `README.md` or relevant section.
 - [ ] New and existing tests pass locally.
 - [ ] The `CHANGELOG.md` is updated with your changes.
