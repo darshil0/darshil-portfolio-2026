@@ -1,6 +1,6 @@
 # Darshil Shah: QA Leadership & Digital Transformation Portfolio
 
-**v2026.7.31** · A high-fidelity, professional portfolio showcasing 14+ years of expertise in Healthcare QA Engineering and AI-driven testing.
+**v2026.8.1** · A high-fidelity, professional portfolio showcasing 14+ years of expertise in Healthcare QA Engineering and AI-driven testing.
 
 ## Overview
 
@@ -8,7 +8,7 @@ This repository contains the source code for Darshil Shah's personal portfolio. 
 
 ## Key Features
 
-- **AI Assistant (Jules)**: A menu-driven assistant for interactive repository exploration.
+- **AI Assistant (Jules)**: A menu-driven assistant for interactive repository exploration, with intelligent keyword-based typed-question matching that understands natural language variations.
 - **Dynamic Content**: Portfolio data is centralized in `src/constants/` for easy updates.
 - **Cinematic UI**: Smooth transitions and entry animations using `tailwindcss-animate`.
 - **Dark Mode**: System-aware and user-toggled dark mode with persistent state.

@@ -2,6 +2,13 @@
 
 All notable changes to the Darshil Shah Portfolio project will be documented in this file.
 
+## [2026.8.1] - 2026-08-01
+
+### Fixed
+
+- **AI Assistant**: Resolved a crash where typed questions matching answers stored as arrays or arrays of objects (work history, run instructions, file listings) caused React to fail with "Objects are not valid as a React child"; all answers are now formatted to readable strings before rendering, speaking, or truncating.
+- **AI Assistant**: Replaced rigid exact-substring question matching with keyword-based scoring so natural typed variations (e.g., "certifications", "where has he worked", "background") now return the correct answer instead of falling through to a generic fallback message.
+
 ## [2026.7.31] - 2026-07-31
 
 ### Fixed
