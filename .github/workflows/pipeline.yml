@@ -99,7 +99,7 @@ jobs:
 
     steps:
       - name: Download Pages artifact
-        uses: actions/download-pages-artifact@v1
+        uses: actions4gh/download-pages-artifact@v1
 
       - name: Deploy to GitHub Pages
         id: deployment
