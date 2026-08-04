@@ -4,15 +4,10 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 
 ## [Unreleased]
 
-### Added
-
-- Updated project docs (README, CONTRIBUTING) and added a concise changelog entry for the new fixes.
-
 ### Fixed
 
-- Frontend: minor syntax and template-string className fixes in `src/components/Layout/Header.jsx` that could break build or styling.
-- Frontend: removed extraneous trailing comma in `src/main.jsx` render call that could trigger parsers/lints in some toolchains.
-- Constants: cleared placeholder `formId` in `src/constants/data.js` to prevent accidental form submissions in development.
+- CI/CD: Fixed the Pages deployment workflow in `.github/workflows/pipeline.yml` by migrating the deploy job from `actions/deploy-pages@v1` to the standard, non-deprecated `actions/deploy-pages@v4` and eliminating the non-standard, redundant download-pages-artifact step.
+- Documentation: Corrected portfolio version representation to `v2026.8.1` within `README.md` to ensure complete documentation alignment with package and metadata version metrics.
 
 ## [2026.8.1] - 2026-08-01
 
