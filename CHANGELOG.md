@@ -19,7 +19,7 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 
 ### Added
 
-- **Documentation**: Introduced a dedicated "Project Documentation" section in `README.md` with descriptions and relative links for all primary workspace documents (`WORKSPACE_MAP.md`, `DESIGN.md`, `ENHANCEMENTS.md`, `TESTING.md`).
+- **Documentation**: Introduced a dedicated "Project Documentation" section in `README.md` with descriptions and relative links for primary workspace documents (for example: `WORKSPACE_MAP.md`, `DESIGN.md`, `CONTRIBUTING.md`) and a short navigation guide to quickly find architecture, design, and contribution notes.
 
 ### Fixed
 
