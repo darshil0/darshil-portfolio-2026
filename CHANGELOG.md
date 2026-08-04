@@ -14,12 +14,11 @@ All notable changes to the Darshil Shah Portfolio project will be documented in 
 - Frontend: removed extraneous trailing comma in `src/main.jsx` render call that could trigger parsers/lints in some toolchains.
 - Constants: cleared placeholder `formId` in `src/constants/data.js` to prevent accidental form submissions in development.
 
-
 ## [2026.8.1] - 2026-08-01
 
 ### Added
 
-- **Documentation**: Introduced a dedicated "Project Documentation" section in `README.md` with descriptions and relative links for primary workspace documents (for example: `WORKSPACE_MAP.md`, `DESIGN.md`, `CONTRIBUTING.md`) and a short navigation guide to quickly find architecture, design, and contribution notes.
+- **Documentation**: Introduced a dedicated "Project Documentation" section in `README.md` with descriptions and relative links for primary workspace documents (for example: `WORKSPACE_MAP.md`, `DEVELOPER_NOTES.md`).
 
 ### Fixed
 
