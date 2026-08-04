@@ -1,6 +1,6 @@
 # Darshil Shah: QA Leadership & Digital Transformation Portfolio
 
-**v2026.8.1** · A high-fidelity, professional portfolio showcasing 14+ years of expertise in Healthcare QA Engineering and AI-driven testing.
+**v2026.8.4** · A high-fidelity, professional portfolio showcasing 14+ years of expertise in Healthcare QA Engineering and AI-driven testing.
 
 ## Overview
 
